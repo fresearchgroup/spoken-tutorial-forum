@@ -251,7 +251,8 @@ def new_question(request):
     else:
         #fix dirty code
         category = request.GET.get('category')
-        form = NewQuestionForm(category=category)
+        tutorial = request.GET.get('tutorial')
+        form = NewQuestionForm(category=category, tutorial=tutorial)
         context['category'] = category
     
     context['form'] = form
