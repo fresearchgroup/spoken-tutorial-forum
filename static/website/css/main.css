@@ -194,7 +194,7 @@ table .title a {
 .hideme {
     display: none;
 }
-.saving, .saved {
+.saving, .saved, .deleted, .hide-qmsg {
     position: fixed;
     z-index: 2000;
     left: 45%;
@@ -214,6 +214,17 @@ table .title a {
 }
 .saved {
     background: lightgreen;
+}
+.deleted, .hide-qmsg{
+    background: #5bc0de;
+    color: white;
+}
+.question-midify{
+    overflow: hidden;
+}
+.question-midify .delete-question, .question-midify .edit, .question-midify .save, .question-midify .hide-question{
+    float: left;
+    margin: 0 3px;
 }
 #content .answer {
     position: relative;

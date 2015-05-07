@@ -1,5 +1,6 @@
 {% load compress %}
 {% load static %}
+{% load permission_tags %}
 <html>
     <head>
         <title>
@@ -37,6 +38,14 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
+                              {% if user|isadministrator %}
+                              <li>
+                                <a href="{% url 'website:hidden_questions' %}">
+                                    <span class="glyphicon glyphicon-eye-close"></span>
+                                    Hidden Questions
+                                </a>
+                              </li>
+                              {% endif %}
                               <li>
                                 <a href="{% url 'website:search' %}">
                                     <span class="glyphicon glyphicon-search"></span>

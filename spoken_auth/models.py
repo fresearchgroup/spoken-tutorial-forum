@@ -5,14 +5,28 @@ from django.contrib.auth.models import (
 )
 
 #from drupal_auth.managers import DrupalUserManager
+class Group(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=100L, unique=True)
+    class Meta:
+        db_table = 'auth_group'
+
 class Users(AbstractBaseUser):
     id = models.IntegerField(primary_key=True)
     username = models.CharField(max_length=100L, unique=True)
     email = models.CharField(max_length=100L, unique=True)
     is_active = models.BooleanField()
+    groups = models.ManyToManyField(Group, related_name="user_groups", through='UserGroups')
     USERNAME_FIELD = 'username'
     class Meta:
         db_table = 'auth_user'
+
+class UserGroups(models.Model):
+    id = models.IntegerField(primary_key=True)
+    user = models.ForeignKey(Users)
+    group = models.ForeignKey(Group)
+    class Meta:
+        db_table = 'auth_user_groups'
 
 class FossCategory(models.Model):
     foss = models.CharField(unique=True, max_length = 255)

@@ -1,4 +1,4 @@
-import re
+import re, json
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
@@ -13,14 +13,14 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 from website.models import Question, Answer, Notification, AnswerComment
-from spoken_auth.models import TutorialDetails, TutorialResources
+from spoken_auth.models import TutorialDetails, TutorialResources, Group
 from website.forms import NewQuestionForm, AnswerQuesitionForm
 from website.helpers import get_video_info, prettify
 from django.db.models import Count
 
-admins = (
-    9, 4376, 4915, 14595, 12329, 22467, 5518, 30705
-)
+def is_administrator(user):
+    if user and user.groups.filter(name='Administrator').count() == 1:
+        return True
 
 categories = []
 trs = TutorialResources.objects.filter(Q(status = 1) | Q(status = 2), language__name = 'English').values('tutorial_detail__foss__foss').order_by('tutorial_detail__foss__foss').values_list('tutorial_detail__foss__foss').distinct()
@@ -28,7 +28,7 @@ for tr in trs:
     categories.append(tr[0])
 
 def home(request):
-    questions = Question.objects.all().order_by('date_created').reverse()[:10]
+    questions = Question.objects.filter(status = 1).order_by('date_created').reverse()[:10]
     context = {
         'categories': categories,
         'questions': questions
@@ -36,7 +36,23 @@ def home(request):
     return render(request, "website/templates/index.html", context)
 
 def questions(request):
-    questions = Question.objects.all().order_by('date_created').reverse()
+    questions = Question.objects.filter(status=1).order_by('date_created').reverse()
+    paginator = Paginator(questions, 20)
+    page = request.GET.get('page')
+
+    try:
+        questions = paginator.page(page)
+    except PageNotAnInteger:
+        questions = paginator.page(1)
+    except EmptyPage:
+        questions = paginator.page(paginator.num_pages)
+    context = {
+        'questions': questions
+    }
+    return render(request, 'website/templates/questions.html', context)
+
+def hidden_questions(request):
+    questions = Question.objects.filter(status=0).order_by('date_created').reverse()
     paginator = Paginator(questions, 20)
     page = request.GET.get('page')
 
@@ -192,13 +208,13 @@ def filter(request,  category=None, tutorial=None, minute_range=None, second_ran
     }
 
     if category and tutorial and minute_range and second_range:
-        questions = Question.objects.filter(category=category).filter(tutorial=tutorial).filter(minute_range=minute_range).filter(second_range=second_range)
+        questions = Question.objects.filter(category=category).filter(tutorial=tutorial).filter(minute_range=minute_range).filter(second_range=second_range, status=1)
     elif tutorial is None:
-        questions = Question.objects.filter(category=category)
+        questions = Question.objects.filter(category=category, status=1)
     elif minute_range is None:
-        questions = Question.objects.filter(category=category).filter(tutorial=tutorial)
+        questions = Question.objects.filter(category=category).filter(tutorial=tutorial, status=1)
     else:  #second_range is None
-        questions = Question.objects.filter(category=category).filter(tutorial=tutorial).filter(minute_range=minute_range)
+        questions = Question.objects.filter(category=category).filter(tutorial=tutorial).filter(minute_range=minute_range, status=1)
 
     if 'qid' in request.GET:
         context['qid']  = int(request.GET['qid'])
@@ -250,8 +266,8 @@ def new_question(request):
             return HttpResponseRedirect('/')
     else:
         #fix dirty code
-        category = request.GET.get('category')
-        tutorial = request.GET.get('tutorial')
+        category = request.GET.get('category', None)
+        tutorial = request.GET.get('tutorial', None)
         form = NewQuestionForm(category=category, tutorial=tutorial)
         context['category'] = category
     
@@ -380,7 +396,7 @@ def ajax_question_update(request):
         body = request.POST['question_body']
         question = get_object_or_404(Question, pk=qid)
         if question:
-            if question.uid == request.user.id or request.user.id in admins:
+            if question.uid == request.user.id or is_administrator(request.user):
                 question.title = title
                 question.body = body.encode('unicode_escape')
                 question.save()
@@ -396,7 +412,7 @@ def ajax_details_update(request):
         second_range = request.POST['second_range']
         question = get_object_or_404(Question, pk=qid)
         if question:
-            if question.uid == request.user.id or request.user.id in admins:
+            if question.uid == request.user.id or is_administrator(request.user):
                 question.category = category
                 question.tutorial = tutorial
                 question.minute_range = minute_range
@@ -411,7 +427,7 @@ def ajax_answer_update(request):
         body = request.POST['answer_body']
         answer= get_object_or_404(Answer, pk=aid)
         if answer:
-            if answer.uid == request.user.id or request.user.id in admins:
+            if answer.uid == request.user.id or is_administrator(request.user):
                 answer.body = body.encode('unicode_escape')
                 answer.save()
         return HttpResponse("saved")
@@ -423,7 +439,7 @@ def ajax_answer_comment_update(request):
         comment_body = request.POST["comment_body"]
         comment = get_object_or_404(AnswerComment, pk=comment_id)
         if comment:
-            if comment.uid == request.user.id or request.user.id in admins:
+            if comment.uid == request.user.id or is_administrator(request.user):
                 comment.body = comment_body.encode('unicode_escape')
                 comment.save()
         return HttpResponse("saved")
@@ -456,10 +472,36 @@ def ajax_notification_remove(request):
     return HttpResponse("failed")
 
 @csrf_exempt
+def ajax_delete_question(request):
+    result = False
+    if request.method == "POST":
+        key = request.POST['question_id']
+        question = Question.objects.filter(pk=key)
+        if question.exists():
+            question.delete()
+            result = True
+    return HttpResponse(json.dumps(result), mimetype='application/json')
+
+@csrf_exempt
+def ajax_hide_question(request):
+    result = False
+    if request.method == "POST":
+        key = request.POST['question_id']
+        question = Question.objects.filter(pk=key)
+        if question.exists():
+            question = question.first()
+            question.status = 0
+            if request.POST['status'] == '0':
+                question.status = 1
+            question.save()
+            result = True
+    return HttpResponse(json.dumps(result), mimetype='application/json')
+
+@csrf_exempt
 def ajax_keyword_search(request):
     if request.method == "POST":
         key = request.POST['key']
-        questions = Question.objects.filter(title__icontains=key)
+        questions = Question.objects.filter(title__icontains=key, status=1)
         context = {
             'questions': questions
         }
@@ -473,17 +515,14 @@ def ajax_time_search(request):
         minute_range= request.POST.get('minute_range')
         second_range = request.POST.get('second_range')
         questions = None
-        print request.POST, "***********"
         if category:
-            questions = Question.objects.filter(category=category.replace(' ', '-'))
-            print "sssssssssss", questions
+            questions = Question.objects.filter(category=category.replace(' ', '-'), status = 1)
         if tutorial:
             questions = questions.filter(tutorial=tutorial.replace(' ', '-'))
         if minute_range:
             questions = questions.filter(category=category.replace(' ', '-'), tutorial=tutorial.replace(' ', '-'), minute_range=minute_range)
         if second_range:
             questions = questions.filter(category=category.replace(' ', '-'), tutorial=tutorial.replace(' ', '-'),second_range=second_range)
-        print questions, "&&&&&&&&&&&"
         context = {
             'questions': questions
         }

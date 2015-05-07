@@ -17,6 +17,7 @@ class NewQuestionForm(forms.Form):
     category = forms.ChoiceField(choices = [('', 'Select a Category'),] + list(TutorialResources.objects.filter(Q(status = 1) | Q(status = 2), language__name = 'English').values('tutorial_detail__foss__foss').order_by('tutorial_detail__foss__foss').values_list('tutorial_detail__foss__foss', 'tutorial_detail__foss__foss').distinct()), widget=forms.Select(attrs = {}), required = True, error_messages = {'required':'State field is required.'})
     def __init__(self, *args, **kwargs):
         category = kwargs.pop('category', None)
+        selecttutorial = kwargs.pop('tutorial', None)
         super(NewQuestionForm, self).__init__(*args, **kwargs)
         tutorial_choices = (
             ("", "Select a Tutorial"),
@@ -29,6 +30,8 @@ class NewQuestionForm(forms.Form):
             for tutorial in tutorials:
                 tutorial_choices += ((tutorial.tutorial, tutorial.tutorial),)
             self.fields['tutorial'] = forms.CharField(widget=forms.Select(choices=tutorial_choices))
+            if TutorialDetails.objects.using('spoken').filter(tutorial=selecttutorial).exists():
+                self.fields['tutorial'].initial = selecttutorial
         else:
             self.fields['tutorial'] = forms.CharField(widget=forms.Select(choices=tutorial_choices))
 

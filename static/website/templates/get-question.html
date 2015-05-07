@@ -7,10 +7,11 @@
 {% block title %}
     {{ question.category }} - {{ question.title }} - Spoken Tutorial Forums
 {% endblock %}
-
 {% block content %}
 <span class="saving hideme">saving . . .</span>
 <span class="saved hideme">saved</span>
+<span class="deleted hideme">{{ question.title }} has been deleted.</span>
+<span class="hide-qmsg hideme">{{ question.title }} has been {% if question.status == 1 %} hidden {% else %} Shown {% endif %}.</span>
 
 <div class="row">
     <div class="question-wrapper col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -67,13 +68,42 @@
             <span class="glyphicon glyphicon-edit"></span>
         </a>
         
-        <span class="modify">
+        <span class="modify question-midify">
             {% if user|can_edit:question  %}
+                <a class="hide-question btn btn-xs btn-info" data-qid="{{ question.id }}" data-status="{{ question.status }} href="#">{% if question.status == 1 %} Hide {% else %} Show {% endif %}</a>
+                <a class="delete-question btn btn-xs btn-info" data-qid="{{ question.id }}" href="#">Delete</a>
                 <a class="edit btn btn-xs btn-info" href="#">Edit</a>
                 <a class="save btn btn-xs btn-success" data-qid="{{ question.id }}" href="#">Save</a>
             {% endif %}
         </span>
+
+        <div id="confirm-delete" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        Are you sure want to delete this question?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-primary btn-sm" id="delete">Delete</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-primary btn-sm">Cancel</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         
+        <div id="confirm-hide" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        Are you sure want to {% if question.status %} Hide {% else %} Show {% endif %} this question?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-primary btn-sm" id="chide">Yes</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-primary btn-sm">Cancel</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         <span class="meta">
             <small>
                 <i>
@@ -320,7 +350,6 @@
     });
 </script>
 {% endblock %}
-
 {% block javascript %}
     <script src="{% static 'website/js/thread-user.js' %}"></script>
     <script src="{% static 'website/js/custom.js' %}"></script>

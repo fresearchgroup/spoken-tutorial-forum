@@ -61,12 +61,12 @@ register.filter('div', div)
 
 # retriving total number of questions
 def total_question_count():
-    count = Question.objects.all().count()
+    count = Question.objects.filter(status=1).count()
     return count
 register.simple_tag(total_question_count)
 
 # retriving total number of answers
 def total_answer_count():
-    count = Answer.objects.all().count()
+    count = Answer.objects.filter(question__status=1).count()
     return count
 register.simple_tag(total_answer_count)

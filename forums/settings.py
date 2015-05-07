@@ -196,7 +196,7 @@ AUTHENTICATION_BACKENDS = ( 'spoken_auth.backends.DrupalAuthBackend', )
 DATABASE_ROUTERS = ['spoken_auth.routers.DrupalAuthRouter']
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
-    'website.context_processors.admin_processor', 
+    #'website.context_processors.admin_processor', 
 )
 
 COMPRESS_ROOT = PROJECT_DIR + "/static/"
