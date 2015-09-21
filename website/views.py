@@ -265,12 +265,15 @@ def new_question(request):
             
             return HttpResponseRedirect('/')
     else:
-        #fix dirty code
-        category = request.GET.get('category', None)
-        tutorial = request.GET.get('tutorial', None)
-        form = NewQuestionForm(category=category, tutorial=tutorial)
-        context['category'] = category
-    
+        # get values from URL.
+				category = request.GET.get('category', None)
+				tutorial = request.GET.get('tutorial', None)
+				minute_range = request.GET.get('minute_range', None)
+				second_range = request.GET.get('second_range', None)
+				# pass minute_range and second_range value to NewQuestionForm to populate on select
+				form = NewQuestionForm(category=category, tutorial=tutorial, minute_range=minute_range,second_range=second_range)
+				context['category'] = category
+			
     context['form'] = form
     context.update(csrf(request))
     return render(request, 'website/templates/new-question.html', context)
@@ -366,12 +369,14 @@ def ajax_duration(request):
             Q(tutorial_detail_id=video_detail.id),
             Q(language__name='English')
         )
-        video_path = '/home/sanmugam/devel/spoken/media/videos/{0}/{1}/{2}'.format(
+				# comment while pushing to git and un-comment on local
+				# on local machine give your local path of videos folder
+        video_path = '/home/fossee/devel/spoken/media/videos/{0}/{1}/{2}'.format(
            str(video_detail.foss_id),
            str(video_detail.id),
            video_resource.video
         )
-        # video_path = '/home/cheese/test-video.ogv'
+       
         video_info = get_video_info(video_path)
         
         # convert minutes to 1 if less than 0

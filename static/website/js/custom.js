@@ -3,7 +3,16 @@ $(document).ready(function() {
     $tutorial = $("#id_tutorial");
     $minute_range = $("#id_minute_range");
     $second_range = $("#id_second_range");
-
+		var tutorial = $tutorial.val();
+		var category = $category.val();
+		
+		if (tutorial == "Select a Tutorial" || tutorial =="General"){
+						$minute_range.attr("disabled", true);
+						$second_range.attr("disabled", true);
+		}else{
+						$minute_range.removeAttr("disabled");
+						$second_range.removeAttr("disabled");
+		}
     function reset() {
         for (var i = 0, l = arguments.length; i < l; i ++) {
             switch(arguments[i]) {
@@ -41,7 +50,7 @@ $(document).ready(function() {
             $minute_range.removeAttr("disabled");
             $second_range.html("<option value='None'>Not required</option>");
             $second_range.removeAttr("disabled");
-        } else {
+        }else {
             $.ajax({
                 url: "/ajax-tutorials/",
                 type: "POST",
@@ -67,12 +76,15 @@ $(document).ready(function() {
             $minute_range.removeAttr("disabled");
             $second_range.html("<option value='None'>Not required</option>");
             $second_range.removeAttr("disabled");
-        } else {
+        }  else if (tutorial == "Select a Tutorial"){
+						$minute_range.attr("disabled");
+						 $second_range.attr("disabled");
+				}else {
             $.ajax({
                 url: "/ajax-duration/",
                 type: "POST",
                 data: {
-                    category: category,
+                category: category,
                 tutorial: tutorial
                 },
                 success: function(data){
