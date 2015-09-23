@@ -19,7 +19,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'forums',                      # Or path to database file if using sqlite3.
+        'NAME': db,                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': db_user,
         'PASSWORD': db_pass,
@@ -28,7 +28,7 @@ DATABASES = {
     },
     'spoken': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'spoken',                      # Or path to database file if using sqlite3.
+        'NAME': sdb,                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': db_user,
         'PASSWORD': db_pass,
