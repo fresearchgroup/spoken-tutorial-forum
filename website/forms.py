@@ -4,7 +4,7 @@ from website.models import *
 from spoken_auth.models import TutorialDetails, TutorialResources, FossCategory
 from django.db.models import Q
 tutorials = (
-    ("", "Select a Tutorial"),
+    ("Select a Tutorial", "Select a Tutorial"),
 )
 minutes = ( )
 seconds = ( )
@@ -20,7 +20,7 @@ class NewQuestionForm(forms.Form):
 				select_sec = kwargs.pop('second_range', None)
 				super(NewQuestionForm, self).__init__(*args, **kwargs)
 				tutorial_choices = (
-						("", "Select a Tutorial"),
+						("Select a Tutorial", "Select a Tutorial"),
 				)
 				# check minute_range, secpnd_range coming from spoken website
         # user clicks on post question link through website
