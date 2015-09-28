@@ -494,7 +494,7 @@ def ajax_hide_question(request):
         key = request.POST['question_id']
         question = Question.objects.filter(pk=key)
         if question.exists():
-            question = question.first()
+            question = question[0]
             question.status = 0
             if request.POST['status'] == '0':
                 question.status = 1
