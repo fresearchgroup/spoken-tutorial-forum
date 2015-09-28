@@ -13,7 +13,10 @@
         <link rel="stylesheet" href="{% static 'website/slick/slick.css' %}" type="text/css" media="screen" charset="utf-8" />
         <link rel="stylesheet" href="{% static 'website/css/main.css' %}" type="text/css" media="screen" charset="utf-8" />
         <link rel="stylesheet" href="{% static 'website/css/nice-bar.css' %}" type="text/css" media="screen" charset="utf-8" />
+				 <link rel="stylesheet" href="{% static 'website/css/theme.blue.css' %}" type="text/css" media="screen" charset="utf-8" />
         {% endcompress %}
+				<script src="{% static 'website/js/jquery-1.11.3.min.js' %}"></script>
+				<script src="{% static 'website/js/jquery.tablesorter.min.js' %}"></script>
     </head>
     <body>
         <div id="page-wrapper">
@@ -116,7 +119,8 @@
     </div> <!-- /#page-wrapper -->
         
     {% compress js %}
-        <script src="{% static 'website/js/jquery.min.js' %}"></script>
+      
+				
         <script src="{% static 'website/js/bootstrap.min.js' %}"></script>
         <script src="{% static 'website/slick/slick.min.js' %}"></script>
         <script src="{% static 'website/js/nice-bar.js' %}"></script>

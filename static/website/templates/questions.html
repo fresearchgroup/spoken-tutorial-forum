@@ -3,12 +3,24 @@
 {% load count_tags %}
 
 {% block content %}
+<script>
+$(document).ready(function(){
+$("#listTable").tablesorter({
+ headers:{ 3:{sorter:false }
+},
+
+});
+
+});
+</script>
     <h4> 
         <h5>
             Showing {{ questions.start_index }} - {{ questions.end_index }} of {{ questions.paginator.count }} questions.
         </h5>
     </h4>
-    <table class="table table-bordered table-hover">
+    <table id = "listTable" class="tablesorter-blue">
+				<thead>
+				<tr>
         <th> FOSS </th>
         <th> Tutorial</th>
         <th> Min </th>
@@ -18,7 +30,11 @@
         <th> Views</th>
         <th> Answers</th>
         <th> User</th>
+				</tr>
+				</thead>
+				<tbody>
         {% for question in questions %}
+				
         <tr>
             <td>
                 <span href="#" class="category" data-toggle="tooltip" data-placement="top" title="{{ question.category}}">
@@ -83,7 +99,7 @@
             </td>
         </tr>
         {% endfor %}
-
+			<tbody>
     </table>
 
     <ul class="pagination pull-right">
