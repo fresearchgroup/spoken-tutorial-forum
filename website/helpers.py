@@ -8,7 +8,7 @@ def get_video_info(path):
     import subprocess
     import re
  
-    process = subprocess.Popen(['/usr/bin/avconv', '-i', path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    process = subprocess.Popen(['/usr/bin/ffmpeg', '-i', path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     stdout, stderr = process.communicate()
     duration_m = re.search(r"Duration:\s{1}(?P<hours>\d+?):(?P<minutes>\d+?):(?P<seconds>\d+\.\d+?)", stdout, re.DOTALL).groupdict()
     info_m = re.search(r": Video: (?P<codec>.*?), (?P<profile>.*?), (?P<width>.*?)x(?P<height>.*?), ", stdout, re.DOTALL).groupdict()
