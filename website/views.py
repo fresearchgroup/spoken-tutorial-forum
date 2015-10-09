@@ -285,7 +285,6 @@ def user_questions(request, user_id):
     marker = 0
     if 'marker' in request.GET:
         marker = int(request.GET['marker'])
-    order = models.IntegerField()
 
     if str(user_id) == str(request.user.id):
         total = Question.objects.filter(uid=user_id).count()
