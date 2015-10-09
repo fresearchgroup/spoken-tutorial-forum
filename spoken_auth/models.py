@@ -44,10 +44,18 @@ class Language(models.Model):
     class Meta:
         db_table = 'creation_language'
 
+class Level(models.Model):
+    level = models.CharField(max_length = 255)
+    code = models.CharField(max_length = 10)
+
+    class Meta:
+        db_table = 'creation_level'
+
 class TutorialDetails(models.Model):
     foss = models.ForeignKey(FossCategory)
     tutorial = models.CharField(max_length = 255)
     order = models.IntegerField()
+    level = models.ForeignKey(Level)
     created = models.DateTimeField(auto_now_add = True)
     updated = models.DateTimeField(auto_now = True)
 

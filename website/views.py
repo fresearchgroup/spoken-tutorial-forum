@@ -285,6 +285,7 @@ def user_questions(request, user_id):
     marker = 0
     if 'marker' in request.GET:
         marker = int(request.GET['marker'])
+    order = models.IntegerField()
 
     if str(user_id) == str(request.user.id):
         total = Question.objects.filter(uid=user_id).count()
@@ -351,7 +352,8 @@ def ajax_category(request):
 def ajax_tutorials(request):
     if request.method == 'POST':
         category = request.POST.get('category')
-        tutorials = TutorialDetails.objects.using('spoken').filter(foss__foss=category)
+        tutorials = TutorialDetails.objects.using('spoken').filter(
+	foss__foss=category).order_by('level', 'order')
         context = {
             'tutorials': tutorials
         }
