@@ -249,11 +249,13 @@ def new_question(request):
                 Category: <b>{1}</b><br>
                 Tutorial: <b>{2}</b><br>
                 Link: <a href="{3}">{3}</a><br>
+                Question: <b>{4}</b><br>
             """.format(
                 question.title,
                 question.category, 
                 question.tutorial, 
-                'http://forums.spoken-tutorial.org/question/'+str(question.id)
+                'http://forums.spoken-tutorial.org/question/'+str(question.id),
+                question.body
             )
             email = EmailMultiAlternatives(
                 subject,'', 'forums', 
