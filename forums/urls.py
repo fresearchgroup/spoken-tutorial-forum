@@ -20,4 +20,6 @@ urlpatterns = patterns('',
     url(r'^accounts/login/', 'forums.views.user_login', name='user_login'),
     url(r'^accounts/logout/', 'forums.views.user_logout', name='user_logout'),
     url(r'^migrate', 'migrate_spoken.views.chenage_drupal_userid_spoken', name='chenage_drupal_userid_spoken'),
+    url(r'^accounts/forgot-password/$', 'forums.views.forgotpassword', name='forgotpassword'),
+    url(r'^accounts/update-password/$', 'forums.views.updatepassword', name='updatepassword'), 
 )

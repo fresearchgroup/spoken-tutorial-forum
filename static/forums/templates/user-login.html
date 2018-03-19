@@ -12,6 +12,12 @@
                 Invalid username or password
             </div>
             {% endif %}
+            {% if resetpasssucs %}
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                New password sent to your email. Please chenge your password immediately.
+            </div>
+            {% endif %}
             {% with WIDGET_ERROR_CLASS='field_error' %} 
                 <div class="form-group">
                     <label for="id_username">Username:</label>
@@ -26,6 +32,7 @@
                     <input type="hidden" name="next" value="{{ next }}">
                 {% endif %}
                 <input class="btn btn-sm btn-primary" type="submit" value="Login">
+		<span style="margin-left:30px;"><a href="http://spoken-tutorial.org/accounts/forgot-password/?next=http://forums.spoken-tutorial.org/accounts/login/?resetpass=success">Forgot Password?</a></span>
             {% endwith %}
         </form>
     </div> <!-- /.col -->
@@ -33,8 +40,9 @@
     <div class="col-lg-6">
         <h4>Rules and Regulations</h4>
         <ul>
-            <li>This forum is a place to discuss questions and doubts related to the Spoken-Tutorial's</li>
-            <li>Please restrain yourself from using abusive language.</li>
+            <li>This forum is a place to discuss questions and doubts related to the Spoken Tutorials only, based on min and sec in the respective video.</li>
+	    <li>Please do not post queries related to Online Tests, Certificates, Errors while downloading, Problems faced while marking attendance, etc. in this forum.  Please contact your respective State Training Managers for such queries.</li>
+            <li>Please refrain from using abusive language.</li>
             <li>This is not a place for self promotion.</li>
             <li>Any violation of the above may lead to the permanent account deletion.</li>
         </ul>
