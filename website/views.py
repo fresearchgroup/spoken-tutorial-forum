@@ -105,7 +105,7 @@ def question_answer(request):
                 notification.qid = qid
                 notification.aid = answer.id
                 notification.save()
-                
+
                 user = User.objects.get(id=question.uid)
                 # Sending email when an answer is posted
                 subject = 'Question has been answered'
@@ -116,22 +116,22 @@ def question_answer(request):
                     Regards,<br>
                     Spoken Tutorial Forums
                 """.format(
-                    user.username, 
-                    question.title, 
+                    user.username,
+                    question.title,
                     'http://forums.spoken-tutorial.org/question/' + str(question.id) + "#answer" + str(answer.id)
                 )
-                
+
                 email = EmailMultiAlternatives(
-                    subject,'', 'forums', 
+                    subject,'', 'forums',
                     [user.email],
                     headers={"Content-type":"text/html;charset=iso-8859-1"}
                 )
-                
+
                 email.attach_alternative(message, "text/html")
                 email.send(fail_silently=True)
                 # End of email send
-        return HttpResponseRedirect('/question/'+ str(qid) + "#answer" + str(answer.id)) 
-    return HttpResponseRedirect('/') 
+        return HttpResponseRedirect('/question/'+ str(qid) + "#answer" + str(answer.id))
+    return HttpResponseRedirect('/')
 
 @login_required
 def answer_comment(request):
@@ -144,7 +144,7 @@ def answer_comment(request):
         comment.answer = answer
         comment.body = body.encode('unicode_escape')
         comment.save()
-        
+
         # notifying the answer owner
         if answer.uid != request.user.id:
             notification = Notification()
@@ -154,7 +154,7 @@ def answer_comment(request):
             notification.aid = answer.id
             notification.cid = comment.id
             notification.save()
-            
+
             user = User.objects.get(id=answer.uid)
             subject = 'Comment for your answer'
             message = """
@@ -172,7 +172,7 @@ def answer_comment(request):
         # notifying other users in the comment thread
         uids = answer.answercomment_set.filter(answer=answer).values_list('uid', flat=True)
         #getting distinct uids
-        uids = set(uids) 
+        uids = set(uids)
         uids.remove(request.user.id)
         for uid in uids:
             notification = Notification()
@@ -182,7 +182,7 @@ def answer_comment(request):
             notification.aid = answer.id
             notification.cid = comment.id
             notification.save()
-            
+
             user = User.objects.get(id=uid)
             subject = 'Comment has a reply'
             message = """
@@ -236,9 +236,9 @@ def new_question(request):
             question.second_range = cleaned_data['second_range']
             question.title = cleaned_data['title']
             question.body = cleaned_data['body'].encode('unicode_escape')
-            question.views= 1 
+            question.views= 1
             question.save()
-            
+
             # Sending email when a new question is asked
             subject = 'New Forum Question'
             message = """
@@ -250,20 +250,20 @@ def new_question(request):
                 Question: <b>{4}</b><br>
             """.format(
                 question.title,
-                question.category, 
-                question.tutorial, 
+                question.category,
+                question.tutorial,
                 'http://forums.spoken-tutorial.org/question/'+str(question.id),
                 question.body
             )
             email = EmailMultiAlternatives(
-                subject,'', 'forums', 
+                subject,'', 'forums',
                 ['team@spoken-tutorial.org', 'team@fossee.in'],
                 headers={"Content-type":"text/html;charset=iso-8859-1"}
             )
             email.attach_alternative(message, "text/html")
             email.send(fail_silently=True)
             # End of email send
-            
+
             return HttpResponseRedirect('/')
     else:
         # get values from URL.
@@ -274,7 +274,7 @@ def new_question(request):
 				# pass minute_range and second_range value to NewQuestionForm to populate on select
 				form = NewQuestionForm(category=category, tutorial=tutorial, minute_range=minute_range,second_range=second_range)
 				context['category'] = category
-			
+
     context['form'] = form
     context.update(csrf(request))
     return render(request, 'website/templates/new-question.html', context)
@@ -290,7 +290,7 @@ def user_questions(request, user_id):
         total = Question.objects.filter(uid=user_id).count()
         total = int(total - (total % 10 - 10))
         questions = Question.objects.filter(uid=user_id).order_by('date_created').reverse()[marker:marker+10]
-        
+
         context = {
             'questions': questions,
             'total': total,
@@ -375,14 +375,14 @@ def ajax_duration(request):
            str(video_detail.id),
            video_resource.video
         )
-       
+
         video_info = get_video_info(video_path)
-        
+
         # convert minutes to 1 if less than 0
         # convert seconds to nearest upper 10th number eg(23->30)
         minutes = video_info['minutes']
         seconds = video_info['seconds']
-        if minutes < 0: 
+        if minutes < 0:
             minutes = 1
         seconds = int(seconds - (seconds % 10 - 10))
         seconds = 60
@@ -404,7 +404,7 @@ def ajax_question_update(request):
             question.body = body.encode('unicode_escape')
             question.save()
             return HttpResponse("saved")
-    
+
     return HttpResponseForbidden("Not Authorised")
 
 @login_required
@@ -423,7 +423,7 @@ def ajax_details_update(request):
             question.second_range = second_range
             question.save()
             return HttpResponse("saved")
-    
+
     return HttpResponseForbidden("Not Authorised")
 
 @login_required
@@ -436,7 +436,7 @@ def ajax_answer_update(request):
             answer.body = body.encode('unicode_escape')
             answer.save()
             return HttpResponse("saved")
-    
+
     return HttpResponseForbidden("Not Authorised")
 
 
@@ -450,7 +450,7 @@ def ajax_answer_comment_update(request):
             comment.body = comment_body.encode('unicode_escape')
             comment.save()
             return HttpResponse("saved")
-    
+
     return HttpResponseForbidden("Not Authorised")
 
 
@@ -460,7 +460,7 @@ def ajax_similar_questions(request):
         tutorial = request.POST['tutorial']
         minute_range = request.POST['minute_range']
         second_range = request.POST['second_range']
-        
+
         # add more filtering when the forum grows
         questions = Question.objects.filter(category=category).filter(tutorial=tutorial)
         context = {
@@ -542,7 +542,7 @@ def ajax_vote(request):
 def forums_mail(to = '', subject='', message=''):
     # Start of email send
     email = EmailMultiAlternatives(
-        subject,'', 'forums', 
+        subject,'', 'forums',
         to.split(','),
         headers={"Content-type":"text/html;charset=iso-8859-1"}
     )
@@ -554,14 +554,14 @@ def forums_mail(to = '', subject='', message=''):
 def unanswered_notification(request):
     questions = Question.objects.all()
     total_count = 0
-    message = """ 
+    message = """
         The following questions are left unanswered.
         Please take a look at them. <br><br>
     """
     for question in questions:
         if not question.answer_set.count():
             total_count += 1
-            message += """ 
+            message += """
                 #{0}<br>
                 Title: <b>{1}</b><br>
                 Category: <b>{2}</b><br>
@@ -578,4 +578,3 @@ def unanswered_notification(request):
     if total_count:
         forums_mail(to, subject, message)
     return HttpResponse(message)
-

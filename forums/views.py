@@ -5,6 +5,7 @@ from django.core.context_processors import csrf
 
 from forums.forms import UserLoginForm
 
+
 def user_login(request):
     if request.user.is_anonymous():
         if request.method == 'POST':
@@ -19,7 +20,7 @@ def user_login(request):
                 return HttpResponseRedirect('/')
         else:
             form = UserLoginForm()
-        
+
         next_url = request.GET.get('next')
         resetpasssucs = request.GET.get('resetpass', False)
         context = {
@@ -32,9 +33,11 @@ def user_login(request):
     else:
         return HttpResponseRedirect('/')
 
+
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/')
+
 
 def forgotpassword(request):
     context = {}
@@ -57,19 +60,22 @@ def forgotpassword(request):
             sender_email = "no-reply@spoken-tutorial.org"
             subject = "Spoken Forums - Password Reset"
             to = (user.email, )
-	    url = settings.EMAIL_URL
-            message = """Dear """+user.username+""",\nYour password for Spoken Forums has been reset. Your credentials are:\nUsername: """+user.username+"""\nPassword: """+password+"""\n\nWe recommend you to login with the given credentials & update your password immediately.\nLink to set new password: """+url+"""/accounts/login/?next=/accounts/update-password/\nThank You !\nRegards,\nSpoken Team,\n IIT Bombay."""
-	    send_mail(subject, message, sender_email, to)
+            url = settings.EMAIL_URL
+            message = """Dear """ + user.username + """,\nYour password for Spoken Forums has been reset. Your credentials are:\nUsername: """ + user.username + """\nPassword: """ + password + \
+                """\n\nWe recommend you to login with the given credentials & update your password immediately.\nLink to set new password: """ + \
+                url + """/accounts/login/?next=/accounts/update-password/\nThank You !\nRegards,\nSpoken Team,\n IIT Bombay."""
+            send_mail(subject, message, sender_email, to)
             form = UserLoginForm()
             context['form'] = form
             #context['password_reset'] = True
             return HttpResponseRedirect('/accounts/login/?next=/accounts/update-password/')
-            #return render_to_response("forums/templates/user-login.html", context)
+            # return render_to_response("forums/templates/user-login.html", context)
         else:
             context['invalid_email'] = True
             return render_to_response("forums/templates/forgot-password.html", context)
     else:
         return render_to_response('forums/templates/forgot-password.html', context)
+
 
 def updatepassword(request):
     context = {}
@@ -89,8 +95,8 @@ def updatepassword(request):
                 logout(request)
                 form = UserLoginForm()
                 context['form'] = form
-                #return render_to_response('website/templates/index.html', context)
-		return HttpResponseRedirect('/')
+                # return render_to_response('website/templates/index.html', context)
+                return HttpResponseRedirect('/')
             else:
                 context['no_match'] = True
                 return render_to_response("forums/templates/update-password.html", context)
@@ -101,4 +107,3 @@ def updatepassword(request):
         context['form'] = form
         context['for_update_password'] = True
         return render_to_response('website/templates/index.html', context)
-
