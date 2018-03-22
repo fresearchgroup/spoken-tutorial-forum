@@ -1,5 +1,6 @@
 from django import forms
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import authenticate
+
 
 class UserLoginForm(forms.Form):
     username = forms.CharField()
@@ -9,7 +10,7 @@ class UserLoginForm(forms.Form):
         cleaned_data = self.cleaned_data
         username = cleaned_data.get('username')
         password = cleaned_data.get('password')
-        if username is None or password is  None:
+        if username is None or password is None:
             raise forms.ValidationError("Invalid username or password")
         user = authenticate(username=username, password=password)
         if not user:
