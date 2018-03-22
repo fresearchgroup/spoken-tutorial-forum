@@ -1,38 +1,38 @@
-import re, json
+import json
 
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
 from django.core.context_processors import csrf
-from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q, Max
+from django.db.models import Q
 from django.core.mail import EmailMultiAlternatives
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.core.urlresolvers import reverse
 from django.contrib.auth import get_user_model
-User = get_user_model()
 
 from website.models import Question, Answer, Notification, AnswerComment
-from spoken_auth.models import TutorialDetails, TutorialResources, Group
+from spoken_auth.models import TutorialDetails, TutorialResources
 from website.forms import NewQuestionForm, AnswerQuesitionForm
 from website.helpers import get_video_info, prettify
-from django.db.models import Count
 from forums.config import VIDEO_PATH
 from website.templatetags.permission_tags import can_edit
-from website.permissions import is_administrator
 
+User = get_user_model()
 categories = []
-trs = TutorialResources.objects.filter(Q(status = 1) | Q(status = 2), language__name = 'English').values('tutorial_detail__foss__foss').order_by('tutorial_detail__foss__foss').values_list('tutorial_detail__foss__foss').distinct()
-for tr in trs:
+trs = TutorialResources.objects.filter(Q(status=1) | Q(status=2), language__name='English')
+trs = trs.values('tutorial_detail__foss__foss').order_by('tutorial_detail__foss__foss')
+
+for tr in trs.values_list('tutorial_detail__foss__foss').distinct():
     categories.append(tr[0])
 
+
 def home(request):
-    questions = Question.objects.filter(status = 1).order_by('date_created').reverse()[:10]
+    questions = Question.objects.filter(status=1).order_by('date_created').reverse()[:10]
     context = {
         'categories': categories,
         'questions': questions
     }
     return render(request, "website/templates/index.html", context)
+
 
 def questions(request):
     questions = Question.objects.filter(status=1).order_by('date_created').reverse()
@@ -50,6 +50,7 @@ def questions(request):
     }
     return render(request, 'website/templates/questions.html', context)
 
+
 def hidden_questions(request):
     questions = Question.objects.filter(status=0).order_by('date_created').reverse()
     paginator = Paginator(questions, 20)
@@ -66,11 +67,12 @@ def hidden_questions(request):
     }
     return render(request, 'website/templates/questions.html', context)
 
+
 def get_question(request, question_id=None, pretty_url=None):
     question = get_object_or_404(Question, id=question_id)
     pretty_title = prettify(question.title)
     if pretty_url != pretty_title:
-        return HttpResponseRedirect('/question/'+ question_id + '/' + pretty_title)
+        return HttpResponseRedirect('/question/' + question_id + '/' + pretty_title)
     answers = question.answer_set.all()
     form = AnswerQuesitionForm()
     context = {
@@ -83,6 +85,7 @@ def get_question(request, question_id=None, pretty_url=None):
     question.views += 1
     question.save()
     return render(request, 'website/templates/get-question.html', context)
+
 
 @login_required
 def question_answer(request):
@@ -122,21 +125,22 @@ def question_answer(request):
                 )
 
                 email = EmailMultiAlternatives(
-                    subject,'', 'forums',
+                    subject, '', 'forums',
                     [user.email],
-                    headers={"Content-type":"text/html;charset=iso-8859-1"}
+                    headers={"Content-type": "text/html;charset=iso-8859-1"}
                 )
 
                 email.attach_alternative(message, "text/html")
                 email.send(fail_silently=True)
                 # End of email send
-        return HttpResponseRedirect('/question/'+ str(qid) + "#answer" + str(answer.id))
+        return HttpResponseRedirect('/question/' + str(qid) + "#answer" + str(answer.id))
     return HttpResponseRedirect('/')
+
 
 @login_required
 def answer_comment(request):
     if request.method == 'POST':
-        answer_id = request.POST['answer_id'];
+        answer_id = request.POST['answer_id']
         body = request.POST['body']
         answer = get_object_or_404(Answer, pk=answer_id)
         comment = AnswerComment()
@@ -171,7 +175,7 @@ def answer_comment(request):
 
         # notifying other users in the comment thread
         uids = answer.answercomment_set.filter(answer=answer).values_list('uid', flat=True)
-        #getting distinct uids
+        # getting distinct uids
         uids = set(uids)
         uids.remove(request.user.id)
         for uid in uids:
@@ -198,7 +202,8 @@ def answer_comment(request):
             forums_mail(user.email, subject, message)
     return HttpResponseRedirect("/question/" + str(answer.question.id) + "#")
 
-def filter(request,  category=None, tutorial=None, minute_range=None, second_range=None):
+
+def filter(request, category=None, tutorial=None, minute_range=None, second_range=None):
     context = {
         'category': category,
         'tutorial': tutorial,
@@ -207,19 +212,22 @@ def filter(request,  category=None, tutorial=None, minute_range=None, second_ran
     }
 
     if category and tutorial and minute_range and second_range:
-        questions = Question.objects.filter(category=category).filter(tutorial=tutorial).filter(minute_range=minute_range).filter(second_range=second_range, status=1)
+        questions = Question.objects.filter(category=category).filter(tutorial=tutorial).filter(
+            minute_range=minute_range).filter(second_range=second_range, status=1)
     elif tutorial is None:
         questions = Question.objects.filter(category=category, status=1)
     elif minute_range is None:
         questions = Question.objects.filter(category=category).filter(tutorial=tutorial, status=1)
-    else:  #second_range is None
-        questions = Question.objects.filter(category=category).filter(tutorial=tutorial).filter(minute_range=minute_range, status=1)
+    else:  # second_range is None
+        questions = Question.objects.filter(category=category).filter(
+            tutorial=tutorial).filter(minute_range=minute_range, status=1)
 
     if 'qid' in request.GET:
-        context['qid']  = int(request.GET['qid'])
+        context['qid'] = int(request.GET['qid'])
 
     context['questions'] = questions.order_by('category', 'tutorial', 'minute_range', 'second_range')
     return render(request, 'website/templates/filter.html', context)
+
 
 @login_required
 def new_question(request):
@@ -236,7 +244,7 @@ def new_question(request):
             question.second_range = cleaned_data['second_range']
             question.title = cleaned_data['title']
             question.body = cleaned_data['body'].encode('unicode_escape')
-            question.views= 1
+            question.views = 1
             question.save()
 
             # Sending email when a new question is asked
@@ -252,13 +260,13 @@ def new_question(request):
                 question.title,
                 question.category,
                 question.tutorial,
-                'http://forums.spoken-tutorial.org/question/'+str(question.id),
+                'http://forums.spoken-tutorial.org/question/' + str(question.id),
                 question.body
             )
             email = EmailMultiAlternatives(
-                subject,'', 'forums',
+                subject, '', 'forums',
                 ['team@spoken-tutorial.org', 'team@fossee.in'],
-                headers={"Content-type":"text/html;charset=iso-8859-1"}
+                headers={"Content-type": "text/html;charset=iso-8859-1"}
             )
             email.attach_alternative(message, "text/html")
             email.send(fail_silently=True)
@@ -267,19 +275,22 @@ def new_question(request):
             return HttpResponseRedirect('/')
     else:
         # get values from URL.
-				category = request.GET.get('category', None)
-				tutorial = request.GET.get('tutorial', None)
-				minute_range = request.GET.get('minute_range', None)
-				second_range = request.GET.get('second_range', None)
-				# pass minute_range and second_range value to NewQuestionForm to populate on select
-				form = NewQuestionForm(category=category, tutorial=tutorial, minute_range=minute_range,second_range=second_range)
-				context['category'] = category
+        category = request.GET.get('category', None)
+        tutorial = request.GET.get('tutorial', None)
+        minute_range = request.GET.get('minute_range', None)
+        second_range = request.GET.get('second_range', None)
+        # pass minute_range and second_range value to NewQuestionForm to populate on select
+        form = NewQuestionForm(category=category, tutorial=tutorial,
+                               minute_range=minute_range, second_range=second_range)
+        context['category'] = category
 
     context['form'] = form
     context.update(csrf(request))
     return render(request, 'website/templates/new-question.html', context)
 
 # Notification Section
+
+
 @login_required
 def user_questions(request, user_id):
     marker = 0
@@ -289,7 +300,7 @@ def user_questions(request, user_id):
     if str(user_id) == str(request.user.id):
         total = Question.objects.filter(uid=user_id).count()
         total = int(total - (total % 10 - 10))
-        questions = Question.objects.filter(uid=user_id).order_by('date_created').reverse()[marker:marker+10]
+        questions = Question.objects.filter(uid=user_id).order_by('date_created').reverse()[marker:marker + 10]
 
         context = {
             'questions': questions,
@@ -298,6 +309,7 @@ def user_questions(request, user_id):
         }
         return render(request, 'website/templates/user-questions.html', context)
     return HttpResponse("go away")
+
 
 @login_required
 def user_answers(request, user_id):
@@ -308,7 +320,7 @@ def user_answers(request, user_id):
     if str(user_id) == str(request.user.id):
         total = Answer.objects.filter(uid=user_id).count()
         total = int(total - (total % 10 - 10))
-        answers =Answer.objects.filter(uid=user_id).order_by('date_created').reverse()[marker:marker+10]
+        answers = Answer.objects.filter(uid=user_id).order_by('date_created').reverse()[marker:marker + 10]
         context = {
             'answers': answers,
             'total': total,
@@ -316,6 +328,7 @@ def user_answers(request, user_id):
         }
         return render(request, 'website/templates/user-answers.html', context)
     return HttpResponse("go away")
+
 
 @login_required
 def user_notifications(request, user_id):
@@ -327,10 +340,12 @@ def user_notifications(request, user_id):
         return render(request, 'website/templates/notifications.html', context)
     return HttpResponse("go away ...")
 
+
 @login_required
 def clear_notifications(request):
     Notification.objects.filter(uid=request.user.id).delete()
     return HttpResponseRedirect("/user/{0}/notifications/".format(request.user.id))
+
 
 def search(request):
     context = {
@@ -341,26 +356,29 @@ def search(request):
 # Ajax Section
 # All the ajax views go below
 
+
 def ajax_category(request):
     context = {
         'categories': categories
     }
     return render(request, 'website/templates/ajax_categories.html', context)
 
+
 def ajax_tutorials(request):
     if request.method == 'POST':
         category = request.POST.get('category')
         tutorials = TutorialDetails.objects.using('spoken').filter(
-	foss__foss=category).order_by('level', 'order')
+            foss__foss=category).order_by('level', 'order')
         context = {
             'tutorials': tutorials
         }
         return render(request, 'website/templates/ajax-tutorials.html', context)
 
+
 def ajax_duration(request):
     if request.method == 'POST':
         category = request.POST['category']
-        tutorial =request.POST['tutorial']
+        tutorial = request.POST['tutorial']
         video_detail = TutorialDetails.objects.using('spoken').get(
             Q(foss__foss=category),
             Q(tutorial=tutorial)
@@ -370,10 +388,10 @@ def ajax_duration(request):
             Q(language__name='English')
         )
         video_path = '{0}/{1}/{2}/{3}'.format(
-           VIDEO_PATH,
-           str(video_detail.foss_id),
-           str(video_detail.id),
-           video_resource.video
+            VIDEO_PATH,
+            str(video_detail.foss_id),
+            str(video_detail.id),
+            video_resource.video
         )
 
         video_info = get_video_info(video_path)
@@ -388,9 +406,10 @@ def ajax_duration(request):
         seconds = 60
         context = {
             'minutes': minutes,
-            'seconds':seconds,
+            'seconds': seconds,
         }
         return render(request, 'website/templates/ajax-duration.html', context)
+
 
 @login_required
 def ajax_question_update(request):
@@ -406,6 +425,7 @@ def ajax_question_update(request):
             return HttpResponse("saved")
 
     return HttpResponseForbidden("Not Authorised")
+
 
 @login_required
 def ajax_details_update(request):
@@ -426,12 +446,13 @@ def ajax_details_update(request):
 
     return HttpResponseForbidden("Not Authorised")
 
+
 @login_required
 def ajax_answer_update(request):
     if request.method == 'POST':
         aid = request.POST['answer_id']
         body = request.POST['answer_body']
-        answer= get_object_or_404(Answer, pk=aid)
+        answer = get_object_or_404(Answer, pk=aid)
         if can_edit(user=request.user, obj=answer):
             answer.body = body.encode('unicode_escape')
             answer.save()
@@ -458,15 +479,16 @@ def ajax_similar_questions(request):
     if request.method == 'POST':
         category = request.POST['category']
         tutorial = request.POST['tutorial']
-        minute_range = request.POST['minute_range']
-        second_range = request.POST['second_range']
+        # minute_range = request.POST['minute_range']
+        # second_range = request.POST['second_range']
 
         # add more filtering when the forum grows
         questions = Question.objects.filter(category=category).filter(tutorial=tutorial)
         context = {
             'questions': questions
         }
-        return render(request, 'website/templates/ajax-similar-questions.html', context);
+        return render(request, 'website/templates/ajax-similar-questions.html', context)
+
 
 @login_required
 def ajax_notification_remove(request):
@@ -478,6 +500,7 @@ def ajax_notification_remove(request):
             return HttpResponse("removed")
     return HttpResponseForbidden("failed")
 
+
 @login_required
 def ajax_delete_question(request):
     result = False
@@ -488,6 +511,7 @@ def ajax_delete_question(request):
             question.delete()
             result = True
     return HttpResponse(json.dumps(result), mimetype='application/json')
+
 
 @login_required
 def ajax_hide_question(request):
@@ -518,17 +542,19 @@ def ajax_time_search(request):
     if request.method == "POST":
         category = request.POST.get('category')
         tutorial = request.POST.get('tutorial')
-        minute_range= request.POST.get('minute_range')
+        minute_range = request.POST.get('minute_range')
         second_range = request.POST.get('second_range')
         questions = None
         if category:
-            questions = Question.objects.filter(category=category.replace(' ', '-'), status = 1)
+            questions = Question.objects.filter(category=category.replace(' ', '-'), status=1)
         if tutorial:
             questions = questions.filter(tutorial=tutorial.replace(' ', '-'))
         if minute_range:
-            questions = questions.filter(category=category.replace(' ', '-'), tutorial=tutorial.replace(' ', '-'), minute_range=minute_range)
+            questions = questions.filter(category=category.replace(
+                ' ', '-'), tutorial=tutorial.replace(' ', '-'), minute_range=minute_range)
         if second_range:
-            questions = questions.filter(category=category.replace(' ', '-'), tutorial=tutorial.replace(' ', '-'),second_range=second_range)
+            questions = questions.filter(category=category.replace(
+                ' ', '-'), tutorial=tutorial.replace(' ', '-'), second_range=second_range)
         context = {
             'questions': questions
         }
@@ -536,21 +562,24 @@ def ajax_time_search(request):
 
 
 def ajax_vote(request):
-    #for future use
+    # for future use
     pass
 
-def forums_mail(to = '', subject='', message=''):
+
+def forums_mail(to='', subject='', message=''):
     # Start of email send
     email = EmailMultiAlternatives(
-        subject,'', 'forums',
+        subject, '', 'forums',
         to.split(','),
-        headers={"Content-type":"text/html;charset=iso-8859-1"}
+        headers={"Content-type": "text/html;charset=iso-8859-1"}
     )
     email.attach_alternative(message, "text/html")
     email.send(fail_silently=True)
     # End of email send
 
 # daily notifications for unanswered questions.
+
+
 def unanswered_notification(request):
     questions = Question.objects.all()
     total_count = 0

@@ -1,5 +1,5 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth import login, logout, authenticate
+from django.http import HttpResponseRedirect
+from django.contrib.auth import login, logout
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 
