@@ -1,11 +1,12 @@
 {% extends 'website/templates/base.html' %}
 {% load count_tags %}
+{% load bleach_tags %}
 {% block content %}
     <h4>My Questions</h4>
     {% for question in questions %}
         <div class="my-question">
             <span class="title">
-                <a href="{% url 'website:get_question' question.id %}">{{ question.title }}</a>
+                <a href="{% url 'website:get_question' question.id %}">{{ question.title |bleach}}</a>
             </span>
             <br>
             <span class="date">

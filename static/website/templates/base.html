@@ -14,9 +14,24 @@
         <link rel="stylesheet" href="{% static 'website/css/main.css' %}" type="text/css" media="screen" charset="utf-8" />
         <link rel="stylesheet" href="{% static 'website/css/nice-bar.css' %}" type="text/css" media="screen" charset="utf-8" />
 				 <link rel="stylesheet" href="{% static 'website/css/theme.blue.css' %}" type="text/css" media="screen" charset="utf-8" />
+         
         {% endcompress %}
-				<script src="{% static 'website/js/jquery-1.11.3.min.js' %}"></script>
+				<script src="{% static 'website/js/jquery-1.12.4.min.js' %}"></script>
 				<script src="{% static 'website/js/jquery.tablesorter.min.js' %}"></script>
+        <!-- settig up csrf token for every ajax request -->
+        <script type="text/javascript">window.csrftoken = '{{ csrf_token }}';
+          function csrfSafeMethod(method) {
+                // these HTTP methods do not require CSRF protection
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            });
+      </script>
     </head>
     <body>
         <div id="page-wrapper">
@@ -124,9 +139,10 @@
         <script src="{% static 'website/js/bootstrap.min.js' %}"></script>
         <script src="{% static 'website/slick/slick.min.js' %}"></script>
         <script src="{% static 'website/js/nice-bar.js' %}"></script>
-        {% block javascript %}
+        
+    {% endcompress %}
+    {% block javascript %}
             <!-- overide with custom javascript -->
         {% endblock %}
-    {% endcompress %}
     </body>
 </html>

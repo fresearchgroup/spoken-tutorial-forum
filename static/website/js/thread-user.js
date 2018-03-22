@@ -78,6 +78,7 @@ $(document).ready(function() {
                 question_id: question_id,
                 question_title: question_title,
                 question_body: question_body,
+                
             },
             type: "POST",
             dataType: "html",
@@ -114,7 +115,8 @@ $(document).ready(function() {
                 category: category,
                 tutorial: tutorial,
                 minute_range: minute_range,
-                second_range: second_range
+                second_range: second_range,
+                                
             },
             type: "POST",
             success: function(data){
@@ -193,7 +195,8 @@ $(document).ready(function() {
             type: "POST",
             data: {
                 answer_id: answer_id,
-                answer_body: answer_body
+                answer_body: answer_body,
+                
             },
             success: function(data) {
                 $saving.hide();
@@ -253,7 +256,8 @@ $(document).ready(function() {
             type: "POST",
             data: {
                 comment_id: comment_id,
-                comment_body: comment_body
+                comment_body: comment_body,
+                
             },
             success: function(data) {
                 $saving.hide();
@@ -312,11 +316,12 @@ $(document).ready(function() {
         question_id = parseInt($('.delete-question').data("qid"));
         $('#confirm-delete').modal({ backdrop: 'static', keyboard: false })
         .one('click', '#delete', function() {
+            console.log(window.csrftoken)
             $.ajax({
                 url: "/ajax-delete-question/",
                 type: "POST",
                 data: {
-                    question_id: question_id,
+                    question_id: question_id
                 },
                 success: function(data) {
                     $deleted.hide();
@@ -340,6 +345,7 @@ $(document).ready(function() {
                 data: {
                     question_id: question_id,
                     status : status,
+                    
                 },
                 success: function(data) {
                     $hide_qmsg.hide();

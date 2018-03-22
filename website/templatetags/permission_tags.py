@@ -1,6 +1,6 @@
 from django import template
 
-from website.views import is_administrator
+from website.permissions import is_administrator
 
 register = template.Library()
 

@@ -1,6 +1,6 @@
 import re, json
 
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
@@ -18,10 +18,8 @@ from website.forms import NewQuestionForm, AnswerQuesitionForm
 from website.helpers import get_video_info, prettify
 from django.db.models import Count
 from forums.config import VIDEO_PATH
-
-def is_administrator(user):
-    if user and user.groups.filter(name='Administrator').count() == 1:
-        return True
+from website.templatetags.permission_tags import can_edit
+from website.permissions import is_administrator
 
 categories = []
 trs = TutorialResources.objects.filter(Q(status = 1) | Q(status = 2), language__name = 'English').values('tutorial_detail__foss__foss').order_by('tutorial_detail__foss__foss').values_list('tutorial_detail__foss__foss').distinct()
@@ -140,7 +138,7 @@ def answer_comment(request):
     if request.method == 'POST':
         answer_id = request.POST['answer_id'];
         body = request.POST['body']
-        answer = Answer.objects.get(pk=answer_id)
+        answer = get_object_or_404(Answer, pk=answer_id)
         comment = AnswerComment()
         comment.uid = request.user.id
         comment.answer = answer
@@ -342,14 +340,13 @@ def search(request):
 
 # Ajax Section
 # All the ajax views go below
-@csrf_exempt
+
 def ajax_category(request):
     context = {
         'categories': categories
     }
     return render(request, 'website/templates/ajax_categories.html', context)
 
-@csrf_exempt
 def ajax_tutorials(request):
     if request.method == 'POST':
         category = request.POST.get('category')
@@ -360,7 +357,6 @@ def ajax_tutorials(request):
         }
         return render(request, 'website/templates/ajax-tutorials.html', context)
 
-@csrf_exempt
 def ajax_duration(request):
     if request.method == 'POST':
         category = request.POST['category']
@@ -396,21 +392,22 @@ def ajax_duration(request):
         }
         return render(request, 'website/templates/ajax-duration.html', context)
 
-@csrf_exempt
+@login_required
 def ajax_question_update(request):
     if request.method == 'POST':
         qid = request.POST['question_id']
         title = request.POST['question_title']
         body = request.POST['question_body']
         question = get_object_or_404(Question, pk=qid)
-        if question:
-            if question.uid == request.user.id or is_administrator(request.user):
-                question.title = title
-                question.body = body.encode('unicode_escape')
-                question.save()
-        return HttpResponse("saved")
+        if can_edit(user=request.user, obj=question):
+            question.title = title
+            question.body = body.encode('unicode_escape')
+            question.save()
+            return HttpResponse("saved")
+    
+    return HttpResponseForbidden("Not Authorised")
 
-@csrf_exempt
+@login_required
 def ajax_details_update(request):
     if request.method == 'POST':
         qid = request.POST['qid']
@@ -419,41 +416,44 @@ def ajax_details_update(request):
         minute_range = request.POST['minute_range']
         second_range = request.POST['second_range']
         question = get_object_or_404(Question, pk=qid)
-        if question:
-            if question.uid == request.user.id or is_administrator(request.user):
-                question.category = category
-                question.tutorial = tutorial
-                question.minute_range = minute_range
-                question.second_range = second_range
-                question.save()
+        if can_edit(user=request.user, obj=question):
+            question.category = category
+            question.tutorial = tutorial
+            question.minute_range = minute_range
+            question.second_range = second_range
+            question.save()
             return HttpResponse("saved")
+    
+    return HttpResponseForbidden("Not Authorised")
 
-@csrf_exempt
+@login_required
 def ajax_answer_update(request):
     if request.method == 'POST':
         aid = request.POST['answer_id']
         body = request.POST['answer_body']
         answer= get_object_or_404(Answer, pk=aid)
-        if answer:
-            if answer.uid == request.user.id or is_administrator(request.user):
-                answer.body = body.encode('unicode_escape')
-                answer.save()
-        return HttpResponse("saved")
+        if can_edit(user=request.user, obj=answer):
+            answer.body = body.encode('unicode_escape')
+            answer.save()
+            return HttpResponse("saved")
+    
+    return HttpResponseForbidden("Not Authorised")
 
-@csrf_exempt
+
+@login_required
 def ajax_answer_comment_update(request):
     if request.method == "POST":
         comment_id = request.POST["comment_id"]
         comment_body = request.POST["comment_body"]
         comment = get_object_or_404(AnswerComment, pk=comment_id)
-        if comment:
-            if comment.uid == request.user.id or is_administrator(request.user):
-                comment.body = comment_body.encode('unicode_escape')
-                comment.save()
-        return HttpResponse("saved")
+        if can_edit(user=request.user, obj=comment):
+            comment.body = comment_body.encode('unicode_escape')
+            comment.save()
+            return HttpResponse("saved")
+    
+    return HttpResponseForbidden("Not Authorised")
 
 
-@csrf_exempt
 def ajax_similar_questions(request):
     if request.method == 'POST':
         category = request.POST['category']
@@ -468,36 +468,34 @@ def ajax_similar_questions(request):
         }
         return render(request, 'website/templates/ajax-similar-questions.html', context);
 
-@csrf_exempt
+@login_required
 def ajax_notification_remove(request):
     if request.method == "POST":
         nid = request.POST["notification_id"]
-        notification = Notification.objects.get(pk=nid)
-        if notification:
-            if notification.uid == request.user.id:
-                notification.delete()
-                return HttpResponse("removed")
-    return HttpResponse("failed")
+        notification = get_object_or_404(Notification, pk=nid)
+        if notification.uid == request.user.id:
+            notification.delete()
+            return HttpResponse("removed")
+    return HttpResponseForbidden("failed")
 
-@csrf_exempt
+@login_required
 def ajax_delete_question(request):
     result = False
     if request.method == "POST":
         key = request.POST['question_id']
-        question = Question.objects.filter(pk=key)
-        if question.exists():
+        question = get_object_or_404(Question, pk=key)
+        if can_edit(user=request.user, obj=question):
             question.delete()
             result = True
     return HttpResponse(json.dumps(result), mimetype='application/json')
 
-@csrf_exempt
+@login_required
 def ajax_hide_question(request):
     result = False
     if request.method == "POST":
         key = request.POST['question_id']
-        question = Question.objects.filter(pk=key)
-        if question.exists():
-            question = question[0]
+        question = get_object_or_404(Question, pk=key)
+        if can_edit(user=request.user, obj=question):
             question.status = 0
             if request.POST['status'] == '0':
                 question.status = 1
@@ -505,7 +503,7 @@ def ajax_hide_question(request):
             result = True
     return HttpResponse(json.dumps(result), mimetype='application/json')
 
-@csrf_exempt
+
 def ajax_keyword_search(request):
     if request.method == "POST":
         key = request.POST['key']
@@ -515,7 +513,7 @@ def ajax_keyword_search(request):
         }
         return render(request, 'website/templates/ajax-keyword-search.html', context)
 
-@csrf_exempt
+
 def ajax_time_search(request):
     if request.method == "POST":
         category = request.POST.get('category')
@@ -536,7 +534,7 @@ def ajax_time_search(request):
         }
         return render(request, 'website/templates/ajax-time-search.html', context)
 
-@csrf_exempt
+
 def ajax_vote(request):
     #for future use
     pass
