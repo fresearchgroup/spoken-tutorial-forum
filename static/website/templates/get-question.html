@@ -3,7 +3,6 @@
 {% load widget_tweaks %}
 
 {% load permission_tags %}
-{% load bleach_tags %}
 
 {% block title %}
     {{ question.category }} - {{ question.title }} - Spoken Tutorial Forums
@@ -29,7 +28,7 @@
         <a class="delete-question btn btn-xs btn-info" data-qid="{{ question.id }}" href="#">Delete</a>
         <div id="questionNicPanel"></div>
         <div id="{% if user|can_edit:question  %}questionInstance{% endif %}" class="body">
-            {{ question.body|bleach }}
+            {{ question.body|safe }}
         </div>
         <br>
         
@@ -135,7 +134,7 @@
         <div class="answer {% if user|can_edit:answer  %}editable{% endif %}" id="answer{{answer.id}}">
             
             <div class="body" id="body{{ answer.id }}">
-                {{ answer.body|bleach }}
+                {{ answer.body|safe }}
             </div>
             
             <span class="meta">
@@ -163,7 +162,7 @@
                 {% for comment in answer.answercomment_set.all %}
                 <div class="comment" id="comment{{ comment.id }}">
                     <div class="body" id="cbody{{ comment.id }}">
-                        {{ comment.body|bleach }}
+                        {{ comment.body|safe }}
                     </div>
                     
                     <span class="meta">
