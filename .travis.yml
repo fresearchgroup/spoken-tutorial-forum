@@ -1,0 +1,19 @@
+# For more information about the configurations used in this file, please
+# see the Travis CI documentation: https://docs.travis-ci.com
+
+language: python
+sudo: false
+python:
+- '2.7'
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+script:
+- flake8
+
+notifications:
+  email:
+    on_success: change  # [always|never|change]
+    on_failure: always  # [always|never|change]

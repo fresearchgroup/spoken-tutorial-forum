@@ -1,8 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.contrib.auth.models import (
-    BaseUserManager, AbstractBaseUser
-)
+# from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractBaseUser
 
 
 class Group(models.Model):
