@@ -1,13 +1,13 @@
 # Custom settings
-from os.path import *
-from config import *
+from os.path import abspath, dirname
+from config import *  # noqa
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 PROJECT_DIR = abspath(dirname(__file__) + '/../')
 
 # Django settings for forums project.
-# DEBUG = False
-DEBUG = True
+DEBUG = False
+# DEBUG = True
 # TEMPLATE_DEBUG = DEBUG
 TEMPLATE_DEBUG = False
 
@@ -24,25 +24,27 @@ DATABASES = {
         # The following settings are not used with sqlite3:
         'USER': db_user,
         'PASSWORD': db_pass,
-        'HOST': '',                      #  Empty for localhost through domain sockets.
-        'PORT': '',                      #  Set to empty string for default.
+        'HOST': '',  # Empty for localhost through domain sockets.
+        'PORT': '',  # Set to empty string for default.
     },
     'spoken': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': sdb,                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': db_user,
         'PASSWORD': db_pass,
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': '',
         'PORT': '',                      # Set to empty string for default.
     },
     'cdeep': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'CDEEP',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': db_user,
         'PASSWORD': db_pass,
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': '',
         'PORT': '',                      # Set to empty string for default.
     },
 }
@@ -106,7 +108,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
     'compressor.finders.CompressorFinder',
 )
 
@@ -117,7 +119,7 @@ SECRET_KEY = 'xj+a8@48-x+h1z4bmvjt_1b+=t4+sb)kujqh!efty9t=f_g!mo'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    #     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -152,7 +154,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    #'django.contrib.admin',
+    # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'website',
@@ -161,6 +163,7 @@ INSTALLED_APPS = (
     'compressor',
     'debug_toolbar',
     'migrate_spoken',
+    'django_bleach',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -204,4 +207,10 @@ COMPRESS_ROOT = PROJECT_DIR + "/static/"
 COMPRESS_ENABLED = True
 HTML_MINIFY = True
 
+# Which HTML tags are allowed in bleach
+BLEACH_ALLOWED_TAGS = ['p', 'b', 'i', 'u', 'em', 'strong', 'br', 'div']
 
+try:
+    from .local_settings import *  # noqa
+except ImportError:
+    pass

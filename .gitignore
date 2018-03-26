@@ -3,6 +3,7 @@
 *.pyc
 config.py
 forums/wsgi.py
+forums/local_settings.py
 static/CACHE/*
 *.py[cod]
 robots.txt

@@ -1,11 +1,12 @@
 {% extends 'website/templates/base.html' %}
 {% load count_tags %}
+{% load bleach_tags %}
 {% block content %}
     <h4>My Answers</h4>
     {% for answer in answers%}
         <div class="my-answer">
             <span class="body">
-                <a href="{% url 'website:get_question' answer.question.id %}#answer{{ answer.id }}">{{ answer.body|safe }}</a>
+                <a href="{% url 'website:get_question' answer.question.id %}#answer{{ answer.id }}">{{ answer.body|bleach }}</a>
             </span>
             <br>
             <span class="date">
