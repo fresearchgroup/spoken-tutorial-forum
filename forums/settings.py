@@ -163,7 +163,6 @@ INSTALLED_APPS = (
     'compressor',
     'debug_toolbar',
     'migrate_spoken',
-    'django_bleach',
 )
 
 # A sample logging configuration. The only tangible logging
