@@ -26,7 +26,6 @@
             <input class="form-control" type="text">
             <h5>Question</h5>
         </div>
-        <a class="delete-question btn btn-xs btn-info" data-qid="{{ question.id }}" href="#">Delete</a>
         <div id="questionNicPanel"></div>
         <div id="{% if user|can_edit:question  %}questionInstance{% endif %}" class="body">
             {{ question.body|bleach }}
