@@ -32,7 +32,7 @@ register.simple_tag(notification_count)
 
 def latest_question(category):
     question = None
-
+    category = category.replace(' ', '-')
     try:
         question = Question.objects.filter(category=category, status=1).order_by('-date_created')[0]
     except Exception:
