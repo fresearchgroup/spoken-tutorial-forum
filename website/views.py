@@ -73,6 +73,7 @@ def get_question(request, question_id=None, pretty_url=None):
     question = get_object_or_404(Question, id=question_id)
     pretty_title = prettify(question.title)
     category = FossCategory.objects.all().order_by('foss')
+    
     if pretty_url != pretty_title:
         return HttpResponseRedirect('/question/' + question_id + '/' + pretty_title)
     answers = question.answer_set.all()
@@ -435,7 +436,9 @@ def ajax_details_update(request):
     if request.method == 'POST':
         qid = request.POST['qid']
         category = request.POST['category']
+        category = category.replace(' ', '-')        
         tutorial = request.POST['tutorial']
+        tutorial = tutorial.replace(' ', '-')
         minute_range = request.POST['minute_range']
         second_range = request.POST['second_range']
         question = get_object_or_404(Question, pk=qid)
