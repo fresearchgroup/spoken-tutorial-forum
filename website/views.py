@@ -16,6 +16,7 @@ from website.helpers import get_video_info, prettify
 from forums.config import VIDEO_PATH
 from website.templatetags.permission_tags import can_edit
 from spoken_auth.models import FossCategory
+from forums.sortable import * 
 
 User = get_user_model()
 categories = []
@@ -36,8 +37,25 @@ def home(request):
 
 
 def questions(request):
-    questions = Question.objects.filter(status=1).order_by('date_created').reverse()
-    paginator = Paginator(questions, 20)
+    questions = Question.objects.filter(status=1)
+    raw_get_data = request.GET.get('o', None)
+
+    header = {
+                1: SortableHeader('category', True, 'Foss'),
+                2: SortableHeader('tutorial', True, 'Tutorial Name'),
+                3: SortableHeader('minute_range', True, 'Mins'),
+                4: SortableHeader('second_range', True, 'Secs'),
+                5: SortableHeader('title', True, 'Title'),
+                6: SortableHeader('date_modified', True, 'Date'),
+                7: SortableHeader('views', True, 'Views'),
+                8: SortableHeader('Answers', False,'Answers'),
+                9: SortableHeader('uid', True, 'User'),
+
+            }
+
+    tmp_recs = get_sorted_list(request, questions, header, raw_get_data)
+    ordering = get_field_index(raw_get_data)
+    paginator = Paginator(tmp_recs, 20)
     page = request.GET.get('page')
 
     try:
@@ -47,7 +65,9 @@ def questions(request):
     except EmptyPage:
         questions = paginator.page(paginator.num_pages)
     context = {
-        'questions': questions
+        'questions': questions,
+        'header': header,
+        'ordering' : ordering        
     }
     return render(request, 'website/templates/questions.html', context)
 
