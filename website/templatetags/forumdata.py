@@ -7,6 +7,7 @@ register = template.Library()
 def sort_by(queryset, order):
     return queryset.filter(visible__exact=1).order_by('position')
 
+
 ''' includes: will include include's values '''
 
 
@@ -16,6 +17,7 @@ def reset_get_values(getValue, includes=['page']):
         if k in includes:
             values += k+'='+v+'&'
     return values
+
 
 ''' includes: will include include's values '''
 

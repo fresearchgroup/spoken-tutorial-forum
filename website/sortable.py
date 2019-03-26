@@ -44,7 +44,7 @@ def get_sorted_list(request, obj, fields_list, raw_get_data):
                         sort_order.append('-' + field.name)
                     else:
                         sort_order.append(field.name)
-            except Exception as e :
+            except Exception as e:
                 print(e)
                 messages.error(request, 'Invalid ordering key has passed!')
                 return obj

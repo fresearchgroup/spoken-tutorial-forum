@@ -49,7 +49,7 @@ def questions(request):
                 5: SortableHeader('title', True, 'Title'),
                 6: SortableHeader('date_modified', True, 'Date'),
                 7: SortableHeader('views', True, 'Views'),
-                8: SortableHeader('Answers', False,'Answers'),
+                8: SortableHeader('Answers', False, 'Answers'),
                 9: SortableHeader('uid', True, 'User')
             }
 
@@ -67,7 +67,7 @@ def questions(request):
     context = {
         'questions': questions,
         'header': header,
-        'ordering' : ordering       
+        'ordering': ordering       
     }
     return render(request, 'website/templates/questions.html', context)
 
