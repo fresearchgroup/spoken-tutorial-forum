@@ -67,7 +67,7 @@ def questions(request):
     context = {
         'questions': questions,
         'header': header,
-        'ordering' : ordering        
+        'ordering' : ordering       
     }
     return render(request, 'website/templates/questions.html', context)
 

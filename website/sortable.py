@@ -44,7 +44,8 @@ def get_sorted_list(request, obj, fields_list, raw_get_data):
                         sort_order.append('-' + field.name)
                     else:
                         sort_order.append(field.name)
-            except:
+            except Exception as e :
+                print(e)
                 messages.error(request, 'Invalid ordering key has passed!')
                 return obj
     if len(sort_order):
@@ -97,9 +98,9 @@ def get_sortable_header(header, ordering, getValue):
                 header[order].order = counter
                 ascending_list.append(header[order].name)
             counter = counter + 1
-    l = len(header) + 1
+    header_len = len(header) + 1
     headers = []
-    for row in range(l):
+    for row in range(header_len):
         if row == 0:
             continue
         class_name = 'col-' + header[row].name
@@ -132,6 +133,3 @@ def format_raw_data(raw_data):
         if str_row:
             formatted_data += '<p>' + str_row + '</p>'
     return formatted_data
-
-
-
