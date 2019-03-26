@@ -1,14 +1,8 @@
-
 # Third Party Stuff
 from builtins import str
 from builtins import range
 from builtins import object
 from django.contrib import messages
-from django import template
-from django.conf import settings
-
-# Spoken Tutorial Stuff
-from website.models import *
 
 
 class SortableHeader(object):
@@ -57,7 +51,8 @@ def get_sorted_list(request, obj, fields_list, raw_get_data):
         try:
             print(sort_order)
             return obj.order_by(*sort_order)
-        except:
+        except Exception as e:
+            print(e)
             messages.error(request, 'Invalid field name passed for sorting!')
     return obj
 

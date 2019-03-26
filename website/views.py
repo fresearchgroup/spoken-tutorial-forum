@@ -16,7 +16,8 @@ from website.helpers import get_video_info, prettify
 from forums.config import VIDEO_PATH
 from website.templatetags.permission_tags import can_edit
 from spoken_auth.models import FossCategory
-from forums.sortable import * 
+from forums.sortable import SortableHeader, get_sorted_list, get_field_index
+
 
 User = get_user_model()
 categories = []
@@ -49,8 +50,7 @@ def questions(request):
                 6: SortableHeader('date_modified', True, 'Date'),
                 7: SortableHeader('views', True, 'Views'),
                 8: SortableHeader('Answers', False,'Answers'),
-                9: SortableHeader('uid', True, 'User'),
-
+                9: SortableHeader('uid', True, 'User')
             }
 
     tmp_recs = get_sorted_list(request, questions, header, raw_get_data)
