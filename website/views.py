@@ -17,7 +17,7 @@ from forums.config import VIDEO_PATH
 from website.templatetags.permission_tags import can_edit
 from spoken_auth.models import FossCategory
 from forums.sortable import SortableHeader, get_sorted_list, get_field_index
-from django.db.models import Count, Sum
+from django.db.models import Count
 
 
 User = get_user_model()
