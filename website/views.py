@@ -39,7 +39,7 @@ def home(request):
 
 
 def questions(request):
-    questions = Question.objects.filter(status=1)
+    questions = Question.objects.filter(status=1).order_by('category','tutorial')
     questions = questions.annotate(total_answers=Count('answer'))
 
     raw_get_data = request.GET.get('o', None)
