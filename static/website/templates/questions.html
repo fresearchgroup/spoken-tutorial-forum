@@ -9,7 +9,8 @@
             Showing {{ questions.start_index }} - {{ questions.end_index }} of {{ questions.paginator.count }} questions.
         </h5>
     </h4>
-    <table id = "listTable" class="tablesorter-blue">
+    <div class="col-lg-16">
+    <table id = "listTable" class="paleblue table table-striped table-hover table-bordered">
 
 				<thead>
                 {% get_sortable_header header ordering request.GET %}
@@ -18,7 +19,7 @@
         {% for question in questions %}
 				
         <tr>
-            <td>
+            <td class="col-md-1">
                 <span href="#" class="category" data-toggle="tooltip" data-placement="top" title="{{ question.category}}">
                     {{ question.category|truncatechars:12 }} 
                 </span>
@@ -27,7 +28,7 @@
                 </a>
             </td>
             
-            <td>
+            <td class="col-md-1">
                 <span class="tutorial" data-toggle="tooltip" data-placement="top" title="{{ question.tutorial}}">
                     {{ question.tutorial|truncatechars:12 }}
                 </span>
@@ -36,7 +37,7 @@
                 </a>
             </td>
             
-            <td>
+            <td class="col-md-1">
                 <span>
                     <a href="{% url 'website:filter' question.category question.tutorial question.minute_range %}?qid={{ question.id }}">
                         {{ question.minute_range }}
@@ -44,7 +45,7 @@
                 </span>
             </td>
             
-            <td>        
+            <td class="col-md-1"> 
                 <span>
                     <a href="{% url 'website:filter' question.category question.tutorial question.minute_range question.second_range%}?qid={{ question.id }}">
                         {{ question.second_range }}
@@ -52,13 +53,13 @@
                 </span>
             </td>
             
-            <td>
+            <td class="col-md-3">
                 <span class="title" data-toggle="tooltip" data-placement="top" title="{{ question.title }}">
                     <a href="{% url 'website:get_question' question.id %}">{{ question.title|truncatechars:40 }}</a>
                 </span>            
             </td>
             
-            <td>    
+            <td class="col-md-1">    
                 <span>
                     <i>
                         {{ question.date_created|date:"d-m-y" }}
@@ -66,23 +67,24 @@
                 </span>
             </td>
             
-            <td>
+            <td class="col-md-1">
                 {{ question.views}}
             </td>
             
-            <td>
+            <td class="col-md-1">
                 {{ question.answer_set.count }}
             </td>
            
-            <td>
+            <td class="col-md-1">
                 <span class="title" data-toggle="tooltip" data-placement="top" title="{{ question.user }}">
                     {{ question.user|truncatechars:10 }}
                 </span>
             </td>
         </tr>
         {% endfor %}
-			<tbody>
+			</tbody>
     </table>
+</div>
     <ul class="pagination pull-right">
         {% if questions.has_previous %}
             <li><a href="?page={{ questions.previous_page_number }}">&laquo; <small>Prev</small></a></li>

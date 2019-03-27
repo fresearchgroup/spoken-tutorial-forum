@@ -17,6 +17,7 @@ from forums.config import VIDEO_PATH
 from website.templatetags.permission_tags import can_edit
 from spoken_auth.models import FossCategory
 from forums.sortable import SortableHeader, get_sorted_list, get_field_index
+from django.db.models import Count, Sum
 
 
 User = get_user_model()
@@ -39,6 +40,8 @@ def home(request):
 
 def questions(request):
     questions = Question.objects.filter(status=1)
+    questions = questions.annotate(total_answers=Count('answer'))
+
     raw_get_data = request.GET.get('o', None)
 
     header = {
@@ -49,15 +52,14 @@ def questions(request):
                 5: SortableHeader('title', True, 'Title'),
                 6: SortableHeader('date_modified', True, 'Date'),
                 7: SortableHeader('views', True, 'Views'),
-                8: SortableHeader('Answers', False, 'Answers'),
-                9: SortableHeader('uid', True, 'User')
+                8: SortableHeader('total_answers', 'True', 'Answers'),
+                9: SortableHeader('username', False, 'User')
             }
 
     tmp_recs = get_sorted_list(request, questions, header, raw_get_data)
     ordering = get_field_index(raw_get_data)
     paginator = Paginator(tmp_recs, 20)
     page = request.GET.get('page')
-
     try:
         questions = paginator.page(page)
     except PageNotAnInteger:
