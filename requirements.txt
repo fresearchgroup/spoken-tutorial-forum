@@ -1,5 +1,5 @@
 Django==1.5.12
-
+future==0.17.1
 MySQL-python==1.2.5
 argparse==1.2.1
 django-appconf==0.6

@@ -16,7 +16,7 @@ from website.helpers import get_video_info, prettify
 from forums.config import VIDEO_PATH
 from website.templatetags.permission_tags import can_edit
 from spoken_auth.models import FossCategory
-from forums.sortable import SortableHeader, get_sorted_list, get_field_index
+from sortable import SortableHeader, get_sorted_list, get_field_index
 from django.db.models import Count
 
 
@@ -39,7 +39,7 @@ def home(request):
 
 
 def questions(request):
-    questions = Question.objects.filter(status=1).order_by('category','tutorial')
+    questions = Question.objects.filter(status=1).order_by('category', 'tutorial')
     questions = questions.annotate(total_answers=Count('answer'))
 
     raw_get_data = request.GET.get('o', None)
@@ -50,7 +50,7 @@ def questions(request):
                 3: SortableHeader('minute_range', True, 'Mins'),
                 4: SortableHeader('second_range', True, 'Secs'),
                 5: SortableHeader('title', True, 'Title'),
-                6: SortableHeader('date_modified', True, 'Date'),
+                6: SortableHeader('date_created', True, 'Date'),
                 7: SortableHeader('views', True, 'Views'),
                 8: SortableHeader('total_answers', 'True', 'Answers'),
                 9: SortableHeader('username', False, 'User')
@@ -559,8 +559,8 @@ def ajax_keyword_search(request):
     if request.method == "POST":
         key = request.POST['key']
         questions = Question.objects.filter(
-            Q(title__icontains=key)|Q(category__icontains=key)|
-            Q(tutorial__icontains=key)|Q(body__icontains=key), status=1)
+            Q(title__icontains=key)| Q(category__icontains=key)| 
+            Q(tutorial__icontains=key)| Q(body__icontains=key), status=1)
         context = {
             'questions': questions
         }
