@@ -559,8 +559,8 @@ def ajax_keyword_search(request):
     if request.method == "POST":
         key = request.POST['key']
         questions = Question.objects.filter(
-            Q(title__icontains=key)| Q(category__icontains=key)| 
-            Q(tutorial__icontains=key)| Q(body__icontains=key), status=1)
+            Q(title__icontains=key) | Q(category__icontains=key) |
+            Q(tutorial__icontains=key) | Q(body__icontains=key), status=1)
         context = {
             'questions': questions
         }
