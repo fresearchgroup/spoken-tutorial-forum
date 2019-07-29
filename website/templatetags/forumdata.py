@@ -32,6 +32,16 @@ def reset_get_value(getValue, exclude_key=None):
     return values
 
 
+''' excludes: will exclude excludes's values '''
+def combine_get_values(getValue, excludes = ['page']):
+    values = ''
+    for k,v in list(getValue.items()):
+        if k not in excludes:
+            values += k+'='+v+'&'
+    return values
+
+
 register.filter('reset_get_values', reset_get_values)
 register.filter('reset_get_value', reset_get_value)
 register.inclusion_tag('website/templates/sortable_header.html')(get_sortable_header)
+register.filter('combine_get_values', combine_get_values)

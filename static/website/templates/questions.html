@@ -96,7 +96,7 @@
             {% ifequal num questions.number %}
                 <li class="active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
             {% else %}
-                <li><a href="?page={{ num }}">{{ num }}</a></li>
+                <li><a href="?{{ request.GET|combine_get_values }}page={{ num }}">{{ num }}</a></li>
             {% endifequal %}
         {% endfor %}
         
