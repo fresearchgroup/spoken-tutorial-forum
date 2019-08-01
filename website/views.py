@@ -16,6 +16,9 @@ from website.helpers import get_video_info, prettify
 from forums.config import VIDEO_PATH
 from website.templatetags.permission_tags import can_edit
 from spoken_auth.models import FossCategory
+from sortable import SortableHeader, get_sorted_list, get_field_index
+from django.db.models import Count
+
 
 User = get_user_model()
 categories = []
@@ -36,10 +39,27 @@ def home(request):
 
 
 def questions(request):
-    questions = Question.objects.filter(status=1).order_by('date_created').reverse()
-    paginator = Paginator(questions, 20)
-    page = request.GET.get('page')
+    questions = Question.objects.filter(status=1).order_by('category', 'tutorial')
+    questions = questions.annotate(total_answers=Count('answer'))
 
+    raw_get_data = request.GET.get('o', None)
+
+    header = {
+                1: SortableHeader('category', True, 'Foss'),
+                2: SortableHeader('tutorial', True, 'Tutorial Name'),
+                3: SortableHeader('minute_range', True, 'Mins'),
+                4: SortableHeader('second_range', True, 'Secs'),
+                5: SortableHeader('title', True, 'Title'),
+                6: SortableHeader('date_created', True, 'Date'),
+                7: SortableHeader('views', True, 'Views'),
+                8: SortableHeader('total_answers', 'True', 'Answers'),
+                9: SortableHeader('username', False, 'User')
+            }
+
+    tmp_recs = get_sorted_list(request, questions, header, raw_get_data)
+    ordering = get_field_index(raw_get_data)
+    paginator = Paginator(tmp_recs, 20)
+    page = request.GET.get('page')
     try:
         questions = paginator.page(page)
     except PageNotAnInteger:
@@ -47,8 +67,10 @@ def questions(request):
     except EmptyPage:
         questions = paginator.page(paginator.num_pages)
     context = {
-        'questions': questions
-    }
+        'questions': questions,
+        'header': header,
+        'ordering': ordering
+        }
     return render(request, 'website/templates/questions.html', context)
 
 
@@ -536,7 +558,9 @@ def ajax_hide_question(request):
 def ajax_keyword_search(request):
     if request.method == "POST":
         key = request.POST['key']
-        questions = Question.objects.filter(title__icontains=key, status=1)
+        questions = Question.objects.filter(
+            Q(title__icontains=key) | Q(category__icontains=key) |
+            Q(tutorial__icontains=key) | Q(body__icontains=key), status=1)
         context = {
             'questions': questions
         }
