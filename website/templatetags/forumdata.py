@@ -1,5 +1,5 @@
 from django import template
-from forums.sortable import get_sortable_header
+from website.sortable import get_sortable_header
 register = template.Library()
 
 
