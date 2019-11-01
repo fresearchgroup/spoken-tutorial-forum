@@ -2,7 +2,7 @@ import json
 
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
-from django.core.context_processors import csrf
+from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.core.mail import EmailMultiAlternatives
@@ -16,7 +16,7 @@ from website.helpers import get_video_info, prettify
 from forums.config import VIDEO_PATH
 from website.templatetags.permission_tags import can_edit
 from spoken_auth.models import FossCategory
-from sortable import SortableHeader, get_sorted_list, get_field_index
+from .sortable import SortableHeader, get_sorted_list, get_field_index
 from django.db.models import Count
 
 

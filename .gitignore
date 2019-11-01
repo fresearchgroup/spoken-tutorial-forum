@@ -42,3 +42,5 @@ nosetests.xml
 .project
 .pydevproject
 uwsgi-master.pid
+.env
+.vscode

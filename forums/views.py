@@ -1,13 +1,13 @@
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login, logout
 from django.shortcuts import render_to_response
-from django.core.context_processors import csrf
+from django.template.context_processors import csrf
 
 from forums.forms import UserLoginForm
 
 
 def user_login(request):
-    if request.user.is_anonymous():
+    if request.user.is_anonymous:
         if request.method == 'POST':
             form = UserLoginForm(request.POST)
             if form.is_valid():

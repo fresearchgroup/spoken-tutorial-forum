@@ -43,6 +43,6 @@ def chenage_drupal_userid_spoken(request):
                 c.uid = uid
                 c.save()
             else:
-                print c.uid
-        print model, " Done!!"
+                print(c.uid)
+        print(model, " Done!!")
     return HttpResponse("Migration Done!")

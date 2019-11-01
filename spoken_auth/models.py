@@ -25,8 +25,8 @@ class Users(AbstractBaseUser):
 
 class UserGroups(models.Model):
     id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(Users)
-    group = models.ForeignKey(Group)
+    user = models.ForeignKey(Users, on_delete=models.CASCADE,)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE,)
 
     class Meta:
         db_table = 'auth_user_groups'
@@ -61,10 +61,10 @@ class Level(models.Model):
 
 
 class TutorialDetails(models.Model):
-    foss = models.ForeignKey(FossCategory)
+    foss = models.ForeignKey(FossCategory, on_delete=models.CASCADE,)
     tutorial = models.CharField(max_length=255)
     order = models.IntegerField()
-    level = models.ForeignKey(Level)
+    level = models.ForeignKey(Level, on_delete=models.CASCADE,)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -74,8 +74,8 @@ class TutorialDetails(models.Model):
 
 class TutorialResources(models.Model):
     id = models.IntegerField(primary_key=True)
-    tutorial_detail = models.ForeignKey(TutorialDetails)
-    language = models.ForeignKey(Language)
+    tutorial_detail = models.ForeignKey(TutorialDetails, on_delete=models.CASCADE,)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE,)
     video = models.TextField()
     status = models.PositiveSmallIntegerField(default=0)
 
