@@ -164,8 +164,6 @@ USE_TZ = True
 
 
 
-CONN_MAX_AGE = 100
-
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') # Absolute path to the media.
 
