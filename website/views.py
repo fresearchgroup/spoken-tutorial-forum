@@ -13,7 +13,7 @@ from website.models import Question, Answer, Notification, AnswerComment
 from spoken_auth.models import TutorialDetails, TutorialResources
 from website.forms import NewQuestionForm, AnswerQuesitionForm
 from website.helpers import get_video_info, prettify
-from forums.config import VIDEO_PATH
+from django.conf  import settings
 from website.templatetags.permission_tags import can_edit
 from spoken_auth.models import FossCategory
 from .sortable import SortableHeader, get_sorted_list, get_field_index
@@ -413,7 +413,7 @@ def ajax_duration(request):
             Q(language__name='English')
         )
         video_path = '{0}/{1}/{2}/{3}'.format(
-            VIDEO_PATH,
+            settings.VIDEO_PATH,
             str(video_detail.foss_id),
             str(video_detail.id),
             video_resource.video

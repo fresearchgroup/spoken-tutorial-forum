@@ -292,3 +292,4 @@ LOGGING = {
     }
 }
 
+VIDEO_PATH = os.getenv("VIDEO_PATH")
