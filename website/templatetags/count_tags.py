@@ -22,15 +22,15 @@ def get_range(value, arg=''):
     if n == 0 or arg == '':
         # if no arguments set value as limit
         start = 0
-        limit = value
+        limit = int(value)
         step = 1
     elif n == 1:
         start = int(args[0])
-        limit = value
+        limit = int(value)
         step = 1
     elif n == 2:
         start = int(args[0])
-        limit = value
+        limit = int(value)
         step = int(args[1])
     else:
         raise TypeError('get_range() takes maximum 2 arguments, {} given'.format(n))
