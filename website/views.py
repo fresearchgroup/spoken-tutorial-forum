@@ -124,7 +124,7 @@ def question_answer(request):
             answer = Answer()
             answer.uid = request.user.id
             answer.question = question
-            answer.body = body.encode('unicode_escape')
+            answer.body = body
             answer.save()
             if question.uid != request.user.id:
                 notification = Notification()
@@ -158,7 +158,7 @@ def question_answer(request):
                 email.attach_alternative(message, "text/html")
                 email.send(fail_silently=True)
                 # End of email send
-        return HttpResponseRedirect('/question/' + str(qid) + "#answer" + str(answer.id))
+            return HttpResponseRedirect('/question/' + str(qid) + "#answer" + str(answer.id))
     return HttpResponseRedirect('/')
 
 
@@ -171,7 +171,7 @@ def answer_comment(request):
         comment = AnswerComment()
         comment.uid = request.user.id
         comment.answer = answer
-        comment.body = body.encode('unicode_escape')
+        comment.body = body
         comment.save()
 
         # notifying the answer owner
@@ -268,7 +268,7 @@ def new_question(request):
             question.minute_range = cleaned_data['minute_range']
             question.second_range = cleaned_data['second_range']
             question.title = cleaned_data['title']
-            question.body = cleaned_data['body'].encode('unicode_escape')
+            question.body = cleaned_data['body']
             question.views = 1
             question.save()
 
@@ -445,7 +445,7 @@ def ajax_question_update(request):
         question = get_object_or_404(Question, pk=qid)
         if can_edit(user=request.user, obj=question):
             question.title = title
-            question.body = body.encode('unicode_escape')
+            question.body = body
             question.save()
             return HttpResponse("saved")
 
@@ -481,7 +481,7 @@ def ajax_answer_update(request):
         body = request.POST['answer_body']
         answer = get_object_or_404(Answer, pk=aid)
         if can_edit(user=request.user, obj=answer):
-            answer.body = body.encode('unicode_escape')
+            answer.body = body
             answer.save()
             return HttpResponse("saved")
 
@@ -495,7 +495,7 @@ def ajax_answer_comment_update(request):
         comment_body = request.POST["comment_body"]
         comment = get_object_or_404(AnswerComment, pk=comment_id)
         if can_edit(user=request.user, obj=comment):
-            comment.body = comment_body.encode('unicode_escape')
+            comment.body = comment_body
             comment.save()
             return HttpResponse("saved")
 
