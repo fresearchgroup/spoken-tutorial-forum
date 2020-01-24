@@ -3,6 +3,7 @@ $(document).ready(function() {
     $tutorial = $("#id_tutorial");
     $minute_range = $("#id_minute_range");
     $second_range = $("#id_second_range");
+    $title = $("#id_title");
 		var tutorial = $tutorial.val();
 		var category = $category.val();
 		
@@ -65,7 +66,7 @@ $(document).ready(function() {
         }
     });
 
-    $tutorial.change(function() {
+    $tutorial.on('input', function() {
         /* resetting dropdowns */
         reset("minute_range", "second_range");
         var category = $category.val();
@@ -98,7 +99,8 @@ $(document).ready(function() {
         }
     });
     
-    $second_range.change(function() {
+    
+    $title.change(function() {
         $.ajax({
             url: "/ajax-similar-questions/",
             type: "POST",
@@ -106,13 +108,15 @@ $(document).ready(function() {
                 category: $category.val(),
                 tutorial: $tutorial.val(),
                 minute_range: $minute_range.val(),
-                second_range: $second_range.val()
+                second_range: $second_range.val(),
+                title: $title.val()
             },
             dataType: "html",
             success: function(data) {
                 $response = $(data);
                 var similar_count= $response.find("#similar-count").text();
-                $("#similar-link").show().html(similar_count);
+                console.log(similar_count);
+                $("#similar-link").show();
                 $("#modal-body").html(data);
             }
         });

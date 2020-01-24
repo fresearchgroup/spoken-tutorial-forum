@@ -13,7 +13,7 @@
 {% for question in questions %}
     <tr>
         <td>
-            <a href="{% url 'website:get_question' question.id %}" target="_blank">
+            <a href="{{ question.body }}" target="_blank">
                 {{ question.title }}
             </a>
         </td>

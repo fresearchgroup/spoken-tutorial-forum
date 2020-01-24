@@ -1,5 +1,7 @@
 import json
-
+import pandas
+import pymongo
+    
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
 from django.template.context_processors import csrf
@@ -419,19 +421,19 @@ def ajax_duration(request):
             video_resource.video
         )
 
-        video_info = get_video_info(video_path)
+        # video_info = get_video_info(video_path)
 
-        # convert minutes to 1 if less than 0
-        # convert seconds to nearest upper 10th number eg(23->30)
-        minutes = video_info['minutes']
-        seconds = video_info['seconds']
-        if minutes < 0:
-            minutes = 1
-        seconds = int(seconds - (seconds % 10 - 10))
-        seconds = 60
+        # # convert minutes to 1 if less than 0
+        # # convert seconds to nearest upper 10th number eg(23->30)
+        # minutes = video_info['minutes']
+        # seconds = video_info['seconds']
+        # if minutes < 0:
+        #     minutes = 1
+        # seconds = int(seconds - (seconds % 10 - 10))
+        # seconds = 60
         context = {
-            'minutes': minutes,
-            'seconds': seconds,
+            'minutes': 5,
+            'seconds': 6,
         }
         return render(request, 'website/templates/ajax-duration.html', context)
 
@@ -501,16 +503,57 @@ def ajax_answer_comment_update(request):
 
     return HttpResponseForbidden("Not Authorised")
 
+def get_relevant_questions(query):
+    print(query)
+    tags = set()
+
+    # for file in os.listdir("extracted_questions"):
+    #     df = pandas.read_csv("extracted_questions/"+file, header=None, names=['question_id', 'tag', 'link', 'tags', 'accepted_answer'])
+    #     # print(df['tag'].values[1])
+    #     tags.add(df['tag'].values[1])
+    #     # print(tags)
+    #     for tag in df['tags']:
+    #         for t in tag.split(';'):
+    #             tags.add(t)
+    #     # print(tags)
+    tags = ["c++", "django", "polymorphism", "inheritance", "overloading", "opetaor"]
+            
+    rel_tags = set()
+
+    for word in query.split():
+        if word in tags:
+            rel_tags.add(word)
+
+    # print(rel_tags)
+
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    db = client.stackapi
+    collec_ques = db.questions
+
+    # fetch questions
+    questions = []
+    for t in rel_tags:
+        print("\nFetching questions for tag: " + t + "\n")
+        items = collec_ques.find({"tags": t}).limit(5)
+        for item in items:
+            print(item)
+            q = {'title': item['title'], 'uid': item['question_id'], 'body': item['link']}
+            questions.append(q)
+        return questions
+
 
 def ajax_similar_questions(request):
     if request.method == 'POST':
         category = request.POST['category']
         tutorial = request.POST['tutorial']
+        titl = request.POST['title']
         # minute_range = request.POST['minute_range']
         # second_range = request.POST['second_range']
 
+        questions = get_relevant_questions(titl)
+
         # add more filtering when the forum grows
-        questions = Question.objects.filter(category=category).filter(tutorial=tutorial)
+        # questions = Question.objects.filter(category=category).filter(tutorial=tutorial)
         context = {
             'questions': questions
         }
@@ -558,11 +601,16 @@ def ajax_hide_question(request):
 def ajax_keyword_search(request):
     if request.method == "POST":
         key = request.POST['key']
+        
+        titles = get_relevant_questions(key)
+        print("questions are")
+        print(titles)
         questions = Question.objects.filter(
             Q(title__icontains=key) | Q(category__icontains=key) |
             Q(tutorial__icontains=key) | Q(body__icontains=key), status=1)
         context = {
-            'questions': questions
+            'questions': questions,
+            'titles': titles
         }
         return render(request, 'website/templates/ajax-keyword-search.html', context)
 
