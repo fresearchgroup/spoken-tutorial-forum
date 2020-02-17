@@ -38,6 +38,7 @@ class FossCategory(models.Model):
     status = models.BooleanField(max_length=2)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    show_on_homepage = models.PositiveSmallIntegerField(default=0, help_text ='0:Display on home page, 1:Series, 2:Archived')
 
     class Meta:
         db_table = 'creation_fosscategory'

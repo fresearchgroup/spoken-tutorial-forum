@@ -22,7 +22,7 @@ from django.db.models import Count
 
 User = get_user_model()
 categories = []
-trs = TutorialResources.objects.filter(Q(status=1) | Q(status=2), language__name='English')
+trs = TutorialResources.objects.filter(Q(status=1) | Q(status=2),tutorial_detail__foss__show_on_homepage__lt=2, language__name='English')
 trs = trs.values('tutorial_detail__foss__foss').order_by('tutorial_detail__foss__foss')
 
 for tr in trs.values_list('tutorial_detail__foss__foss').distinct():
