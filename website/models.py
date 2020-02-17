@@ -28,12 +28,12 @@ class Question(models.Model):
 
 class QuestionVote(models.Model):
     uid = models.IntegerField()
-    question = models.ForeignKey(Question)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE,)
 
 
 class QuestionComment(models.Model):
     uid = models.IntegerField()
-    question = models.ForeignKey(Question)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE,)
     body = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
@@ -41,7 +41,7 @@ class QuestionComment(models.Model):
 
 class Answer(models.Model):
     uid = models.IntegerField()
-    question = models.ForeignKey(Question)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE,)
     body = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
@@ -54,12 +54,12 @@ class Answer(models.Model):
 
 class AnswerVote(models.Model):
     uid = models.IntegerField()
-    answer = models.ForeignKey(Answer)
+    answer = models.ForeignKey(Answer, on_delete=models.CASCADE,)
 
 
 class AnswerComment(models.Model):
     uid = models.IntegerField()
-    answer = models.ForeignKey(Answer)
+    answer = models.ForeignKey(Answer, on_delete=models.CASCADE,)
     body = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)

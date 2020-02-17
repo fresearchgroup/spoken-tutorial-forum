@@ -190,7 +190,7 @@
                 
                 <!-- form to add comment -->
                 {% if user.is_authenticated %}
-                <form id="form{{ answer.id }}" method="post" action="/answer-comment/"> {% csrf_token %}
+                <form id="form{{ answer.id }}" method="post" action="/answer-comment/" novalidate> {% csrf_token %}
                     <input type="hidden" name="answer_id" value="{{answer.id}}">
                     <textarea name="body" class="new-comment form-control" id="comment{{ answer.id }}" rows="2"></textarea>
                 </form>
@@ -217,7 +217,7 @@
 {% endfor %}
 
 {% if user.is_authenticated %}
-    <form action="{% url 'website:question_answer' %}" method="POST"> {% csrf_token %}
+    <form action="{% url 'website:question_answer' %}" method="POST" novalidate> {% csrf_token %}
         {% with WIDGET_ERROR_CLASS='field_error' %}
             <div class="row"> 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
