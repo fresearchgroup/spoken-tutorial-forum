@@ -1,0 +1,31 @@
+<div>
+    <div id="similar-count">
+        {% if questions.count > 0 %}
+            {% if questions.count == 1 %}
+                1 similar question
+            {% else %}
+                {{ questions.count }} similar questions
+            {% endif %}
+        {% endif %}
+    </div>
+    <br>
+    
+    <table class="table table-bordered table-hover">
+    {% if questions.count == 0 %}
+        <h3>No similar questions found</h3>
+    {% endif %}
+    {% for question in questions %}
+        <tr>
+            <td>
+                <a href="{{ question.body }}" target="_blank">
+                    {{ question.title }}
+                </a>
+                {% for tag in question.tags %}
+                <span class="badge badge-pill badge-dark">{{ tag }}</span>
+                {% endfor %}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    </div> <!-- /div for ajax -->
+    

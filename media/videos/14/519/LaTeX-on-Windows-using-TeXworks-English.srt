@@ -1,0 +1,554 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:05
+Dear Friends, Welcome to the spoken tutorial on <b>“LaTeX on Windows using TeXworks”</b>
+
+2
+00:00:06 --> 00:00:11
+In this tutorial we will learn to,  Download and install <b>MikTeX</b> .
+
+3
+00:00:12 --> 00:00:14
+Write basic <b>LaTeX</b> documents using <b>TeXworks</b>.
+
+4
+00:00:15 --> 00:00:18
+Configure <b>MikTeX</b> to download missing packages.
+
+5
+00:00:19 --> 00:00:26
+To record this tutorial, I am using <b>Windows7 </b>operating system and MikTeX2.9
+
+6
+00:00:27 --> 00:00:30
+Let us now see the salient features of <b>TeXworks</b>
+
+7
+00:00:31 --> 00:00:33
+It is platform independent
+
+8
+00:00:34 --> 00:00:35
+It has an embedded pdf reader
+
+9
+00:00:36 --> 00:00:39
+It supports Indian language typesetting
+
+10
+00:00:40 --> 00:00:44
+Before we start with <b>TeXworks</b>, we have to install <b>MikTeX</b>.
+
+11
+00:00:45 --> 00:00:51
+<b>MikTeX</b> is an up-to-date implementation of <b>TeX/LaTeX</b> and related programs for <b>Windows</b>.
+
+12
+00:00:52 --> 00:01:03
+It contains the necessary packages to create basic documents in <b>LaTeX </b>on <b>Windows</b> ,Moreover, <b>TeXworks</b> is a default editor available with <b>MikTeX</b> installation.
+
+13
+00:01:04 --> 00:01:09
+Go to the website <a class="external text" href="http://www.miktex.org/" rel="nofollow">www.</a><b>miktex</b><a class="external text" href="http://www.miktex.org/" rel="nofollow">.org</a>
+
+14
+00:01:10 --> 00:01:18
+Click on the download link for recommended <b>MikTeX</b> installer. This will download the <b>MikTeX</b> installer.
+
+15
+00:01:19 --> 00:01:21
+Download and save it on your <b>Desktop.</b>.
+
+16
+00:01:22 --> 00:01:27
+It is a large file, about 154 mega bytes. Hence, it will take some time to download.
+
+17
+00:01:28 --> 00:01:31
+I have already downloaded this file. Here it is.
+
+18
+00:01:32 --> 00:01:35
+Double click on this file to start the installation.
+
+19
+00:01:36 --> 00:01:39
+Check the check box and click on <b>Next</b>.
+
+20
+00:01:40 --> 00:01:43
+Choose all default options.
+
+21
+00:01:44 --> 00:01:46
+The installation will take around 5 to 10 minutes.
+
+22
+00:01:47 --> 00:01:54
+I have already installed <b>MikTeX</b> on my computer. Hence I will not proceed with the installation.
+
+23
+00:01:55 --> 00:01:57
+After successfully installing <b>MikTeX</b> on your computer,
+
+24
+00:01:58 --> 00:02:03
+let us see how to use the <b>TeXworks</b> editor which comes with <b>MikTeX.</b>
+
+25
+00:02:04 --> 00:02:06
+Click on the <b>Windows start</b> button.
+
+26
+00:02:07 --> 00:02:09
+Click on <b>All Programs</b>.
+
+27
+00:02:10 --> 00:02:11
+Click on <b>MikTeX2.9</b>.
+
+28
+00:02:12 --> 00:02:14
+Click on <b>TeXworks</b>.
+
+29
+00:02:15 --> 00:02:17
+<b>TeXworks</b> editor will open.
+
+30
+00:02:18 --> 00:02:21
+Let me open an already existing <b>LaTeX</b> document.
+
+31
+00:02:22 --> 00:02:32
+I will click on <b>File,</b> then click on <b>Open</b> and choose the directory. Then I will open the file <b>hello.tex</b>.
+
+32
+00:02:33 --> 00:02:37
+You can see that the text written in the file is colored.
+
+33
+00:02:38 --> 00:02:46
+This is called <b>syntax</b> <b>highlighting</b>.  It helps the user differentiate between the user content and the <b>LaTeX</b> syntax.
+
+34
+00:02:47 --> 00:02:51
+In case the <b>LaTeX</b> syntax is not highlighted, do the following.
+
+35
+00:02:52 --> 00:02:58
+In the <b>TeXworks</b> window, click on <b>Format</b> button available on the <b>Menu bar</b>.
+
+36
+00:02:59 --> 00:03:02
+Select <b>Syntax Colouring</b> and then click on <b>LaTeX</b>.
+
+37
+00:03:03 --> 00:03:10
+If you want <b>TeXworks</b> to apply <b>syntax highlighting</b> every time you create a <b>LaTeX</b> document, do the following
+
+38
+00:03:11 --> 00:03:15
+On the <b>menu</b> bar, click on <b>Edit</b> and then click on <b>Preferences</b>.
+
+39
+00:03:16 --> 00:03:21
+In the <b>Editor</b> tab, click on the dropdown button which gives options for <b>Syntax Colouring</b>.
+
+40
+00:03:22 --> 00:03:26
+Choose <b>LaTeX</b> and then click on <b>Ok.</b>
+
+41
+00:03:27 --> 00:03:32
+In this way, <b>syntax</b> <b>highlighting</b> will be applied to all documents created in the future.
+
+42
+00:03:33 --> 00:03:36
+Now we are ready to compile our <b>LaTeX</b> document.
+
+43
+00:03:37 --> 00:03:42
+Press <b>Ctrl</b> and <b>t</b> keys together to start the compilation.
+
+44
+00:03:43 --> 00:03:48
+Once the document is compiled without errors, the resulting <b>pdf</b> will be opened.
+
+45
+00:03:49 --> 00:03:52
+Note that this <b>pdf</b> reader comes along with <b>TeXworks.</b>
+
+46
+00:03:53 --> 00:03:59
+It is the default <b>pdf</b> reader used by <b>TeXworks</b> to display the compiled <b>pdf</b> documents.
+
+47
+00:04:00 --> 00:04:03
+We have completed the basic installation of LATEX.
+
+48
+00:04:04 --> 00:04:06
+This is sufficient for many formatting requirements.
+
+49
+00:04:07 --> 00:04:13
+You may now leave this tutorial. Practice the remaining LATEX tutorials on the playlist
+
+50
+00:04:14 --> 00:04:24
+While practising other tutorials, you may get the following error message:<b>“The required file ABC is missing. It is a part of the following package: XYZ”</b>
+
+51
+00:04:25 --> 00:04:28
+Here ABC is a file inside the package XYZ
+
+52
+00:04:29 --> 00:04:32
+ABC and XYZ will be specific to your case.
+
+53
+00:04:33 --> 00:04:37
+When you get such an error message, listen to the rest of this tutorial.
+
+54
+00:04:38 --> 00:04:45
+Two ways to solve that problem are explained in the rest of this tutorial. At least one of them should work for you.
+
+55
+00:04:46 --> 00:04:47
+Goodbye for now
+
+56
+00:04:48 --> 00:04:55
+Do you want to know how to solve a problem of the following type: Listen to the rest of this tutorial and practise with me.
+
+57
+00:04:56 --> 00:04:58
+Now let us compile a <b>Beamer</b> document.
+
+58
+00:04:59 --> 00:05:04
+Beamer package by default is not included in the <b>MikTeX</b> setup that we have installed.
+
+59
+00:05:05 --> 00:05:11
+This means that we have to : download it from some source and add it to our current <b>MikTeX</b> distribution
+
+60
+00:05:12 --> 00:05:15
+There are two ways of installing a missing package.
+
+61
+00:05:16 --> 00:05:20
+One way is to install it on the fly while we are compiling a <b>LaTeX</b> document
+
+62
+00:05:21 --> 00:05:27
+This <b>LaTeX</b> document will typically require a package not available in your <b>MikTeX</b> distribution.
+
+63
+00:05:28 --> 00:05:34
+Other way, is to manually choose and install a package using <b>Package</b> <b>Manager</b> of <b>MikTeX</b>.
+
+64
+00:05:35 --> 00:05:36
+Let us see the first method.
+
+65
+00:05:37 --> 00:05:43
+We will  open and compile a <b>LaTeX</b> document, which requires <b>MikTeX</b>  to install packages from the <b>internet</b>.
+
+66
+00:05:44 --> 00:05:47
+First close the <b>TeXworks</b> editor.
+
+67
+00:05:48 --> 00:05:52
+It is required that we open the <b>tex</b> file with administrator privileges.
+
+68
+00:05:53 --> 00:06:01
+Click on the <b>start</b> button. Then click on <b>All programs</b>. Click on <b>MikTeX2.9</b>
+
+69
+00:06:02 --> 00:06:07
+Right click on <b>TeXworks</b> and choose <b>Run as Administrator</b>
+
+70
+00:06:08 --> 00:06:12
+This will launch the <b>TeXworks</b> editor with <b>administrator</b> privileges.
+
+71
+00:06:13 --> 00:06:20
+Now click on <b>File.</b> Then click on <b>Open</b>  Choose the file <b>beamer.tex</b>
+
+72
+00:06:21 --> 00:06:25
+Press <b>Ctrl</b> and <b>t</b> keys together to start the compilation.
+
+73
+00:06:26 --> 00:06:29
+A <b>Package Installation </b>dialog box will open.
+
+74
+00:06:30 --> 00:06:34
+It will ask to install the missing package <b>beamer.cls. </b>
+
+75
+00:06:35 --> 00:06:39
+Click on <b>Change </b>button on this dialog box.
+
+76
+00:06:40 --> 00:06:43
+<b>Change Package Repository </b>dialog box will open.
+
+77
+00:06:44 --> 00:06:48
+Choose the option <b>Packages shall be installed from the internet.</b>
+
+78
+00:06:49 --> 00:06:51
+Click on <b>Connection Settings.</b>
+
+79
+00:06:52 --> 00:06:55
+It will prompt you to configure the <b>proxy</b> settings.
+
+80
+00:06:56 --> 00:07:02
+If you are not on a <b>proxy</b> network then leave the <b>Use proxy server checkbox</b> unchecked.
+
+81
+00:07:03 --> 00:07:08
+Since i am on a <b>proxy</b> network, i will enable the option by clicking on the checkbox
+
+82
+00:07:09 --> 00:07:12
+I will enter the <b>proxy</b> address.
+
+83
+00:07:13 --> 00:07:15
+I will enter <b>proxy</b> port number.
+
+84
+00:07:16 --> 00:07:22
+I will enable the option <b>Authentication required </b>by clicking on the corresponding checkbox
+
+85
+00:07:23 --> 00:07:26
+Click on <b>Ok</b>. And then click on <b>Next</b>
+
+86
+00:07:27 --> 00:07:30
+It will ask me the <b>proxy username </b>and<b> password.</b>
+
+87
+00:07:31 --> 00:07:35
+I will enter the information and click on <b>OK</b>.
+
+88
+00:07:36 --> 00:07:40
+It will show a list of various remote package repositories.
+
+89
+00:07:41 --> 00:07:44
+Choose one from the list and click on <b>Finish.</b>
+
+90
+00:07:45 --> 00:07:47
+Click on <b>Install</b>.
+
+91
+00:07:48 --> 00:07:51
+It will install the <b>beamer.cls </b>package
+
+92
+00:07:52 --> 00:07:56
+Once again the <b>Package Installation </b>dialog box will open.
+
+93
+00:07:57 --> 00:08:02
+It will prompt to install the missing package <b>pgfcore.sty.</b>
+
+94
+00:08:03 --> 00:08:08
+You may uncheck the option <b>Always show this dialog before installing packages</b>.
+
+95
+00:08:09 --> 00:08:15
+If you do this, <b>MikTeX</b> will not prompt you again, if it encounters a missing package.
+
+96
+00:08:16 --> 00:08:17
+Click on <b>Install.</b>
+
+97
+00:08:18 --> 00:08:27
+Now if there any more missing packages, it will automatically install it, without asking for your permission.
+
+98
+00:08:28 --> 00:08:34
+Once the installation completes, it will finish the compilation and open the <b>pdf</b> output.
+
+99
+00:08:35 --> 00:08:38
+We can see that we have successfully compiled a <b>Beamer</b> document.
+
+100
+00:08:39 --> 00:08:43
+Now let us see the second method of installing missing packages.
+
+101
+00:08:44 --> 00:08:46
+Click on the Windows <b>start</b> button.
+
+102
+00:08:47 --> 00:08:48
+Click on <b>All Programs</b>.
+
+103
+00:08:49 --> 00:08:51
+Click on <b>MikTeX2.9</b>
+
+104
+00:08:52 --> 00:08:54
+Click on <b>Maintenance (Admin)</b>
+
+105
+00:08:55 --> 00:08:59
+Cick on <b>Package Manager (Admin)</b>
+
+106
+00:09:00 --> 00:09:03
+It will show a list of various packages available.
+
+107
+00:09:04 --> 00:09:06
+Now let us take a look at this list.
+
+108
+00:09:07 --> 00:09:09
+There are six columns in this list.
+
+109
+00:09:10 --> 00:09:17
+These are <b>Name, Category, Size, Packaged date, Installed on date</b> and <b>Title</b>.
+
+110
+00:09:18 --> 00:09:21
+The <b>Installed on</b> column is very important to us.
+
+111
+00:09:22 --> 00:09:28
+The packages for which this column is blank indicates that these packages are not installed.
+
+112
+00:09:29 --> 00:09:32
+Let us see how to install a particular package.
+
+113
+00:09:33 --> 00:09:37
+Let me choose the package <b>abc</b>, for example.
+
+114
+00:09:38 --> 00:09:44
+Notice that the moment I choose the package, the <b>plus</b> button on the top left side gets enabled.
+
+115
+00:09:45 --> 00:09:49
+The <b>plus</b> button is the <b>install</b> button. Click on the <b>plus</b> button.
+
+116
+00:09:50 --> 00:09:57
+A window will open which will list the number of packages you have chosen to install or uninstall.
+
+117
+00:09:58 --> 00:10:00
+Click on <b>Proceed</b>.
+
+118
+00:10:01 --> 00:10:07
+Since I have configured a <b>proxy</b> network connection, it will prompt me for the <b>proxy username</b> and <b>password</b>.
+
+119
+00:10:08 --> 00:10:10
+Let me type my <b>username</b> and <b>password</b>
+
+120
+00:10:11 --> 00:10:12
+Click on <b>Ok</b>
+
+121
+00:10:13 --> 00:10:19
+A window will open which will show the download progress of the package selected for installation.
+
+122
+00:10:20 --> 00:10:25
+It may happen that it fails to download the requested package due to remote server connectivity issues.
+
+123
+00:10:26 --> 00:10:30
+In that case, change the package repository and try again.
+
+124
+00:10:31 --> 00:10:35
+We can see that the installation of selected package is completed.
+
+125
+00:10:36 --> 00:10:37
+Click on <b>Close</b>.
+
+126
+00:10:38 --> 00:10:40
+The package list will get refreshed.
+
+127
+00:10:41 --> 00:10:48
+Notice that 11 september 2013 appears in the <b>Installed</b> <b>on</b> column for package <b>abc.</b>
+
+128
+00:10:49 --> 00:10:53
+This completes the tutorial <b>LaTeX on Windows using TeXworks</b>
+
+129
+00:10:54 --> 00:10:58
+In this tutorial we learnt to -  Download and install <b>MikTeX</b>.
+
+130
+00:10:59 --> 00:11:02
+Write a basic <b>LaTeX</b> document using <b>TeXworks</b>
+
+131
+00:11:03 --> 00:11:07
+Configure <b>MikTeX</b> to download missing packages in 2 different ways
+
+132
+00:11:08 --> 00:11:11
+Watch the video available at , <a class="external free" href="http://spoken-tutorial.org/What_is_a_Spoken_Tutorial" rel="nofollow">http://spoken-tutorial.org/What_is_a_Spoken_Tutorial</a>
+
+133
+00:11:12 --> 00:11:17
+It summarizes the Spoken Tutorial project, If you do not have good bandwidth, you can download and watch it.
+
+134
+00:11:18 --> 00:11:27
+The Spoken Tutorial Project Team  Conducts workshops using spoken tutorials. Gives certificates to those who pass an online test .
+
+135
+00:11:28 --> 00:11:32
+For more details, please write to contact@spoken-tutorial.org
+
+136
+00:11:33 --> 00:11:44
+Spoken Tutorial Project is a part of the Talk to a Teacher project. It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+137
+00:11:45 --> 00:11:55
+More information on the same is available at, <a class="external free" href="http://spoken-tutorial.org" rel="nofollow">http://spoken-tutorial.org</a> /NMEICT-Intro
+
+138
+00:11:56 --> 00:12:01
+This is Rupak Rokade from IIT Bombay signing off. Thanks for watching.
+

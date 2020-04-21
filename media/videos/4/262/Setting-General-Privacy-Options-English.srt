@@ -1,0 +1,350 @@
+<b>Narration</b>
+
+1
+00:00:00 --> 00:00:03
+Welcome to the tutorial of <b>Mozilla Firefox</b>.
+
+2
+00:00:04 --> 00:00:10
+In this tutorial, we will learn how to: set <b>General preferences</b>, set <b>Privacy preferences</b>.
+
+3
+00:00:11 --> 00:00:17
+In this tutorial, we are using <b>Firefox version 7.0</b> on <b>Ubuntu 10.04</b>.
+
+4
+00:00:18 --> 00:00:23
+<b>Preferences</b> within Mozilla Firefox allows us to perform repetitive tasks with ease.
+
+5
+00:00:24 --> 00:00:28
+For <b>Windows</b> users, this feature is called <b>Options</b>.
+
+6
+00:00:29 --> 00:00:32
+Say for example, we want to set our email login page as our <b>home page</b>.
+
+7
+00:00:33 --> 00:00:36
+So, we will click on <b>Edit</b> and <b>Preferences</b>.
+
+8
+00:00:37 --> 00:00:41
+<b>Windows</b> users should click on <b>Tools</b> and <b>Options</b>.
+
+9
+00:00:42 --> 00:00:49
+The <b>Preferences</b> or <b>Options</b> dialog box opens. At the top of the dialog box, there are a number of tabs.
+
+10
+00:00:50 --> 00:00:52
+Each one has a different function.
+
+11
+00:00:53 --> 00:01:03
+The <b>General</b> panel contains <b>preferences</b> related to the most commonly used settings such as : setting <b>Firefox home page</b>, setting file download location.
+
+12
+00:01:04 --> 00:01:07
+Let us learn how to set 'Gmail' as our <b>default home page</b>.
+
+13
+00:01:08 --> 00:01:15
+Under <b>Start up</b>, in the <b>When Firefox starts</b> drop-down menu, select <b>‘Show my home page’</b>.
+
+14
+00:01:16 --> 00:01:21
+By default, the <b>Home page</b> <b>field</b> is set to ‘Mozilla Firefox Start Page’.
+
+15
+00:01:22 --> 00:01:28
+Click on the <b>Home Page</b> field and  type ‘www.gmail.com’.
+
+16
+00:01:29 --> 00:01:32
+Click on the <b>Close</b> button  to close the dialog box.
+
+17
+00:01:33 --> 00:01:35
+Our settings will be saved automatically.
+
+18
+00:01:36 --> 00:01:39
+Now, close this <b>Firefox window</b>.
+
+19
+00:01:40 --> 00:01:41
+And open a new Firefox window.
+
+20
+00:01:42 --> 00:01:45
+You will notice that the 'Gmail login page' is the <b>homepage</b>.
+
+21
+00:01:46 --> 00:01:50
+Next, let us now learn how Mozilla Firefox handles downloads.
+
+22
+00:01:51 --> 00:01:53
+Click on <b>Edit</b> and <b>Preferences</b>.
+
+23
+00:01:54 --> 00:01:57
+As before, Windows users, please click on <b>Tools > Options</b>.
+
+24
+00:01:58 --> 00:02:01
+Click on the <b>‘General’</b> tab.
+
+25
+00:02:02 --> 00:02:08
+In the ‘Downloads’ option, put a check on the check box  <b>‘Show the Downloads window when downloading a file’</b>.
+
+26
+00:02:09 --> 00:02:11
+Now check  the radio-button that says <b>‘Save files to’</b>.
+
+27
+00:02:12 --> 00:02:17
+Click the <b>Browse</b> button and change the default folder to Desktop. Click on the <b>Open</b> button.
+
+28
+00:02:18 --> 00:02:23
+Click on the <b>Close</b> button to close the dialog box.
+
+29
+00:02:24 --> 00:02:27
+As before, our settings will be saved automatically.
+
+30
+00:02:28 --> 00:02:33
+In the browser’s <b>Search bar</b>, type ‘Flowers’ and click the magnifying lens to the right.
+
+31
+00:02:34 --> 00:02:37
+Right-click on the first search result that appears.
+
+32
+00:02:38 --> 00:02:39
+And click on <b>‘Save Link As’</b>.
+
+33
+00:02:40 --> 00:02:45
+You notice that by default the link would be downloaded to Desktop.
+
+34
+00:02:46 --> 00:02:50
+Click <b>Save</b> and the file will be saved on the Desktop.
+
+35
+00:02:51 --> 00:02:55
+The <b>Tabs panel</b> contains preferences related to the <b>tabbed browsing</b> feature.
+
+36
+00:02:56 --> 00:03:01
+The <b>Content</b> panel contains preferences related to how websites are displayed.
+
+37
+00:03:02 --> 00:03:10
+The <b>Applications</b> panel lets you decide how Mozilla Firefox should handle different types of files.
+
+38
+00:03:11 --> 00:03:12
+It could be a PDF document or an audio file .
+
+39
+00:03:13 --> 00:03:18
+As an assignment, explore these tabs and the options therein.
+
+40
+00:03:19 --> 00:03:24
+The <b>Privacy</b> panel contains preferences related to your web-privacy.
+
+41
+00:03:25 --> 00:03:29
+Under <b>Tracking</b>,  let's put a check on <b>‘Tell web sites I do not want to be tracked’</b>.
+
+42
+00:03:30 --> 00:03:36
+Selecting this option will stop websites from storing information about your browsing behavior.
+
+43
+00:03:37 --> 00:03:40
+Under <b>History</b>, there are many options.
+
+44
+00:03:41 --> 00:03:44
+In the ‘Firefox will’ field, choose <b>‘Never remember history’</b>.
+
+45
+00:03:45 --> 00:03:52
+Enabling this option means that the history of your browsing will not be retained in your computer.
+
+46
+00:03:53 --> 00:04:00
+If we click on <b>‘Clear all current history’</b> then all the browsing history stored on your computer will be cleared.
+
+47
+00:04:01 --> 00:04:03
+Coming down to the <b>Location Bar</b>-
+
+48
+00:04:04 --> 00:04:10
+In the <b>‘When using the location bar, suggest:’</b> field, we will click on the drop down-menu and select '<b>Nothing'</b>.
+
+49
+00:04:11 --> 00:04:18
+On doing so, whenever you enter a new URL in the address bar, you will not be prompted with suggestions.
+
+50
+00:04:19 --> 00:04:22
+Click <b>Close</b> to close the dialog box.
+
+51
+00:04:23 --> 00:04:25
+your privacy is now completely protected.
+
+52
+00:04:26 --> 00:04:31
+The <b>Security</b> panel contains preferences related to keeping your web browsing safe.
+
+53
+00:04:32 --> 00:04:35
+The <b>Sync</b> panel lets you set up or manage a “Firefox Sync” account.
+
+54
+00:04:36 --> 00:04:44
+<b>Firefox Sync</b> lets us use our <b>history</b>, <b>bookmarks</b> and passwords across different devices.
+
+55
+00:04:45 --> 00:04:48
+The <b>Advanced</b> panel contains some important Firefox settings.
+
+56
+00:04:49 --> 00:04:56
+It has <b>Browsing</b> and <b>System Default</b> settings to control the behavior of Firefox.
+
+57
+00:04:57 --> 00:05:02
+We can also configure the way Firefox connects to the Internet using the <b>Network</b> option.
+
+58
+00:05:03 --> 00:05:08
+Within the <b>Network</b> tab, under <b>Connections</b>, click on the <b>Settings</b> button.
+
+59
+00:05:09 --> 00:05:10
+This opens up the <b>Connection Settings</b> dialog box.
+
+60
+00:05:11 --> 00:05:14
+Here, you can configure the <b>Proxies</b>.
+
+61
+00:05:15 --> 00:05:20
+Proxies are used to improve performance and provide better security.
+
+62
+00:05:21 --> 00:05:25
+By default, the <b>‘Use system proxy settings’</b> radio-button is selected.
+
+63
+00:05:26 --> 00:05:30
+This option uses the settings configured for your operating system.
+
+64
+00:05:31 --> 00:05:37
+To enter the proxy settings manually, click on <b>Manual proxy configuration</b> radio-button.
+
+65
+00:05:38 --> 00:05:41
+You can now enter the <b>proxy settings</b> in these <b>field</b>s.
+
+66
+00:05:42 --> 00:05:48
+Click on the <b>Close</b> button to close the <b>Connection Settings</b> dialog box.
+
+67
+00:05:49 --> 00:05:54
+Again click on the <b>Close</b> button to close the <b>Preferences</b> or <b>Options</b> dialog box.
+
+68
+00:05:55 --> 00:05:57
+Your settings will be saved automatically.
+
+69
+00:05:58 --> 00:06:04
+Lastly, we can update Firefox using the <b>Update</b> tab in the <b>Advanced</b> panel.
+
+70
+00:06:05 --> 00:06:07
+This brings us to the end of this tutorial.
+
+71
+00:06:08 --> 00:06:14
+In this tutorial, we learnt how to: set <b>General preferences</b>, set <b>Privacy preferences</b>.
+
+72
+00:06:15 --> 00:06:18
+Try this comprehension test assignment.
+
+73
+00:06:19 --> 00:06:20
+Open a new browser window.
+
+74
+00:06:21 --> 00:06:27
+Change your <b>home page</b> to ‘spoken-tutorial.org’.
+
+75
+00:06:28 --> 00:06:29
+Change your default download location to ‘Home Folder’ and
+
+76
+00:06:30 --> 00:06:37
+change your ‘When using the location bar, suggest:’ setting to <b>History</b> and <b>Bookmarks</b>.
+
+77
+00:06:38 --> 00:06:40
+Watch the video available at the following link: <a class="external free" href="http://spoken-tutorial.org/What_is_a_Spoken_Tutorial" rel="nofollow">http://spoken-tutorial.org/What_is_a_Spoken_Tutorial</a>.
+
+78
+00:06:41 --> 00:06:44
+It summarizes the Spoken Tutorial project.
+
+79
+00:06:45 --> 00:06:47
+If you do not have good bandwidth, you can download and watch it.
+
+80
+00:06:48 --> 00:06:49
+The Spoken Tutorial Project team:
+
+81
+00:06:50 --> 00:06:53
+Conducts workshops using spoken tutorials.
+
+82
+00:06:54 --> 00:06:57
+Gives certificates for those who pass an online test.
+
+83
+00:06:58 --> 00:07:03
+For more details, please write to: contact at spoken hyphen tutorial dot org.
+
+84
+00:07:04 --> 00:07:06
+<b>Spoken Tutorial</b> project is a part of the <b>Talk to a Teacher</b> project.
+
+85
+00:07:07 --> 00:07:11
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+86
+00:07:12 --> 00:07:26
+More information on this mission is available at: <a class="external free" href="http://spoken-tutorial.org/NMEICT-Intro" rel="nofollow">http://spoken-tutorial.org/NMEICT-Intro</a>.
+
+87
+00:07:27 --> 00:07:32
+This tutorial has been contributed by DesiCrew Solutions Pvt.Ltd. Thanks for joining.
+

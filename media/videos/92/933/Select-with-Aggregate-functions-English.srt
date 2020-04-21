@@ -1,0 +1,440 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:06
+Welcome to the<b> Spoken Tutorial</b> on<b> Select with Aggregate functions.</b>
+
+2
+00:00:07 --> 00:00:15
+In this tutorial, we will learn more clauses that can be used with the <b>select</b> statement, such as-
+<p><b>Distinct</b>, 
+</p>
+
+3
+00:00:16 --> 00:00:18
+<b>Between</b>,
+<p><b>Like</b>, 
+</p>
+
+4
+00:00:19 --> 00:00:25
+<b>In</b>,
+<p><b>Is Null</b> and  <b>Aggregate functions</b>. 
+</p>
+
+5
+00:00:26 --> 00:00:40
+To record this tutorial, I am using:
+<p><b>Ubuntu Linux 14.04</b> operating system, 
+</p><p><b>PostgreSQL 9.3.x</b>, 
+</p><p><b>pgAdmin 1.18</b>
+</p>
+
+6
+00:00:41 --> 00:00:47
+To follow this tutorial, you should have basic understanding of <b>database</b> and <b>table</b>s.
+
+7
+00:00:48 --> 00:00:54
+For more details, refer to the <b>RDBMS – PostgreSQL</b> series on this website.
+
+8
+00:00:55 --> 00:01:00
+Let’s begin. First we will learn about the <b>DISTINCT</b> clause.
+
+9
+00:01:01 --> 00:01:17
+<b>DISTINCT</b> keyword is used in the <b>SELECT</b> statement to list distinct and unique values.
+<p>It removes the duplicate <b>row</b>s or <b>column</b> values from the <b>query</b> result. 
+</p>
+
+10
+00:01:18 --> 00:01:27
+The syntax is as follows:
+<p><b>SELECT DISTINCT column-names FROM table-name WHERE [condition]</b>
+</p>
+
+11
+00:01:28 --> 00:01:32
+Let us open the <b>pgAdmin </b>for the demonstration.
+
+12
+00:01:33 --> 00:01:37
+Click on the <b>SQL</b> icon to open the <b>SQL Editor.</b>
+
+13
+00:01:38 --> 00:01:47
+Type the <b>code</b> as shown here.
+<p>This <b>select</b> statement will retrieve the unique city names from the <b>students</b> table. 
+</p>
+
+14
+00:01:48 --> 00:01:53
+It will eliminate duplicate values from the specified column i.e. <b>city</b>.
+
+15
+00:01:54 --> 00:01:58
+Let us <b>execute</b> the query to see the <b>output</b>.
+
+16
+00:01:59 --> 00:02:02
+Next, we will learn about the <b>BETWEEN</b> operator.
+
+17
+00:02:03 --> 00:02:08
+<b>BETWEEN</b> operator is used to retrieve values within a given range.
+
+18
+00:02:09 --> 00:02:18
+The syntax is: <b>SELECT column-names FROM table-name WHERE column-name BETWEEN value1 and value2;</b>
+
+19
+00:02:19 --> 00:02:22
+Let's see an example for <b>between</b> operator.
+
+20
+00:02:23 --> 00:02:27
+Let's clear the screen and type the code for the query.
+
+21
+00:02:28 --> 00:02:37
+Say, I want to retrieve details of students who are born between January 1995 and January 1996.
+
+22
+00:02:38 --> 00:02:46
+Let's see the output.
+<p>Notice the output shows the list of students as expected. 
+</p>
+
+23
+00:02:47 --> 00:02:51
+We will see another example for <b>BETWEEN operator.</b>
+
+24
+00:02:52 --> 00:03:01
+This <b>query</b> will show all rows from the<b> students</b> table where the <b>cgpa</b> value is between 7.8 and 8.5.
+
+25
+00:03:02 --> 00:03:04
+Let us see the output.
+
+26
+00:03:05 --> 00:03:12
+Notice from the output that the value is inclusive of 7.8 and 8.5.
+
+27
+00:03:13 --> 00:03:17
+The same <b>query </b>can also be written as shown here.
+
+28
+00:03:18 --> 00:03:26
+Instead of <b>BETWEEN operator</b>, we can use-  <b>greater than or equal to </b>and
+<p><b>lesser than or equal to operators</b>. 
+</p>
+
+29
+00:03:27 --> 00:03:31
+Execute the query to see the output.
+
+30
+00:03:32 --> 00:03:35
+Next we will learn about the <b>LIKE</b> operator.
+
+31
+00:03:36 --> 00:03:41
+<b>LIKE operator</b> is used to match text values against a given pattern.
+
+32
+00:03:42 --> 00:03:46
+It allows <b>wildcard characters </b>to be used within the <b>WHERE</b> clause.
+
+33
+00:03:47 --> 00:03:52
+There are two <b>wildcards </b>that can be used in conjunction with the <b>LIKE operator</b>-
+
+34
+00:03:53 --> 00:03:59
+<b>Percent (%):</b>
+<p>The <b>percent </b>sign matches any sequence of string of any length. 
+</p>
+
+35
+00:04:00 --> 00:04:05
+<b>Underscore (_):</b>
+<p>The <b>underscore </b>matches a single character. 
+</p>
+
+36
+00:04:06 --> 00:04:10
+We will see few examples using <b>percent wildcard.</b>
+
+37
+00:04:11 --> 00:04:21
+Suppose I don't remember the exact name of a student.
+<p>But I remember that the student’s name begins with the letter 'Ra'. 
+</p>
+
+38
+00:04:22 --> 00:04:28
+It is very difficult to search the entire <b>students</b> table as there are many rows in the <b>table.</b>
+
+39
+00:04:29 --> 00:04:34
+To make the search easy, we can use the <b>LIKE</b> operator as shown here.
+
+40
+00:04:35 --> 00:04:47
+Here, all the student's names start with 'Ra' and is followed by any sequence of characters.
+<p>This is called <b>pattern matching</b>. 
+</p>
+
+41
+00:04:48 --> 00:04:51
+Let us see a few more examples.
+
+42
+00:04:52 --> 00:04:55
+Type the code as shown.
+
+43
+00:04:56 --> 00:05:02
+This <b>query </b>returns those rows where the students’ names end with 'la'.
+
+44
+00:05:03 --> 00:05:09
+There can be any number of characters before 'la'.
+
+45
+00:05:10 --> 00:05:20
+Let us see another pattern.
+<p>This statement returns all the rows where the student’s name has 'am'  in the middle. 
+</p>
+
+46
+00:05:21 --> 00:05:26
+Note percent sign before and after 'am'.
+
+47
+00:05:27 --> 00:05:33
+Next we will see how to use <b>underscore </b>to match a single character.
+
+48
+00:05:34 --> 00:05:43
+This will fetch rows of students whose name has three characters and has 'a' in the 2<sup>nd</sup> position.
+
+49
+00:05:44 --> 00:05:57
+<b>Underscore 'r' percent </b>matches students whose names begin with a single character.
+<p>It is followed by 'r' and ends with any number of characters. 
+</p><p>Let's see the output. 
+</p>
+
+50
+00:05:58 --> 00:06:02
+Next we will see how to use <b>IN</b> operator.
+
+51
+00:06:03 --> 00:06:21
+Use <b>IN</b> operator in the <b>WHERE </b>clause to check if the value matches any value in a given list.
+<p>The syntax is: <b>Select column-name from table-name WHERE column-name IN ( value1, value2...)</b> etc.
+</p>
+
+52
+00:06:22 --> 00:06:24
+Let us see an example.
+
+53
+00:06:25 --> 00:06:34
+This statement will return all rows from the <b>students</b> table   where the city is either Chennai, Nagpur or Hyderabad.
+
+54
+00:06:35 --> 00:06:43
+It helps to reduce the usage of multiple <b>OR</b> conditions to get the same result.
+<p>Let us see the output. 
+</p>
+
+55
+00:06:44 --> 00:06:50
+Next we will see how to use the <b>IS NULL</b> operator in the <b>select</b> statement.
+
+56
+00:06:51 --> 00:06:57
+This statement will list down the <b>record</b>s where the <b>date of birth</b> column is empty.
+
+57
+00:06:58 --> 00:07:06
+In the same way, we can also use the <b>IS NOT NULL operator</b> as shown here.
+
+58
+00:07:07 --> 00:07:10
+Let us now learn about <b>aggregate function</b>.
+
+59
+00:07:11 --> 00:07:15
+<b>Aggregate functions </b>are <b>PostgreSQL built-in functions.</b>
+
+60
+00:07:16 --> 00:07:21
+It operates on several rows of a query and returns a single result.
+
+61
+00:07:22 --> 00:07:24
+List of <b>aggregate functions</b> -
+
+62
+00:07:25 --> 00:07:29
+<b>Count</b> – It returns the number of rows in a table.
+
+63
+00:07:30 --> 00:07:33
+<b>Sum</b> – Returns the sum of a selected column.
+
+64
+00:07:34 --> 00:07:38
+<b>Max</b> - Returns the largest value of a specified column.
+
+65
+00:07:39 --> 00:07:43
+<b>Min</b> – Returns the smallest value of a specified column.
+
+66
+00:07:44 --> 00:07:48
+<b>Avg</b> – Returns the average value for a specified column.
+
+67
+00:07:49 --> 00:07:52
+Switch back to <b>SQL Editor</b> window.
+
+68
+00:07:53 --> 00:08:02
+Let’s say, we want to count the number of existing records in the <b>students</b> table.
+<p>For that, type the code as shown here. 
+</p>
+
+69
+00:08:03 --> 00:08:12
+The <b>count open parentheses asterisk close parentheses</b> function returns the number of rows that are fetched by the <b>SELECT</b> statement.
+
+70
+00:08:13 --> 00:08:16
+Execute this query to see the output.
+
+71
+00:08:17 --> 00:08:20
+There are 14 records in the <b>students</b> table.
+
+72
+00:08:21 --> 00:08:26
+We can also specify the column name in the <b>function </b>as shown here.
+
+73
+00:08:27 --> 00:08:30
+Once again execute the query.
+
+74
+00:08:31 --> 00:08:39
+Why is it showing 13?
+<p>Because the <b>count function </b>only counts values which are not <b>NULL</b>. 
+</p>
+
+75
+00:08:40 --> 00:08:44
+Let us see the output when we specify the <b>date of birth</b> column.
+
+76
+00:08:45 --> 00:08:48
+Type the code and <b>execute</b>.
+
+77
+00:08:49 --> 00:08:55
+Here, we can see the <b>date of birth</b> column value is <b>NULL</b> for the student 'Ram charan'.
+
+78
+00:08:56 --> 00:09:06
+I have left <b>date of birth</b> column blank during record creation for this student.
+<p>So the<b> count</b> function displays the output as 13. 
+</p>
+
+79
+00:09:07 --> 00:09:10
+Next, let us see how to use the<b> SUM</b> function.
+
+80
+00:09:11 --> 00:09:13
+Let us clear the screen.
+
+81
+00:09:14 --> 00:09:23
+Type the code as shown here and execute the query.
+<p>This returns the summed-up value of the <b>cgpa</b> column. 
+</p>
+
+82
+00:09:24 --> 00:09:29
+You can also give an additional '<b>Where' condition</b> as shown here.
+
+83
+00:09:30 --> 00:09:37
+This returns the sum of <b>cgpa</b> values of the students who are from <b>Mumbai</b> city.
+
+84
+00:09:38 --> 00:09:41
+Next, let us find the maximum <b>cgpa</b> score.
+
+85
+00:09:42 --> 00:09:53
+This <b>select</b> statement returns the maximum <b>cgpa</b> score from the <b>students</b> table.
+<p>9.6 is the highest <b>cgpa</b> score in the <b>students</b> table. 
+</p>
+
+86
+00:09:54 --> 00:09:59
+Likewise, you can try the remaining <b>aggregate functions </b>on your own.
+
+87
+00:10:00 --> 00:10:05
+With this we come to the end of this tutorial.
+<p>Let us summarize. 
+</p>
+
+88
+00:10:06 --> 00:10:20
+In this tutorial, we have learnt about More clauses that can be used with the <b>select statement, </b>such as-
+<p><b>Distinct</b> ,  <b>Between</b> ,  <b>Like</b> ,  <b>In</b> , <b>Is Null</b> and <b>Aggregate functions</b>. 
+</p>
+
+89
+00:10:21 --> 00:01:30
+As an assignment, write <b>select statements</b> to display all columns from <b>students</b> table where the student name ends with 'a'.
+
+90
+00:01:31 --> 00:10:35
+Display the minimum and average of the <b>cgpa</b> column.
+
+91
+00:10:36 --> 00:10:43
+The video at the following link summarizes the <b>Spoken Tutorial</b> project.
+<p>Please download and watch it. 
+</p>
+
+92
+00:10:44 --> 00:10:53
+The<b> Spoken Tutorial Project</b> team
+<p>conducts workshops and  gives certificates 
+</p><p>For more details, please write to us. 
+</p>
+
+93
+00:10:54 --> 00:10:57
+Please post your timed queries in this forum.
+
+94
+00:10:58 --> 00:11:10
+Spoken Tutorial project is funded by <b>NMEICT, MHRD</b>, Government of India.
+<p>More information on this mission is available at this link. 
+</p>
+
+95
+00:11:11 --> 00:11:16
+This is Nirmala Venkat from <b>IIT Bombay</b>, signing off. Thanks for watching.
+

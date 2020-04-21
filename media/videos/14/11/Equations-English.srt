@@ -1,0 +1,586 @@
+<b>Narration</b>
+
+1
+00:00:00 --> 00:00:05
+Welcome to this tutorial on creating <b>equations</b> through <b>Latex</b>.
+
+2
+00:00:06 --> 00:00:09
+You see three windows as usual.
+
+3
+00:00:10 --> 00:00:29
+I have created a <b>12pt</b> size, <b>article class</b> document. And using <b>AMSmath package</b> and also using the 'ccliscences' package for creative commons copyright statement as here.
+
+4
+00:00:30 --> 00:00:42
+<b>make title</b> creates the title page. <b>new page</b> command takes the rest of the document to a new page.
+
+5
+00:00:43 --> 00:00:50
+There are many ways to create equations, I will use the command <b>align star</b> to create equations.
+
+6
+00:00:51 --> 00:01:02
+Let us begin with a matrix differential equation consisting of four components.
+
+7
+00:01:03 --> 00:01:26
+Align star, Frac d by dt of begin b-matrix, x_1, next line x_2, end b-matrix.
+
+8
+00:01:27 --> 00:01:36
+Let me close this. Let us compile it.
+
+9
+00:01:37 --> 00:01:41
+So we have created ‘d by dt of x1 x2’.
+
+10
+00:01:42 --> 00:01:47
+Let us now <b>augment</b> the <b>vector</b> with two more components.
+
+11
+00:01:48 --> 00:02:02
+You do it as follows. Next line x3, next line x4. <b>Save</b> it. Compile it. So I have four components.
+
+12
+00:02:03 --> 00:02:19
+Let me now say that this is equal to the right hand side matrix  begin b-matrix.
+
+13
+00:02:20 --> 00:02:28
+Zero, zero, one, zero.
+
+14
+00:02:29 --> 00:02:36
+Next line: zero, zero, zero, one.
+
+15
+00:02:37 --> 00:02:46
+And then, let's close this matrix. <b>Save</b>.
+
+16
+00:02:47 --> 00:02:52
+So I have this. So I have written the first two rows.
+
+17
+00:02:53 --> 00:02:59
+It is always a good idea to compile after every few small additions so that we have not made a mistake.
+
+18
+00:03:00 --> 00:03:05
+Note that the align star environment takes the role of the dollar signs.
+
+19
+00:03:06 --> 00:03:13
+For example, we did not enter the dollar sign at all. As a matter of fact, we should not enter the dollar sign within the <b>align star environment</b>.
+
+20
+00:03:14 --> 00:03:24
+Let us add a third line to the matrix on the right hand side and illustrate this idea.
+
+21
+00:03:25 --> 00:03:49
+<b>Zero, dollar minus gamma, zero, zero</b>. So there are four entries. Compile it. It comes and says, <b>missing dollar inserted</b>.
+
+22
+00:03:50 --> 00:03:58
+What we will do is, let's come here, get rid of these dollar signs. <b>Save</b> it.
+
+23
+00:03:59 --> 00:04:27
+Exit compilation by this x. recompile it and note that <b>minus gamma</b> has come. So we need one more line here, we put that. <b>Zero, alpha</b> without dollar sign, <b>zero, zero</b>. Alright, now this is the way to do that.
+
+24
+00:04:28 --> 00:04:33
+Let's complete this equation. I have a few more terms here.
+
+25
+00:04:34 --> 00:04:38
+Let me just see if it is here, yes, it is here.
+
+26
+00:04:39 --> 00:04:45
+Let’s cut this. Put this here.
+
+27
+00:04:46 --> 00:04:51
+Let’s see what happens when I compile this.
+
+28
+00:04:52 --> 00:04:58
+This is a model of an inverted pendulum.
+
+29
+00:04:59 --> 00:05:03
+What do you do when you have more than one equation?
+
+30
+00:05:04 --> 00:05:12
+Let us add one more <b>align</b> statement. And I have written this equation here.
+
+31
+00:05:13 --> 00:05:16
+Let me bring it from there.
+
+32
+00:05:17 --> 00:05:25
+Here is the equation, so let me say <b>begin align star</b>.
+
+33
+00:05:26 --> 00:05:38
+Let’s cut this. Copy this. Close this <b>align</b>. We compile it.
+
+34
+00:05:39 --> 00:05:43
+When I compile it, I get the second equation appearing.
+
+35
+00:05:44 --> 00:05:51
+There are two problems with this. There is a large gap between the two equations, also we may want to align the equations.
+
+36
+00:05:52 --> 00:06:00
+In view of these observations, we put both of these equations into a single <b>align star</b> environment.
+
+37
+00:06:01 --> 00:06:07
+So we will do this as follows. Delete this.
+
+38
+00:06:08 --> 00:06:13
+Save this. Compile it.
+
+39
+00:06:14 --> 00:06:19
+Now what has happened is that both the equations have come on the same line.
+
+40
+00:06:20 --> 00:06:32
+We will take care of that by telling latex to split this by the <b>reverse slash</b>. Two of them.
+
+41
+00:06:33 --> 00:06:39
+When I compile it, now these have gone to second equation.
+
+42
+00:06:40 --> 00:06:59
+But the equations are not aligned. Suppose that we want to align the 'equal to' sign, suppose we want to align these two signs, we put an ampersand symbol in front of the 'equal to' signs here. Let's put it.
+
+43
+00:07:00 --> 00:07:17
+And then we will put it here also. Ampersand. Let’s compile this. Now notice that both of them are aligned.
+
+44
+00:07:18 --> 00:07:23
+Suppose that we want to introduce some text in between the equations without upsetting the alignment.
+
+45
+00:07:24 --> 00:07:28
+This can be achieved using the <b>inter-text</b> command.
+
+46
+00:07:29 --> 00:07:47
+So we remove... we made a mistake here, the 'delta mu' has come here. So, what we should do is, let us first put this properly, compile this.
+
+47
+00:07:48 --> 00:07:50
+Now 'delta mu' has come there. 'U of t' is here.
+
+48
+00:07:51 --> 00:08:06
+Now we want to introduce some text between these two. So the line separator slash slash  is removed and in that place we introduce this text that we want to include.
+
+49
+00:08:07 --> 00:08:23
+Let’s take this text and put it there. Whatever text we want to put, appears in braces with an <b>inter-text</b> command.
+
+50
+00:08:24 --> 00:08:36
+Note that the opening brace has to be closed, not closing the brace is a common mistake made by the beginners.
+
+51
+00:08:37 --> 00:08:49
+Let's compile this. So here is the text and you also have the equations aligned.
+
+52
+00:08:50 --> 00:08:53
+Note also the use of the dollar sign within the <b>inter-text</b> command.
+
+53
+00:08:54 --> 00:09:02
+<b>Inter-text</b> is like running text, so this is not really a part of the <b>align</b> environment. You need to include dollars here.
+
+54
+00:09:03 --> 00:09:13
+These equations don’t have numbers. In fact, the star in the <b>align star</b> command has told latex not to put the equation numbers.
+
+55
+00:09:14 --> 00:09:29
+Let us remove the star and see what the <b>align environment</b> does. Let’s remove the star here. Also remove the star here. Let’s see what happens.
+
+56
+00:09:30 --> 00:09:35
+So equation numbers have appeared automatically.
+
+57
+00:09:36 --> 00:09:48
+We want to refer to them, so for example, let’s say we want to refer to them, so I have this here.
+
+58
+00:09:49 --> 00:09:54
+Suppose, this is the second equation I want to discretize, so I write this statement.
+
+59
+00:09:55 --> 00:10:03
+Let me take this here, below this, put it.
+
+60
+00:10:04 --> 00:10:12
+Let me compile it. So it says "we will now discretize the PID controller given in equation 2".
+
+61
+00:10:13 --> 00:10:19
+The equation numbers unfortunately may change while insertion or deletion of equations.
+
+62
+00:10:20 --> 00:10:31
+To demonstrate this, let us suppose, we include an equation here.
+
+63
+00:10:32 --> 00:10:39
+Slash, slash, a equals b.
+
+64
+00:10:40 --> 00:10:46
+And then we will delete these lines. Let’s compile this.
+
+65
+00:10:47 --> 00:10:52
+Now I have 'a equals b' as the second equation. Now this has become the third equation.
+
+66
+00:10:53 --> 00:11:03
+Here we have hard-coded that equation 2 has to be discretized but this is no longer the second equation.
+
+67
+00:11:04 --> 00:11:11
+Hard-coding of equation numbers in referencing always has this problem. This is solved by the <b>label</b> command.
+
+68
+00:11:12 --> 00:11:38
+So, let us come here and here at the end of the equation we introduce ‘label equation PID’ and then here I write <b>in equation ‘ref’</b>, <b>ref</b> is the command and whatever that comes here label, should appear here also, again within the braces, 'equation PID’.
+
+69
+00:11:39 --> 00:11:46
+Let's see what happens when I compile it.
+
+70
+00:11:47 --> 00:11:51
+On compiling it, we see question marks here.
+
+71
+00:11:52 --> 00:12:02
+On second compilation, see what has happened here – now it has become three. On second compilation the numbers become correct.
+
+72
+00:12:03 --> 00:12:07
+This is similar to what we saw in table of contents.
+
+73
+00:12:08 --> 00:12:14
+Let us now delete the 'a equals b' equation.
+
+74
+00:12:15 --> 00:12:21
+Let us get rid of this also.
+
+75
+00:12:22 --> 00:12:29
+Let’s compile it. This equation 2 is gone but you still have this three.
+
+76
+00:12:30 --> 00:12:39
+On first compilation the reference gives the previous number, on second compilation the numbers become correct.
+
+77
+00:12:40 --> 00:12:53
+The <b>labels</b> are <b>case sensitive</b>. For example, here I have called it equation PID, PID is in capitals. Let’s change this to small pid.
+
+78
+00:12:54 --> 00:13:01
+What happens now, here it says that it doesn’t know that.
+
+79
+00:13:02 --> 00:13:20
+It's only that these have to be identical, these need not be characters. For example, suppose I want to give numbers here, let me just put hundred, let me put 100. <b>Save</b> it. Compile it.
+
+80
+00:13:21 --> 00:13:29
+Okay, it doesn’t know it yet in the first compilation but if I compile it  second time it will know. Numbers are the same.
+
+81
+00:13:30 --> 00:13:34
+In a similar way we can create labels for sections, sub-sections and so on.
+
+82
+00:13:35 --> 00:13:44
+So let us do that, let us demonstrate this with section. Let us do it here.
+
+83
+00:13:45 --> 00:13:55
+<b>section, this is first section, label sec 100</b>.
+
+84
+00:13:56 --> 00:13:59
+Then we go to the end of the document here.
+
+85
+00:14:00 --> 00:14:22
+And say: <b>section ref sec-100, shows how to write equations</b>. <b>Save</b> it here.
+
+86
+00:14:23 --> 00:14:25
+‘Section, question marks shows how to write equations’.
+
+87
+00:14:26 --> 00:14:29
+On next compilation, this is taken care of.
+
+88
+00:14:30 --> 00:14:33
+So section 1, this number is the same as this number.
+
+89
+00:14:34 --> 00:14:41
+So this works for sections, sub-sections and so on. In fact, with any environment that has a number associated with it.
+
+90
+00:14:42 --> 00:14:55
+Alright, let’s delete these.
+
+91
+00:14:56 --> 00:15:03
+Let's compile these once again. Alright.
+
+92
+00:15:04 --> 00:15:08
+We will now see how to accommodate long equations.
+
+93
+00:15:09 --> 00:15:22
+So, I have already written it here. Let me just go there at the end of the document, okay here it is.
+
+94
+00:15:23 --> 00:15:28
+Okay. So let me add this.
+
+95
+00:15:29 --> 00:15:39
+Put it here. Let's see what happens when I compile it.
+
+96
+00:15:40 --> 00:15:48
+So I have a third equation that I have added here, it’s a long equation. It’s a long equation so it doesn’t fit into one line.
+
+97
+00:15:49 --> 00:16:10
+So let us break it into two. The way to do that is, let us break it here, slash slash and come here and I’m putting an align with this ampersand.
+
+98
+00:16:11 --> 00:16:25
+Let me <b>save</b> it, compile it. See that this equation has been broken into two parts and I am aligning it with the plus sign.
+
+99
+00:16:26 --> 00:16:29
+All these equal signs and plus signs are aligned now.
+
+100
+00:16:30 --> 00:16:34
+Unfortunately we have equation numbers in both parts.
+
+101
+00:16:35 --> 00:16:50
+Supposing we don’t want the number in the first line, suppose we don’t want this number. Include the command ‘no number’ before this slash, slash symbol. Do this as follows.
+
+102
+00:16:51 --> 00:17:01
+<b>Save</b> this. Compile this. See that this equation number is gone and this has become three automatically.
+
+103
+00:17:02 --> 00:17:15
+We see that the braces we wanted in some terms are missing. For example, here I have said e n, e n minus 1. Here it appears without these braces. This is because, braces are delimiters in latex.
+
+104
+00:17:16 --> 00:17:23
+We now want to tell latex to not interpret these braces. This is done by putting a reverse slash before the braces.
+
+105
+00:17:24 --> 00:17:35
+Let me put a reverse slash here. Let me also put a reverse slash here.
+
+106
+00:17:36 --> 00:17:45
+See that now we have the braces here; similarly let's put it here also.
+
+107
+00:17:46 --> 00:17:57
+Here and here. Let's<b>Save</b> this, now we have got that.
+
+108
+00:17:58 --> 00:18:07
+We will now show how to create large brackets in equations. For example, here, these brackets are very small.
+
+109
+00:18:08 --> 00:18:14
+The way to do that is using – what are known as <b>left</b> and <b>right</b> commands.
+
+110
+00:18:15 --> 00:18:20
+So let's come here – so the equation is here.
+
+111
+00:18:21 --> 00:18:37
+The way to do this is – <b>K slash left</b> and on this side I have this, so here I put slash <b>right</b>.
+
+112
+00:18:38 --> 00:18:44
+Let’s compile this. See this, it has become bigger.
+
+113
+00:18:45 --> 00:18:57
+We can do this also with square brackets.
+
+114
+00:18:58 --> 00:19:11
+I got square brackets. I can also put braces, only thing is that I have to tell latex not to interpret. So I put a slash brace.
+
+115
+00:19:12 --> 00:19:16
+Let’s compile this.
+
+116
+00:19:17 --> 00:19:21
+See this braces.
+
+117
+00:19:22 --> 00:19:34
+When we have one equation split into multiple lines, we will have to put only the left on the first. For example, here, we have a bracket here, we have a bracket here, I want to make this slightly bigger. So let me do that here.
+
+118
+00:19:35 --> 00:19:56
+Suppose for example, I want to put a <b>left</b> bracket here and here I want to put a <b>right</b> bracket. Compile it.
+
+119
+00:19:57 --> 00:20:03
+It comes and complains ‘forgotten right’, because I opened it here but I didn’t close it in the same equation.
+
+120
+00:20:04 --> 00:20:14
+The way to do that is to use what is known as <b>slash right dot</b>, that means don’t worry about the right hand side.
+
+121
+00:20:15 --> 00:20:29
+Similarly , here we have to say <b>slash left dot</b>, don’t worry about the left here. Let me exit here. Let me re-compile it. So this is taken care of.
+
+122
+00:20:30 --> 00:20:44
+Now suppose I want to push this a little inside. I can always say <b>slash h-space 1cm</b>.
+
+123
+00:20:45 --> 00:20:50
+Let me just do that shift.
+
+124
+00:20:51 --> 00:20:53
+So, this has been shifted, this has been aligned.
+
+125
+00:20:54 --> 00:20:58
+If you don’t want this, you want the plus sign to come inside,
+
+126
+00:20:59 --> 00:21:07
+let’s do this here, put the plus sign here.
+
+127
+00:21:08 --> 00:21:16
+Okay, this plus is inside. Now this is nicely done.
+
+128
+00:21:17 --> 00:21:26
+All <b>commands</b> that work in between the dollar signs also work between the aligned environment but for the ampersand symbol that is used for the aligning of multiple equations.
+
+129
+00:21:27 --> 00:21:31
+All commands that work in the aligned environment also work within the dollar symbols.
+
+130
+00:21:32 --> 00:21:40
+Nevertheless, there is a small difference in the way some outputs appear in the aligned environment and in the running mode obtained with the dollar.
+
+131
+00:21:41 --> 00:21:45
+This can be illustrated with the integral mode.
+
+132
+00:21:46 --> 00:21:49
+So let's come here.
+
+133
+00:21:50 --> 00:21:52
+Let me delete these.
+
+134
+00:21:53 --> 00:22:09
+So I have this statement here. Let me take this,
+
+135
+00:22:10 --> 00:22:14
+let me put it here.
+
+136
+00:22:15 --> 00:22:20
+"The integral mode includes the term" this integral.
+
+137
+00:22:21 --> 00:22:27
+Let me close this, otherwise alignment will complain.
+
+138
+00:22:28 --> 00:22:32
+So what I have done is: "The integral mode includes the term" this integral.
+
+139
+00:22:33 --> 00:22:46
+Note the size of this integral and size of this integral. This is a lot bigger and this is smaller.
+
+140
+00:22:47 --> 00:22:51
+Such changes also occur in the case of fractions, sum and product to cite a few.
+
+141
+00:22:52 --> 00:22:57
+There is one other thing that I want to tell before completing this tutorial.
+
+142
+00:22:58 --> 00:23:10
+Aligned environment does not like blank lines in between. Suppose for example, I create a blank line here.
+
+143
+00:23:11 --> 00:23:23
+It comes and says that paragraph ended before alignment was complete. If you really want a space, leave a percentage which tells latex that it is a comment.
+
+144
+00:23:24 --> 00:23:31
+Re-compiling. It goes through and you get all the text as before.
+
+145
+00:23:32 --> 00:23:36
+This brings us to the end of this tutorial. Thanks for listening.
+
+146
+00:23:37 --> 00:23:42
+This is Kannan Moudgalya, signing off. Good-bye.
+

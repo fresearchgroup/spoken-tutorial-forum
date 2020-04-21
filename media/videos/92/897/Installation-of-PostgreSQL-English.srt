@@ -1,0 +1,492 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:06
+Welcome to the<b> Spoken Tutorial</b> on<b> Installation of PostgreSQL.</b>
+
+2
+00:00:07 --> 00:00:16
+In this tutorial, we will learn to install <b>PostgreSQL </b>on  <b>Ubuntu Linux OS </b>and  <b>Windows </b>operating system.
+
+3
+00:00:17 --> 00:00:24
+We will also learn to connect to <b>PostgreSQL</b> database and set password for the database.
+
+4
+00:00:25 --> 00:00:37
+To record this tutorial, I am using:
+<p><b>Ubuntu Linux 14.04</b> operating system, 
+</p><p><b>Windows 7 </b>operating system and
+</p><p>a working internet connection. 
+</p>
+
+5
+00:00:38 --> 00:00:48
+To follow this tutorial, you should be familiar with either of the mentioned operating system
+<p>and have working knowledge of any programming language. 
+</p>
+
+6
+00:00:49 --> 00:00:53
+<b>PostgreSQL</b> is a <b>relational database management software</b>.
+
+7
+00:00:54 --> 00:00:58
+It is a powerful and most advanced <b>open source</b> database system.
+
+8
+00:00:59 --> 00:01:06
+It <b>run</b>s on various platforms such as <b>Linux</b>, <b>Windows </b>and<b> Mac Operating System</b>.
+
+9
+00:01:07 --> 00:01:12
+First we will see how to install <b>PostgreSQL</b> on <b>Linux</b>.
+
+10
+00:01:13 --> 00:01:19
+Press <b>CTRL + ALT +T </b>keys simultaneously to open the <b>terminal</b>.
+
+11
+00:01:20 --> 00:01:33
+In the <b>terminal</b> window, type: <b>sudo apt hyphen get update </b>and press<b> Enter.</b>
+<p>Enter the <b>administrative password</b> if prompted. 
+</p>
+
+12
+00:01:34 --> 00:01:42
+This <b>command</b> will update the <b>Ubuntu's</b> default <b>repositori</b>es.
+<p>Wait until it finishes all the <b>update</b>s. 
+</p>
+
+13
+00:01:43 --> 00:01:46
+Press <b>Ctrl L</b> to clear the <b>screen</b>.
+
+14
+00:01:47 --> 00:01:58
+Next, type: <b>sudo apt hyphen get install postgresql</b> and press <b>Enter</b>.
+
+15
+00:01:59 --> 00:02:02
+We can see the installation process has begun.
+
+16
+00:02:03 --> 00:02:08
+Press '<b>Y'</b> wherever there is a prompt to confirm the configuration.
+
+17
+00:02:09 --> 00:02:14
+Installation will take sometime to complete, depending upon your internet speed.
+
+18
+00:02:15 --> 00:02:24
+Now we can see that the installation has been completed successfully.
+<p>Press <b>Ctrl + L</b> to clear the screen. 
+</p>
+
+19
+00:02:25 --> 00:02:36
+By default, a user account called <b>postgres</b> is created during installation.
+<p>But there is no <b>password</b> set for this <b>user account</b>. 
+</p>
+
+20
+00:02:37 --> 00:02:48
+To set the <b>password</b>, type: <b>sudo hyphen u postgres psql postgres </b>and press<b> Enter.</b>
+
+21
+00:02:49 --> 00:02:58
+Enter your <b>system password</b> if prompted.
+<p>Notice that the <b>prompt</b> has changed to <b>postgres equal to hash.</b>
+</p>
+
+22
+00:02:59 --> 00:03:04
+At the <b>prompt</b>, type: <b>slash password postgres.</b>
+
+23
+00:03:05 --> 00:03:14
+Immediately you will be prompted to set a new <b>password</b> for the <b>Postgres user</b>.
+<p>I'll enter the password as '<b>postgres'</b>. 
+</p>
+
+24
+00:03:15 --> 00:03:18
+You can enter a password of your choice.
+
+25
+00:03:19 --> 00:03:22
+Enter the same password one more time.
+
+26
+00:03:23 --> 00:03:26
+Please remember this password for future use.
+
+27
+00:03:27 --> 00:03:35
+Next, type: <b>select version open bracket close bracket semicolon </b>and press<b> Enter.</b>
+
+28
+00:03:36 --> 00:03:40
+Do not forget to put the semicolon at the end of each <b>statement</b>.
+
+29
+00:03:41 --> 00:03:46
+The <b>PostgreSQL</b> version that we have installed now, is displayed on the <b>terminal</b>.
+
+30
+00:03:47 --> 00:03:51
+This indicates that we have successfully installed <b>PostgreSQL.</b>
+
+31
+00:03:52 --> 00:03:59
+I have increased the <b>terminal font size</b> for this demo.
+<p>Hence the <b>output</b> is seen in a different window. 
+</p>
+
+32
+00:04:00 --> 00:04:06
+So, I’ll hit the ‘<b>q</b>’ key to exit.
+<p>You may not require to do so. 
+</p>
+
+33
+00:04:07 --> 00:04:10
+Now let us see how to disconnect from the <b>server</b>.
+
+34
+00:04:11 --> 00:04:16
+Type <b>slash q </b>and press <b>Enter </b>to disconnect from the <b>server</b>.
+
+35
+00:04:17 --> 00:04:22
+Notice that we are back at the <b>command prompt</b> of the <b>terminal</b>.
+
+36
+00:04:23 --> 00:04:28
+Every time when you want to work with <b>PostgreSQL</b>, you need to be connected to the <b>server</b>.
+
+37
+00:04:29 --> 00:04:34
+<b>Psql</b> is an interactive <b>terminal</b> program provided by <b>PostgreSQL</b>.
+
+38
+00:04:35 --> 00:04:43
+Using <b>psql</b> tool, we can execute <b>SQL</b> statements, manage <b>database objects </b>etc.
+
+39
+00:04:44 --> 00:04:50
+Another way to connect to a database is using <b>pgAdmin</b> <b>GUI application</b>.
+
+40
+00:04:51 --> 00:04:56
+We can interact with <b>PostgreSQL database server </b>through this <b>interface</b>.
+
+41
+00:04:57 --> 00:05:02
+We will be demonstrating all features using <b>pgAdmin </b>in this series.
+
+42
+00:05:03 --> 00:05:10
+Switch back to <b>terminal</b>.
+<p>Let us again connect to the <b>postgreSQL database </b>from the <b>command line</b>. 
+</p>
+
+43
+00:05:11 --> 00:05:28
+For this, type: <b>sudo</b> <b>psql hyphen capital U postgres hyphen h localhost hyphen capital W </b>
+<p>and press <b>Enter</b> to connect to the <b>server</b>. 
+</p>
+
+44
+00:05:29 --> 00:05:34
+<b>hyphen h</b> is the <b>hostname</b> or <b>IP</b> of the <b>local server</b>.
+
+45
+00:05:35 --> 00:05:40
+Enter the password for <b>postgres user </b>which you have set after installation.
+
+46
+00:05:41 --> 00:05:48
+We can see the prompt changes to <b>Postgres.</b>
+<p>Press <b>Ctrl + L</b> to clear the screen. 
+</p>
+
+47
+00:05:49 --> 00:05:56
+Let us verify the <b>PostgreSQL</b> database and whether the <b>server</b> has been started by a simple query.
+
+48
+00:05:57 --> 00:06:04
+Type: <b>Select current underscore user, now();</b>
+
+49
+00:06:05 --> 00:06:12
+We can see the <b>user name</b> and current date as <b>output</b>.
+<p>Hit ‘q’ key to exit. 
+</p>
+
+50
+00:06:13 --> 00:06:20
+During installation, some sample databases are created automatically.
+<p>Let us have a look at them. 
+</p>
+
+51
+00:06:21 --> 00:06:27
+Type: <b>slash list </b>or<b> slash l</b> and press <b>Enter</b>.
+
+52
+00:06:28 --> 00:06:37
+We can see the below database names that are available in <b>PostgreSQL server, </b>by default.
+<p>Hit ‘q’ key to exit. 
+</p>
+
+53
+00:06:38 --> 00:06:44
+To change a database', type: <b>slash c</b> database name.
+
+54
+00:06:45 --> 00:06:53
+I will type: <b> slash c postgres</b>.
+<p>Then type the <b>postgres</b> password. 
+</p>
+
+55
+00:06:54 --> 00:07:01
+We can see a message saying <b>You are now connected to database “postgres” as user “postgres”</b>.
+
+56
+00:07:02 --> 00:07:07
+We can create our own database and <b>tables</b> as per our requirement.
+
+57
+00:07:08 --> 00:07:12
+All the <b>database commands</b> can be executed from the <b>command line</b>.
+
+58
+00:07:13 --> 00:07:16
+Type: '<b>slash q'</b> to disconnect from the <b>server</b>.
+
+59
+00:07:17 --> 00:07:20
+Now let us see how to install <b>PgAdmin.</b>
+
+60
+00:07:21 --> 00:07:29
+<b>PgAdmin</b> can be installed by using any one of the following methods on <b>Ubuntu Linux Operating System.</b>
+
+61
+00:07:30 --> 00:07:38
+Go to <b>Ubuntu Software Centre </b>or<b> Synaptic Package manager, </b>search for<b> PgAdmin </b>and install.
+
+62
+00:07:39 --> 00:07:44
+For more details, refer to the <b>‘Linux’ spoken tutorials </b>on our website.
+
+63
+00:07:45 --> 00:07:55
+Or, in the <b>Terminal</b>, type:  <b>sudo apt hyphen get install pgadmin3</b> and press <b>Enter</b>.
+
+64
+00:07:56 --> 00:08:02
+I have already installed <b>PgAdmin</b> in my machine.
+<p>I'll show how to open <b>PgAdmin.</b>
+</p>
+
+65
+00:08:03 --> 00:08:07
+Click <b>Dash Home </b>on the top left corner of the desktop.
+
+66
+00:08:08 --> 00:08:11
+In the <b>Search</b> box, type: <b>PgAdmin</b>.
+
+67
+00:08:12 --> 00:08:16
+The <b>PgAdmin</b> icon appears. Click on it.
+
+68
+00:08:17 --> 00:08:20
+The <b>PgAdmin </b>interface opens.
+
+69
+00:08:21 --> 00:08:27
+Now let us learn to install <b>PostgreSQL</b> on <b>Windows OS.</b>
+
+70
+00:08:28 --> 00:08:40
+Open your web browser and go to www.postgresql.org/download
+<p>Click on the <b>Windows</b> link. 
+</p>
+
+71
+00:08:41 --> 00:08:45
+Then, click on the<b> Download the graphical installer</b> link.
+
+72
+00:08:46 --> 00:08:52
+I have installed <b>postgres</b> version 9.3.x in <b>Linux Operating System</b>.
+
+73
+00:08:53 --> 00:09:01
+Now I would like to install the same version in <b>Windows</b> also.
+<p>You can also install the latest stable version. 
+</p>
+
+74
+00:09:02 --> 00:09:08
+So, click on the <b>Previous supported versions </b>and look for version <b>9.3.x</b>
+
+75
+00:09:09 --> 00:09:12
+Click the link near to the <b>Windows</b> icon.
+
+76
+00:09:13 --> 00:09:19
+It will open a <b>dialog box</b> to <b>save</b> the file.
+<p>Click on the <b>Save File</b> button. 
+</p>
+
+77
+00:09:20 --> 00:09:24
+It will take sometime to download the file. Wait until it is finished.
+
+78
+00:09:25 --> 00:09:29
+I have already downloaded it in my machine in the <b>Downloads</b> folder.
+
+79
+00:09:30 --> 00:08:36
+Go to the <b>Downloads</b> folder and double-click on the downloaded file. It will open a <b>window</b>.
+
+80
+00:08:37 --> 00:08:39
+Click on the <b>Run</b> button.
+
+81
+00:08:40 --> 00:09:43
+In the <b>setup</b> window, click on the <b>Next</b> button.
+
+82
+00:09:44 --> 00:09:51
+Select the <b>components</b> and click on the <b>Next</b> button.
+<p>In the <b>Installation directory</b>, click on the <b>Next</b> button. 
+</p>
+
+83
+00:09:52 --> 00:09:59
+Enter the <b>password</b> for <b>postgres</b> and re-type one more time. Click on the <b>Next</b> button.
+
+84
+00:10:00 --> 00:10:05
+Installation has started. Wait until it finishes completely.
+
+85
+00:10:06 --> 00:10:10
+Next, click on the <b>Finish</b> button to complete the installation.
+
+86
+00:10:11 --> 00:10:14
+Lastly, exit from the wizard.
+
+87
+00:10:15 --> 00:10:19
+Let us see how to open the <b>PostgreSQL command line</b> on <b>Windows</b>.
+
+88
+00:10:20 --> 00:10:29
+Click on <b>Start, </b>then<b> All program, </b>then<b> PostgreSQL </b>and <b>psql</b> to open the <b>command line</b>.
+
+89
+00:10:30 --> 00:10:32
+We can see the <b>postgres prompt</b>.
+
+90
+00:10:33 --> 00:10:41
+Type: <b>select version() semicolon </b>and press <b>Enter </b>to see the installed version of <b>postgresql.</b>
+
+91
+00:10:42 --> 00:10:48
+This indicates that we have successfully installed in <b>Windows</b>.
+<p>Close the window. 
+</p>
+
+92
+00:10:49 --> 00:10:52
+Let us open the <b>PgAdmin</b> from <b>Windows</b>.
+
+93
+00:10:53 --> 00:11:03
+Click on <b>Start, </b>then<b> All program, </b>then<b> PostgreSQL </b>and <b>PgAdmin3</b> to open the <b>GUI interface</b>.
+
+94
+00:11:04 --> 00:11:08
+With this, we come to the end of this tutorial. Let us summarize.
+
+95
+00:11:09 --> 00:11:17
+In this tutorial, we have learnt to install <b>PostgreSQL</b> on <b>Ubuntu Linux </b>and <b>Windows </b>operating systems.
+
+96
+00:11:18 --> 00:11:27
+As an assignment, connect to the <b>server</b> and list the default available database.
+<p>Change to anyone of the available database. 
+</p>
+
+97
+00:11:28 --> 00:11:35
+The video at the following link summarizes the <b>Spoken Tutorial</b> project.
+<p>Please download and watch it. 
+</p>
+
+98
+00:11:36 --> 00:11:44
+The<b> Spoken Tutorial Project</b> team
+<p>conducts workshops using spoken tutorials and gives certificates on passing online tests. 
+</p>
+
+99
+00:11:45 --> 00:11:48
+For more details, please write to us.
+
+100
+00:11:49 --> 00:11:53
+Do you have questions in THIS Spoken Tutorial?
+<p>Please visit this site 
+</p>
+
+101
+00:11:54 --> 00:12:01
+Choose the minute and second where you have the question.
+<p>Explain your question briefly. 
+</p>
+
+102
+00:12:02 --> 00:12:05
+Someone from our team will answer them.
+
+103
+00:12:06 --> 00:12:10
+The <b>Spoken Tutorial forum</b> is for specific questions on this tutorial.
+
+104
+00:12:11 --> 00:12:16
+Please do not post unrelated and general questions on them.
+
+105
+00:12:17 --> 00:12:24
+This will help reduce the clutter.
+<p>With less clutter, we can use these discussion as instructional material. 
+</p>
+
+106
+00:12:25 --> 00:12:37
+Spoken Tutorial project is funded by <b>NMEICT, MHRD,</b> Government of India.
+<p>More information on this mission is available at this link. 
+</p>
+
+107
+00:12:38 --> 00:12:43
+This is Nirmala Venkat from <b>IIT Bombay</b>, signing off. Thanks for watching.
+

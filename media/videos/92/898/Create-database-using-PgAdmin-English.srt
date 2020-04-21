@@ -1,0 +1,374 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:06
+Welcome to the<b> Spoken Tutorial</b> on<b> Create a database using pgAdmin.</b>
+
+2
+00:00:07 --> 00:00:11
+In this tutorial, we will learn about how to:
+<p>connect to the <b>server</b>, 
+</p>
+
+3
+00:00:12 --> 00:00:16
+database and its <b>object</b>s,
+<p>how to create a database, 
+</p>
+
+4
+00:00:17 --> 00:00:22
+<b>Table</b> and its <b>attributes</b> and
+<p>how to create a <b>table</b>. 
+</p>
+
+5
+00:00:23 --> 00:00:29
+To record this  tutorial, I am using:
+<p><b>Ubuntu Linux 14.04</b> operating system, 
+</p>
+
+6
+00:00:30 --> 00:00:37
+<b>PostgreSQL 9.3.x</b> and
+<p><b>pgAdmin 1.18</b>
+</p>
+
+7
+00:00:38 --> 00:00:47
+To follow this tutorial, you should have good understanding of basic computer concepts and
+<p>working knowledge of any programming language. 
+</p>
+
+8
+00:00:48 --> 00:00:50
+Let us open the <b>pgAdmin</b>.
+
+9
+00:00:51 --> 00:00:55
+Click<b> Dash Home</b> on the top left corner of the computer desktop.
+
+10
+00:00:56 --> 00:01:04
+In the <b>Search box</b>, type:<b> pgAdmin</b>. The <b>pgAdmin</b> icon appears. Click on it.
+
+11
+00:01:05 --> 00:01:08
+The <b>pgAdmin</b> interface is opened now.
+
+12
+00:01:09 --> 00:01:13
+Here, on the left hand side, we can see the <b>object browser pane</b>.
+
+13
+00:01:14 --> 00:01:17
+The various objects of the database are displayed here.
+
+14
+00:01:18 --> 00:01:22
+The upper right pane shows the relevant properties of each object.
+
+15
+00:01:23 --> 00:01:29
+The lower right pane is the <b>SQL</b> pane where the script of the currently selected object is displayed.
+
+16
+00:01:30 --> 00:01:32
+Let us see how to connect to the <b>server</b>.
+
+17
+00:01:33 --> 00:01:38
+Click on the <b>connection icon</b> on the top left corner of the tool bar.
+
+18
+00:01:39 --> 00:01:42
+<b>New Server Registration</b> window appears.
+
+19
+00:01:43 --> 00:01:55
+In the <b>Properties </b>tab, enter <b>localhost</b> in the <b>Name</b> field and <b>localhost</b> in the <b>Host </b>field.
+<p>Keep all the other <b>parameter</b>s same. 
+</p>
+
+20
+00:01:56 --> 00:02:02
+The <b>database</b> name, and the <b>Username</b> which are shown here are the names given during installation.
+
+21
+00:02:03 --> 00:02:09
+Enter the password which you gave during installation.
+<p>Click on <b>Ok</b> button. 
+</p>
+
+22
+00:02:10 --> 00:02:17
+Small pop-up windows will appear from time to time.
+<p>These give additional information for our understanding. 
+</p>
+
+23
+00:02:18 --> 00:02:26
+Always click on this check-box '<b>Do not show this hint again'</b>, before you close these windows.
+<p>I won't explicitly mention this. 
+</p>
+
+24
+00:02:27 --> 00:02:29
+Click on <b>Ok</b> button.
+
+25
+00:02:30 --> 00:02:37
+Here, we can see the connection established to <b>localhost</b>.
+<p>Click on the <b>localhost</b> node. 
+</p>
+
+26
+00:02:38 --> 00:02:41
+We can see several objects for this particular <b>server</b>.
+
+27
+00:02:42 --> 00:02:51
+Now, click on the <b>Databases</b> node.
+<p>The default <b>database 'postgres'</b> that is created during installation is displayed here. 
+</p>
+
+28
+00:02:52 --> 00:02:58
+<b>Database</b> is a collection of information or data which is stored in an organized way.
+
+29
+00:02:59 --> 00:03:06
+A <b>database</b> has objects such as <b>tables, views, procedures, functions</b> etc.
+
+30
+00:03:07 --> 00:03:11
+We will learn about these objects in the future tutorials, in this series.
+
+31
+00:03:12 --> 00:03:17
+We can have multiple databases depending upon our application requirement.
+
+32
+00:03:18 --> 00:03:20
+Switch back to <b>pgAdmin</b> interface.
+
+33
+00:03:21 --> 00:03:25
+Now, we will create a new database for our demonstration purpose.
+
+34
+00:03:26 --> 00:03:30
+Right-click on the <b>Databases</b> node and select <b>New Database.</b>
+
+35
+00:03:31 --> 00:03:36
+Type <b>Sampledb</b> as the <b>database</b> name and click <b>Ok</b>.
+
+36
+00:03:37 --> 00:03:43
+Now, we can see the <b>database</b> is listed under the <b>database</b> node, which we created just now.
+
+37
+00:03:44 --> 00:03:49
+Next, we will add a <b>student</b> table to this <b>sampledb database</b>.
+
+38
+00:03:50 --> 00:03:57
+What is <b>table</b>? In <b>RDBMS,</b> we store data in database objects called <b>tables</b>.
+
+39
+00:03:58 --> 00:04:03
+A <b>table</b> is a collection of related data that is stored in <b>rows</b> and <b>columns </b>format.
+
+40
+00:04:04 --> 00:04:10
+This is an example of a <b>STUDENT</b> table.
+<p><b>Tables</b> have <b>column</b>s which are called as <b>fields</b>. 
+</p>
+
+41
+00:04:11 --> 00:04:21
+The fields in the <b>STUDENT</b> table are <b>Student ID, student name, address, city, Phone, Date of birth, CGPA </b>etc.
+
+42
+00:04:22 --> 00:04:29
+A column is a set of value of a particular <b>data type</b>. This is also called as <b>attribute</b>.
+
+43
+00:04:30 --> 00:04:36
+Here, in the <b>STUDENT</b> table, <b>Student Name</b> is one of the <b>attribute</b> that represents names of students.
+
+44
+00:04:37 --> 00:04:40
+Now switch back to the <b>interface</b>.
+
+45
+00:04:41 --> 00:04:52
+To create a new <b>table</b> in <b>Sampledb</b> database, click on the <b>Sampledb</b> node.
+<p>Then click <b>Schemas</b> and then <b>Public</b> and <b>Tables</b>. 
+</p>
+
+46
+00:04:53 --> 00:05:01
+Right-click on the <b>table</b> node and select <b>New Table.</b>
+<p>Let us give “<b>students</b>” as <b>table</b> name. 
+</p>
+
+47
+00:05:02 --> 00:05:09
+Click on the <b>Columns</b> tab to enter the columns for this <b>table</b>.
+<p>Click on the <b>Add</b> button. 
+</p>
+
+48
+00:05:10 --> 00:05:14
+In the new window that opens, enter <b>Student name</b> in the <b>Name</b> field.
+
+49
+00:05:15 --> 00:05:19
+Select <b>character varying</b> as <b>data type</b> from the drop-down list box.
+
+50
+00:05:20 --> 00:05:24
+The <b>data type</b> specifies what <b>type</b> of data the field can hold.
+
+51
+00:05:25 --> 00:05:28
+Enter 50 as the length of the <b>field</b>.
+
+52
+00:05:29 --> 00:05:33
+The length specifies the maximum length of the <b>column</b> of the <b>table</b>.
+
+53
+00:05:34 --> 00:05:38
+Click <b>Ok</b> button to add column to the <b>table</b>.
+
+54
+00:05:39 --> 00:05:43
+We will see what are the common <b>data types</b> used in <b>PostgreSQL</b>.
+
+55
+00:05:44 --> 00:05:47
+<b>Integer, numeric</b> represents <b>numeric data type</b>.
+
+56
+00:05:48 --> 00:05:54
+For example: phone no, age, quantity are of <b>numeric data type</b>.
+
+57
+00:05:55 --> 00:06:00
+<b>numeric(n,d) - </b>is also <b>numeric data type</b> with decimal places.
+
+58
+00:06:01 --> 00:06:06
+Here <b>n</b> is the total digits and <b>d</b> is the number of digits after the decimal.
+
+59
+00:06:07 --> 00:06:13
+It can be used to represent fields like basic salary, unit price etc.
+
+60
+00:06:14 --> 00:06:18
+<b>char</b> and <b>character varying</b> represents <b>string data type</b>.
+
+61
+00:06:19 --> 00:06:28
+Fields such as <b>name, address, email</b> are of <b>string data type</b>.
+<p><b>Text</b> is a <b>string data type</b> with unlimited length. 
+</p>
+
+62
+00:06:29 --> 00:06:32
+<b>Date</b> represents <b>date</b> data type.
+
+63
+00:06:33 --> 00:06:40
+Likewise, I'll add <b>City</b> column with <b>character varying data type</b> and length as 40.
+
+64
+00:06:41 --> 00:06:44
+Add the column <b>Gender</b> as shown.
+
+65
+00:06:45 --> 00:06:48
+Add a <b>Date of Birth</b> column with <b>date</b> data type.
+
+66
+00:06:49 --> 00:06:55
+Next, add a <b>CGPA</b> field. Select the <b>data type</b> as <b>numeric</b>.
+
+67
+00:06:56 --> 00:07:02
+Enter <b>2</b> as length and <b>1</b> as precision. This is same as the <b>decimal</b> data type.
+
+68
+00:07:03 --> 00:07:10
+We have entered all the columns for the <b>student</b> table.  Click on <b>Ok</b> button.
+
+69
+00:07:11 --> 00:07:20
+A window shows some message about <b>Primary keys</b>.
+<p>We will see the importance of <b>Primary keys</b> in the future tutorials. 
+</p>
+
+70
+00:07:21 --> 00:07:27
+We can see the <b>student</b> table is created in the <b>sampledb</b> database.
+<p>Click on it. 
+</p>
+
+71
+00:07:28 --> 00:07:34
+In the <b>SQL pane</b>, we can see the syntax of the <b>create table</b> command generated automatically.
+
+72
+00:07:35 --> 00:07:39
+With this, we come to the end of this tutorial. Let us summarize.
+
+73
+00:07:40 --> 00:07:46
+In this tutorial, we have learnt -  how to connect to the <b>server</b>,
+<p><b>database</b> and its objects, 
+</p>
+
+74
+00:07:47 --> 00:07:53
+How to create a <b>database</b>,
+<p><b>Table</b> and its <b>attributes</b> and  how to create a <b>table</b>. 
+</p>
+
+75
+00:07:54 --> 00:07:59
+As an Assignment, connect to the <b>server</b> and check the default available database.
+
+76
+00:08:00 --> 00:08:12
+Create a new database <b>Organization</b>.  In the <b>Organization</b> database, create a table <b>Emp</b> with the columns <b>Emp name, Address, Date of Birth</b> and <b>Salary</b>.
+
+77
+00:08:13 --> 00:08:19
+The video at the following link summarizes the <b>Spoken Tutorial</b> project.
+<p>Please download and watch it. 
+</p>
+
+78
+00:08:20 --> 00:08:27
+The<b> Spoken Tutorial Project</b> team conducts workshops and  gives certificates.
+<p>For more details, please write to us. 
+</p>
+
+79
+00:08:28 --> 00:08:31
+Please post your timed queries in this forum.
+
+80
+00:08:32 --> 00:08:43
+Spoken Tutorial project is funded by <b>NMEICT, MHRD</b>, Government of India.
+<p>More information on this mission is available at this link. 
+</p>
+
+81
+00:08:44 --> 00:08:49
+This is Nirmala Venkat from <b>IIT Bombay</b>, signing off. Thanks for watching.
+

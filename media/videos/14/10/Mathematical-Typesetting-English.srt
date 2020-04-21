@@ -1,0 +1,546 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:05
+Welcome to this <b>spoken tutorial</b> on <b>Mathematical Typesetting</b> in <b>LaTeX</b>.
+
+2
+00:00:06 --> 00:00:07
+My name is Kannan Moudgalya.
+
+3
+00:00:08 --> 00:00:14
+A reminder: we should call it LaTeX and not latex.
+
+4
+00:00:15 --> 00:00:19
+In this tutorial, we will learn how to create mathematical symbols in LaTeX.
+
+5
+00:00:20 --> 00:00:28
+In particular, how to get into and leave from the mathematical mode. The role of <b>space</b>s and creating them,
+
+6
+00:00:29 --> 00:00:30
+Mathematical symbols.
+
+7
+00:00:31 --> 00:00:36
+Finally, <b>A M S math package</b> and its use in creating <b>matrices</b>.
+
+8
+00:00:37 --> 00:00:42
+I am creating this tutorial on our less than 10,000 Rupee laptop.
+
+9
+00:00:43 --> 00:00:46
+I am using <b>Ubuntu, TeXworks</b> and <b>LaTeX.</b>
+
+10
+00:00:47 --> 00:00:52
+The prerequisites are the following- basic spoken tutorials on LaTeX,
+
+11
+00:00:53 --> 00:00:55
+exposure to the <b>side-by-side </b>tutorial.
+
+12
+00:00:56 --> 00:00:59
+All are available from our website.
+
+13
+00:01:00 --> 00:01:03
+I shall use the file 'maths.tex'.
+
+14
+00:01:04 --> 00:01:10
+It is available as a code file in our web page where you found this tutorial.
+
+15
+00:01:11 --> 00:01:16
+In the same location, you will find this 'pdf' file from the <b>TeX user group, India</b>.
+
+16
+00:01:17 --> 00:01:19
+We shall use it when we do assignments
+
+17
+00:01:20 --> 00:01:23
+Let me go to the ‘TeXworks’ window.
+
+18
+00:01:24 --> 00:01:26
+I have already opened the file 'maths.tex'.
+
+19
+00:01:27 --> 00:01:31
+Please download this file and practise along with me.
+
+20
+00:01:32 --> 00:01:35
+We have already seen the commands that are at the top of this file.
+
+21
+00:01:36 --> 00:01:41
+This command removes the <b>paragraph indent</b>.
+
+22
+00:01:42 --> 00:01:46
+We will study the effect of this statement through an assignment.
+
+23
+00:01:47 --> 00:01:51
+Let us start with Greek symbols that are used in mathematics.
+
+24
+00:01:52 --> 00:01:56
+We use <b>dollar</b> sign to get into mathematical mode in LaTeX.
+
+25
+00:01:57 --> 00:02:05
+Let us begin with <b>alpha</b>. We write <b> dollar back slash alpha dollar</b>.
+
+26
+00:02:06 --> 00:02:14
+Let us compile and see that we get the Greek letter <b>alpha</b> in the 'pdf'.
+
+27
+00:02:15 --> 00:02:19
+The first dollar says that we are getting into the mathematical mode.
+
+28
+00:02:20 --> 00:02:23
+The second dollar says that we are leaving this mode.
+
+29
+00:02:24 --> 00:02:29
+From now on, I will not explicitly mention dollar or the back slash.
+
+30
+00:02:30 --> 00:02:33
+But you have to do exactly what you see on the screen.
+
+31
+00:02:34 --> 00:02:49
+Similarly we write <b>beta, gamma</b> and <b>delta</b>. Let us compile.
+
+32
+00:02:50 --> 00:02:55
+I did not save the 'tex' file, as <b>TeXworks</b> does it automatically.
+
+33
+00:02:56 --> 00:02:59
+Let us delete these.
+
+34
+00:03:00 --> 00:03:04
+We will next take up the concept of <b>space</b>s in mathematical expressions.
+
+35
+00:03:05 --> 00:03:11
+How do we generate <b>alpha a</b>, that is, the product of <b>alpha</b> and 'a'?
+
+36
+00:03:12 --> 00:03:16
+Let us try 'alpha a'.
+
+37
+00:03:17 --> 00:03:20
+Let me compile.
+
+38
+00:03:21 --> 00:03:26
+'LaTeX' complains that 'alpha a' is an undefined control sequence.
+
+39
+00:03:27 --> 00:03:33
+It says that it does not understand this command. Let me close this.
+
+40
+00:03:34 --> 00:03:38
+LaTeX handles this through a <b>space</b> after every command.
+
+41
+00:03:39 --> 00:03:43
+Let us leave a <b>space</b> after 'alpha'.
+
+42
+00:03:44 --> 00:03:51
+Let us abort the compilation. Let's recompile; this has solved the problem.
+
+43
+00:03:52 --> 00:03:56
+As it is used to terminate a command, the <b>space</b> does not appear in 'pdf'.
+
+44
+00:03:57 --> 00:04:02
+What do we do if we WANT to introduce <b>spaces</b> in the output?
+
+45
+00:04:03 --> 00:04:06
+We have to explicitly tell LaTeX, as we do now.
+
+46
+00:04:07 --> 00:04:10
+Let us ask LaTeX to start a new line.
+
+47
+00:04:11 --> 00:04:16
+Let us write <b>alpha backslash space a</b>.
+
+48
+00:04:17 --> 00:04:19
+Compile it.
+
+49
+00:04:20 --> 00:04:22
+This has created a <b>space</b>.
+
+50
+00:04:23 --> 00:04:30
+If you want more <b>space</b>, use 'quad', as we do now.
+
+51
+00:04:31 --> 00:04:33
+Compile it.
+
+52
+00:04:34 --> 00:04:39
+You can see that 'quad' has left a large <b>space</b>.
+
+53
+00:04:40 --> 00:04:42
+We will now move to another topic.
+
+54
+00:04:43 --> 00:04:49
+Let us delete the last two lines. Let’s compile.
+
+55
+00:04:50 --> 00:04:55
+What happens to the font when we go from the text to the mathematical mode?
+
+56
+00:04:56 --> 00:05:03
+To understand this, let us write “Product of $\alpha and a is”.
+
+57
+00:05:04 --> 00:05:06
+Compile.
+
+58
+00:05:07 --> 00:05:13
+You can see that the font of these two 'a' s are different.
+
+59
+00:05:14 --> 00:05:24
+This is solved by writing this 'a' also inside <b>dollar</b> signs.
+
+60
+00:05:25 --> 00:05:26
+Let me compile.
+
+61
+00:05:27 --> 00:05:31
+Now the fonts of these  two 'a' s are identical.
+
+62
+00:05:32 --> 00:05:36
+Not keeping the font of variables identical is a common mistake.
+
+63
+00:05:37 --> 00:05:39
+Let’s get rid of these.
+
+64
+00:05:40 --> 00:05:42
+Let’s compile.
+
+65
+00:05:43 --> 00:05:47
+Let us now discuss a rule for creating minus signs.
+
+66
+00:05:48 --> 00:05:57
+Suppose that we want to create <b>minus alpha</b> and compile.
+
+67
+00:05:58 --> 00:06:00
+Let’s compile.
+
+68
+00:06:01 --> 00:06:06
+Notice that the minus sign appears as a small dash here.
+
+69
+00:06:07 --> 00:06:14
+Let us also copy with the minus sign, inside the dollar sign.
+
+70
+00:06:15 --> 00:06:17
+Let us compile again.
+
+71
+00:06:18 --> 00:06:26
+See the difference in the minus sign now. The second one is what we need, the dash is not to be used.
+
+72
+00:06:27 --> 00:06:32
+Not putting the minus sign within dollars is a common mistake made by beginners.
+
+73
+00:06:33 --> 00:06:35
+Let us delete all of these.
+
+74
+00:06:36 --> 00:06:42
+Next we would like to explain the 'frac' command that is used to create fractions.
+
+75
+00:06:43 --> 00:06:49
+'frac a b'. Let's compile.
+
+76
+00:06:50 --> 00:06:59
+It generates 'a' by 'b'. The command 'frac' is terminated by a <b>space</b>. It looks for two <b>arguments</b>.
+
+77
+00:07:00 --> 00:07:06
+The first character 'a' is taken as the first <b>argument</b>. It becomes the numerator.
+
+78
+00:07:07 --> 00:07:12
+The second character 'b' is taken as the second <b>argument</b>; it becomes the denominator.
+
+79
+00:07:13 --> 00:07:19
+Notice that the size of 'a' and 'b' gets reduced automatically.
+
+80
+00:07:20 --> 00:07:23
+What do we do if we have longer characters?
+
+81
+00:07:24 --> 00:07:30
+What if we want to create 'ab' by 'cd'? I want you to try this.
+
+82
+00:07:31 --> 00:07:36
+In LaTeX, the <b>arguments</b> longer than one character are enclosed by braces.
+
+83
+00:07:37 --> 00:07:40
+For example, let us put braces here.
+
+84
+00:07:41 --> 00:07:46
+When we compile this, we get the desired output.
+
+85
+00:07:47 --> 00:07:51
+All the entries within the braces are taken as a single <b>argument</b>.
+
+86
+00:07:52 --> 00:08:00
+As a result, one can enter any complicated expression within braces. Let us delete all of these.
+
+87
+00:08:01 --> 00:08:04
+Now we will look at subscripts and superscripts.
+
+88
+00:08:05 --> 00:08:13
+<b>x underscore a</b> creates <b>x sub a</b>.
+
+89
+00:08:14 --> 00:08:18
+The size of 'a' gets automatically reduced to an appropriate level.
+
+90
+00:08:19 --> 00:08:27
+What if we want to put 'ab' as the subscript? you have to use braces. Try it yourself.
+
+91
+00:08:28 --> 00:08:32
+Superscripts are created by the <b>caret</b> or the <b>up arrow</b> symbol.
+
+92
+00:08:33 --> 00:08:42
+For example, if you want to create 'x' to the power 3, you will write: <b>x up arrow 3</b>.
+
+93
+00:08:43 --> 00:08:47
+We can also put subscripts and superscripts simultaneously.
+
+94
+00:08:48 --> 00:08:57
+Let us put <b>x sub a superscript b</b>; let’s compile.
+
+95
+00:08:58 --> 00:09:07
+Once again, using braces, we can produce complicated subscripts and superscripts. Let me delete this.
+
+96
+00:09:08 --> 00:09:11
+Alright.. next we will move onto <b>Matrices</b>.
+
+97
+00:09:12 --> 00:09:18
+The package <b>a m s math</b> has some matrix definitions that I like.
+
+98
+00:09:19 --> 00:09:25
+Let us include it through the 'usepackage' command.
+
+99
+00:09:26 --> 00:09:30
+The <b>ampersand</b>, that is, the '<b>and'</b> symbol is used to separate the columns.
+
+100
+00:09:31 --> 00:09:33
+Let us create a matrix now.
+
+101
+00:09:34 --> 00:09:43
+We write 'begin matrix' 'a' and 'b', 'end matrix'. Don’t forget the dollar signs.
+
+102
+00:09:44 --> 00:09:48
+Compile and see the matrix, as expected.
+
+103
+00:09:49 --> 00:09:58
+Now suppose, we want to add a second row to this, we put two <b>back slashes</b>, meaning, go to the next line.
+
+104
+00:09:59 --> 00:10:10
+Suppose that we want three entries in the second row, say, 'c, d, e'. Compile it and see the second row also included now.
+
+105
+00:10:11 --> 00:10:16
+Supposing we change matrix to 'pmatrix', at 'begin' and 'end'.
+
+106
+00:10:17 --> 00:10:20
+Compile and get this.
+
+107
+00:10:21 --> 00:10:27
+It is now time for you to start exploring.  Let us go to the slides now.
+
+108
+00:10:28 --> 00:10:30
+Let us summarise what we learnt in this tutorial-
+
+109
+00:10:31 --> 00:10:36
+Entering and leaving the mathematical mode Using <b>space</b>s and creating them
+
+110
+00:10:37 --> 00:10:43
+Fractions, subscripts and superscripts Defining an <b>argument</b> with in braces
+
+111
+00:10:44 --> 00:10:47
+'amsmath' package to create matrices.
+
+112
+00:10:48 --> 00:10:50
+Let me give some assignments.
+
+113
+00:10:51 --> 00:11:00
+This assignment is on <b>spaces</b> - large and small, please pause the video, read the slide and do the assignment.
+
+114
+00:11:01 --> 00:11:05
+This assignment is on fractions using braces.
+
+115
+00:11:06 --> 00:11:10
+This assignment is on subscripts and superscripts.
+
+116
+00:11:11 --> 00:11:16
+Through this assignment, we shall learn a few more methods to create matrices.
+
+117
+00:11:17 --> 00:11:20
+This assignment is on creating more mathematical symbols.
+
+118
+00:11:21 --> 00:11:28
+This is based on the <b>TUG India LaTeX</b> guide. Let us see that document now.
+
+119
+00:11:29 --> 00:11:33
+I already asked you to download this document from our web page.
+
+120
+00:11:34 --> 00:11:38
+You will reproduce some symbols given in this document.
+
+121
+00:11:39 --> 00:11:42
+You will try out more symbols through in the next assignment.
+
+122
+00:11:43 --> 00:11:47
+This assignment is also based on the <b>TUG India</b> document.
+
+123
+00:11:48 --> 00:11:52
+You will experiment with the paragraph indent in this assignment.
+
+124
+00:11:53 --> 00:11:55
+This brings us to the end of this tutorial.
+
+125
+00:11:56 --> 00:11:59
+This video summarises the <b>Spoken Tutorial</b> project.
+
+126
+00:12:00 --> 00:12:03
+If you do not have good bandwidth, you may download and watch it.
+
+127
+00:12:04 --> 00:12:10
+We conduct workshops using <b>Spoken Tutorials.</b> Give certificates. Please contact us.
+
+128
+00:12:11 --> 00:12:19
+Do you have questions in THIS <b>Spoken Tutorial?</b> please visit this site, choose the minute and second where you have the question.
+
+129
+00:12:20 --> 00:12:26
+Explain your question briefly. Someone from our team will answer them.
+
+130
+00:12:27 --> 00:12:35
+The Spoken Tutorial forum is for specific questions on this tutorial. Please do not post unrelated and general questions.
+
+131
+00:12:36 --> 00:12:43
+This will help reduce the clutter. With less clutter, we can use these discussions as instructional material.
+
+132
+00:12:44 --> 00:12:49
+For topics not covered in spoken tutorials, visit <b>stack exchange</b> at this address.
+
+133
+00:12:50 --> 00:12:52
+This is a great place to get answers on LaTeX.
+
+134
+00:12:53 --> 00:13:02
+You may also have questions on our workshops, certificates, etc.  For this, get in touch with us at this email address.
+
+135
+00:13:03 --> 00:13:08
+Spoken Tutorial project is funded by NMEICT, MHRD, Government of India.
+
+136
+00:13:09 --> 00:13:14
+Thanks for joining Goodbye.
+

@@ -1,0 +1,370 @@
+<b>Narration</b>
+
+1
+00:00:00 --> 00:00:05
+Welcome to the <b>Spoken tutorial</b> on the <b>Mozilla Firefox - Search and Auto-complete features</b>.
+
+2
+00:00:06 --> 00:00:14
+In this tutorial, we will learn how to use <b>Search</b>, manage <b>Search Engines</b>, use the <b>Find bar</b>,
+
+3
+00:00:15 --> 00:00:17
+use <b>Auto-complete</b> in the <b>Address bar</b>.
+
+4
+00:00:18 --> 00:00:25
+In this tutorial, we will use <b>Firefox version 7.0</b> on <b>Ubuntu 10.04</b>.
+
+5
+00:00:26 --> 00:00:30
+One of the most common things people do on the internet is to search for information.
+
+6
+00:00:31 --> 00:00:36
+One can search for a specific website or for some other information.
+
+7
+00:00:37 --> 00:00:43
+Mozilla Firefox has a number of functionalities that make it easy to search for information on the Internet.
+
+8
+00:00:44 --> 00:00:46
+Let’s look at some of the ways.
+
+9
+00:00:47 --> 00:00:49
+One way is to search by visiting other websites.
+
+10
+00:00:50 --> 00:00:53
+After all, <b>search engines</b> are websites too!
+
+11
+00:00:54 --> 00:00:58
+In the <b>URL bar</b>, type: ‘www.google.com’.
+
+12
+00:00:59 --> 00:01:00
+The <b>google home page</b> comes up.
+
+13
+00:01:01 --> 00:01:06
+In the search box  of the google home page, type: ‘email’ and click <b>Search</b>.
+
+14
+00:01:07 --> 00:01:09
+The search engine brings up all the results.
+
+15
+00:01:10 --> 00:01:15
+We see that the top result is for <b>g mail</b>, the email from 'google'.
+
+16
+00:01:16 --> 00:01:19
+But, there is an easier way to do the same thing with Mozilla Firefox.
+
+17
+00:01:20 --> 00:01:25
+Next to the 'URL bar' on the navigation toolbar, there is a <b>Search bar</b> <b>field</b>.
+
+18
+00:01:26 --> 00:01:32
+Alternately, you can press <b>Ctrl+K</b> to directly go to the <b>Search bar</b>  field.
+
+19
+00:01:33 --> 00:01:35
+Click on the search bar and type ‘email’.
+
+20
+00:01:36 --> 00:01:39
+Click the magnifying glass icon that is next to it.
+
+21
+00:01:40 --> 00:01:43
+We will see the results of the search in the contents area.
+
+22
+00:01:44 --> 00:01:49
+We see that the top result is for 'gmail', the email from 'google'.
+
+23
+00:01:50 --> 00:01:57
+On the left side of the 'Search bar', the logo of the search engine which has been used to bring up the results is seen.
+
+24
+00:01:58 --> 00:02:01
+The default search engine used in Mozilla Firefox is ‘google’.
+
+25
+00:02:02 --> 00:02:07
+But, we need not be constrained by this. We can choose the search engine of our choice.
+
+26
+00:02:08 --> 00:02:11
+Click on the google’s search engine logo within the <b>Search bar</b>.
+
+27
+00:02:12 --> 00:02:20
+We notice that a drop-down box appears with the logos of most popular search engines including “Yahoo” and “Bing”.
+
+28
+00:02:21 --> 00:02:23
+Select “Yahoo” from the drop-down box.
+
+29
+00:02:24 --> 00:02:29
+We observe that the logo on the left of the search bar has now changed to the “Yahoo” logo.
+
+30
+00:02:30 --> 00:02:35
+Now, let's  type ‘email’ again in the 'Search bar' and click the magnifying glass.
+
+31
+00:02:36 --> 00:02:41
+This time we see that the results in the <b>Contents area</b> are from the <b>“Yahoo” search engine</b>.
+
+32
+00:02:42 --> 00:02:45
+Observe that the results are slightly different from last time.
+
+33
+00:02:46 --> 00:02:52
+The top result is no longer 'gmail'. Instead, the top result is “Yahoo” mail.
+
+34
+00:02:53 --> 00:02:56
+Click on the search engine logo within the 'Search bar' again.
+
+35
+00:02:57 --> 00:03:00
+In the drop-down box,  select <b>Manage Search Engines</b>.
+
+36
+00:03:01 --> 00:03:06
+This opens a dialog box entitled ‘Manage Search Engine List'.
+
+37
+00:03:07 --> 00:03:09
+Click on the last item in the list.
+
+38
+00:03:10 --> 00:03:15
+The buttons on the right side are now enabled. Click on the <b>Remove</b> button.
+
+39
+00:03:16 --> 00:03:20
+We see that the item we chose is no longer on the list.
+
+40
+00:03:21 --> 00:03:23
+Click on <b>OK</b> to close the dialog box.
+
+41
+00:03:24 --> 00:03:28
+Click on the <b>search engine logo</b> within the 'Search bar' again.
+
+42
+00:03:29 --> 00:03:31
+Click on “Manage Search Engines”.
+
+43
+00:03:32 --> 00:03:36
+The “Manage Search Engines List" dialog box pops up.
+
+44
+00:03:37 --> 00:03:41
+At the bottom of the dialog is a link that says ‘Get more search engines…’.
+
+45
+00:03:42 --> 00:03:45
+Click on it.A new browser tab opens.
+
+46
+00:03:46 --> 00:03:50
+It displays a number of search engines that we can add to the search bar.
+
+47
+00:03:51 --> 00:03:54
+You can add any of the 'search engines' according to your requirement.
+
+48
+00:03:55 --> 00:03:59
+Let's close this tab by clicking on the 'x' at the corner of the tab.
+
+49
+00:04:00 --> 00:04:06
+We can find specific text which is within the <b>Contents area</b> with the help of the <b>Find bar</b>.
+
+50
+00:04:07 --> 00:04:12
+In the URL bar, type: ‘www.gmail.com’ and press <b>Enter</b>.
+
+51
+00:04:13 --> 00:04:18
+When the 'gmail home page' has loaded, click on <b>Edit</b> and then on <b>Find</b>.
+
+52
+00:04:19 --> 00:04:21
+A <b>Find bar</b> appears at the bottom of the <b>browser window</b>.
+
+53
+00:04:22 --> 00:04:27
+In the text box of the “Find bar”, type: ‘gmail’.
+
+54
+00:04:28 --> 00:04:35
+As we type, we see that the first instance of that text is being highlighted in the <b>Contents area</b>.
+
+55
+00:04:36 --> 00:04:40
+Clicking on <b>Next</b> will move the focus to the next instance of the word.
+
+56
+00:04:41 --> 00:04:45
+Clicking on <b>Previous</b> will move the focus to the previous instance of the word.
+
+57
+00:04:46 --> 00:04:48
+Click on <b>Highlight all</b> option.
+
+58
+00:04:49 --> 00:04:55
+We see that all instances of the search text are highlighted in the <b>Contents area</b>.
+
+59
+00:04:56 --> 00:05:03
+Mozilla Firefox makes it easy to type web addresses in the 'URL bar' with its <b>auto-complete</b> function.
+
+60
+00:05:04 --> 00:05:07
+We don’t have to type the entire web address in the address bar.
+
+61
+00:05:08 --> 00:05:11
+Try this: In the 'address bar', type: ‘gma’.
+
+62
+00:05:12 --> 00:05:16
+We see that Mozilla Firefox tries to auto-complete the word we are typing.
+
+63
+00:05:17 --> 00:05:22
+It brings up a drop-down list with websites that start with ‘gma’.
+
+64
+00:05:23 --> 00:05:26
+Choose the ‘gmail’ link from the drop-down list.
+
+65
+00:05:27 --> 00:05:29
+The ‘gmail’ webpage loads in the 'Contents area'.
+
+66
+00:05:30 --> 00:05:33
+If we do not like this feature, we can turn it off.
+
+67
+00:05:34 --> 00:05:36
+Click on <b>Edit</b> and then on <b>Preferences</b>.
+
+68
+00:05:37 --> 00:05:40
+<b>Windows</b> users can click on <b>Tools</b> and then on <b>Options</b>.
+
+69
+00:05:41 --> 00:05:45
+Choose the <b>Privacy</b> tab from the list of main-menu tabs.
+
+70
+00:05:46 --> 00:05:52
+At the very bottom of the dialog box, is an option named ‘When using the location bar, suggest’.
+
+71
+00:05:53 --> 00:05:55
+Click on the arrow of  the drop-down list to expand it.
+
+72
+00:05:56 --> 00:05:58
+Select '<b>Nothing'</b> from the list.
+
+73
+00:05:59 --> 00:06:02
+Click on <b>‘Close’</b> to close the dialog box.
+
+74
+00:06:03 --> 00:06:08
+Let's go back to the 'address bar' and type ‘gma’. Notice that no suggestions come up.
+
+75
+00:06:09 --> 00:06:15
+This concludes this tutorial of Mozilla Firefox - <b>Search</b>ing and <b>Auto-complete</b> features.
+
+76
+00:06:16 --> 00:06:26
+In this tutorial, we learnt how to: use <b>Search</b>, manage <b>Search Engine</b>, use the <b>Find bar</b>, use <b>Auto-compete</b> in <b>Address bar</b>.
+
+77
+00:06:27 --> 00:06:29
+Try this comprehension test assignment.
+
+78
+00:06:30 --> 00:06:33
+Change the <b>search engine</b> in the <b>search bar</b> to “Yahoo”.
+
+79
+00:06:34 --> 00:06:35
+Search for ‘spoken tutorial’.
+
+80
+00:06:36 --> 00:06:39
+Click on the first result.
+
+81
+00:06:40 --> 00:06:43
+Find how many times the word “video” appears in the page.
+
+82
+00:06:44 --> 00:06:50
+Now, click on ‘Highlight all’ to highlight all the instances of the word “video” in the webpage.
+
+83
+00:06:51 --> 00:06:53
+Watch the video available at the following link: <a class="external free" href="http://spoken-tutorial.org/What_is_" rel="nofollow">http://spoken-tutorial.org/What_is_</a> a_Spoken_Tutorial.
+
+84
+00:06:54 --> 00:06:57
+It summarizes the Spoken Tutorial project.
+
+85
+00:06:58 --> 00:07:01
+If you do not have good bandwidth, you can download and watch it.
+
+86
+00:07:02 --> 00:07:07
+The Spoken Tutorial Project team: * Conducts workshops using spoken tutorials.
+
+87
+00:07:08 --> 00:07:10
+Gives certificates for those who pass an online test.
+
+88
+00:07:11 --> 00:07:17
+For more details, please write to: contact@spoken-tutorial.org
+
+89
+00:07:18 --> 00:07:21
+<b>Spoken Tutorial</b> project is a part of the <b>Talk to a Teacher</b> project.
+
+90
+00:07:22 --> 00:07:29
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+91
+00:07:30 --> 00:07:40
+More information on this mission is available at: spoken hyphen tutorial dot org slash NMEICT hyphen Intro.
+
+92
+00:07:41 --> 00:07:46
+This tutorial has been contributed by DesiCrew Solutions Pvt.Ltd.Thanks for joining.
+

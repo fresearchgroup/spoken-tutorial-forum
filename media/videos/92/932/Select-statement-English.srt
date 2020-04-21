@@ -1,0 +1,520 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:05
+Welcome to the<b> Spoken Tutorial</b> on<b> Select</b> statement.
+
+2
+00:00:06 --> 00:00:11
+In this tutorial, we will learn about:
+<p>basic <b>Select</b> statement, 
+</p>
+
+3
+00:00:12 --> 00:00:14
+<b>Select</b> with <b>WHERE</b> clause,
+
+4
+00:00:15 --> 00:00:17
+<b>Select</b> with <b>relational operators</b>,
+
+5
+00:00:18 --> 00:00:20
+<b>Select</b> with <b>logical operators</b>,
+
+6
+00:00:21 --> 00:00:23
+<b>Alias</b> for <b>column</b> names.
+
+7
+00:00:24 --> 00:00:30
+To record this tutorial, I am using:
+<p><b>Ubuntu Linux 14.04</b> operating system, 
+</p>
+
+8
+00:00:31 --> 00:00:38
+<b>PostgreSQL 9.3.x</b>
+<p>and  <b>pgAdmin 1.18</b>
+</p>
+
+9
+00:00:39 --> 00:00:45
+To follow this tutorial, you should have basic understanding of <b>database</b> and <b>tables</b>.
+
+10
+00:00:46 --> 00:00:52
+For more details, refer to the <b>RDBMS PostgreSQL</b> series on this website.
+
+11
+00:00:53 --> 00:00:55
+Let us open <b>pgAdmin</b>.
+
+12
+00:00:56 --> 00:01:03
+Right-click on the <b>students</b> table and select <b>View Data</b> and then <b>View All Rows.</b>
+
+13
+00:01:04 --> 00:01:09
+We can see the <b>students</b> table with the 4 <b>record</b>s that we inserted earlier.
+
+14
+00:01:10 --> 00:01:18
+I'll show how to insert <b>record</b>s in the <b> Edit Data</b> window.
+
+15
+00:01:19 --> 00:01:24
+Click on the <b>save</b> icon on the top left of the toolbar to save the changes.
+
+16
+00:01:25 --> 00:01:32
+We can insert records either in this <b>Edit data </b>window or through the <b>Insert</b> statement.
+<p>Close this window. 
+</p>
+
+17
+00:01:33 --> 00:01:42
+I’ll insert some more records for demonstration purpose.
+<p>I’ll open the <b>SQL editor window</b> and type the <b>insert</b> statement shown here. 
+</p>
+
+18
+00:01:43 --> 00:01:50
+Note that I have entered <b>‘NULL’</b> value in the <b>date of birth</b> column for <b>student id ‘s012’.</b>
+
+19
+00:01:51 --> 00:01:58
+In <b>PostgreSQL</b>, the term <b>NULL</b> is used to represent a missing value or an unknown value.
+
+20
+00:01:59 --> 00:02:02
+A <b>field</b> with a <b>NULL</b> value represents no value.
+
+21
+00:02:03 --> 00:02:08
+<b>Execute</b> the <b>query</b>.
+<p>Retrieve the data from the table to see the output. 
+</p>
+
+22
+00:02:09 --> 00:02:12
+So far, we have inserted 14 records.
+
+23
+00:02:13 --> 00:02:16
+A <b>NULL</b> value field appears to be blank.
+
+24
+00:02:17 --> 00:02:21
+<b>Null</b> is not the same as a zero value or space value.
+
+25
+00:02:22 --> 00:02:26
+It implies that a database field value has not been stored.
+
+26
+00:02:27 --> 00:02:34
+Pause the tutorial and do this assignment.
+<p>Insert 10 records into the <b>students</b> table. 
+</p>
+
+27
+00:02:35 --> 00:02:40
+Next, we will see about how to use <b>SELECT</b> statement with many clauses.
+
+28
+00:02:41 --> 00:02:44
+The <b>SELECT</b> statement retrieves data from a <b>database</b>.
+
+29
+00:02:45 --> 00:02:50
+The data is returned in rows and columns format i.e. in a tabular format.
+
+30
+00:02:51 --> 00:02:56
+It has many clauses that we can combine to form a powerful query.
+
+31
+00:02:57 --> 00:03:04
+The basic syntax of the <b>SELECT </b>statement is:
+<p><b>Select column-names from table-name;</b>
+</p>
+
+32
+00:03:05 --> 00:03:09
+Now let us learn to write queries using <b>Select</b> statements.
+
+33
+00:03:10 --> 00:03:13
+Switch back to the <b>PgAdmin</b> main screen.
+
+34
+00:03:14 --> 00:03:20
+Right-click on <b>students</b> node and select <b>Scripts</b> and then click on <b>SELECT script.</b>
+
+35
+00:03:21 --> 00:03:25
+This is a simple <b>Select</b> statement which retrieves data from the <b>students table</b>.
+
+36
+00:03:26 --> 00:03:33
+You can specify the column names as shown here or use '<b>asterisk'</b> to select all the columns.
+
+37
+00:03:34 --> 00:03:42
+I want the details of certain columns only.
+<p>So, type the code as shown here with specific column names. 
+</p>
+
+38
+00:03:43 --> 00:03:53
+The <b>SQL statement </b>will display -  the <b>student id, student name, city </b>and <b>cgpa </b>columns
+<p>from the <b>Students table</b>. 
+</p>
+
+39
+00:03:54 --> 00:03:57
+Now, let’s execute the query to see the output.
+
+40
+00:03:58 --> 00:04:03
+The expected <b>row</b>s and <b>column</b>s are displayed.
+<p>Let’s move ahead. 
+</p>
+
+41
+00:04:04 --> 00:04:13
+<b>SELECT with WHERE clause</b> is used  to filter the rows which match the criteria that is specified and  to limit the number of rows.
+
+42
+00:04:14 --> 00:04:22
+The syntax of this statement is, <b>SELECT column-names FROM table-name WHERE condition</b>.
+
+43
+00:04:23 --> 00:04:29
+Records that satisfy the specified <b>condition </b>will be displayed on executing this <b>statement.</b>
+
+44
+00:04:30 --> 00:04:33
+Let’s switch back to the <b>pgAdmin SQL Editor.</b>
+
+45
+00:04:34 --> 00:04:42
+Type: <b>SELECT studentid, studentname, city, cgpa from students where city ='Mumbai'.</b>
+
+46
+00:04:43 --> 00:04:45
+Now, <b>execute</b> this <b>query</b>.
+
+47
+00:04:46 --> 00:04:56
+It will retrieve the rows from the <b>students</b> table and display students from <b>Mumbai</b> city.
+<p><b>WHERE</b> is followed by a condition that returns either <b>true</b> or <b>false</b>. 
+</p>
+
+48
+00:04:57 --> 00:05:02
+Here the <b>City</b> is the column name and '<b>Mumbai'</b> is the value to <b>filter</b>.
+
+49
+00:05:03 --> 00:05:11
+Now, let’s change the city value to '<b>Bangalore'</b> and execute the query.
+<p>We can see that there are no records retrieved. 
+</p>
+
+50
+00:05:12 --> 00:05:16
+This is because the <b>condition </b>returns <b>false </b>on execution
+
+51
+00:05:17 --> 00:05:20
+which means there are no records that match with the given <b>condition</b>.
+
+52
+00:05:21 --> 00:05:27
+Next, we will see how to use comparison or <b>relational operators </b>in the <b>WHERE</b> clause.
+
+53
+00:05:28 --> 00:05:33
+<b>Relational operators </b>listed here, can also be used within the <b>WHERE</b> clause.
+
+54
+00:05:34 --> 00:05:36
+Switch back to the <b>pgAdmin SQL Editor.</b>
+
+55
+00:05:37 --> 00:05:48
+Type: <b>Select studentid, studentname, city, cgpa from students where cgpa > 8.5</b>
+
+56
+00:05:49 --> 00:05:50
+Execute the query.
+
+57
+00:05:51 --> 00:05:56
+The output shows details of students who have <b>cgpa </b>greater than <b>8.5</b>
+
+58
+00:05:57 --> 00:06:03
+Let us type another query to retrieve the student details who are not from <b>Mumbai</b> city.
+
+59
+00:06:04 --> 00:06:06
+Note the '<b>Not equal to'</b> operator.
+
+60
+00:06:07 --> 00:06:13
+It is symbolized by an open and close angular bracket.
+<p>Execute the query. 
+</p>
+
+61
+00:06:14 --> 00:06:20
+Likewise, we can use <b>relational operators </b>to filter data depending upon our requirement.
+
+62
+00:06:21 --> 00:06:26
+Next let’s learn how to use arithmetic <b>operators</b> in the <b>Select</b> statement.
+
+63
+00:06:27 --> 00:06:32
+When we need to do calculations within <b>SQL statements</b>, we can use arithmetic expressions.
+
+64
+00:06:33 --> 00:06:39
+Arithmetic expressions contain <b>column</b> names, arithmetic operators and numeric values.
+
+65
+00:06:40 --> 00:06:46
+Arithmetic operators will however not work for <b>character data type </b>columns.
+
+66
+00:06:47 --> 00:06:53
+Let’s do a simple arithmetic calculation using some <b>operators</b>.
+<p>Clear the screen. 
+</p>
+
+67
+00:06:54 --> 00:07:02
+Type: <b>Select 2+15+98+45;</b>
+<p>Execute to see the output. 
+</p>
+
+68
+00:07:03 --> 00:07:10
+Type:<b> Select 230 divided by 5;</b>
+<p>Again <b>execute</b> the <b>query</b> to see the output. 
+</p>
+
+69
+00:07:11 --> 00:07:15
+Let us see how to use arithmetic operators with a column of the <b>table</b>.
+
+70
+00:07:16 --> 00:07:25
+We have a column called <b>cgpa </b> with <b>numeric data type</b>.
+<p><b>CGPA</b> stands for <b>Cumulative Grade Point Average.</b>
+</p>
+
+71
+00:07:26 --> 00:07:32
+Let us calculate the percentage from <b>cgpa</b> score.
+<p>Switch back to <b>SQL Editor</b> window. 
+</p>
+
+72
+00:07:33 --> 00:07:43
+Type the query as shown here.
+<p>What we want to do is, multiply the <b>cgpa</b> with <b>9.5 </b>to get the actual percentage. 
+</p>
+
+73
+00:07:44 --> 00:07:49
+Here, we are using the multiplication operator asterisk, to calculate the percentage.
+
+74
+00:07:50 --> 00:07:52
+Let’s execute the query now.
+
+75
+00:07:53 --> 00:08:01
+Percentage is calculated and displayed in a new column, as shown here.
+<p>But there is no specific column name for this column. 
+</p>
+
+76
+00:08:02 --> 00:08:08
+This percentage data is not stored in the database. It only displays the calculation.
+
+77
+00:08:09 --> 00:08:17
+Now I want to give a name to this column so that it is more meaningful.
+<p>For that, we can use an <b>alias </b>name. 
+</p>
+
+78
+00:08:18 --> 00:08:22
+An <b>alias</b> is used to rename a column temporarily.
+
+79
+00:08:23 --> 00:08:26
+It appears as a heading in the output of the query.
+
+80
+00:08:27 --> 00:08:34
+Use column <b>alias</b> if the original column name is not meaningful or
+<p>when there is a column name conflict. 
+</p>
+
+81
+00:08:35 --> 00:08:43
+Here, add the text as <b>Percentage </b>after the calculation column.
+<p>Execute the query to see the output. 
+</p>
+
+82
+00:08:44 --> 00:08:50
+We can also specify in capital letters as <b>“PERCENTAGE” </b>within double quotes.
+
+83
+00:08:51 --> 00:08:58
+Please note, column names which are mixed-case or uppercase have to be within double quotes in <b>postgresql</b>.
+
+84
+00:08:59 --> 00:09:00
+Execute the query.
+
+85
+00:09:01 --> 00:09:06
+We can see the column name has changed to <b>PERCENTAGE</b> in capital letters.
+
+86
+00:09:07 --> 00:09:12
+Next we will see how to use <b>logical operators</b> within the <b>Select</b> statement.
+
+87
+00:09:13 --> 00:09:17
+<b>Logical operators </b>are used where more than one condition needs to be checked.
+
+88
+00:09:18 --> 00:09:24
+Or, using <b>logical operators, </b>we can combine two or more <b>conditions</b>.
+
+89
+00:09:25 --> 00:09:37
+The most commonly used <b>logical operators</b> are:
+<p><b>AND</b>: This joins two or more <b>conditions </b>and returns results only when all the conditions are <b>true</b>. 
+</p>
+
+90
+00:09:38 --> 00:09:46
+<b>OR</b>: This joins two or more <b>conditions</b> and returns results when at least one of the conditions is <b>true</b>.
+
+91
+00:09:47 --> 00:09:52
+<b>NOT</b>: This operator results in the reverse of a <b>condition</b>.
+
+92
+00:09:53 --> 00:09:59
+Switch back to <b>PgAdmin</b> interface.
+<p>Let us see few examples for logical operators. 
+</p>
+
+93
+00:10:00 --> 00:10:10
+Type the code as shown.
+<p>Here, we are checking for two <b>conditions</b> i.e. students who are from <b>Pune</b> city whose gender is <b>Female</b>. 
+</p>
+
+94
+00:10:11 --> 00:10:19
+It will return the output when both the <b>conditions</b> are <b>true</b>.
+<p>Notice how the '<b>AND' logical operator </b>is written. 
+</p>
+
+95
+00:10:20 --> 00:10:22
+Execute the query to see the output.
+
+96
+00:10:23 --> 00:10:28
+Next, let’s change the '<b>AND'</b> to '<b>OR' logical operator </b>and see the output.
+
+97
+00:10:29 --> 00:10:33
+The records are retrieved if either one of the <b>conditions</b> is <b>true</b>.
+
+98
+00:10:34 --> 00:10:39
+That is either the student is from <b>Pune</b> city or gender is ‘Female’
+
+99
+00:10:40 --> 00:10:45
+This query will display students who are not from Mumbai or Chennai.
+
+100
+00:10:46 --> 00:10:51
+Here we have used the <b>NOT</b> and <b>AND operators</b> together.
+
+101
+00:10:52 --> 00:10:54
+Execute the query and see the output.
+
+102
+00:10:55 --> 00:11:00
+With this, we come to the end of this tutorial.
+<p>Let us summarize. 
+</p>
+
+103
+00:11:01 --> 00:11:04
+In this tutorial, we have learnt about
+<p>basic <b>Select</b> statement, 
+</p>
+
+104
+00:11:05 --> 00:11:09
+<b>Select</b> with <b>WHERE</b> clause,
+<p><b>Select</b> with <b>relational operators</b>, 
+</p>
+
+105
+00:11:10 --> 00:11:14
+<b>Select</b> with<b> logical operators</b> and
+<p><b>Alias</b> for column names. 
+</p>
+
+106
+00:11:15 --> 00:11:23
+As an assignment, write a <b>Select</b> statement to  display all columns from <b>students</b> table for the student name 'Ram'.
+
+107
+00:11:24 --> 00:11:33
+Display <b>studentid, studentname, dob </b>of students whose <b>cgpa </b>is greater than 8 and less than 9.5
+
+108
+00:11:34 --> 00:11:39
+The video at the following link summarizes the <b>Spoken Tutorial</b> project.
+<p>Please download and watch it. 
+</p>
+
+109
+00:11:40 --> 00:11:48
+The<b> Spoken Tutorial Project</b> team conducts workshops and gives certificates.
+<p>For more details, please write to us. 
+</p>
+
+110
+00:11:49 --> 00:11:52
+Please post your timed queries in this forum.
+
+111
+00:11:53 --> 00:12:03
+Spoken Tutorial project is funded by <b>NMEICT, MHRD</b>, Government of India.
+<p>More information on this mission is available at this link. 
+</p>
+
+112
+00:12:04 --> 00:12:09
+This is Nirmala Venkat from <b>IIT Bombay</b>, signing off. Thanks for watching.
+

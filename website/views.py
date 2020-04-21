@@ -1,6 +1,7 @@
 import json
 import pandas
 import pymongo
+from stackapi import StackAPI
     
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
@@ -21,12 +22,16 @@ from spoken_auth.models import FossCategory
 from .sortable import SortableHeader, get_sorted_list, get_field_index
 from django.db.models import Count
 
+from .tfidf import *
+
 
 User = get_user_model()
 categories = []
+cat_tutorials = []
+
 trs = TutorialResources.objects.filter(Q(status=1) | Q(status=2), language__name='English')
 trs = trs.values('tutorial_detail__foss__foss').order_by('tutorial_detail__foss__foss')
-
+    
 for tr in trs.values_list('tutorial_detail__foss__foss').distinct():
     categories.append(tr[0])
 
@@ -380,9 +385,24 @@ def search(request):
     }
     return render(request, 'website/templates/search.html', context)
 
+def faq(request):
+    context = {}
+    category = request.GET.get('category', None)
+    tutorial = request.GET.get('tutorial', None)
+    minute_range = request.GET.get('minute_range', None)
+    second_range = request.GET.get('second_range', None)
+    # pass minute_range and second_range value to NewQuestionForm to populate on select
+    form = NewQuestionForm(category=category, tutorial=tutorial,
+                            minute_range=minute_range, second_range=second_range)
+    context['category'] = category
+
+    context['form'] = form
+    context.update(csrf(request))
+    return render(request, 'website/templates/faq.html', context)
+
+
 # Ajax Section
 # All the ajax views go below
-
 
 def ajax_category(request):
     context = {
@@ -390,12 +410,16 @@ def ajax_category(request):
     }
     return render(request, 'website/templates/ajax_categories.html', context)
 
-
 def ajax_tutorials(request):
     if request.method == 'POST':
         category = request.POST.get('category')
         tutorials = TutorialDetails.objects.using('spoken').filter(
             foss__foss=category).order_by('level', 'order')
+        cat = tutorials[0].foss
+        path = settings.MEDIA_ROOT + 'videos/' + str(cat.pk)
+        create_vocab_tfidf(path)
+        for tut in tutorials:
+            cat_tutorials.append(tut.tutorial)
         context = {
             'tutorials': tutorials
         }
@@ -503,43 +527,100 @@ def ajax_answer_comment_update(request):
 
     return HttpResponseForbidden("Not Authorised")
 
-def get_relevant_questions(query):
-    print(query)
+def get_relevant_questions(category, tutorial, query, terms):
     tags = set()
 
-    # for file in os.listdir("extracted_questions"):
-    #     df = pandas.read_csv("extracted_questions/"+file, header=None, names=['question_id', 'tag', 'link', 'tags', 'accepted_answer'])
-    #     # print(df['tag'].values[1])
-    #     tags.add(df['tag'].values[1])
-    #     # print(tags)
-    #     for tag in df['tags']:
-    #         for t in tag.split(';'):
-    #             tags.add(t)
-    #     # print(tags)
-    tags = ["c++", "django", "polymorphism", "inheritance", "overloading", "opetaor"]
-            
-    rel_tags = set()
+    # create tags from categories and tutorials
+    stack_tags = []
+    stack_tags.extend(categories)
+    stack_tags.extend(cat_tutorials)
+    stack_tags = [x.lower() for x in stack_tags]
+    rel_tags = []
 
-    for word in query.split():
-        if word in tags:
-            rel_tags.add(word)
+    '''
+    this part is run when the function is called from ask a question page with a query
+    relevant words from query are extracted
+    '''
+    if query != "":
+        for word in query.split():
+            if word in stack_tags:
+                rel_tags.append(word)
 
-    # print(rel_tags)
+    # this part is run when the function is called from FAQ page with category and tutorial selected, here query=""
+    if len(terms) != 0:
+        rel_tags.extend(terms)
+
+    print("rel_tags")
+    print(rel_tags)
 
     client = pymongo.MongoClient("mongodb://localhost:27017/")
     db = client.stackapi
     collec_ques = db.questions
+    # collec_ques.create_index('question_id', unique=True)
 
     # fetch questions
-    questions = []
+    tot_ques = []
+    all_tags = []
+    entries = []
+    print("Fetching data.. ")
+    SITE = StackAPI('stackoverflow')
+    category = category.split()[0]
+    tutorial = tutorial.split()[0]
+    # Fetching questions with only category name(e.g. latex) as tag
+    questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=category, sort='votes', order='desc')
+    entries.extend(questions['items'])
+    # Fetching questions with both category name(e.g. latex) AND tutorial name(e.g. beamer) tags
+    c_t = category + ';' + tutorial
+    questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=c_t, sort='votes', order='desc')
+    entries.extend(questions['items'])
+    # Fetching questions with addition of rel_tags(obtained from quert/srt files)
     for t in rel_tags:
-        print("\nFetching questions for tag: " + t + "\n")
-        items = collec_ques.find({"tags": t}).limit(5)
+        tag = c_t + ';' + t
+        questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=category+';'+t, sort='votes', order='desc')
+        entries.extend(questions['items'])
+        questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=tutorial+';'+t, sort='votes', order='desc')
+        entries.extend(questions['items'])
+        questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=tag, sort='votes', order='desc')
+        entries.extend(questions['items'])
+    
+    if len(entries) == 0:
+        return tot_ques, all_tags
+    
+    # inserting fetched data into mongodb
+    collec_ques.insert_many(entries)
+    
+    rel_tags.extend([category, tutorial])
+    q_ids = []
+    for t in rel_tags:
+        items = collec_ques.find({"tags": t}).limit(20)
+        print("Fetched " + str(items.count()) + " questions for tag: " + t)
         for item in items:
-            print(item)
-            q = {'title': item['title'], 'uid': item['question_id'], 'body': item['link']}
-            questions.append(q)
-        return questions
+            all_tags.extend(item['tags'])
+            if item['question_id'] not in q_ids:
+                q_ids.append(item['question_id'])
+                q = {'title': item['title'], 'uid': item['question_id'], 'body': item['link'], 'tags': item['tags']}
+                tot_ques.append(q)
+    return tot_ques, all_tags
+
+def ajax_faq_questions(request):
+    if request.method == 'POST':
+        category = request.POST['category']
+        tutorial = request.POST['tutorial']
+        td_rec = TutorialDetails.objects.using('spoken').filter(tutorial=tutorial, foss__foss=category).order_by('level', 'order')
+        cat = td_rec[0].foss
+        td = td_rec[0]
+        filename = settings.MEDIA_ROOT + 'videos/' + str(cat.pk) + '/' + str(td.pk) + '/' + tutorial.replace(' ', '-') + '-English.srt'
+        topic_keys = extract_keywords(filename)
+        print(topic_keys)
+
+        questions, tags = get_relevant_questions(category.lower(), tutorial.lower(), '', topic_keys)
+        print(str(len(questions)) + " relevant questions and tags are ")
+        print(tags)
+        context = {
+            'questions': questions,
+            'tags': tags
+        }
+        return render(request, 'website/templates/ajax_faq_questions.html', context)
 
 
 def ajax_similar_questions(request):
@@ -550,12 +631,12 @@ def ajax_similar_questions(request):
         # minute_range = request.POST['minute_range']
         # second_range = request.POST['second_range']
 
-        questions = get_relevant_questions(titl)
-
+        questions, tags = get_relevant_questions(category.lower(), tutorial.lower(), titl.lower(), [])
         # add more filtering when the forum grows
         # questions = Question.objects.filter(category=category).filter(tutorial=tutorial)
         context = {
-            'questions': questions
+            'questions': questions,
+            'tags': tags
         }
         return render(request, 'website/templates/ajax-similar-questions.html', context)
 

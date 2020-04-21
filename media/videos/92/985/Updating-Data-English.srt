@@ -1,0 +1,287 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:05
+Welcome to the<b> Spoken Tutorial</b> on<b> Updating Data</b>.
+
+2
+00:00:06 --> 00:00:12
+In this tutorial, we will learn about <b>Update</b> statement and <b>Delete</b> statement.
+
+3
+00:00:13 --> 00:00:19
+To record this tutorial, I am using:
+<p><b>Ubuntu Linux 14.04</b> operating system, 
+</p>
+
+4
+00:00:20 --> 00:00:27
+<b>PostgreSQL 9.3.x</b>
+<p>and  <b>pgAdmin 1.18</b>
+</p>
+
+5
+00:00:28 --> 00:00:34
+To follow this tutorial, you should have basic understanding of <b>SELECT</b> statement.
+
+6
+00:00:35 --> 00:00:40
+For more details, refer to the <b>RDBMS PostgreSQL</b> series on this website.
+
+7
+00:00:41 --> 00:00:46
+The <b>update</b> query is used to modify the existing records in a <b>table</b>.
+
+8
+00:00:47 --> 00:00:52
+We have to use the <b>WHERE clause</b> with the <b>UPDATE</b> statement to update the selected rows.
+
+9
+00:00:53 --> 00:01:02
+The syntax for <b>update</b> statement is shown here.
+<p>The <b>columns</b> to be modified are to be specified in the <b>SET</b> clause. 
+</p>
+
+10
+00:01:03 --> 00:01:11
+<b>Column1</b> would be assigned the <b>value1</b> and <b>Column2</b> would be assigned the <b>value2</b> and so on.
+
+11
+00:01:12 --> 00:01:16
+Other <b>column</b>s in the <b>table</b> will retain their previous values.
+
+12
+00:01:17 --> 00:01:23
+<b>WHERE</b> clause is used to find the exact row based on the specified <b>condition</b> to <b>update</b> it.
+
+13
+00:01:24 --> 00:01:29
+If no conditions are provided then all <b>record</b>s in the <b>table</b> will be updated.
+
+14
+00:01:30 --> 00:01:33
+Let's switch to <b>pgAdmin</b> main screen.
+
+15
+00:01:34 --> 00:01:42
+Now, right-click on <b>students</b> node, then on <b>View data</b> and then on <b>View All rows.</b>
+
+16
+00:01:43 --> 00:01:50
+Notice here - it says the student whose <b>id</b> is 's008', is from '<b>Chennai'</b> city.
+
+17
+00:01:51 --> 00:01:55
+Now I want to change the city to '<b>Bangalore'</b> for this student.
+
+18
+00:01:56 --> 00:02:04
+Now, switch to the <b>SQL editor</b> window and type the <b>update</b> statement as shown here.
+
+19
+00:02:05 --> 00:02:09
+This is a simple <b>update statement </b>which updates a single <b>column</b>.
+
+20
+00:02:10 --> 00:02:17
+The existing <b>city </b>value 'Chennai' will be changed to 'Bangalore' for the <b>studentid s008</b>.
+
+21
+00:02:18 --> 00:02:23
+<b>Execute</b> the <b>query</b>.
+<p>We can see a message that the query is successful. 
+</p>
+
+22
+00:02:24 --> 00:02:27
+Let's retrieve the <b>record</b> to see the changes.
+
+23
+00:02:28 --> 00:02:33
+Clear the editor window and type this <b>select</b> statement.
+
+24
+00:02:34 --> 00:02:44
+Now, execute the query to see the output.
+<p>Note the updated value in the <b>city</b> field for student <b>‘s008’.</b>
+</p>
+
+25
+00:02:45 --> 00:02:49
+Next we will see how to update multiple columns.
+
+26
+00:02:50 --> 00:03:01
+Type the code. We can also update multiple columns by separating the <b>column </b>and value pairs, with commas, as shown here.
+
+27
+00:03:02 --> 00:03:07
+Remember, the <b>date of birth</b> column was <b>null</b> for the student 'Ram charan'.
+
+28
+00:03:08 --> 00:03:15
+This will update two columns, <b>date of birth </b>and <b>city,</b> with the values given in the <b>update statement.</b>
+
+29
+00:03:16 --> 00:03:19
+What will happen if you forget to give the <b>where</b> condition?
+
+30
+00:03:20 --> 00:03:24
+The entire <b>students table </b>will be updated with the given value.
+
+31
+00:03:25 --> 00:03:27
+Execute the query.
+
+32
+00:03:28 --> 00:03:32
+Let us see the updated value for the student name ‘Ram Charan’.
+
+33
+00:03:33 --> 00:03:36
+Type the <b>select</b> statement as shown here.
+
+34
+00:03:37 --> 00:03:45
+Execute the query.
+<p>We can see the <b>date of birth</b> column and <b>city</b> column have been updated. 
+</p>
+
+35
+00:03:46 --> 00:03:49
+Next we will learn about the<b> delete</b> statement.
+
+36
+00:03:50 --> 00:03:58
+The syntax for <b>delete</b> statement is as follows:
+<p><b>DELETE FROM table-name </b>
+</p><p><b>[WHERE condition]</b>
+</p>
+
+37
+00:03:59 --> 00:04:05
+<b>WHERE</b> clause is used in the <b>delete</b> statement to delete specific rows which satisfy a particular <b>condition</b>.
+
+38
+00:04:06 --> 00:04:10
+All records will be deleted if no <b>conditions </b>are specified.
+
+39
+00:04:11 --> 00:04:14
+Let us see an example of the <b>delete statement</b>.
+
+40
+00:04:15 --> 00:04:17
+Switch to the <b>SQL Editor</b> window.
+
+41
+00:04:18 --> 00:04:27
+Type the code as shown here.
+<p>This statement will delete the student record whose <b>id </b>is '<b>s014'</b>. 
+</p>
+
+42
+00:04:28 --> 00:04:33
+Let us execute the query.
+<p>So, one row is deleted now. 
+</p>
+
+43
+00:04:34 --> 00:04:39
+If you want to remove all the rows from the <b>students</b> table, type <b>delete from students</b>.
+
+44
+00:04:40 --> 00:04:49
+There is no <b>Where</b> condition is specified here.
+<p>I'll not execute the query, as I don’t want to delete all the records. 
+</p>
+
+45
+00:04:50 --> 00:04:56
+Next let us see an example where we have two <b>conditions</b> in the <b>DELETE statement</b>.
+
+46
+00:04:57 --> 00:05:00
+Type the code as shown here.
+
+47
+00:05:01 --> 00:05:14
+This <b>delete statement </b>will delete the student details which satisfies two different <b>conditions.</b>
+<p>That is, the <b>department</b> should be '<b>CS'</b> and  <b>CGPA</b> score should be less than 7.5 
+</p>
+
+48
+00:05:15 --> 00:05:17
+Let us execute this query.
+
+49
+00:05:18 --> 00:05:26
+In the output, we can see <b>‘0 rows affected’</b>.
+<p>This indicates that no records are deleted. 
+</p>
+
+50
+00:05:27 --> 00:05:33
+That means there are no records in the <b>student table</b> which satisfies both the <b>conditions</b>.
+
+51
+00:05:34 --> 00:05:46
+With this we have covered the basics of common <b>SQL statements</b> such as
+<p><b>INSERT</b> ,  <b>SELECT</b> ,  <b>DELETE </b>  and <b>UPDATE </b>  in this series. 
+</p>
+
+52
+00:05:47 --> 00:05:57
+These statements are otherwise called as <b>Data Manipulation language.</b>
+<p><b>DML</b> is the short form of <b>Data Manipulation Language.</b>
+</p>
+
+53
+00:05:58 --> 00:06:03
+It includes <b>commands</b> that are used to manipulate data in a <b>database</b>.
+
+54
+00:06:04 --> 00:06:09
+With this we come to the end of this tutorial.
+<p>Let us summarize. 
+</p>
+
+55
+00:06:10 --> 00:06:16
+In this tutorial, we have learnt about the -  <b>Update</b> statement and  <b>Delete</b> statement.
+
+56
+00:06:17 --> 00:06:27
+As an assignment, for <b>studentid 's013'</b>, modify the student name from '<b>Sharmila'</b> to '<b>Sharmila Babu'</b> in the <b>students</b> table.
+
+57
+00:06:28 --> 00:06:32
+Delete the students whose <b>cgpa</b> is less than 5.
+
+58
+00:06:33 --> 00:06:39
+The video at the following link summarizes the <b>Spoken Tutorial</b> project.
+<p>Please download and watch it. 
+</p>
+
+59
+00:06:40 --> 00:06:48
+The<b> Spoken Tutorial Project</b> team conducts workshops and  gives certificates.
+<p>For more details, please write to us. 
+</p>
+
+60
+00:06:49 --> 00:06:52
+Please post your timed queries in this forum.
+
+61
+00:06:53 --> 00:07:04
+Spoken Tutorial project is funded by <b>NMEICT, MHRD</b>, Government of India.
+<p>More information on this mission is available at this link. 
+</p>
+
+62
+00:07:05 --> 00:07:10
+This is Nirmala Venkat from <b>IIT Bombay</b>, signing off. Thanks for watching.
+

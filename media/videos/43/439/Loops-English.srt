@@ -1,0 +1,654 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:05
+Welcome to the spoken tutorial on <b>Loops in C and C++</b>.
+
+2
+00:00:06 --> 00:00:08
+In this tutorial we will learn,
+
+3
+00:00:09 --> 00:00:11
+<b>for loop,</b>while loop<b> and</b>
+
+4
+00:00:12 --> 00:00:16
+<b>do…while loop. </b> We will do this with the help of some examples.
+
+5
+00:00:17 --> 00:00:20
+We will also see some common errors and their solutions.
+
+6
+00:00:21 --> 00:00:23
+To record this tutorial, I am using
+
+7
+00:00:24 --> 00:00:27
+<b>Ubuntu Operating System</b> version 11.04,
+
+8
+00:00:28 --> 00:00:33
+<b>gcc</b> and <b>g++ Compiler</b> version 4.6.1 on Ubuntu.
+
+9
+00:00:34 --> 00:00:37
+Let us start with the introduction to loops.
+
+10
+00:00:38 --> 00:00:43
+Loops are used to execute a group of instructions repeatedly.
+
+11
+00:00:44 --> 00:00:47
+Depending on the purpose they are divided into three types:
+
+12
+00:00:48 --> 00:00:50
+<b>while loop </b> <b>do…..while loop</b> and
+
+13
+00:00:51 --> 00:00:55
+<b>for loop </b>Let us start with the <b>while loop</b> first.
+
+14
+00:00:56 --> 00:00:59
+A <b>while loop</b> tests the condition in the beginning.
+
+15
+00:01:00 --> 00:01:02
+The structure is: <b>while</b> ( condition )
+
+16
+00:01:03 --> 00:01:06
+within the bracket <b>statement block</b>.
+
+17
+00:01:07 --> 00:01:08
+Now move on to  <b>do….while loop </b>.
+
+18
+00:01:09 --> 00:01:14
+A <b>do..while loop</b> is executed <b>at least once</b> before the condition could be validated.
+
+19
+00:01:15 --> 00:01:16
+The structure is:
+
+20
+00:01:17 --> 00:01:19
+<b>do</b> (within the brackets) statement block,
+
+21
+00:01:20 --> 00:01:22
+after the bracket the <b>while</b> ( condition ).
+
+22
+00:01:23 --> 00:01:26
+You can see that the condition is checked at the end.
+
+23
+00:01:27 --> 00:01:31
+Now,let us see an example on <b>while loop</b> and <b>do...while loop </b>.
+
+24
+00:01:32 --> 00:01:34
+I have already typed the code on the editor.
+
+25
+00:01:35 --> 00:01:36
+Let me open it.
+
+26
+00:01:37 --> 00:01:40
+Note that our file name is <b>while.c.</b>.
+
+27
+00:01:41 --> 00:01:46
+Today we are going to learn addition of first 10 numbers using <b>while</b> loop.
+
+28
+00:01:47 --> 00:01:48
+Let me explain the code now.
+
+29
+00:01:49 --> 00:01:50
+This is our <b>header file.</b>
+
+30
+00:01:51 --> 00:01:58
+Inside the <b>main()</b> function we have declared two <b>integer variables x</b> and <b>y </b>and initialized to 0.
+
+31
+00:01:59 --> 00:02:01
+This is our <b>while loop.</b>
+
+32
+00:02:02 --> 00:02:05
+The condition of the <b>while</b> loop is <b>x is less than or equal to 10. </b>
+
+33
+00:02:06 --> 00:02:09
+Here the value of <b>x</b> is added to the value of <b>y.</b>
+
+34
+00:02:10 --> 00:02:14
+The value obtained after the addition is stored in <b>y. </b>
+
+35
+00:02:15 --> 00:02:17
+Then we print the value of y.
+
+36
+00:02:18 --> 00:02:19
+Here <b> x </b>is incremented.
+
+37
+00:02:20 --> 00:02:24
+That means the variable <b>x</b> is increased by one.
+
+38
+00:02:25 --> 00:02:26
+And this is our <b>return</b> statement.
+
+39
+00:02:27 --> 00:02:29
+Now,let us execute the program.
+
+40
+00:02:30 --> 00:02:38
+Please open the <b>terminal</b> window by pressing <b>Ctrl, Alt</b> and <b>T</b> keys simultaneously on your keyboard.
+
+41
+00:02:39 --> 00:02:44
+Type <b>gcc space while dot c space hyphen o space while </b>
+
+42
+00:02:45 --> 00:02:46
+Press <b>Enter</b>.
+
+43
+00:02:47 --> 00:02:51
+Type   <b>./while </b> (dot slash while). Press Enter.
+
+44
+00:02:52 --> 00:02:53
+The output is displayed.
+
+45
+00:02:54 --> 00:02:56
+Now lets us see the working of <b> while loop.</b>
+
+46
+00:02:57 --> 00:02:59
+Let me resize the window.
+
+47
+00:03:00 --> 00:03:03
+Here, first the  value of  <b>x </b> and  <b>y </b> is 0.
+
+48
+00:03:04 --> 00:03:05
+This is our  <b>while </b> condition.
+
+49
+00:03:06 --> 00:03:14
+Here we check whether x is less than or equal to 10 which means the values of x will be from 0 to 10.
+
+50
+00:03:15 --> 00:03:21
+Then we add y plus x (i.e) 0 plus 0, we get 0.
+
+51
+00:03:22 --> 00:03:26
+We print the value of y, here we get 0.
+
+52
+00:03:27 --> 00:03:32
+Then x is incremented which means now the value of x will be 1.
+
+53
+00:03:33 --> 00:03:43
+Then we  will check the condition again, 1 is less than or equal to 10. If the condition is  <b>true </b> then we will add the values,
+
+54
+00:03:44 --> 00:03:49
+y (i.e ) 0 plus x that is 1. 0 plus 1 is 1.
+
+55
+00:03:50 --> 00:03:52
+We print the value as 1.
+
+56
+00:03:53 --> 00:03:54
+Again x is incremented.
+
+57
+00:03:55 --> 00:03:58
+Now the value of x is 2.
+
+58
+00:03:59 --> 00:04:00
+We check the condition again.
+
+59
+00:04:01 --> 00:04:10
+2 is less than or equal to 10, if the condition is  <b>true </b> then we will add the values, (i.e ) 1 plus 2 which will give 3.
+
+60
+00:04:11 --> 00:04:12
+We print the value as 3.
+
+61
+00:04:13 --> 00:04:19
+Like this, it will go on up to x is less than or equal to 10 (x<=10).
+
+62
+00:04:20 --> 00:04:23
+Now, we will see the same program using  <b>do….while loop  </b>.
+
+63
+00:04:24 --> 00:04:25
+Here is our program.
+
+64
+00:04:26 --> 00:04:30
+Note that our file name is  <b>do hyphen while dot c </b>.
+
+65
+00:04:31 --> 00:04:34
+This part is already explained in the previous program.
+
+66
+00:04:35 --> 00:04:37
+So, let us move on to a  <b>do...while loop </b>.
+
+67
+00:04:38 --> 00:04:43
+Here, first the body of the loop will be executed  and then the condition is checked.
+
+68
+00:04:44 --> 00:04:51
+The value of x is added to the value of y and the value obtained after the addition is stored in y.
+
+69
+00:04:52 --> 00:04:54
+The logic is same as in  <b>while </b> program.
+
+70
+00:04:55 --> 00:04:57
+Now let us execute the program.
+
+71
+00:04:58 --> 00:04:59
+Come back to our terminal.
+
+72
+00:05:00 --> 00:05:07
+Type  <b>gcc space do hyphen while dot c space hyphen o space do </b>. Press  <b>Enter </b>.
+
+73
+00:05:08 --> 00:05:11
+Type  <b>dot slash do </b>(./do). Press <b>Enter </b>.
+
+74
+00:05:12 --> 00:05:15
+We can see that the output is similar  to our  <b>while </b> program.
+
+75
+00:05:16 --> 00:05:19
+Now, let us see the working of  <b>do...while loop </b>.
+
+76
+00:05:20 --> 00:05:21
+Let me resize the window.
+
+77
+00:05:22 --> 00:05:24
+Here the value x and y is 0.
+
+78
+00:05:25 --> 00:05:28
+We add those values. Then we will get 0.
+
+79
+00:05:29 --> 00:05:30
+Now the value of y is 0.
+
+80
+00:05:31 --> 00:05:32
+We print the value as 0.
+
+81
+00:05:33 --> 00:05:41
+Then x is incremented by 1 which means now the value of x is 1, then the condition will be checked.
+
+82
+00:05:42 --> 00:05:44
+You can see that the body of loop is executed first.
+
+83
+00:05:45 --> 00:05:51
+Anyhow, if the condition is  <b>false </b> then also we will get a value that is 0.
+
+84
+00:05:52 --> 00:05:55
+Now, here we will check whether 1 is less than or equal to 10.
+
+85
+00:05:56 --> 00:05:59
+The condition is true. Again we will add the values.
+
+86
+00:06:00 --> 00:06:01
+Now 0 plus 1.
+
+87
+00:06:02 --> 00:06:04
+Then we will print the value of y as 1.
+
+88
+00:06:05 --> 00:06:07
+Again x will be incremented.
+
+89
+00:06:08 --> 00:06:10
+Now the value of x is 2.
+
+90
+00:06:11 --> 00:06:14
+Then we check 2 is  less than or equal to 10.
+
+91
+00:06:15 --> 00:06:16
+We will go back here.
+
+92
+00:06:17 --> 00:06:19
+Then we will add the values. 1 plus 2 is 3.
+
+93
+00:06:20 --> 00:06:22
+We print the value of y as 3.
+
+94
+00:06:23 --> 00:06:29
+Like this, the conditions will be checked till the value of x will be less than or equal to 10.
+
+95
+00:06:30 --> 00:06:32
+And this is our <b>return</b> statement.
+
+96
+00:06:33 --> 00:06:37
+Note that here the while condition ends with the semicolon.
+
+97
+00:06:38 --> 00:06:42
+In <b>while loop</b> the condition does not end with the semicolon.
+
+98
+00:06:43 --> 00:06:47
+Now let us see how to execute these programs in C++.
+
+99
+00:06:48 --> 00:06:51
+This is our while program in C++.
+
+100
+00:06:52 --> 00:06:55
+The logic and implementation are same as in our C program.
+
+101
+00:06:56 --> 00:07:03
+There are a few changes like the header file as <b>iostream</b> in place of <b>stdio.h</b>.
+
+102
+00:07:04 --> 00:07:15
+We have included the 'using' statement here <b>using namespace std</b> and here we have used the <b>cout</b> function in place of  <b>printf </b> function.
+
+103
+00:07:16 --> 00:07:20
+The structure of  <b>while</b> loop is same as in our C program.
+
+104
+00:07:21 --> 00:07:22
+Lets us execute the program.
+
+105
+00:07:23 --> 00:07:24
+Come back to a terminal.
+
+106
+00:07:25 --> 00:07:27
+Let me clear the prompt.
+
+107
+00:07:28 --> 00:07:37
+To execute, type  <b> g++ space while dot cpp space hyphen o space while1 </b>. Press <b>Enter </b>.
+
+108
+00:07:38 --> 00:07:42
+Type  <b>dot slash while1 </b>(./while1). Press  <b>Enter </b>.
+
+109
+00:07:43 --> 00:07:47
+You can see that the output is similar to our while program in C.
+
+110
+00:07:48 --> 00:07:51
+Now let us see the  <b>do... while </b> program in C++.
+
+111
+00:07:52 --> 00:07:53
+Come back to the text editor.
+
+112
+00:07:54 --> 00:08:02
+Here also there are similar changes like the  <b>header file </b>, the  <b>using statement </b> and the  <b>cout  </b>function.
+
+113
+00:08:03 --> 00:08:05
+Rest of the things are similar.
+
+114
+00:08:06 --> 00:08:07
+Lets us execute the program.
+
+115
+00:08:08 --> 00:08:09
+Come back to our terminal.
+
+116
+00:08:10 --> 00:08:18
+Type  <b>g++ space do hyphen while dot cpp space hyphen o space do1 </b>. Press  <b>Enter </b>.
+
+117
+00:08:19 --> 00:08:22
+Type  <b>dot slash do1 </b>(./do1). Press  <b>Enter </b>.
+
+118
+00:08:23 --> 00:08:27
+We can see that the output is similar to our  <b>do...while program in C. </b>
+
+119
+00:08:28 --> 00:08:31
+Now we will see some common errors and their solutions.
+
+120
+00:08:32 --> 00:08:34
+Come back to our text editor.
+
+121
+00:08:35 --> 00:08:40
+Suppose, here I will not increment the value of x.
+
+122
+00:08:41 --> 00:08:43
+Click on Save Let us see what happens.
+
+123
+00:08:44 --> 00:08:46
+Come back to the terminal Let me clear the prompt.
+
+124
+00:08:47 --> 00:08:49
+Lets us execute the program.
+
+125
+00:08:50 --> 00:08:53
+Press the up-arrow key twice.
+
+126
+00:08:54 --> 00:08:56
+Again press the up-arrow key.
+
+127
+00:08:57 --> 00:08:58
+The output is displayed.
+
+128
+00:08:59 --> 00:09:06
+We can see number of zeros, this is because the loop does not have the terminating condition .
+
+129
+00:09:07 --> 00:09:09
+It is known as  <b>infinite loop. </b>
+
+130
+00:09:10 --> 00:09:13
+<b>Infinite loop </b> can cause the system to become unresponsive.
+
+131
+00:09:14 --> 00:09:20
+It causes the program to consume all the  <b>processors  time </b> but it can be terminated.
+
+132
+00:09:21 --> 00:09:24
+Come back to our program, let us fix the error.
+
+133
+00:09:25 --> 00:09:27
+Type  <b>x++ </b> and a semicolon.
+
+134
+00:09:28 --> 00:09:30
+Click on Save. Let us execute again.
+
+135
+00:09:31 --> 00:09:32
+Come back to terminal.
+
+136
+00:09:33 --> 00:09:37
+Press the up-arrow key.
+
+137
+00:09:38 --> 00:09:39
+Yes, it is working.
+
+138
+00:09:40 --> 00:09:42
+This brings us to the end of this tutorial.
+
+139
+00:09:43 --> 00:09:44
+We will move back to our slides.
+
+140
+00:09:45 --> 00:09:46
+Let us summarize.
+
+141
+00:09:47 --> 00:09:49
+In this tutorial we learned,
+
+142
+00:09:50 --> 00:09:53
+<b>while loop  </b> example. while(x is less than or equal to 10)
+
+143
+00:09:54 --> 00:09:55
+<b>do….while loop  </b>.
+
+144
+00:09:56 --> 00:09:58
+example. do statement block and
+
+145
+00:09:59 --> 00:10:00
+while condition at the end.
+
+146
+00:10:01 --> 00:10:02
+As an assignment,
+
+147
+00:10:03 --> 00:10:06
+write a program to print the following, using <b>for</b> loops.
+
+148
+00:10:07 --> 00:10:09
+0 to 9.
+
+149
+00:10:10 --> 00:10:11
+The syntax of the  <b>for loop </b> is
+
+150
+00:10:12 --> 00:10:19
+<b>for (variable initialization; variable condition; and variable increment or decrement) </b>
+
+151
+00:10:20 --> 00:10:23
+and here will be the body of the loop.
+
+152
+00:10:24 --> 00:10:26
+Watch the video available at the link shown below.
+
+153
+00:10:27 --> 00:10:29
+It summarizes the Spoken Tutorial project.
+
+154
+00:10:30 --> 00:10:32
+If you do not have good bandwidth, you can download and watch it.
+
+155
+00:10:33 --> 00:10:34
+The Spoken Tutorial Project Team:
+
+156
+00:10:35 --> 00:10:37
+Conducts workshops using spoken tutorials.
+
+157
+00:10:38 --> 00:10:41
+Gives certificates to those who pass an online test.
+
+158
+00:10:42 --> 00:10:46
+For more details, please write to contact@spoken-tutorial.org.
+
+159
+00:10:47 --> 00:10:50
+Spoken Tutorial Project is a part of Talk to a Teacher project.
+
+160
+00:10:51 --> 00:10:57
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+161
+00:10:58 --> 00:11:01
+More information on this mission is available at the link shown below.
+
+162
+00:11:02 --> 00:11:07
+This script as been contributed by Dhawal Goyal. This is Ashwini Patil from IIT Bombay, signing off.
+
+163
+00:11:08 --> 00:11:13
+Thank You for joining.
+

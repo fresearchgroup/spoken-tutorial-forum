@@ -1,0 +1,282 @@
+<b>Narration</b>
+
+1
+00:00:00 --> 00:00:03
+Welcome to this <b>Spoken tutorial</b> of <b>Mozilla Firefox</b>.
+
+2
+00:00:04 --> 00:00:12
+In this tutorial, we will learn about: <b>Tabbed Browsing, Storing content offline, Blocking Pop-ups</b>.
+
+3
+00:00:13 --> 00:00:20
+In this tutorial, we will use <b>Firefox version 7.0</b> on <b>Ubuntu 10.04</b>.
+
+4
+00:00:21 --> 00:00:28
+Mozilla Firefox allows you to <b>load</b> multiple web pages into separate tabs within the same <b>browser window</b>.
+
+5
+00:00:29 --> 00:00:35
+The biggest advantage of <b>tabbed browsing</b> is that it eliminates the need to display multiple browser windows.
+
+6
+00:00:36 --> 00:00:39
+And hence it helps to keep your desktop clutter-free.
+
+7
+00:00:40 --> 00:00:44
+Each tab occupies the browser's entire viewing area when displayed.
+
+8
+00:00:45 --> 00:00:51
+It eliminates the need to frequently resize and reposition the opened browser windows.
+
+9
+00:00:52 --> 00:00:59
+<b>Tabbed browsing</b> also consumes less memory and operating system resources than <b>tiled-window browsing</b>
+
+10
+00:01:00 --> 00:01:04
+provided the user does not open too many tabs at once.
+
+11
+00:01:05 --> 00:01:07
+Let's say, you are on a particular webpage.
+
+12
+00:01:08 --> 00:01:10
+Here is a link - “Firefox for Desktop”.
+
+13
+00:01:11 --> 00:01:13
+You can open this link in a new tab.
+
+14
+00:01:14 --> 00:01:16
+To do so, right-click on the link.
+
+15
+00:01:17 --> 00:01:20
+In the context menu, click on <b>Open link in new tab</b>.
+
+16
+00:01:21 --> 00:01:27
+You notice that a new tab opens to the right of the existing tab, in the same browser window.
+
+17
+00:01:28 --> 00:01:33
+So, without closing or moving out of your window, you can open another webpage in the same window.
+
+18
+00:01:34 --> 00:01:39
+You can also open a new tab by clicking on <b>File</b> and <b>New Tab</b>.
+
+19
+00:01:40 --> 00:01:43
+The shortcut keys for this are <b>Ctrl+T</b>.
+
+20
+00:01:44 --> 00:01:49
+Notice that when you open a new tab, the new tab immediately becomes active.
+
+21
+00:01:50 --> 00:01:55
+Now go to the <b>URL bar</b> and type: ‘www.google.com’.
+
+22
+00:01:56 --> 00:02:00
+You will now have 3 tabs, each with a different web page!
+
+23
+00:02:01 --> 00:02:07
+You can also open a new tab by clicking the ‘+’  button to the right of the rightmost tab.
+
+24
+00:02:08 --> 00:02:10
+We can also arrange  the tabs as per our requirements.
+
+25
+00:02:11 --> 00:02:16
+Just click on a tab and without releasing the <b>mouse button</b>, move it to the required location.
+
+26
+00:02:17 --> 00:02:19
+Now release the 'mouse button'.
+
+27
+00:02:20 --> 00:02:22
+The tab is now in the desired location.
+
+28
+00:02:23 --> 00:02:28
+Let us look at some basic operations which Mozilla Firefox allows us to perform.
+
+29
+00:02:29 --> 00:02:31
+Let us change the search engine to “google”.
+
+30
+00:02:32 --> 00:02:39
+In the <b>Search bar</b> type: ‘email wikipedia’ and click on the magnifying glass to the right of the 'Search bar'.
+
+31
+00:02:40 --> 00:02:43
+The relevant Wikipedia page is the first search result.
+
+32
+00:02:44 --> 00:02:47
+Let's open this page by clicking on the link.
+
+33
+00:02:48 --> 00:02:51
+Now, click on <b>File</b> and then on <b>“Save Page As”</b>.
+
+34
+00:02:52 --> 00:02:58
+Let's save the file on the Desktop with the name ‘Search.html’.
+
+35
+00:02:59 --> 00:03:04
+Now, let us open a new tab in the browser window by clicking on <b>File</b> and <b>New Tab</b>.
+
+36
+00:03:05 --> 00:03:09
+Now, let's open our saved page in this new <b>Tab window</b>.
+
+37
+00:03:10 --> 00:03:11
+Click on <b>File</b> and <b>Open File</b> .
+
+38
+00:03:12 --> 00:03:16
+Browse and open the saved file.
+
+39
+00:03:17 --> 00:03:24
+In the URL bar, you see that the address is not an internet address but a local location on your computer.
+
+40
+00:03:25 --> 00:03:28
+Now you can read this page, even when you are offline.
+
+41
+00:03:29 --> 00:03:33
+<b>Pop-ups</b> are windows that appear automatically without your permission.
+
+42
+00:03:34 --> 00:03:41
+Firefox allows us to control both pop-ups and pop-unders through the <b>Content</b> tab within <b>Preferences</b> window.
+
+43
+00:03:42 --> 00:03:45
+On 'Windows', this would be within the <b>Options</b> window.
+
+44
+00:03:46 --> 00:03:49
+Pop-up blocking is turned on, by default.
+
+45
+00:03:50 --> 00:03:51
+Click on <b>Edit</b> and <b>Preferences</b>.
+
+46
+00:03:52 --> 00:03:55
+<b>Windows</b> users please click on <b>Tools</b> and <b>Options</b>.
+
+47
+00:03:56 --> 00:04:01
+In the <b>Content</b> tab, the first option <b>Block pop-up windows</b> is checked, by default.
+
+48
+00:04:02 --> 00:04:04
+If not, then please check this option.
+
+49
+00:04:05 --> 00:04:10
+The various options of this dialog box will be discussed in another tutorial.
+
+50
+00:04:11 --> 00:04:12
+Click on the <b>Close</b> button.
+
+51
+00:04:13 --> 00:04:15
+This brings us to the end of this tutorial.
+
+52
+00:04:16 --> 00:04:18
+Here is a quick summary of what we learnt:
+
+53
+00:04:19 --> 00:04:24
+<b>Tabbed Browsing, Storing content offline, Blocking Pop ups</b>.
+
+54
+00:04:25 --> 00:04:28
+Try this comprehension test assignment.
+
+55
+00:04:29 --> 00:04:32
+Open a new <b>tab</b>.Change the search engine to ‘google’.
+
+56
+00:04:33 --> 00:04:35
+Search for 'The history of email'.
+
+57
+00:04:36 --> 00:04:42
+Save the first result and open it in a new tab to view as an <b>offline document</b>.
+
+58
+00:04:43 --> 00:04:45
+Change the search engine to ‘bing’.
+
+59
+00:04:46 --> 00:04:48
+Again, search for 'The history of email'.
+
+60
+00:04:49 --> 00:04:57
+Save the link ‘History of Email & Ray Tomlinson’ and open it in a new tab to view as an offline document.
+
+61
+00:04:58 --> 00:05:01
+Watch the video available at the following link: <a class="external free" href="http://spoken-tutorial.org/What_is_a_Spoken_Tutorial" rel="nofollow">http://spoken-tutorial.org/What_is_a_Spoken_Tutorial</a>
+
+62
+00:05:02 --> 00:05:03
+It summarizes the Spoken Tutorial project.
+
+63
+00:05:04 --> 00:05:08
+If you do not have good bandwidth, you can download and watch it.
+
+64
+00:05:09 --> 00:05:13
+The Spoken Tutorial Project team: * conducts workshops using spoken tutorials.
+
+65
+00:05:14 --> 00:05:17
+Gives certificates for those who pass an online test.
+
+66
+00:05:18 --> 00:05:24
+For more details, please write to: contact@spoken-tutorial.org
+
+67
+00:05:25 --> 00:05:28
+<b>Spoken Tutorial</b> project is a part of the <b>Talk to a Teacher</b> project.
+
+68
+00:05:29 --> 00:05:36
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+69
+00:05:37 --> 00:05:47
+More information on this mission is available at: spoken hyphen tutorial dot org slash NMEICT hyphen Intro.
+
+70
+00:05:48 --> 00:05:53
+This tutorial has been contributed by DesiCrew Solutions Pvt.Ltd. Thanks for joining.
+

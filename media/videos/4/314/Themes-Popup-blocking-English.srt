@@ -1,0 +1,440 @@
+<b>Narration</b>
+
+1
+00:00:00 --> 00:00:04
+Welcome to this spoken tutorial on <b>Themes </b>in <b>Mozilla Firefox.</b>
+
+2
+00:00:05 --> 00:00:12
+In this tutorial, we will learn about: <b>Themes, Personas, Ad blocking</b> in Mozilla Firefox.
+
+3
+00:00:13 --> 00:00:19
+Mozilla Firefox offers customization to suit the tastes or preferences of the user.
+
+4
+00:00:20 --> 00:00:22
+One of the customization is <b>Themes</b>.
+
+5
+00:00:23 --> 00:00:26
+A theme: * changes how Firefox looks.
+
+6
+00:00:27 --> 00:00:31
+Changes the background colors, the look of the buttons and the layout.
+
+7
+00:00:32 --> 00:00:39
+In this tutorial, we are using <b>Firefox version 7.0</b> on <b>Ubuntu 10.04</b>.
+
+8
+00:00:40 --> 00:00:42
+Let us open a Firefox browser.
+
+9
+00:00:43 --> 00:00:47
+Let us first learn how to change the <b>Theme</b> of <b>Mozilla Firefox</b>.
+
+10
+00:00:48 --> 00:00:57
+First, let’s enable the '<b>Load images automatically'</b> option so that we can view the images displayed in the browser.
+
+11
+00:00:58 --> 00:01:02
+From the <b>Menu</b> bar, click on <b>Edit</b> and then <b>Preferences</b>.
+
+12
+00:01:03 --> 00:01:07
+In the <b>Preferences </b>dialog box, choose the <b>Content </b>tab.
+
+13
+00:01:08 --> 00:01:11
+Check the <b>Load images automatically </b>box.
+
+14
+00:01:12 --> 00:01:13
+Click <b>Close</b>.
+
+15
+00:01:14 --> 00:01:24
+Now, click on the <b>URL bar</b> and type: <b>addons dot mozilla dot org slash firefox slash themes</b>
+
+16
+00:01:25 --> 00:01:26
+press <b>Enter</b>.
+
+17
+00:01:27 --> 00:01:31
+This takes us to the <b>Themes </b>page for <b>Mozilla Firefox Add-ons</b>.
+
+18
+00:01:32 --> 00:01:36
+We see a large number of themes here as <b>thumbnails</b>.
+
+19
+00:01:37 --> 00:01:40
+The <b>thumbnail</b>s show you how the themes would appear.
+
+20
+00:01:41 --> 00:01:42
+Here you can <b>preview</b> the theme,
+
+21
+00:01:43 --> 00:01:45
+see the categories of themes available and
+
+22
+00:01:46 --> 00:01:51
+see the ratings given by other users who have used the theme.
+
+23
+00:01:52 --> 00:01:56
+Let us hover our <b>mouse pointer</b> over some themes. <Pause>
+
+24
+00:01:57 --> 00:02:00
+Now, click on the theme <b>Shine Bright Skin</b>.
+
+25
+00:02:01 --> 00:02:04
+This is one of many themes available on this page.
+
+26
+00:02:05 --> 00:02:08
+The <b>Shine Bright Skin</b> theme page appears.
+
+27
+00:02:09 --> 00:02:11
+Click on the <b>Continue to Download</b> button.
+
+28
+00:02:12 --> 00:02:16
+This takes you to a <b>page</b> which gives additional details about the theme.
+
+29
+00:02:17 --> 00:02:21
+Click on the <b>Add to Firefox </b>button to install the <b>theme</b>.
+
+30
+00:02:22 --> 00:02:26
+The <b>Add-on</b> downloading progress bar appears.
+
+31
+00:02:27 --> 00:02:31
+Next, a <b>Software Installation</b> confirmation message  appears.
+
+32
+00:02:32 --> 00:02:33
+Click <b>Install Now</b>.
+
+33
+00:02:34 --> 00:02:39
+A message that the 'theme will be installed once you restart Firefox' is displayed.
+
+34
+00:02:40 --> 00:02:42
+Click <b>Restart Now</b>.
+
+35
+00:02:43 --> 00:02:45
+Mozilla Firefox shuts down.
+
+36
+00:02:46 --> 00:02:50
+When it restarts, the new theme is applied.
+
+37
+00:02:51 --> 00:02:53
+Let’s go back to our <b>Themes </b>page.
+
+38
+00:02:54 --> 00:02:56
+Now, let us choose another theme.
+
+39
+00:02:57 --> 00:03:00
+This theme displays <b>Add to Firefox </b>button.
+
+40
+00:03:01 --> 00:03:04
+This will download the chosen theme.
+
+41
+00:03:05 --> 00:03:09
+Once the download is complete, a warning message window appears.
+
+42
+00:03:10 --> 00:03:12
+Click on the <b>Install Now </b>button.
+
+43
+00:03:13 --> 00:03:15
+You will be prompted to restart the Firefox browser.
+
+44
+00:03:16 --> 00:03:18
+Click on <b>Restart Now </b>button.
+
+45
+00:03:19 --> 00:03:21
+Mozilla Firefox shuts down.
+
+46
+00:03:22 --> 00:03:26
+When it restarts, the new themes are applied.
+
+47
+00:03:27 --> 00:03:30
+So you see, <b>Themes </b>help to improve the look and feel of the browser.
+
+48
+00:03:31 --> 00:03:35
+It customizes the <b>Firefox</b> browser to your unique taste.
+
+49
+00:03:36 --> 00:03:39
+If, for some reason, you wish to go back to the default theme
+
+50
+00:03:40 --> 00:03:43
+then just click on <b>Tools</b> and <b>Add-ons</b>.
+
+51
+00:03:44 --> 00:03:47
+On the left panel, click on the <b>Appearance </b>tab.
+
+52
+00:03:48 --> 00:03:52
+Here, all the themes which have been downloaded are visible.
+
+53
+00:03:53 --> 00:03:55
+See the <b>Default Theme </b>here.
+
+54
+00:03:56 --> 00:03:58
+Click on the <b>Enable </b>button.
+
+55
+00:03:59 --> 00:04:01
+Click on the <b>Restart Now </b>button.
+
+56
+00:04:02 --> 00:04:05
+<b>Mozilla Firefox</b> will shut down and restart.
+
+57
+00:04:06 --> 00:04:11
+When it restarts, the <b>Default theme</b> is once again visible.
+
+58
+00:04:12 --> 00:04:15
+Let’s close the <b>Add-ons </b>tab.
+
+59
+00:04:16 --> 00:04:21
+<b>Personas</b> are free, easy-to-install <b>skins</b> for Firefox.
+
+60
+00:04:22 --> 00:04:25
+<b>Personas Plus</b> extends this built-in functionality:
+
+61
+00:04:26 --> 00:04:27
+to give greater control
+
+62
+00:04:28 --> 00:04:33
+easier access to new, popular and even your own favorite Personas.
+
+63
+00:04:34 --> 00:04:43
+Click on the URL bar and type:
+<p><b>addons dot mozilla dot org slash firefox slash personas</b>
+</p>
+
+64
+00:04:44 --> 00:04:46
+press <b>Enter</b>.
+
+65
+00:04:47 --> 00:04:51
+This takes us to the <b>Personas </b>page for <b>Mozilla Firefox Add-ons</b>.
+
+66
+00:04:52 --> 00:04:55
+We see a large number of 'Personas' here.
+
+67
+00:04:56 --> 00:05:00
+Click on any <b>Persona </b>of your choice.
+
+68
+00:05:01 --> 00:05:05
+This will take you to a page which gives details of the chosen <b>Persona</b>.
+
+69
+00:05:06 --> 00:05:08
+Click on the <b>Add to Firefox </b>button.
+
+70
+00:05:09 --> 00:05:15
+A <b>Notification</b> bar will appear at the top to alert you that a new theme is installed.
+
+71
+00:05:16 --> 00:05:20
+Click on the small <b>“x”</b> mark on the right of the <b>Notification </b>bar.
+
+72
+00:05:21 --> 00:05:27
+<b>Firefox</b> installs this <b>Persona</b> automatically.
+
+73
+00:05:28 --> 00:05:31
+Often 'ads' interfere with our internet experience.
+
+74
+00:05:32 --> 00:05:35
+But there are specialized software that help to block ads.
+
+75
+00:05:36 --> 00:05:38
+One such add-on is <b>Adblock</b>.
+
+76
+00:05:39 --> 00:05:42
+Click on <b>Tools </b>and then on <b>Add-ons</b>.
+
+77
+00:05:43 --> 00:05:50
+In the search  tab, at the top-right corner, search for <b>Adblock.</b>Press <b>Enter</b>.
+
+78
+00:05:51 --> 00:05:54
+A list of 'Ad' blocking software is displayed.
+
+79
+00:05:55 --> 00:05:58
+Click on the <b>Install </b>button for <b>Adblock Plus</b>.
+
+80
+00:05:59 --> 00:06:01
+'Adblock' starts downloading.
+
+81
+00:06:02 --> 00:06:05
+That's it! <b>Ad blocker</b> is now installed.
+
+82
+00:06:06 --> 00:06:13
+A notification message will be displayed which says- <b>“Adblock will be installed after you restart Firefox”</b>.
+
+83
+00:06:14 --> 00:06:16
+Click on the <b>Restart Now </b>link.
+
+84
+00:06:17 --> 00:06:20
+<b>Mozilla Firefox</b> will shut down and restart.
+
+85
+00:06:21 --> 00:06:24
+When it restarts, the <b>ad blocker</b> will take effect.
+
+86
+00:06:25 --> 00:06:29
+However, using <b>ad blocker</b>s have some negative consequences.
+
+87
+00:06:30 --> 00:06:34
+Some sites do not allow you to enter them when <b>ad blocker</b> is on.
+
+88
+00:06:35 --> 00:06:40
+This is because many free sites earn their income from 'ads'.
+
+89
+00:06:41 --> 00:06:45
+Adblocker may prevent some sites from being displayed on your browser.
+
+90
+00:06:46 --> 00:06:50
+This factor has to be considered carefully when blocking <b>ads</b>.
+
+91
+00:06:51 --> 00:06:53
+This brings us to the end of this tutorial.
+
+92
+00:06:54 --> 00:06:59
+In this tutorial, we learnt about: <b>Themes, Personas</b> and <b>Ad blocking</b>.
+
+93
+00:07:00 --> 00:07:02
+Try this assignment.
+
+94
+00:07:03 --> 00:07:05
+Install the <b>theme</b> 'NASA night launch'.
+
+95
+00:07:06 --> 00:07:09
+Then switch back to the <b>default theme</b>.
+
+96
+00:07:10 --> 00:07:14
+Block all pop-ups except those from <b>yahoo.com</b>
+
+97
+00:07:15 --> 00:07:17
+Watch the video available at the following link.
+
+98
+00:07:18 --> 00:07:20
+It summarizes the Spoken Tutorial project.
+
+99
+00:07:21 --> 00:07:24
+If you do not have good bandwidth, you can download and watch it.
+
+100
+00:07:25 --> 00:07:27
+The Spoken Tutorial Project team:
+
+101
+00:07:28 --> 00:07:30
+Conducts workshops using spoken tutorials.
+
+102
+00:07:31 --> 00:07:34
+Gives certificates for those who pass an online test.
+
+103
+00:07:35 --> 00:07:40
+For more details, please write to: contact at spoken hyphen tutorial dot org.
+
+104
+00:07:41 --> 00:07:44
+<b>Spoken Tutorial</b> project is a part of the <b>Talk to a Teacher</b> project.
+
+105
+00:07:45 --> 00:07:52
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+106
+00:07:53 --> 00:07:55
+More information on this mission is available at:
+
+107
+00:07:56 --> 00:08:03
+spoken hyphen tutorial dot org slash NMEICT hyphen Intro.
+
+108
+00:08:04 --> 00:08:07
+This tutorial has been contributed by DesiCrew Solutions Pvt. Ltd.
+
+109
+00:08:08 --> 00:08:13
+Thanks for joining.
+

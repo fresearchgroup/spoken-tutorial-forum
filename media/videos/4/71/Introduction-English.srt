@@ -1,0 +1,266 @@
+<b>Narration</b>
+
+1
+00:00:00 --> 00:00:04
+Welcome to the <b>Spoken tutorial</b> on <b>Introduction to Mozilla Firefox</b>.
+
+2
+00:00:05 --> 00:00:09
+In this tutorial, we will cover the following topics:
+
+3
+00:00:10 --> 00:00:11
+What is Mozilla Firefox?
+
+4
+00:00:12 --> 00:00:13
+Why Firefox?
+
+5
+00:00:14 --> 00:00:20
+Versions, System Requirements, Download and Install Firefox, Visit a website.
+
+6
+00:00:21 --> 00:00:26
+"Mozilla Firefox" or simply "Firefox" is a free, <b>open source</b> web browser.
+
+7
+00:00:27 --> 00:00:32
+It is the default web browser for Ubuntu Linux, serving as a <b>window</b> to the Internet.
+
+8
+00:00:33 --> 00:00:38
+It allows you to view the Internet web-pages and navigate through the <b>web page</b>s.
+
+9
+00:00:39 --> 00:00:46
+It also searches for web pages using <b>search engine</b>s such as <b>Google, Yahoo Search</b> or <b>Bing</b>.
+
+10
+00:00:47 --> 00:00:53
+Firefox has been developed by volunteer programmers at the Mozilla Foundation, a non-profit organization.
+
+11
+00:00:54 --> 00:00:58
+Visit 'mozilla.org' for detailed information on Mozilla.
+
+12
+00:00:59 --> 00:01:04
+Firefox works on <b>Windows, Mac OSX</b> and <b>Linux Operating Systems</b>.
+
+13
+00:01:05 --> 00:01:11
+Some examples of other popular web browsers for Ubuntu are 'Konqueror', 'Google Chrome' and 'Opera'.
+
+14
+00:01:12 --> 00:01:19
+In this tutorial, we will use <b>Firefox version 7.0</b> for <b>Ubuntu 10.04</b>.
+
+15
+00:01:20 --> 00:01:26
+Firefox makes browsing better by bringing together speed, privacy and latest technologies.
+
+16
+00:01:27 --> 00:01:38
+It has a variety of features such as <b>tabbed windows, built-in spell checking, pop-up blocker, integrated web search, Phishing protection</b>.
+
+17
+00:01:39 --> 00:01:44
+Firefox provides faster web browsing with rapid rendering of graphics, improved <b>page loading</b>.
+
+18
+00:01:45 --> 00:01:55
+It also offers a variety of <b>security</b> and privacy options against fraudulent websites, <b>spyware</b> and <b>virus</b>es, <b>trojans</b> or other <b>malware</b>.
+
+19
+00:01:56 --> 00:02:05
+And it offers customization by way of <b>add-ons</b> and thousands of easy-to-install <b>themes</b> created by users.
+
+20
+00:02:06 --> 00:02:15
+Here are the <b>System Requirements</b> to <b>run</b> Firefox on <b>Linux OS</b> such as -<b>Fedora, Ubuntu, Red Hat, Debian</b> and <b>SUSE.</b>
+
+21
+00:02:16 --> 00:02:23
+You will need the following <b>libraries</b> or <b>packages</b> to <b>run</b> Firefox on Ubuntu 10.04.
+
+22
+00:02:24 --> 00:02:28
+<b>GTK+ 2.10</b> or higher
+
+23
+00:02:29 --> 00:02:31
+<b>GLib 2.12</b> or higher
+
+24
+00:02:32 --> 00:02:36
+<b>libstdc++ 4.3</b> or higher
+
+25
+00:02:37 --> 00:02:39
+<b>Pango 1.14</b> or higher
+
+26
+00:02:40 --> 00:02:43
+<b>X.Org 1.7</b> or higher.
+
+27
+00:02:44 --> 00:02:54
+And the recommended <b>hardware</b> are Pentium 4 or above with 512MB of RAM and 200MB of <b>hard drive space</b>.
+
+28
+00:02:55 --> 00:03:01
+For complete information on <b>System requirements</b>, visit the Firefox website shown on the screen.
+
+29
+00:03:02 --> 00:03:10
+Let us now download and install Mozilla Firefox by visiting the official website at 'mozilla.com' as shown on the screen.
+
+30
+00:03:11 --> 00:03:14
+Here, we can always find the latest version of Firefox.
+
+31
+00:03:15 --> 00:03:22
+Or we can click on the all <b>Systems and Languages</b> link, below the green area, for more options.
+
+32
+00:03:23 --> 00:03:27
+Notice that Mozilla offers Firefox in over 70 languages.
+
+33
+00:03:28 --> 00:03:32
+Here, we can download various localized versions such as Hindi or Bengali.
+
+34
+00:03:33 --> 00:03:41
+We can also choose the operating system: <b>Windows, Mac</b> or <b>Linux</b> by clicking on the various <b>icons</b>.
+
+35
+00:03:42 --> 00:03:50
+In Ubuntu Linux, first select the location to <b>save</b> the file. By default, the <b>Downloads directory</b> in your '<b>Home page' folder</b> is selected.
+
+36
+00:03:51 --> 00:03:57
+Now you can select the <b>Save File</b> option and click on the <b>OK</b> button, appearing in the <b>pop-up window</b>.
+
+37
+00:03:58 --> 00:04:05
+This will save <b>Firefox archive</b> to the <b>Downloads directory</b>, under the <b>Home</b> directory.
+
+38
+00:04:06 --> 00:04:16
+Open a '<b>Terminal' Window</b> and go to your <b>Downloads</b> directory by typing the following command: <b>cd ~/Downloads</b>.
+
+39
+00:04:17 --> 00:04:18
+Now, press the <b>Enter</b> key.
+
+40
+00:04:19 --> 00:04:34
+<b>Extract</b> the contents of the downloaded file by typing the following command: <b>tar xjf firefox-7.0.1.tar.bz2</b>
+
+41
+00:04:35 --> 00:04:37
+Now press the <b>Enter</b> key.
+
+42
+00:04:38 --> 00:04:43
+This will start extracting the files required to <b>run</b> Firefox 7.0.
+
+43
+00:04:44 --> 00:04:51
+In the Terminal Window, go to the Firefox directory by typing the following command: <b>cd firefox</b>
+
+44
+00:04:52 --> 00:04:53
+Now press the <b>Enter</b> key.
+
+45
+00:04:54 --> 00:04:57
+This will take you to the Firefox directory.
+
+46
+00:04:58 --> 00:05:05
+To launch the Firefox browser, type the following command: <b>./firefox</b> and press the <b>Enter</b> key.
+
+47
+00:05:06 --> 00:05:14
+Alternately, you can launch Firefox by using the following command when your current directory is not the <b>home</b> directory.
+
+48
+00:05:15 --> 00:05:20
+<b>~/Downloads/firefox/firefox</b>
+
+49
+00:05:21 --> 00:05:24
+We will see how to set up the default <b>homepage</b> later.
+
+50
+00:05:25 --> 00:05:32
+For now, as an example, let us go to 'Rediff.com' website that has the latest news and information.
+
+51
+00:05:33 --> 00:05:39
+In the <b>Address bar</b>, below the menu bar, type: <b>www.rediff.com</b>.
+
+52
+00:05:40 --> 00:05:46
+The content on the <b>home page</b> of 'Rediff.com' website is displayed.
+
+53
+00:05:47 --> 00:05:52
+Now, from this page, we can navigate to the various links to view contents in those pages.
+
+54
+00:05:53 --> 00:05:57
+Let us click on the first link below the <b>Headlines</b> tab.
+
+55
+00:05:58 --> 00:06:04
+This is how we can visit websites using Firefox and then navigate to various pages from there.
+
+56
+00:06:05 --> 00:06:11
+In future tutorials, we will learn more about the <b>Firefox interface</b> and various other features.
+
+57
+00:06:12 --> 00:06:15
+Watch the video available at the following link.
+
+58
+00:06:16 --> 00:06:18
+It summarizes the Spoken Tutorial project.
+
+59
+00:06:19 --> 00:06:23
+If you do not have good bandwidth, you can download and watch it.
+
+60
+00:06:24 --> 00:06:28
+The Spoken Tutorial Project team: * Conducts workshops using spoken tutorials.
+
+61
+00:06:29 --> 00:06:32
+Gives certificates for those who pass an online test.
+
+62
+00:06:33 --> 00:06:38
+For more details, please write to:  contact at spoken hypen tutorial dot org.
+
+63
+00:06:39 --> 00:06:43
+<b>Spoken Tutorial</b> project is a part of the <b>Talk to a Teacher</b> project.
+
+64
+00:06:44 --> 00:06:50
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+65
+00:06:51 --> 00:07:01
+More information on this mission is available at: spoken hyphen tutorial dot org slash NMEICT hyphen Intro.
+
+66
+00:07:02 --> 00:07:07
+This tutorial has been contributed by DesiCrew Solutions Pvt.Ltd. Thanks for joining.
+

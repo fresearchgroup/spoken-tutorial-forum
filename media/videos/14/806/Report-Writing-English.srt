@@ -1,0 +1,516 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:08
+Welcome to this <b>spoken tutorial</b> on <b>Report Writing</b> in <b>LaTeX</b>. I am calling it “<b>latek</b>” and not “<b>latex</b>”.
+
+2
+00:00:09 --> 00:00:12
+My name is Kannan Moudgalya.
+
+3
+00:00:13 --> 00:00:18
+In this tutorial, we will learn how to write a document.
+
+4
+00:00:19 --> 00:00:37
+In particular, how to Use ‘<b>report</b>’ and ‘<b>article</b>’ <b>class</b>,
+<p>How to create <b>sections</b>,
+</p><p>Automate the numbering of sections,
+</p><p>Create <b>Table of contents</b> and
+</p><p>How to create the title page.
+</p>
+
+5
+00:00:38 --> 00:00:43
+I am creating this tutorial on our less than 10,000 Rupee laptop.
+
+6
+00:00:44 --> 00:00:50
+And, I am using <b>Ubuntu Linux, TeXworks</b> and <b>LaTeX.</b>
+
+7
+00:00:51 --> 00:00:56
+You can also use <b>TeXworks</b> on <b>Windows </b>or <b>Mac </b>- the method is identical.
+
+8
+00:00:57 --> 00:01:01
+You can use LaTeX by itself, without <b>TeXworks</b> also.
+
+9
+00:01:02 --> 00:01:06
+You are welcome to use more expensive Linux computers also!
+
+10
+00:01:07 --> 00:01:22
+The prerequisites to learn this are the following:
+<p>Spoken tutorials that introduce <b>LaTeX</b>,
+</p><p>The file ‘<b>report dot tex’</b>,
+</p><p>Knowledge of the <b>side-by-side method</b> required to practise this tutorial.
+</p>
+
+11
+00:01:23 --> 00:01:31
+Information on all of the above are available on our website: <b>spoken tutorial dot org</b>.
+
+12
+00:01:32 --> 00:01:35
+Let me go to the <b>TeXworks</b> window.
+
+13
+00:01:36 --> 00:01:43
+I have already opened the file <b>report.tex</b>. Please download this file and practise along with me.
+
+14
+00:01:44 --> 00:01:54
+I am using <b>12 point</b> as the font size, ‘a4 paper’ and <b>‘article’ class</b>.
+
+15
+00:01:55 --> 00:02:01
+I am using the <b>geometry package</b> to set margins, through the 'usepackage' command.
+
+16
+00:02:02 --> 00:02:06
+A <b>reverse slash</b> should come at the beginning of every command.
+
+17
+00:02:07 --> 00:02:12
+Although I will not say it explicitly, you should not forget to put the reverse slash.
+
+18
+00:02:13 --> 00:02:19
+Similarly, I will not explicitly mention braces, but you may have to use them.
+
+19
+00:02:20 --> 00:02:24
+Please reproduce exactly what is done in the video.
+
+20
+00:02:25 --> 00:02:30
+The <b>usepackage</b> command has optional parameters inside square brackets.
+
+21
+00:02:31 --> 00:02:34
+The name of the package is within braces.
+
+22
+00:02:35 --> 00:02:40
+I have set horizontal and vertical margins of 4.5 cm each.
+
+23
+00:02:41 --> 00:02:46
+Look at the top left hand corner of the '<b>TexWorks</b>’ window.
+
+24
+00:02:47 --> 00:02:54
+In case '<b>pdfLaTeX</b>’ is not already chosen, please select it from the pull down menu.
+
+25
+00:02:55 --> 00:02:58
+To the left, there is a green circle with an arrow.
+
+26
+00:02:59 --> 00:03:03
+Click the arrow and compile this file.
+
+27
+00:03:04 --> 00:03:08
+We get the file ‘report.pdf’ shown on the right hand side.
+
+28
+00:03:09 --> 00:03:17
+Look at the titles - <b>section</b>, <b>sub-section</b> and <b>sub-sub-section</b> in the output file.
+
+29
+00:03:18 --> 00:03:22
+These are created using identical <b>commands</b> given in the <b>source file</b>.
+
+30
+00:03:23 --> 00:03:29
+Observe the distinctive features of these <b>section</b> titles in the 'pdf' file.
+
+31
+00:03:30 --> 00:03:36
+The sizes of these titles are created proportionately and automatically.
+
+32
+00:03:37 --> 00:03:44
+Also, the <b>section</b> title is the largest and the <b>sub-sub-section</b> title is the smallest.
+
+33
+00:03:45 --> 00:03:49
+Irrespective of blank lines in the source file, the output remains the same.
+
+34
+00:03:50 --> 00:03:54
+Let me delete one line here. Compile.
+
+35
+00:03:55 --> 00:03:56
+There is no change here.
+
+36
+00:03:57 --> 00:04:01
+Let me now change the paper size to <b>a5</b>.
+
+37
+00:04:02 --> 00:04:05
+This will reduce the width of every line in the output.
+
+38
+00:04:06 --> 00:04:09
+Let me compile the text as we did before.
+
+39
+00:04:10 --> 00:04:16
+Let me magnify it by pressing control + so that you can see the output clearly.
+
+40
+00:04:17 --> 00:04:19
+Let me bring it to the centre.
+
+41
+00:04:20 --> 00:04:27
+For the rest of this tutorial, we will use the <b>a5</b> paper only.  You are welcome to change it to <b>a4</b>.
+
+42
+00:04:28 --> 00:04:36
+Note that I did not <b>save</b> the file. This is because <b>TexWorks</b> saves the file automatically before compilation.
+
+43
+00:04:37 --> 00:04:43
+Let us change the font to a smaller one of <b>10 point</b> and compile.
+
+44
+00:04:44 --> 00:04:53
+Hey, the font size has become smaller - should we be surprised?  But, proportional sizing and spacing remain the same.
+
+45
+00:04:54 --> 00:04:58
+Let me change the font back to <b>12 point</b>.
+
+46
+00:04:59 --> 00:05:03
+We will now discuss another important aspect of <b>section titles</b>.
+
+47
+00:05:04 --> 00:05:08
+It is the automatic generation of <b>section</b> numbers.
+
+48
+00:05:09 --> 00:05:17
+To illustrate this further, I will add a new <b>section</b> called ‘Inserted section’.
+
+49
+00:05:18 --> 00:05:28
+On compilation, it appears here with a correct number in sequence. Thus, numbering also is automatically taken care of by LaTeX.
+
+50
+00:05:29 --> 00:05:35
+LaTeX creates <b>table of contents</b> through a file with extension “<b>toc</b>”.
+
+51
+00:05:36 --> 00:05:41
+Let me add ‘table of contents’, one word, here.
+
+52
+00:05:42 --> 00:05:43
+Compile.
+
+53
+00:05:44 --> 00:05:49
+The word ‘Contents’ appears in the output but nothing else.
+
+54
+00:05:50 --> 00:05:52
+Let me compile once again.
+
+55
+00:05:53 --> 00:05:58
+All the titles are now present in the <b>table of contents</b> along with page numbers.
+
+56
+00:05:59 --> 00:06:04
+You have to compile it the third time to get the correct page numbers.
+
+57
+00:06:05 --> 00:06:08
+Why three times? Please see the assignment.
+
+58
+00:06:09 --> 00:06:13
+Just one word, ‘<b>table of contents</b>’, is what is needed.
+
+59
+00:06:14 --> 00:06:16
+What an amazing capability in LaTeX!
+
+60
+00:06:17 --> 00:06:23
+This is achieved through a file with extension “<b>toc</b>” that LaTeX maintains.
+
+61
+00:06:24 --> 00:06:29
+This multi pass compilation procedure works with changes in titles as well.
+
+62
+00:06:30 --> 00:06:35
+Let me change the section title to ‘Modified section’.
+
+63
+00:06:36 --> 00:06:41
+Let me compile it. <b>Table of Contents</b> does not change.
+
+64
+00:06:42 --> 00:06:45
+Let me compile it once more and solve this problem.
+
+65
+00:06:46 --> 00:06:48
+Now we have a modified section here.
+
+66
+00:06:49 --> 00:06:56
+We will create a title for this document. Let me do it here, just before ‘begin document’.
+
+67
+00:06:57 --> 00:07:12
+I will create a ‘<b>title</b>’, ‘<b>Author</b>’ information and the ‘<b>date</b>’ as follows.
+
+68
+00:07:13 --> 00:07:16
+So, I have added these three commands.
+
+69
+00:07:17 --> 00:07:21
+Order in which these come or the place where they come does not matter.
+
+70
+00:07:22 --> 00:07:25
+But they should come before the <b>begin document</b> command.
+
+71
+00:07:26 --> 00:07:30
+Don’t forget the <b>reverse slash</b> in all the commands.
+
+72
+00:07:31 --> 00:07:37
+Double slash here means the next line. We compile it.
+
+73
+00:07:38 --> 00:07:41
+There are no changes in the ‘pdf’ file.
+
+74
+00:07:42 --> 00:07:46
+The reason is that I have not told LaTeX what to do with this information.
+
+75
+00:07:47 --> 00:07:54
+So, I add the ‘make title’ command, one word, just after the 'begin document'.
+
+76
+00:07:55 --> 00:07:57
+Let me compile it.
+
+77
+00:07:58 --> 00:08:02
+The <b>title</b> appears in the output, at the place where I put this command
+
+78
+00:08:03 --> 00:08:06
+namely, at the beginning of the document.
+
+79
+00:08:07 --> 00:08:14
+We will now change the <b>class</b> of this document from <b>article</b> to <b>report</b>.
+
+80
+00:08:15 --> 00:08:23
+Simultaneously, we define a <b>chapter</b> with this command: 'Chapter First Chapter'.
+
+81
+00:08:24 --> 00:08:26
+<b>Report style</b> requires at least one <b>chapter</b>.
+
+82
+00:08:27 --> 00:08:30
+Let us compile it and see the output.
+
+83
+00:08:31 --> 00:08:34
+Notice the changes in the output.
+
+84
+00:08:35 --> 00:08:39
+Title appears on a whole page that has no number.
+
+85
+00:08:40 --> 00:08:46
+<b>Contents</b> also appear on an entire page, with page number 1.
+
+86
+00:08:47 --> 00:08:53
+Please pause here and find out how many entries in 'Contents' are wrong.
+
+87
+00:08:54 --> 00:08:59
+Let us go to the next page. Notice the way the <b>chapter</b> begins.
+
+88
+00:09:00 --> 00:09:07
+How many distinguishing features can you identify? You should find at least five.
+
+89
+00:09:08 --> 00:09:11
+Let us compile it for the second time.
+
+90
+00:09:12 --> 00:09:20
+Observe that the <b>Contents</b> page now has the correct information. The page numbers are correct now.
+
+91
+00:09:21 --> 00:09:31
+Let us add a <b>chapter</b>, called ‘New Chapter’.
+
+92
+00:09:32 --> 00:09:33
+Compile it.
+
+93
+00:09:34 --> 00:09:46
+Let me compile once again and see it coming on a new page.
+
+94
+00:09:47 --> 00:09:52
+Insert the command <b>appendix</b> before this new <b>chapter</b>.
+
+95
+00:09:53 --> 00:09:58
+On compilation, you see the word “<b>Appendix</b>” appearing.
+
+96
+00:09:59 --> 00:10:01
+The <b>chapter</b> number is <b>A</b>.
+
+97
+00:10:02 --> 00:10:04
+Let us go to the <b>slide</b>s now.
+
+98
+00:10:05 --> 00:10:07
+Let us summarize what we learnt in this tutorial.
+
+99
+00:10:08 --> 00:10:20
+Writing a document in LaTeX,
+<p>Automatically creating <b>chapter</b> and <b>section</b> titles,
+</p><p>Automatic numbering,
+</p><p><b>Table of contents</b> and title page creation, 
+</p><p>Creating <b>Appendix</b>.
+</p>
+
+100
+00:10:21 --> 00:10:23
+Let me give some assignments.
+
+101
+00:10:24 --> 00:10:28
+This assignment is on <b>a4</b> paper and <b>letter paper</b>.
+
+102
+00:10:29 --> 00:10:34
+Please pause the video, read the slide and do the assignment.
+
+103
+00:10:35 --> 00:10:40
+This assignment is on <b>font size</b>.
+
+104
+00:10:41 --> 00:10:46
+This is on <b>report dot toc.</b>
+
+105
+00:10:47 --> 00:10:51
+This is on number of compilations.
+
+106
+00:10:52 --> 00:10:58
+This is on the location of <b>Table of Contents</b>.
+
+107
+00:10:59 --> 00:11:06
+This assignment is on the use of the 'chapter' <b>command</b> in 'report' and 'article'.
+
+108
+00:11:07 --> 00:11:14
+This assignment is on the effect of the 'appendix' command in the 'report' <b>class</b>.
+
+109
+00:11:15 --> 00:11:21
+This is the same as the previous assignment, but in the '<b>article' class</b>.
+
+110
+00:11:22 --> 00:11:26
+This is on the <b>geometry package</b>.
+
+111
+00:11:27 --> 00:11:33
+This assignment is on <b>LaTeX classes</b>, in general.
+
+112
+00:11:34 --> 00:11:37
+With this, we have come to the end of this tutorial.
+
+113
+00:11:38 --> 00:11:45
+This video summarizes the <b>Spoken Tutorial</b> project. If you do not have bandwidth, you may download and watch it.
+
+114
+00:11:46 --> 00:11:52
+We conduct workshops using <b>Spoken Tutorials.</b> Give certificates. Please contact us.
+
+115
+00:11:53 --> 00:11:55
+Do you have questions in THIS <b>Spoken Tutorial?</b>
+
+116
+00:11:56 --> 00:12:02
+Please visit this site. Choose the minute and second where you have the question.
+
+117
+00:12:03 --> 00:12:08
+Explain your question briefly. Someone from our team will answer them.
+
+118
+00:12:09 --> 00:12:12
+The Spoken Tutorial forum is for specific questions on this tutorial.
+
+119
+00:12:13 --> 00:12:18
+Please do not post unrelated and general questions on them.
+
+120
+00:12:19 --> 00:12:27
+This will help reduce the clutter. With less clutter, we can use these discussions as instructionalmaterial.
+
+121
+00:12:28 --> 00:12:34
+For topics not covered in spoken tutorials, visit <b>stack exchange</b> at this address.
+
+122
+00:12:35 --> 00:12:44
+This is a great place to get answers on LaTeX. You may also have questions on our workshops, certificates etc.
+
+123
+00:12:45 --> 00:12:49
+For this, get in touch with us at this email address.
+
+124
+00:12:50 --> 00:12:55
+<b>Spoken Tutorial</b> project is funded by NMEICT, MHRD, Government of India.
+
+125
+00:12:56 --> 00:13:01
+Thanks for joining. Goodbye.
+

@@ -1,0 +1,401 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:06
+Welcome to the<b> Spoken Tutorial</b> on <b>Aggregation facilities in SQL.</b>
+
+2
+00:00:07 --> 00:00:15
+In this tutorial, we will learn about: <b>Group by </b>,  <b>Having </b>and  <b>Order by clause</b>.
+
+3
+00:00:16 --> 00:00:22
+To record this tutorial, I am using:  <b>Ubuntu Linux 14.04</b> operating system,
+
+4
+00:00:23 --> 00:00:30
+<b>PostgreSQL 9.3.x</b>,
+<p><b>pgAdmin 1.18</b>
+</p>
+
+5
+00:00:31 --> 00:00:40
+To follow this tutorial, you should have basic understanding of <b>SELECT</b> statement and  <b>Aggregate functions.</b>
+
+6
+00:00:41 --> 00:00:47
+For more details, refer to the previous <b>RDBMS PostgreSQL</b> tutorials on this website.
+
+7
+00:00:48 --> 00:00:54
+<b>Aggregate functions</b> perform calculations on a set of values and return a single value.
+
+8
+00:00:55 --> 00:00:59
+We learnt about these <b>functions </b>in the earlier tutorials.
+
+9
+00:01:00 --> 00:01:05
+<b>Aggregate functions</b> are mostly used with the <b>Group By clause </b>of the <b>SELECT</b> statement.
+
+10
+00:01:06 --> 00:01:11
+<b>Group by clause </b>is used to collect identical data in groups.
+
+11
+00:01:12 --> 00:01:20
+It returns one record for each group.
+<p><b>Group by</b> can be done with one or more <b>column</b>s. 
+</p>
+
+12
+00:01:21 --> 00:01:36
+The syntax for group by clause is:
+<p><b>SELECT column1 comma aggregate-function of column2</b>
+</p><p><i>FROM table-name'</i>
+</p><p><b>[WHERE condition]</b>
+</p><p><b>GROUP BY column1 comma column2</b>
+</p>
+
+13
+00:01:37 --> 00:01:42
+Let’s open the <b>SQL Editor window </b>in<b> pgAdmin </b>for demonstration.
+
+14
+00:01:43 --> 00:01:49
+Type the code as shown here and <b>execute</b> the <b>query</b>.
+
+15
+00:01:50 --> 00:01:59
+We can see the student details from various departments and cities.
+<p>How can we group these <b>record</b>s based on a <b>column</b>? 
+</p>
+
+16
+00:02:00 --> 00:02:05
+Say, we want to display how many students are there in each department.
+
+17
+00:02:06 --> 00:02:10
+Let us write a query.
+<p>First, clear the<b> SQL editor window.</b>
+</p>
+
+18
+00:02:11 --> 00:02:14
+Now type the code as shown here.
+
+19
+00:02:15 --> 00:02:20
+This query will group the records in the <b>students</b> table with the <b>deptid</b> column.
+
+20
+00:02:21 --> 00:02:27
+After grouping, the <b>aggregate function 'Count' </b>will count the number of records under each department.
+
+21
+00:02:28 --> 00:02:35
+The grouping is based on <b>row</b>s with the same value in the specified column i.e <b>deptid</b>
+
+22
+00:02:36 --> 00:02:39
+Note that the <b>table</b> is not physically rearranged.
+
+23
+00:02:40 --> 00:02:43
+Let’s execute the <b>code</b> and see the output.
+
+24
+00:02:44 --> 00:02:48
+The number of students in each department is displayed  as output.
+
+25
+00:02:49 --> 00:02:53
+Next, let us see how to add <b>where</b> condition in the <b>Group by</b> clause.
+
+26
+00:02:54 --> 00:02:56
+We will change the same code to add a <b>condition.</b>
+
+27
+00:02:57 --> 00:03:03
+Here a <b>where</b> condition is specified to display the total number of students in the department '<b>CS'.</b>
+
+28
+00:03:04 --> 00:03:10
+The<b> Where</b> clause used in a query containing a <b>Group By</b> clause, eliminates the rows before grouping.
+
+29
+00:03:11 --> 00:03:13
+Execute the code now to see the output.
+
+30
+00:03:14 --> 00:03:17
+Let us see a few more examples of <b>Group by</b> clause.
+
+31
+00:03:18 --> 00:03:20
+Type the code as shown here.
+
+32
+00:03:21 --> 00:03:30
+I want to group the <b>students</b> table to find out the number of male and female students.
+<p>So, we have to group the rows with the column <b>gender</b>. 
+</p>
+
+33
+00:03:31 --> 00:03:32
+Execute the query.
+
+34
+00:03:33 --> 00:03:35
+We can see the output as expected.
+
+35
+00:03:36 --> 00:03:42
+Now I want to find out the maximum <b>CGPA</b> score of students from each <b>city</b>.
+
+36
+00:03:43 --> 00:03:47
+For this, I'll type the query as shown.
+
+37
+00:03:48 --> 00:03:51
+Now execute the code to see the output.
+
+38
+00:03:52 --> 00:03:58
+Likewise, we can make use of any <b>aggregate function </b>in the <b>SELECT </b>statement with <b>Group by</b> clause.
+
+39
+00:03:59 --> 00:04:04
+Next we will see how to use more than one column in <b>Group by clause.</b>
+
+40
+00:04:05 --> 00:04:07
+Type the code as shown here.
+
+41
+00:04:08 --> 00:04:13
+Here, after<b> group by</b> you can see two columns <b>deptid</b> and <b>city</b>.
+
+42
+00:04:14 --> 00:04:20
+First it will group the records with <b>department</b> and then group with <b>city,</b> for each <b>department</b>.
+
+43
+00:04:21 --> 00:04:31
+The list of column names in the<b> SELECT</b> clause must appear in the <b>Group by</b> clause also.
+<p>Let us execute and see the output. 
+</p>
+
+44
+00:04:32 --> 00:04:35
+Next we will learn about the <b>Having </b>clause.
+
+45
+00:04:36 --> 00:04:42
+<b>HAVING</b> clause is used to retrieve rows for the specified condition from a grouped result.
+
+46
+00:04:43 --> 00:04:53
+Use the <b>WHERE</b> clause to exclude rows that you don't want to group, whereas use the<b> HAVING</b> clause to filter rows after they have been grouped.
+
+47
+00:04:54 --> 00:05:08
+The syntax is
+<p><b>SELECT column1 comma aggregate-function of column2 </b>
+</p><p><b>FROM table-name</b>
+</p><p><b>[WHERE condition]</b>
+</p><p><b>GROUP BY column1 comma column2</b>
+</p><p><b>HAVING Condition</b>
+</p>
+
+48
+00:05:09 --> 00:05:14
+Let us see an example for this.
+<p>Switch to the <b>SQL Editor window.</b>
+</p>
+
+49
+00:05:15 --> 00:05:23
+We will add the condition '<b>having city= 'Chennai'.</b>
+<p>The <b>HAVING</b> clause comes after the <b>Group By</b> clause. 
+</p>
+
+50
+00:05:24 --> 00:05:31
+Note that you can apply <b>HAVING clause</b> only to  columns that appear in the <b>Group By clause</b>  or an <b>aggregate function.</b>
+
+51
+00:05:32 --> 00:05:34
+Execute and see the result.
+
+52
+00:05:35 --> 00:05:44
+We can see two rows as output.
+<p>There are 3 students from <b>CS</b> department and 1 student from <b>EE</b> department. 
+</p>
+
+53
+00:05:45 --> 00:05:49
+The condition specifies that the students are from <b>Chennai.</b>
+
+54
+00:05:50 --> 00:05:52
+Let’s see another example.
+
+55
+00:05:53 --> 00:06:01
+Here, we are using <b>aggregate function 'count'</b> in the <b>having</b> clause.
+<p>That is, the count should be greater than 1. 
+</p>
+
+56
+00:06:02 --> 00:06:10
+Here, the student records are grouped by <b>department</b> and then by <b>city</b>.
+<p>The <b>having</b> condition is applied to the filtered rows. 
+</p>
+
+57
+00:06:11 --> 00:06:15
+Once again, execute to see the result.
+
+58
+00:06:16 --> 00:06:18
+Next we will see the <b>Order by</b> clause.
+
+59
+00:06:19 --> 00:06:24
+<b>Order By</b> clause is used to sort the records in ascending or descending order.
+
+60
+00:06:25 --> 00:06:29
+This <b>clause</b> is always used at the end of the <b>SELECT</b> statement.
+
+61
+00:06:30 --> 00:06:33
+The syntax is shown here.
+
+62
+00:06:34 --> 00:06:37
+Let us switch back to <b>SQL Editor window</b> for demonstration.
+
+63
+00:06:38 --> 00:06:41
+Type the code as shown on the screen.
+
+64
+00:06:42 --> 00:06:46
+I have added the<b> Order by</b> <b>clause</b> to the end of the <b>SELECT</b> statement.
+
+65
+00:06:47 --> 00:06:55
+Now execute the query.
+<p>We see that the total number of students in each department is sorted in ascending order. 
+</p>
+
+66
+00:06:56 --> 00:07:00
+By default, the sorting is always done in ascending order.
+
+67
+00:07:01 --> 00:07:06
+Type <b>DESC</b> at the end of the query to sort in descending order.
+
+68
+00:07:07 --> 00:07:10
+Execute the query to see the output.
+
+69
+00:07:11 --> 00:07:15
+We can also sort result set on multiple columns.
+
+70
+00:07:16 --> 00:07:22
+Type the code.
+<p>This query will sort the <b>students</b> table by <b>city</b> in ascending order. 
+</p>
+
+71
+00:07:23 --> 00:07:30
+Use a comma to separate the columns.
+<p>Then, within each <b>city, </b>it will sort by the student names. 
+</p>
+
+72
+00:07:31 --> 00:07:37
+Columns specified in the <b>ORDER BY</b> clause must be one of the columns selected in the <b>SELECT</b> column list.
+
+73
+00:07:38 --> 00:07:49
+Let us see the output. Here the city is sorted in ascending order and within each city the student name is sorted in ascending order.
+
+74
+00:07:50 --> 00:07:57
+Let us modify the same query to see <b>city</b> in descending order and the <b>student name </b>in ascending order.
+
+75
+00:07:58 --> 00:08:02
+Execute to see the output.
+
+76
+00:08:03 --> 00:08:10
+We will see another example of <b>order by</b> in <b>Group by clause.</b>
+<p>Execute the query to see the output. 
+</p>
+
+77
+00:08:11 --> 00:08:24
+Here we can see the sorted result of grouped rows.
+<p><b>Dept id </b>is sorted in ascending order and within each <b>department</b>, the <b>city</b> is sorted in ascending order. 
+</p>
+
+78
+00:08:25 --> 00:08:31
+With this we come to the end of this tutorial.
+<p>Let us summarize. 
+</p>
+
+79
+00:08:32 --> 00:08:39
+In this tutorial, we have learnt about the clauses:
+<p><b>Group by </b>
+</p><p><b>Having</b>
+</p><p><b>Order by</b>. 
+</p>
+
+80
+00:08:40 --> 00:08:46
+As an assignment-  Write a <b>Select</b> statement to display the number of students with the same <b>CGPA</b>.
+
+81
+00:08:47 --> 00:08:50
+Hint: Group the rows by <b>CGPA</b> column.
+
+82
+00:08:51 --> 00:08:57
+The video at the following link summarizes the <b>Spoken Tutorial</b> project.
+<p>Please download and watch it. 
+</p>
+
+83
+00:08:58 --> 00:09:06
+The<b> Spoken Tutorial Project</b> team conducts workshops and  gives certificates.
+<p>For more details, please write to us. 
+</p>
+
+84
+00:09:07 --> 00:09:10
+Please post your timed queries in this forum.
+
+85
+00:09:11 --> 00:09:21
+Spoken Tutorial project is funded by <b>NMEICT, MHRD</b>, Government of India.
+<p>More information on this mission is available at this link. 
+</p>
+
+86
+00:09:22 --> 00:09:27
+This is Nirmala Venkat from <b>IIT Bombay</b>, signing off. Thanks for watching.
+

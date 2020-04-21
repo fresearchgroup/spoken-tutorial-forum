@@ -1,0 +1,497 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:05
+Welcome to the<b> Spoken Tutorial</b> on<b> Foreign key constraint.</b>
+
+2
+00:00:06 --> 00:00:12
+In this tutorial, we will learn about
+<p><b>Foreign key constraint</b>, 
+</p><p><b>Alter table</b> command, 
+</p>
+
+3
+00:00:13 --> 00:00:16
+how to add a <b>foreign key</b> and
+<p>check <b>constraint</b>. 
+</p>
+
+4
+00:00:17 --> 00:00:23
+To record this tutorial, I am using:  <b>Ubuntu Linux 14.04</b> operating system,
+
+5
+00:00:24 --> 00:00:31
+<b>PostgreSQL 9.3.x</b> and
+<p><b>pgAdmin 1.18</b>
+</p>
+
+6
+00:00:32 --> 00:00:38
+To follow this tutorial, you should have  basic understanding of <b>database</b> and <b>tables</b>.
+
+7
+00:00:39 --> 00:00:45
+For more details, refer to the <b>RDBMS – PostgreSQL</b> series on this website.
+
+8
+00:00:46 --> 00:00:48
+This is the <b>students</b> table which we created.
+
+9
+00:00:49 --> 00:00:57
+I want to add details such as <b>department name </b>and <b>department head </b>for each student as shown here.
+
+10
+00:00:58 --> 00:01:03
+As we can see, the <b>department name </b>and <b>department head </b>data is repeated.
+
+11
+00:01:04 --> 00:01:10
+So, we will separate these data into different tables and then relate them with <b>foreign key.</b>
+
+12
+00:01:11 --> 00:01:19
+It is important to separate student and department data into separate tables since one can exist without another.
+
+13
+00:01:20 --> 00:01:21
+What is a <b>foreign key</b>?
+
+14
+00:01:22 --> 00:01:27
+A <b>foreign key</b> represents a link between <b>column</b>s in two different <b>tables</b>.
+
+15
+00:01:28 --> 00:01:32
+A <b>foreign key</b> in a <b>table </b>points to a <b>primary key</b> in another <b>table</b>.
+
+16
+00:01:33 --> 00:01:37
+A <b>table </b>can contain more than one <b>foreign key</b> <b>constraint</b>.
+
+17
+00:01:38 --> 00:01:44
+The <b>table </b>that has the <b>foreign key</b> is called as the <b>referencing</b> table or <b>child table</b>.
+
+18
+00:01:45 --> 00:01:51
+The <b>table</b> to which the<b> foreign key</b> references is called the <b>referenced</b> table or <b>parent table</b>.
+
+19
+00:01:52 --> 00:01:58
+Let’s see an example of <b>foreign key</b> link between <b>students</b> and <b>department</b> tables.
+
+20
+00:01:59 --> 00:02:08
+Here, the <b>department table</b> is the <b>parent table</b> in which the <b>departmentid</b> is the <b>primary key.</b>
+<p><b>Students table</b> is the <b>child table.</b>
+</p>
+
+21
+00:02:09 --> 00:02:16
+<b>Deptid</b> column is the <b>foreign key</b> which references the <b>departmentid</b> of the <b>department table</b>.
+
+22
+00:02:17 --> 00:02:23
+Note that the <b>foreign key</b> column and the <b>referenced key</b> column must have similar data types.
+
+23
+00:02:24 --> 00:02:28
+Open the <b>SQL editor window</b> in the <b>pgAdmin</b>.
+
+24
+00:02:29 --> 00:02:34
+First let us create the <b>parent table department</b> i.e the <b>referenced table. </b>
+
+25
+00:02:35 --> 00:02:48
+Type the code.
+<p><b>Departmenttid</b> is the <b>primary key </b>which uniquely identifies each department. 
+</p><p>The <b>parent table department </b>is ready to <b>execute</b>. 
+</p>
+
+26
+00:02:49 --> 00:02:52
+Let's insert some data to the <b>department</b> table.
+
+27
+00:02:53 --> 00:02:58
+Clear the editor window.
+<p>Type the code and execute the query. 
+</p>
+
+28
+00:02:59 --> 00:03:09
+Now, let us retrieve the <b>record</b>s.
+<p>Clear the window. Type: <b>select asterisk from department.</b>
+</p>
+
+29
+00:03:10 --> 00:03:18
+This is the <b>parent</b> table. Each student must belong to one of the departments shown here.
+
+30
+00:03:19 --> 00:03:21
+Switch back to the <b>pgAdmin</b> main screen.
+
+31
+00:03:22 --> 00:03:26
+We have already created the <b>students</b> table with the '<b>Create table'</b> command.
+
+32
+00:03:27 --> 00:03:38
+Next we need to add a new column <b>deptid</b> to the existing <b>students</b> table.
+<p>This will assign each student to a particular department. 
+</p>
+
+33
+00:03:39 --> 00:03:42
+To do so, we need to use the <b>Alter table</b> command.
+
+34
+00:03:43 --> 00:03:48
+<b>Alter table </b>command is used to change the structure of an existing <b>table</b>.
+
+35
+00:03:49 --> 00:03:59
+This command is used to add, delete or modify columns in an existing <b>table</b>.
+<p>It is used to add or drop <b>constraints</b>. 
+</p>
+
+36
+00:04:00 --> 00:04:05
+Using this command, even the <b>data type</b> of the columns can be changed.
+
+37
+00:04:06 --> 00:04:15
+The syntax to <b>Alter table</b> is <b>ALTER TABLE table-name ADD new-column-name data type;</b>
+
+38
+00:04:16 --> 00:04:21
+The syntax to add multiple columns at the same time is shown here.
+
+39
+00:04:22 --> 00:04:27
+Let’s switch back to the <b>pgadmin SQL editor</b> window for the demonstration.
+
+40
+00:04:28 --> 00:04:36
+Let us add a new column by the name <b>deptid</b> to the <b>students table</b>.
+<p>Type the code and execute. 
+</p>
+
+41
+00:04:37 --> 00:04:41
+Let us check this.
+<p>Go to the <b>pgAdmin</b> main screen. 
+</p>
+
+42
+00:04:42 --> 00:04:51
+Right-click on <b>students</b> column node and select <b>Refresh</b> to update the changes.
+<p>We can see the <b>deptid</b> column. 
+</p>
+
+43
+00:04:52 --> 00:04:55
+Now, let us add the <b>foreign key constraint</b>.
+
+44
+00:04:56 --> 00:05:04
+Type the code as shown. Here, <b>deptid</b> column of <b>students table</b> is a <b>foreign key</b>.
+
+45
+00:05:05 --> 00:05:10
+This references the <b>departmentid</b> column of the <b>department table.</b>
+
+46
+00:05:11 --> 00:05:17
+The <b>foreign key constraint </b>maintains <b>referential integrity</b> between the <b>child </b>and <b>parent tables.</b>
+
+47
+00:05:18 --> 00:05:24
+This means that the values in a column must match the values in some row of another <b>table</b>.
+
+48
+00:05:25 --> 00:05:27
+Let us now execute the query.
+
+49
+00:05:28 --> 00:05:35
+Go to the <b>pgAdmin</b> main screen.
+<p>Right click on the <b>students</b> table node and click <b>refresh</b>. 
+</p>
+
+50
+00:05:36 --> 00:05:42
+In the <b>SQL Pane</b>, we can see a <b>constraint</b> name for each <b>constraint </b>automatically created.
+
+51
+00:05:43 --> 00:05:48
+We can also specify a <b>constraint</b> name while creating or altering a table.
+
+52
+00:05:49 --> 00:05:54
+Use this <b>constraint</b> name to drop the constraint if it is not required later.
+
+53
+00:05:55 --> 00:06:02
+Now right-click on <b>students</b> node, and then on <b>View data</b> and then on <b>View All rows.</b>
+
+54
+00:06:03 --> 00:06:11
+<b>Deptid</b> column is empty. Let us add department details to each student as shown.
+
+55
+00:06:12 --> 00:06:19
+Let me type '<b>MEC'</b> for <b>Mechanical department, </b>for the student <b>Pooja</b> and press <b>Enter</b>.
+
+56
+00:06:20 --> 00:06:32
+We can see a error message of <b>“foreign key violation”.</b>
+<p>It says <b>deptid='mec' </b>is not present in table <b>department.</b>
+</p>
+
+57
+00:06:33 --> 00:06:39
+<b>Foreign key constraint</b> prevents invalid data from being inserted into the <b>foreign key </b>columns.
+
+58
+00:06:40 --> 00:06:48
+It has to be one of the values of the <b>referencing </b>column. I.e <b>departmentid</b> column value from the <b>department table.</b>
+
+59
+00:06:49 --> 00:06:51
+Click on the <b>OK</b> button.
+
+60
+00:06:52 --> 00:06:57
+Now, I'll enter 'MT' as <b>department id</b> and <b>save</b> the <b>record</b>.
+
+61
+00:06:58 --> 00:07:03
+Enter a valid <b>departmentid</b> for other students also as shown.
+
+62
+00:07:04 --> 00:07:08
+Let me open <b>department</b> and <b>students table </b>in 2 different windows.
+
+63
+00:07:09 --> 00:07:18
+These tables have <b>One-to-Many relationship</b>.
+<p>A row from one table can have multiple matching rows in another table. 
+</p>
+
+64
+00:07:19 --> 00:07:24
+This relationship is created using <b>Primary key</b> and <b>Foreign key</b> constraints.
+
+65
+00:07:25 --> 00:07:30
+Let us see the advantages of using <b>Foreign key</b>.
+<p>It will enforce the constraint. 
+</p>
+
+66
+00:07:31 --> 00:07:41
+For example, it will enforce every student should have a department.
+<p>It controls redundancy and avoid inconsistency. 
+</p>
+
+67
+00:07:42 --> 00:07:49
+For example, it controls the entry of different names of head for the same department.
+
+68
+00:07:50 --> 00:07:53
+Next we will learn more about <b>Alter table</b> command.
+
+69
+00:07:54 --> 00:08:01
+We can use <b>ALTER TABLE </b>– <b>Alter </b>column command to change the <b>data type</b> or length of a column in a <b>table</b>.
+
+70
+00:08:02 --> 00:08:10
+The syntax is <b>ALTER TABLE table-name ALTER column-name TYPE data type;</b>
+
+71
+00:08:11 --> 00:08:17
+Say, I want to change the <b>cgpa</b> column's length from 2,1 to 3,1.
+
+72
+00:08:18 --> 00:08:21
+Type the <b>code</b> as shown and then <b>execute</b>.
+
+73
+00:08:22 --> 00:08:26
+Now, the <b>cgpa</b> column length is altered in the <b>students table.</b>
+
+74
+00:08:27 --> 00:08:33
+Let's check. <b>Refresh</b> the <b>students table </b>and see the changes.
+
+75
+00:08:34 --> 00:08:36
+Next we will learn about <b>constraints</b>.
+
+76
+00:08:37 --> 00:08:42
+<b>Constraints</b> are the conditions or rules enforced on <b>columns</b> or <b>tables</b>.
+
+77
+00:08:43 --> 00:08:47
+These are used to prevent invalid data entry into the <b>database.</b>
+
+78
+00:08:48 --> 00:08:56
+Column level <b>constraints </b>are applied to only one column.
+<p><b>Table </b>level constraints are applied to the whole <b>table.</b>
+</p>
+
+79
+00:08:57 --> 00:09:03
+Some of the commonly used constraints in <b>PostgreSQL</b> are:
+<p><b>NOT NULL constraint</b>, 
+</p><p><b>UNIQUE constraint</b>, 
+</p>
+
+80
+00:09:04 --> 00:09:10
+<b>Primary key constraint</b>,
+<p><b>Foreign key constraint</b>, 
+</p><p>and <b>Check constraint</b>. 
+</p>
+
+81
+00:09:11 --> 00:09:15
+Next, we will see how to add a <b>check constraint </b>to the <b>cgpa</b> column.
+
+82
+00:09:16 --> 00:09:32
+Type the code as shown.
+<p><b>Alter table students add constraint cgpa underscore chk check cgpa greater than or equal to zero and cgpa less than or equal to 10</b>. 
+</p>
+
+83
+00:09:33 --> 00:09:38
+Here, I have given the <b>constraint </b>name as <b>cgpa underscore chk.</b>
+
+84
+00:09:39 --> 00:09:50
+It specifies a condition that the <b>cgpa</b> value should be between 0 and 10.
+<p>This restricts the user from entering invalid data. 
+</p>
+
+85
+00:09:51 --> 00:09:53
+Let’s now execute the query.
+
+86
+00:09:54 --> 00:10:01
+Now, let us insert one more record to the students table with <b>cgpa</b> as <b>22</b> and see what happens.
+
+87
+00:10:02 --> 00:10:07
+Right-click on <b>students</b> node, select <b>View Data</b> and then <b>Views All Rows.</b>
+
+88
+00:10:08 --> 00:10:10
+I'll enter the data as shown.
+
+89
+00:10:11 --> 00:10:16
+In the <b>cgpa</b> column, I'll enter 22 and press <b>Enter.</b>
+
+90
+00:10:17 --> 00:10:21
+We can see an <b>error</b> message of <b>check constraint violation.</b>
+
+91
+00:10:22 --> 00:10:28
+This indicates that we have entered a invalid data.
+<p>Click on the “<b>OK</b>” button. 
+</p>
+
+92
+00:10:29 --> 00:10:40
+Now enter 10 as <b>cgpa</b>, <b>CS</b> as <b>deptid</b> and <b>save</b> the <b>record</b>.
+<p>The record is successfully saved. 
+</p>
+
+93
+00:10:41 --> 00:10:46
+Let us see the syntax for how to use <b>constraints</b> in the <b>create table</b> command.
+
+94
+00:10:47 --> 00:10:49
+Switch to the <b>pgAdmin</b> main screen.
+
+95
+00:10:50 --> 00:10:53
+Click on the <b>students</b> node and then <b>refresh</b>.
+
+96
+00:10:54 --> 00:11:03
+Now come to the <b>sql</b> pane.
+<p>Here we can see the <b>create table</b> syntax for the <b>students table</b> along with the constraints. 
+</p>
+
+97
+00:11:04 --> 00:11:10
+We can add <b>constraints </b>while creating a table if the table structure is properly designed initially.
+
+98
+00:11:11 --> 00:11:16
+With this, we come to the end of this tutorial.
+<p>Let us summarize. 
+</p>
+
+99
+00:11:17 --> 00:11:22
+In this tutorial, we have learnt about
+<p><b>Foreign key constraint</b>, 
+</p><p><b>Alter table </b>command, 
+</p>
+
+100
+00:11:23 --> 00:11:27
+how to add a <b>foreign key </b>and <b>Check constraints</b>.
+
+101
+00:11:28 --> 00:11:34
+As an Assignment, alter the <b>students</b> table to add a <b>NOT NULL constraint</b> to the column <b>city</b>.
+
+102
+00:11:35 --> 00:11:43
+Insert a record and leave the <b>city</b> column empty.
+<p>Save the record. Note the error and resolve it. 
+</p>
+
+103
+00:11:44 --> 00:11:51
+The video at the following link summarizes the <b>Spoken Tutorial</b> project.
+<p>Please download and watch it. 
+</p>
+
+104
+00:11:52 --> 00:11:59
+The<b> Spoken Tutorial Project</b> team conducts workshops gives certificates.
+<p>For more details, please write to us. 
+</p>
+
+105
+00:12:00 --> 00:12:03
+Please post your timed queries in this forum.
+
+106
+00:12:04 --> 00:12:14
+Spoken Tutorial project is funded by <b>NMEICT, MHRD</b>, Government of India.
+<p>More information on this mission is available at this link. 
+</p>
+
+107
+00:12:15 --> 00:12:20
+This is Nirmala Venkat from <b>IIT Bombay</b>, signing off. Thanks for watching.
+

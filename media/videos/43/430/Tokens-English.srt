@@ -1,0 +1,682 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:05
+Welcome to the spoken tutorial on <b>Tokens</b> in <b>C and C Plus Plus</b>.
+
+2
+00:00:06 --> 00:00:08
+In this tutorial we will learn ,
+
+3
+00:00:09 --> 00:00:11
+How to define and use <b>tokens.</b>
+
+4
+00:00:12 --> 00:00:14
+We will do this with the help of an example.
+
+5
+00:00:15 --> 00:00:19
+We will also see some common errors and their solutions.
+
+6
+00:00:20 --> 00:00:25
+To record this tutorial, I am using <b>Ubuntu Operating system version 11.10</b>,
+
+7
+00:00:26 --> 00:00:32
+<b>gcc and g++ Compiler version 4.6.1</b>.
+
+8
+00:00:33 --> 00:00:35
+Let us start with an introduction.
+
+9
+00:00:36 --> 00:00:45
+Token is a generic word for <b>data types</b>, <b>variables</b>, <b>constants</b> and <b>identifiers</b>.
+
+10
+00:00:46 --> 00:00:48
+Let us start with our program.
+
+11
+00:00:49 --> 00:00:52
+I have already typed the code on the editor.
+
+12
+00:00:53 --> 00:00:55
+Let me open it.
+
+13
+00:00:56 --> 00:01:03
+Note that our file name is 'tokens.c'.
+
+14
+00:01:04 --> 00:01:08
+In this program we will initialize the variables and print their values.
+
+15
+00:01:09 --> 00:01:11
+Let me explain the code now.
+
+16
+00:01:12 --> 00:01:15
+This is our header file.
+
+17
+00:01:16 --> 00:01:19
+This is our main function.
+
+18
+00:01:20 --> 00:01:21
+Here,<b> int </b>is a <b>keyword</b>.
+
+19
+00:01:22 --> 00:01:25
+The <b>compiler</b> knows the meaning of <b>keyword</b>.
+
+20
+00:01:26 --> 00:01:27
+<b>a</b> is an integer <b>variable</b>.
+
+21
+00:01:28 --> 00:01:31
+We have assigned a value of <b>2 </b>to it.
+
+22
+00:01:32 --> 00:01:34
+This is called as initialization.
+
+23
+00:01:35 --> 00:01:42
+If a value is not assigned to a variable then it is called as declaration of the variable.
+
+24
+00:01:43 --> 00:01:45
+Here, <b>b</b> is a <b>constant</b>.
+
+25
+00:01:46 --> 00:01:52
+We have initialized 'b' by assigning a value of 4 to it.
+
+26
+00:01:53 --> 00:01:57
+<b>const</b> keyword is used to create 'read only' variable.
+
+27
+00:01:58 --> 00:02:05
+Let us switch back to our slides to know more about keywords and constant.
+
+28
+00:02:06 --> 00:02:10
+<b>Keywords</b> have fixed meanings that cannot be changed.
+
+29
+00:02:11 --> 00:02:14
+<b>Keywords</b> cannot be used as <b>variable</b> names.
+
+30
+00:02:15 --> 00:02:17
+There are 32<b> keywords</b> in C.
+
+31
+00:02:18 --> 00:02:27
+To name some, <b>auto</b>, <b>break</b>, <b>case</b>, <b>char</b>, <b>enum</b>, <b>extern</b>, etc.
+
+32
+00:02:28 --> 00:02:32
+Constants: constants are fixed values.
+
+33
+00:02:33 --> 00:02:37
+They do not change during the execution of a program.
+
+34
+00:02:38 --> 00:02:44
+There are two types of constants, Numeric constants and Character constants.
+
+35
+00:02:45 --> 00:02:46
+Now come back to our program.
+
+36
+00:02:47 --> 00:02:51
+Here, <b>float</b> is a data type of variable <b>c</b>.
+
+37
+00:02:52 --> 00:02:55
+We have assigned it a value of <b>1.5</b>.
+
+38
+00:02:56 --> 00:03:03
+<b>Data type </b>is a finite set of values along with a set of rules.
+
+39
+00:03:04 --> 00:03:06
+Here, <b>d </b>is a <b>variable</b>.
+
+40
+00:03:07 --> 00:03:11
+<b>char</b> and single quotes suggest that we are dealing with a <b>character</b>.
+
+41
+00:03:12 --> 00:03:19
+As a result, <b>d</b> is a <b>character variable </b> storing the value <b>A</b>.
+
+42
+00:03:20 --> 00:03:29
+It is easy to see that <b>int, double, float</b> and <b>char</b> are data types.
+
+43
+00:03:30 --> 00:03:34
+<b>a,</b> <b>c</b> and <b>d</b> are <b>variables</b>.
+
+44
+00:03:35 --> 00:03:36
+Now come back to our slides.
+
+45
+00:03:37 --> 00:03:47
+We will know more about data types and variables.
+
+46
+00:03:48 --> 00:03:49
+Data types: Let us begin with integer data type.
+
+47
+00:03:50 --> 00:03:52
+It is declared as <b>int</b>.
+
+48
+00:03:53 --> 00:04:00
+If we want to print an integer data type , we will use <b>%d</b> as the format specifier.
+
+49
+00:04:01 --> 00:04:08
+Similarly, we will use <b>float</b> and <b>%f</b> for floating point numbers.
+
+50
+00:04:09 --> 00:04:14
+For character data type, we will  use <b>char</b> and <b>%c</b>.
+
+51
+00:04:15 --> 00:04:23
+And For double data type, we will use <b>double</b> and <b>%lf</b> as the format specifier.
+
+52
+00:04:24 --> 00:04:28
+Now we will see the range of data types.
+
+53
+00:04:29 --> 00:04:33
+<b>Integer</b> data type has a range of this
+
+54
+00:04:34 --> 00:04:38
+<b>Floating point</b> has a range of this
+
+55
+00:04:39 --> 00:04:41
+<b>Character</b> has a range of this
+
+56
+00:04:42 --> 00:04:46
+And <b>Double</b> has a range of this
+
+57
+00:04:47 --> 00:04:55
+The values stored in the variable must not be greater or less than this range.
+
+58
+00:04:56 --> 00:04:59
+Now we will move on to variables.
+
+59
+00:05:00 --> 00:05:01
+Variable is a data name.
+
+60
+00:05:02 --> 00:05:05
+It may be used to store a data value .
+
+61
+00:05:06 --> 00:05:09
+The values can change when a program runs.
+
+62
+00:05:10 --> 00:05:13
+Before using a variable it must be declared.
+
+63
+00:05:14 --> 00:05:17
+We should try to give meaningful names to  variables.
+
+64
+00:05:18 --> 00:05:23
+example <b>john</b>, <b>marks</b>, <b>sum</b> etc.
+
+65
+00:05:24 --> 00:05:26
+Now we will move back to our program.
+
+66
+00:05:27 --> 00:05:31
+Here,<b> printf</b> is the <b>identifier</b> name for this function.
+
+67
+00:05:32 --> 00:05:34
+Come back to our slides.
+
+68
+00:05:35 --> 00:05:37
+Let us know about identifiers.
+
+69
+00:05:38 --> 00:05:40
+<b>Identifiers</b> are user defined names.
+
+70
+00:05:41 --> 00:05:45
+An <b>identifier </b>consists of letters and digits.
+
+71
+00:05:46 --> 00:05:50
+Both uppercase and lowercase letters are permitted.
+
+72
+00:05:51 --> 00:05:54
+First character must be an alphabet or underscore.
+
+73
+00:05:55 --> 00:05:57
+Now Come back to our program.
+
+74
+00:05:58 --> 00:06:01
+Here we have initialized the variables and constants.
+
+75
+00:06:02 --> 00:06:04
+Here we print them.
+
+76
+00:06:05 --> 00:06:07
+And this is our return statement.
+
+77
+00:06:08 --> 00:06:09
+Now click on Save.
+
+78
+00:06:10 --> 00:06:11
+Let us execute the program.
+
+79
+00:06:12 --> 00:06:20
+Please open the terminal window by pressing <b>Ctrl,</b> <b>Alt</b> and <b>T</b> keys simultaneously on your keyboard.
+
+80
+00:06:21 --> 00:06:29
+To compile, type <b>gcc space tokens dot c space hyphen o tok</b>. Press Enter.
+
+81
+00:06:30 --> 00:06:34
+To execute, type <b>./tok</b> (dot slash tok).
+
+82
+00:06:35 --> 00:06:38
+The output is displayed.
+
+83
+00:06:39 --> 00:06:43
+We can see that here we have six values after the decimal point.
+
+84
+00:06:44 --> 00:06:47
+And here we have two values.
+
+85
+00:06:48 --> 00:06:53
+Now let us find out how this happened. Come back to our program.
+
+86
+00:06:54 --> 00:06:58
+This is because we have <b>% point 2f</b> here.
+
+87
+00:06:59 --> 00:07:03
+It denotes that we can print only two values after the decimal point.
+
+88
+00:07:04 --> 00:07:08
+Suppose here I want an output with three decimal places.
+
+89
+00:07:09 --> 00:07:15
+Let us replace % point 2f with % point 3f.
+
+90
+00:07:16 --> 00:07:18
+Now click on Save.
+
+91
+00:07:19 --> 00:07:21
+Come back to our terminal.
+
+92
+00:07:22 --> 00:07:27
+Compile as before, execute as before.
+
+93
+00:07:28 --> 00:07:32
+We see here three values after the decimal point.
+
+94
+00:07:33 --> 00:07:35
+Now we will execute the same program in c++.
+
+95
+00:07:36 --> 00:07:39
+Come back to our program.
+
+96
+00:07:40 --> 00:07:41
+I will change a few things here.
+
+97
+00:07:42 --> 00:07:49
+First press <b>Shift+Ctrl+s</b> keys simultaneously on your keyboard.
+
+98
+00:07:50 --> 00:07:57
+Now save the file with an extension <b>.cpp</b> and click on Save.
+
+99
+00:07:58 --> 00:08:02
+Let us change the header file as <b>iostream</b>
+
+100
+00:08:03 --> 00:08:07
+Now  include the <b>using </b>statement.
+
+101
+00:08:08 --> 00:08:10
+And click on Save.
+
+102
+00:08:11 --> 00:08:14
+Now replace the <b>printf </b>statement with the  <b>cout</b>  statement
+
+103
+00:08:15 --> 00:08:20
+since we use <b>cout<<</b> function to print a line in C++.
+
+104
+00:08:21 --> 00:08:26
+Click on Search for and replace text option.
+
+105
+00:08:27 --> 00:08:32
+Type here printf opening bracket “(”
+
+106
+00:08:33 --> 00:08:39
+And here in this column type, cout and two opening angle brackets “<<”.
+
+107
+00:08:40 --> 00:08:44
+Now click on Replace All  and click on Close.
+
+108
+00:08:45 --> 00:08:49
+We don't need the <b>format specifier</b> and '\n'
+
+109
+00:08:50 --> 00:08:51
+Let us delete them.
+
+110
+00:08:52 --> 00:09:00
+Now delete the comma and  type two opening angle brackets.
+
+111
+00:09:01 --> 00:09:03
+Click on Save. Now delete the closing bracket.
+
+112
+00:09:04 --> 00:09:08
+Type two opening angle brackets again.
+
+113
+00:09:09 --> 00:09:15
+And within the double quotes type \n.
+
+114
+00:09:16 --> 00:09:19
+Now Click on Save.
+
+115
+00:09:20 --> 00:09:23
+Let us execute the program. Come back to our terminal.
+
+116
+00:09:24 --> 00:09:34
+To compile, type <b>g++ space  tokens dot cpp space hyphen o space tok1</b>.
+
+117
+00:09:35 --> 00:09:45
+Here we have <b>tok1</b> because we don't want to overwrite the output parameter tok for the file tokens.c.
+
+118
+00:09:46 --> 00:09:47
+Now press Enter.
+
+119
+00:09:48 --> 00:09:54
+To execute, type <b>./tok1</b> . Press Enter.
+
+120
+00:09:55 --> 00:09:58
+The output is displayed.
+
+121
+00:09:59 --> 00:10:02
+Now let us move on to some common errors which we can come across.
+
+122
+00:10:03 --> 00:10:04
+Come back to our program.
+
+123
+00:10:05 --> 00:10:11
+Suppose here I will reassign a new value to b as 8.
+
+124
+00:10:12 --> 00:10:14
+Now click on Save. Let us see what happens.
+
+125
+00:10:15 --> 00:10:16
+Come back to our terminal.
+
+126
+00:10:17 --> 00:10:21
+Let me clear the prompt.
+
+127
+00:10:22 --> 00:10:25
+Now compile as before.
+
+128
+00:10:26 --> 00:10:31
+We see an error at line no.7 in our tokens. cpp file.
+
+129
+00:10:32 --> 00:10:35
+"Assignment of read only variable 'b' ".
+
+130
+00:10:36 --> 00:10:38
+Come back to our program.
+
+131
+00:10:39 --> 00:10:44
+This is because 'b' is a constant. Constants are  fixed values.
+
+132
+00:10:45 --> 00:10:48
+They do not change during the execution of program.
+
+133
+00:10:49 --> 00:10:53
+Hence it is giving an error. Let us fix the error.
+
+134
+00:10:54 --> 00:10:56
+Delete this. Click on Save.
+
+135
+00:10:57 --> 00:11:00
+Let us execute again. Come back to our terminal.
+
+136
+00:11:01 --> 00:11:02
+Compile as before.
+
+137
+00:11:03 --> 00:11:08
+Execute as before. Yes, it is working.
+
+138
+00:11:09 --> 00:11:11
+Now we will see another common error.
+
+139
+00:11:12 --> 00:11:14
+Switch back to our program.
+
+140
+00:11:15 --> 00:11:20
+Suppose here I will miss the single quotes. Click on Save.
+
+141
+00:11:21 --> 00:11:24
+Let us execute. Come back to our  terminal.
+
+142
+00:11:25 --> 00:11:27
+Compile as before.
+
+143
+00:11:28 --> 00:11:33
+We see an error at line no.9 in our tokens dot cpp file.
+
+144
+00:11:34 --> 00:11:39
+" 'A' was not declared in the scope". Come back to our program.
+
+145
+00:11:40 --> 00:11:46
+This is because anything within the single quotes is considered as a character value.
+
+146
+00:11:47 --> 00:11:52
+And here we have declared 'd' as a character variable.
+
+147
+00:11:53 --> 00:11:58
+Let us fix the error. Type single quotes at line no.9 here.
+
+148
+00:11:59 --> 00:12:01
+Now Click on Save. Let us execute.
+
+149
+00:12:02 --> 00:12:03
+Come back to our terminal.
+
+150
+00:12:04 --> 00:12:05
+Now Compile as before.
+
+151
+00:12:06 --> 00:12:12
+Execute as before. Yes it is working.
+
+152
+00:12:13 --> 00:12:14
+Now switch back to our slides.
+
+153
+00:12:15 --> 00:12:17
+Let us summarize.In this tutorial we learnt,
+
+154
+00:12:18 --> 00:12:23
+Data types eg. int, double, float etc.
+
+155
+00:12:24 --> 00:12:28
+Variables eg. int a=2;
+
+156
+00:12:29 --> 00:12:33
+Identifiers eg. printf() and
+
+157
+00:12:34 --> 00:12:39
+Constant eg. double const b=4;
+
+158
+00:12:40 --> 00:12:44
+As an assignment,Write a  program to calculate the simple interest.
+
+159
+00:12:45 --> 00:12:49
+Hint: principal * rate * time upon  100.
+
+160
+00:12:50 --> 00:12:53
+Watch the video available at the link shown below.
+
+161
+00:12:54 --> 00:12:55
+It summarizes the Spoken Tutorial project.
+
+162
+00:12:56 --> 00:13:00
+If you do not have good bandwidth, you can download and watch it.
+
+163
+00:13:01 --> 00:13:02
+The Spoken Tutorial Project Team:
+
+164
+00:13:03 --> 00:13:06
+Conducts workshops using spoken tutorials,
+
+165
+00:13:07 --> 00:13:09
+Gives certificates to those who pass an online test.
+
+166
+00:13:10 --> 00:13:18
+For more details, please write to contact @spoken-tutorial.org
+
+167
+00:13:19 --> 00:13:23
+Spoken Tutorial Project is a part of the Talk to a Teacher project.
+
+168
+00:13:24 --> 00:13:29
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+169
+00:13:30 --> 00:13:34
+More information on this Mission is available at the link  shown below.
+
+170
+00:13:35 --> 00:13:40
+Ashwini Patil from IIT Bombay signing off .Thank You for joining.
+

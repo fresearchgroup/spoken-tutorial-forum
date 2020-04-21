@@ -98,8 +98,28 @@ $(document).ready(function() {
             });
         }
     });
+
+    // this is in faq page
+    $tutorial.change(function() {
+        $.ajax({
+            url: "/ajax-faq-questions/",
+            type: "POST",
+            data: {
+                category: $category.val(),
+                tutorial: $tutorial.val(),
+            },
+            dataType: "html",
+            success: function(data) {
+                $response = $(data);
+                var similar_count= $response.find("#similar-count").text();
+                console.log(similar_count);
+                $("#similar-link").show();
+                $("#modal-body").html(data);
+            }
+        });
+    });    
     
-    
+    // this is in ask a question page
     $title.change(function() {
         $.ajax({
             url: "/ajax-similar-questions/",

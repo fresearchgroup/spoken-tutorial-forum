@@ -1,0 +1,1006 @@
+<b>Narration</b>
+
+1
+00:00:00 --> 00:00:04
+Welcome to this tutorial on <b>Tables and Figures</b>.
+
+2
+00:00:05 --> 00:00:07
+We have two objectives in this tutorial.
+
+3
+00:00:08 --> 00:00:21
+The first one is to explain how to create <b>tables</b> using the tabular environment; the second objective is to explain how to include tables in latex documents using the <b>table environment</b>.
+
+4
+00:00:22 --> 00:00:26
+A similar technique can be used to include figures also.
+
+5
+00:00:27 --> 00:00:31
+We have seen how to create the title page,
+
+6
+00:00:32 --> 00:00:44
+this one has title, author information, and Creative Commons, copyright information as explained in the tutorial on <b>equations</b>.
+
+7
+00:00:45 --> 00:00:50
+Today’s date appears in the last column created by this <b>command</b>.
+
+8
+00:00:51 --> 00:00:57
+Let us go to the second page.
+
+9
+00:00:58 --> 00:01:04
+I will now explain to you, how to create this table in a step-by-step fashion.
+
+10
+00:01:05 --> 00:01:07
+Let us start with a clean slate.
+
+11
+00:01:08 --> 00:01:18
+Let me delete these commands.
+
+12
+00:01:19 --> 00:01:28
+I will compile this and start with a clean slate.
+
+13
+00:01:29 --> 00:01:37
+The <b>tabular environment</b> is created using <b>begin tabular</b> and <b>end tabular</b> commands.
+
+14
+00:01:38 --> 00:02:02
+Let me do that here.
+
+15
+00:02:03 --> 00:02:13
+The ‘r r’ characters within the braces, next to the <b>begin tabular</b>, say that there are two <b>columns</b> and that they are right aligned.
+
+16
+00:02:14 --> 00:02:19
+In the first line, the entries are "mango" and "mixed".
+
+17
+00:02:20 --> 00:02:23
+Two reverse-slashes indicate next line.
+
+18
+00:02:24 --> 00:02:27
+Let me enter the next line.
+
+19
+00:02:28 --> 00:02:31
+"Jackfruit".
+
+20
+00:02:32 --> 00:02:36
+"Kolli hills".
+
+21
+00:02:37 --> 00:02:39
+"Banana".
+
+22
+00:02:40 --> 00:02:41
+"Green".
+
+23
+00:02:42 --> 00:02:46
+Let me end this <b>tabular environment</b>.
+
+24
+00:02:47 --> 00:02:50
+Let me compile this.
+
+25
+00:02:51 --> 00:02:55
+And, this has appeared here.
+
+26
+00:02:56 --> 00:03:01
+We get the <b>3 by 2 table</b>. There are three rows and 2 columns.
+
+27
+00:03:02 --> 00:03:08
+The two columns are <b>right aligned</b> as indicated by the 'r r' character.
+
+28
+00:03:09 --> 00:03:19
+To separate the two columns, we introduce a vertical line between the column alignment characters.
+
+29
+00:03:20 --> 00:03:22
+So, let me put that vertical line.
+
+30
+00:03:23 --> 00:03:27
+<b>Save</b> it,Compile it.
+
+31
+00:03:28 --> 00:03:30
+You see that a vertical line has come.
+
+32
+00:03:31 --> 00:03:41
+If you want vertical lines at the end also, put them at appropriate places.
+
+33
+00:03:42 --> 00:03:47
+Let me put them, save them, compile them.
+
+34
+00:03:48 --> 00:03:49
+So, these have come.
+
+35
+00:03:50 --> 00:03:53
+As a matter of fact, we can put more vertical lines.
+
+36
+00:03:54 --> 00:04:01
+Let me put one more vertical line at the beginning.
+
+37
+00:04:02 --> 00:04:06
+There you are! A second line has come.
+
+38
+00:04:07 --> 00:04:10
+See there are two vertical lines.
+
+39
+00:04:11 --> 00:04:14
+We will now try different alignments.
+
+40
+00:04:15 --> 00:04:26
+Let's put a ‘c’ here to say that the second column should be <b>center aligned</b>.
+
+41
+00:04:27 --> 00:04:29
+This is <b>center aligned</b> now.
+
+42
+00:04:30 --> 00:04:33
+Let us make the first column <b>left aligned</b>.
+
+43
+00:04:34 --> 00:04:39
+Right now, it is <b>right aligned</b>; let me make them <b>left aligned</b>.
+
+44
+00:04:40 --> 00:04:42
+'l',<b>Save</b>
+
+45
+00:04:43 --> 00:04:45
+Compile.
+
+46
+00:04:46 --> 00:04:49
+Now it is <b>left aligned</b>.
+
+47
+00:04:50 --> 00:04:55
+We will now separate the rows with horizontal lines as follows.
+
+48
+00:04:56 --> 00:04:59
+Let's put a <b>h-line</b> here.
+
+49
+00:05:00 --> 00:05:03
+Let us see what happens when we do that.
+
+50
+00:05:04 --> 00:05:06
+It puts a top line.
+
+51
+00:05:07 --> 00:05:15
+If I put another <b>h-line</b> here,
+
+52
+00:05:16 --> 00:05:18
+see a line has come,So, let me complete this.
+
+53
+00:05:19 --> 00:05:21
+Let me put <b>h-line</b>.
+
+54
+00:05:22 --> 00:05:29
+Here I have to put a <b>break line</b> with two <b>reverse slashes</b> and then <b>h-line</b>.
+
+55
+00:05:30 --> 00:05:35
+<b>H-line</b> begins from the beginning of the sentence.
+
+56
+00:05:36 --> 00:05:41
+So, now I have completed the horizontal lines.
+
+57
+00:05:42 --> 00:05:48
+Now, let us add three more columns and one more row.
+
+58
+00:05:49 --> 00:06:00
+So, what I do is- I come here, and 'c' , 'c', 'r'.
+
+59
+00:06:01 --> 00:06:07
+So, I have added three more columns, first two of them are <b>center aligned</b> the third one is <b>right aligned</b>.
+
+60
+00:06:08 --> 00:06:14
+And then here I want to say:
+
+61
+00:06:15 --> 00:06:18
+"fruit"
+
+62
+00:06:19 --> 00:06:21
+"type"
+
+63
+00:06:22 --> 00:06:25
+"number of units"
+
+64
+00:06:26 --> 00:06:29
+"cost per unit"
+
+65
+00:06:30 --> 00:06:37
+"cost rupees"
+
+66
+00:06:38 --> 00:06:40
+<b>h-line</b>.
+
+67
+00:06:41 --> 00:06:42
+So, "mixed"
+
+68
+00:06:43 --> 00:06:44
+"20"
+
+69
+00:06:45 --> 00:06:46
+"75" rupees
+
+70
+00:06:47 --> 00:06:50
+"1500" rupees.
+
+71
+00:06:51 --> 00:06:53
+"Jackfruit"
+
+72
+00:06:54 --> 00:06:56
+"10" of them
+
+73
+00:06:57 --> 00:06:58
+"50" rupees
+
+74
+00:06:59 --> 00:07:00
+"500" rupees.
+
+75
+00:07:01 --> 00:07:04
+"Banana green"
+
+76
+00:07:05 --> 00:07:06
+"10" dozens
+
+77
+00:07:07 --> 00:07:11
+"20" rupees a dozen and "200" rupees total.
+
+78
+00:07:12 --> 00:07:19
+So, let’s see whether we can compile this.
+
+79
+00:07:20 --> 00:07:24
+So, it has created the table.
+
+80
+00:07:25 --> 00:07:33
+See the need for <b>right alignment</b>, this is.. so that we can add these numbers.
+
+81
+00:07:34 --> 00:07:38
+Suppose, that we want to split the columns in two.
+
+82
+00:07:39 --> 00:07:47
+For example, here these two columns have fruit details and these three have cost calculations.
+
+83
+00:07:48 --> 00:07:54
+So, this is done with the help of what is known as <b>multi-column command</b>.
+
+84
+00:07:55 --> 00:07:58
+Let me do it as follows.
+
+85
+00:07:59 --> 00:08:03
+<b>multi-column</b>
+
+86
+00:08:04 --> 00:08:05
+take 2
+
+87
+00:08:06 --> 00:08:09
+<b>center-aligned</b>
+
+88
+00:08:10 --> 00:08:11
+<b>Fruit Details</b>.
+
+89
+00:08:12 --> 00:08:18
+First two are over then I put a <b>tab</b> to indicate the next column.
+
+90
+00:08:19 --> 00:08:23
+Go to the next line.
+
+91
+00:08:24 --> 00:08:28
+<b>multi-column</b>, three, also to be <b>center-aligned</b>.
+
+92
+00:08:29 --> 00:08:36
+Cost within braces – <b>cost calculations</b>
+
+93
+00:08:37 --> 00:08:43
+<b>slash h-line</b>.
+
+94
+00:08:44 --> 00:08:45
+So, there you are.
+
+95
+00:08:46 --> 00:08:51
+The first two have the title "Fruit details", the next three have the title "Cost calculations".
+
+96
+00:08:52 --> 00:08:58
+I don’t have the vertical lines that’s because I didn’t tell latex to do that. So let’s do that.
+
+97
+00:08:59 --> 00:09:04
+Here, I want two vertical lines, here I want one vertical line.
+
+98
+00:09:05 --> 00:09:10
+Before this, I already have the line here, so let me just put this here.
+
+99
+00:09:11 --> 00:09:15
+See what happens.
+
+100
+00:09:16 --> 00:09:23
+So, now the vertical lines have also come.
+
+101
+00:09:24 --> 00:09:39
+Because these 2 and 3 are single character <b>arguments</b> its possible to write them without braces.
+
+102
+00:09:40 --> 00:09:41
+Okay, same thing works.
+
+103
+00:09:42 --> 00:09:51
+Sometimes it is necessary to draw horizontal lines between only a few columns.
+
+104
+00:09:52 --> 00:09:53
+So, we explain this as follows.
+
+105
+00:09:54 --> 00:10:04
+Let me split this "mango" instead of "mixed", let me call this "Malgoa"
+
+106
+00:10:05 --> 00:10:12
+and then "18" kilograms
+
+107
+00:10:13 --> 00:10:16
+"50" kilograms.
+
+108
+00:10:17 --> 00:10:22
+Let me delete this.
+
+109
+00:10:23 --> 00:10:32
+okay,And here, let me say that it is "Alfanso"
+
+110
+00:10:33 --> 00:10:34
+"2" dozens
+
+111
+00:10:35 --> 00:10:43
+"300" rupees a dozen, and a total of 1500.
+
+112
+00:10:44 --> 00:10:49
+Let’s see what happens when I <b>save</b> this. Compile this.
+
+113
+00:10:50 --> 00:11:18
+So, I’ve got this. What happens is, this line comes here and as well as here and I don’t want this and this. So, this is taken care of by saying instead of this horizontal line, I want a 'c' line and between the columns 2 and 4.
+
+114
+00:11:19 --> 00:11:21
+So, I should have done this here.
+
+115
+00:11:22 --> 00:11:26
+So let me put this back here.
+
+116
+00:11:27 --> 00:11:29
+<b>H-line</b> here.
+
+117
+00:11:30 --> 00:11:39
+<b>c-line 2 to 4</b>.
+
+118
+00:11:40 --> 00:11:51
+Okay, so now I have the line between columns two and four only.
+
+119
+00:11:52 --> 00:11:57
+So, this central line has split the mangoes into two of the most popular mangoes in India.
+
+120
+00:11:58 --> 00:12:03
+We will conclude this example, conclude this <b>table</b> with a last row.
+
+121
+00:12:04 --> 00:12:10
+Let me total up as follows.
+
+122
+00:12:11 --> 00:12:13
+<b>multi-column</b> four
+
+123
+00:12:14 --> 00:12:19
+2 vertical lines, <b>right-aligned</b>
+
+124
+00:12:20 --> 00:12:23
+vertical separator
+
+125
+00:12:24 --> 00:12:26
+<b>Total cost</b>
+
+126
+00:12:27 --> 00:12:31
+Rupees.
+
+127
+00:12:32 --> 00:12:34
+Close this.
+
+128
+00:12:35 --> 00:12:37
+Next tab
+
+129
+00:12:38 --> 00:12:41
+2200
+
+130
+00:12:42 --> 00:12:47
+<b>h-line</b>.
+
+131
+00:12:48 --> 00:12:49
+So there you are.
+
+132
+00:12:50 --> 00:12:58
+So, this was the <b>table</b> that we started with at the beginning of this tutorial.
+
+133
+00:12:59 --> 00:13:03
+How do we work with the <b>tables</b> created using the <b>tabular environment</b>?
+
+134
+00:13:04 --> 00:13:09
+Latex treats the entire table created using the <b>tabular environment</b> as a single object.
+
+135
+00:13:10 --> 00:13:16
+For example- if you write,
+
+136
+00:13:17 --> 00:13:23
+This is
+
+137
+00:13:24 --> 00:13:26
+an
+
+138
+00:13:27 --> 00:13:38
+example
+
+139
+00:13:39 --> 00:13:46
+<b>"This is an example table"</b>.
+
+140
+00:13:47 --> 00:13:55
+What happens is this <b>table</b> gets sandwiched between these two. "This is an" example to, "example table".
+
+141
+00:13:56 --> 00:14:00
+This <b>table</b> appears in a running sentence.
+
+142
+00:14:01 --> 00:14:04
+It is possible to include tables using a <b>centre environment</b>.
+
+143
+00:14:05 --> 00:14:17
+A more common approach is to include it in the <b>table environment</b>. As we show now.
+
+144
+00:14:18 --> 00:14:20
+<b>begin</b>
+
+145
+00:14:21 --> 00:14:24
+<b>table</b>
+
+146
+00:14:25 --> 00:14:32
+Close this.
+
+147
+00:14:33 --> 00:14:35
+So, what happens is now ‘this is an example table’.
+
+148
+00:14:36 --> 00:14:49
+This statement comes separately and whatever that appeared between this ‘begin’ and ‘end’ table have been placed separately as a <b>table</b>.
+
+149
+00:14:50 --> 00:14:56
+In other words, even though the table appears in between some text, it has been put separately.
+
+150
+00:14:57 --> 00:14:58
+This is not centered.
+
+151
+00:14:59 --> 00:15:07
+What I can do is, give a command here called <b>‘centering’</b>
+
+152
+00:15:08 --> 00:15:16
+to place this at the center of the document.
+
+153
+00:15:17 --> 00:15:19
+Let us now create a <b>caption</b>.
+
+154
+00:15:20 --> 00:15:22
+<b>Table caption</b> is put before the table.
+
+155
+00:15:23 --> 00:15:30
+Let me put a caption here.
+
+156
+00:15:31 --> 00:15:41
+<b> "Caption cost of fruits in India"</b>.
+
+157
+00:15:42 --> 00:15:43
+So, the <b>caption</b> has come.
+
+158
+00:15:44 --> 00:15:46
+This is too close; I want to leave a small space.
+
+159
+00:15:47 --> 00:15:56
+Let me do that by giving through this <b>v-space</b> command <b>1 ex</b>.
+
+160
+00:15:57 --> 00:16:00
+That is the space equivalent of the ‘x’ character.
+
+161
+00:16:01 --> 00:16:03
+So, I have left this vertical space.
+
+162
+00:16:04 --> 00:16:05
+So, now it looks okay.
+
+163
+00:16:06 --> 00:16:10
+By default, Latex places tables at the top of the page.
+
+164
+00:16:11 --> 00:16:13
+This placement is done automatically.
+
+165
+00:16:14 --> 00:16:17
+The table is ‘floated’ to the next available slot.
+
+166
+00:16:18 --> 00:16:24
+To explain this, let me cut and paste some text from the bottom of this document.
+
+167
+00:16:25 --> 00:16:27
+Let me delete this.
+
+168
+00:16:28 --> 00:16:37
+Let me delete this.
+
+169
+00:16:38 --> 00:16:42
+Alright.
+
+170
+00:16:43 --> 00:16:48
+Now, there is some write up about these fruits.
+
+171
+00:16:49 --> 00:16:54
+Go to the top of this.
+
+172
+00:16:55 --> 00:16:57
+Paste it here.
+
+173
+00:16:58 --> 00:17:00
+Compile it.
+
+174
+00:17:01 --> 00:17:05
+So, as before, the <b>table</b> got placed at the top of this page.
+
+175
+00:17:06 --> 00:17:11
+Let me put some more text here.
+
+176
+00:17:12 --> 00:17:15
+Four copies.
+
+177
+00:17:16 --> 00:17:25
+So, now what has happened is-
+
+178
+00:17:26 --> 00:17:30
+this table has been floated to the second page and
+
+179
+00:17:31 --> 00:17:34
+there is nothing else here. So, it has been placed at the middle of this page.
+
+180
+00:17:35 --> 00:17:42
+Let me put one more copy of this, some more text.
+
+181
+00:17:43 --> 00:17:48
+So, now what has happened is-
+
+182
+00:17:49 --> 00:18:00
+this is the title page, this is the text page, the table has been floated, it has gone to the top of this page.
+
+183
+00:18:01 --> 00:18:05
+As in <b>equations</b>, we can also create <b>labels</b> and use them for referencing.
+
+184
+00:18:06 --> 00:18:11
+For example,
+
+185
+00:18:12 --> 00:18:14
+you give this <b>command</b> below the <b>caption command</b>.
+
+186
+00:18:15 --> 00:18:20
+You have to give it below the caption command because it is the caption command that creates the <b>table number</b>.
+
+187
+00:18:21 --> 00:18:25
+For example, here 'table 1' has been created automatically by this caption command.
+
+188
+00:18:26 --> 00:18:32
+If you put the label after this, this label will refer to the number created using the caption command.
+
+189
+00:18:33 --> 00:18:39
+So <b>label</b>
+
+190
+00:18:40 --> 00:18:42
+<b>fruits</b>.
+
+191
+00:18:43 --> 00:18:47
+So, let me just go back and say
+
+192
+00:18:48 --> 00:18:52
+let me add this line here.
+
+193
+00:18:53 --> 00:19:07
+<b>The cost of these fruits is shown in Table reference</b>, you have to give the label, it should be the same as this.
+
+194
+00:19:08 --> 00:19:11
+<b>tab fruits</b>
+
+195
+00:19:12 --> 00:19:15
+Let me compile it.
+
+196
+00:19:16 --> 00:19:21
+So there it is,On first compilation, this variable is not assigned.
+
+197
+00:19:22 --> 00:19:27
+So let me re-compile it, so now I have got this.
+
+198
+00:19:28 --> 00:19:32
+We can create a list of tables automatically
+
+199
+00:19:33 --> 00:19:36
+as we explain now.
+
+200
+00:19:37 --> 00:19:49
+After the <b>make title</b>, suppose we want this <b>list of tables</b> - one word, is the command.
+
+201
+00:19:50 --> 00:19:52
+So what has happened is
+
+202
+00:19:53 --> 00:19:56
+it has created a list of tables.
+
+203
+00:19:57 --> 00:20:02
+Typically one would have to compile twice to make sure the table number comes correct.
+
+204
+00:20:03 --> 00:20:12
+Here it comes, the table according to this list is in page two but we know that it is in page 3.
+
+205
+00:20:13 --> 00:20:14
+So, this is in page 3.
+
+206
+00:20:15 --> 00:20:19
+So, let's go back and compile it once more.
+
+207
+00:20:20 --> 00:20:25
+So there you are, it is in page 3.
+
+208
+00:20:26 --> 00:20:28
+So this has been explained before.
+
+209
+00:20:29 --> 00:20:35
+Alright, this comes to the end of this part in which we explained the <b>tables</b>.
+
+210
+00:20:36 --> 00:20:47
+We will now explain how to create figures using the command called <b>include graphics</b>.
+
+211
+00:20:48 --> 00:20:59
+So for this, we need to include this package called <b>graphicx</b>.
+
+212
+00:21:00 --> 00:21:07
+Okay! Suppose I go to the bottom of this,
+
+213
+00:21:08 --> 00:21:13
+and say, the command is as follows. <b>begin figure</b>
+
+214
+00:21:14 --> 00:21:18
+<b>include graphics</b>
+
+215
+00:21:19 --> 00:21:28
+<b>width</b> equals.
+
+216
+00:21:29 --> 00:21:35
+I have a file called <b>iitb.pdf</b>.
+
+217
+00:21:36 --> 00:21:37
+There you are.
+
+218
+00:21:38 --> 00:21:50
+I include it here with the width of this figure coming out to be equal to that of the line width.
+
+219
+00:21:51 --> 00:21:54
+Let me end this figure.
+
+220
+00:21:55 --> 00:22:00
+Compile this.
+
+221
+00:22:01 --> 00:22:03
+There you are.
+
+222
+00:22:04 --> 00:22:08
+So, it has also been put at the top of this page.
+
+223
+00:22:09 --> 00:22:16
+Alright! What I will do is, let me just, so this is for if I want to use the entire line width .
+
+224
+00:22:17 --> 00:22:25
+Suppose I want to use point 5, that is half a line width,
+
+225
+00:22:26 --> 00:22:28
+then it has been made small.
+
+226
+00:22:29 --> 00:22:31
+And note that it has been <b>left aligned</b>.
+
+227
+00:22:32 --> 00:22:37
+As in the <b>table</b>, I can say <b>centering</b>
+
+228
+00:22:38 --> 00:22:48
+which will center this at the middle.
+
+229
+00:22:49 --> 00:22:59
+I can also create a <b>caption</b>; figure captions are created after the figure is included.
+
+230
+00:23:00 --> 00:23:12
+<b>Golden Jubilee logo of IIT Bombay</b>.
+
+231
+00:23:13 --> 00:23:27
+Okay, as before I can create a <b>label</b> and refer to it using the <b>ref</b> command.
+
+232
+00:23:28 --> 00:23:35
+I can also make this list of figures appear along with the list of <b>tables</b>.
+
+233
+00:23:36 --> 00:23:44
+So, suppose I want list of figures also.
+
+234
+00:23:45 --> 00:23:47
+I will compile it.
+
+235
+00:23:48 --> 00:23:50
+I will compile it twice.
+
+236
+00:23:51 --> 00:23:55
+and there it is. List of figures also comes automatically.
+
+237
+00:23:56 --> 00:24:07
+All the figure captions will appear here.
+
+238
+00:24:08 --> 00:24:10
+There is one last thing that I want to show you here.
+
+239
+00:24:11 --> 00:24:14
+That is how to rotate these figures.
+
+240
+00:24:15 --> 00:24:20
+This is done by the <b>angle</b> option.
+
+241
+00:24:21 --> 00:24:24
+Suppose, <b>angle</b>... I want to rotate by 90 degrees.
+
+242
+00:24:25 --> 00:24:28
+So, let's go to this figure.
+
+243
+00:24:29 --> 00:24:31
+Let’s compile this.
+
+244
+00:24:32 --> 00:24:36
+So, this has been rotated by 90 degrees.
+
+245
+00:24:37 --> 00:24:41
+Rotate it by 'minus 90'.
+
+246
+00:24:42 --> 00:24:47
+Alright. So, this is the way to include the figures.
+
+247
+00:24:48 --> 00:24:52
+Here, I am assuming that <b>iitb.pdf</b> is available.
+
+248
+00:24:53 --> 00:24:54
+This brings us to the end of this tutorial.
+
+249
+00:24:55 --> 00:25:04
+The beginners of latex should compile after every few changes to the <b>source document</b> and make sure that what they have entered is correct.
+
+250
+00:25:05 --> 00:25:06
+Thank you for listening to this tutorial.
+
+251
+00:25:07 --> 00:25:12
+This is Kannan Moudgalya, signing off. Good-bye.
+

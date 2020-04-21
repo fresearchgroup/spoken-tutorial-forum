@@ -1,0 +1,320 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:06
+Welcome to the<b> Spoken Tutorial</b> on<b> Overview of RDBMS - PostgreSQL</b>.
+
+2
+00:00:07 --> 00:00:19
+In this tutorial, we will learn about:
+<p><b>RDBMS</b>, 
+</p><p>features of <b>PostgreSQL</b> and the content available in various tutorials under this series. 
+</p>
+
+3
+00:00:20 --> 00:00:33
+For this tutorial, I am using:
+<p><b>Ubuntu Linux </b>14.04 operating system, 
+</p><p><b>PostgreSQL 9.3.x</b>, 
+</p><p><b>pgAdmin 1.18</b>
+</p>
+
+4
+00:00:34 --> 00:00:43
+To follow this tutorial, you should have  good understanding of basic computer concepts and
+<p>working knowledge of any programming language. 
+</p>
+
+5
+00:00:44 --> 00:00:47
+First, let us learn about <b>RDBMS.</b>
+
+6
+00:00:48 --> 00:00:52
+<b>RDBMS</b> stands for <b>Relational Database Management System</b>.
+
+7
+00:00:53 --> 00:00:59
+<b>RDBMS </b>is a program that helps to create, <b>update</b> and manage database.
+
+8
+00:01:00 --> 00:01:05
+<b>MS SQL Server</b>,
+<p><b>IBM DB2</b>, 
+</p><p><b>ORACLE</b>, 
+</p>
+
+9
+00:01:06 --> 00:01:13
+<b>My-SQL </b>and
+<p><b>Microsoft Access</b>
+</p><p>are some of the software based on <b>RDBMS</b>. 
+</p>
+
+10
+00:01:14 --> 00:01:18
+Next, let us see some of the key features of the<b> PostgreSQL.</b>
+
+11
+00:01:19 --> 00:01:24
+<b>PostgreSQL</b> is the most advanced <b>open source</b> <b>database management system.</b>
+
+12
+00:01:25 --> 00:01:31
+It can <b>run</b> on various platforms such as <b>Linux, Windows </b>and <b>Mac Operating System.</b>
+
+13
+00:01:32 --> 00:01:36
+It requires minimum maintenance because of its stability.
+
+14
+00:01:37 --> 00:01:44
+We can define our own <b>data type</b>s, <b>index</b> types and develop a <b>custom plugin</b> to meet our requirement.
+
+15
+00:01:45 --> 00:01:52
+An active community support is available to help solve issues when working with <b>PostgreSQL</b>.
+
+16
+00:01:53 --> 00:02:08
+<b>PostgreSQL</b> can be used by  programmers, project managers, system administrators and
+<p>any software professional, who want to build products, websites, tools, etc. 
+</p>
+
+17
+00:02:09 --> 00:02:14
+Now, we will briefly go through the individual tutorials in this series.
+
+18
+00:02:15 --> 00:02:23
+The first tutorial in this series explains-  Installation of <b>PostgreSQL</b> in <b>Ubuntu</b> <b>Linux</b> and <b>Windows</b>.
+
+19
+00:02:24 --> 00:02:33
+Installation of <b>pgAdmin</b>,
+<p>setting the password and how to connect and disconnect from the <b>server</b>. 
+</p>
+
+20
+00:02:34 --> 00:02:48
+Here is a glimpse of the tutorial.
+
+21
+00:02:49 --> 00:02:53
+The next tutorial is '<b>Create database using PgAdmin'.</b>
+
+22
+00:02:54 --> 00:02:58
+It will help us to understand how to  connect to the <b>server</b>,
+
+23
+00:02:59 --> 00:03:03
+create a new <b>database</b>,
+<p>create a new <b>table</b>, 
+</p>
+
+24
+00:03:04 --> 00:03:09
+add <b>columns</b> to the <b>table</b> and
+<p>common <b>data types</b> used in <b>PostgreSQL</b>. 
+</p>
+
+25
+00:03:10 --> 00:03:28
+Let us have a look at this tutorial.
+
+26
+00:03:29 --> 00:03:32
+The next tutorial is '<b>Table with Primary keys'. </b>
+
+27
+00:03:33 --> 00:03:37
+Here we will learn to:
+<p>insert data, 
+</p><p>retrieve data, 
+</p>
+
+28
+00:03:38 --> 00:03:45
+<b>Data Redundancy</b>,
+<p>importance of <b>primary keys </b>and  create a <b>table </b>with <b>primary keys</b>. 
+</p>
+
+29
+00:03:46 --> 00:04:00
+Here is a glimpse of the tutorial.
+
+30
+00:04:01 --> 00:04:10
+The next tutorial is '<b>Select' statement.</b>
+<p>This will help us to know how to write  a basic <b>Select statement</b>. 
+</p>
+
+31
+00:04:11 --> 00:04:15
+<b>Select</b> with <b>WHERE</b> clause,
+<p><b>Select</b> with <b>relational operators</b>, 
+</p>
+
+32
+00:04:16 --> 00:04:21
+<b>Select</b> with <b>logical operators</b>,
+<p><b>Alias</b> for <b>column</b> names. 
+</p>
+
+33
+00:04:22 --> 00:04:46
+Let me play this tutorial.
+
+34
+00:04:47 --> 00:04:51
+The next tutorial will explain the <b>Aggregate functions</b> in <b>select statement.</b>
+
+35
+00:04:52 --> 00:04:59
+First, it covers more <b>clause</b>s that can be used with the <b>select </b>statement, such as-
+<p><b>Distinct</b>, 
+</p><p><b>Between</b>, 
+</p>
+
+36
+00:05:00 --> 00:05:04
+<b>Like</b>,
+<p><b>In</b>, 
+</p><p><b>Is Null</b>. 
+</p>
+
+37
+00:05:05 --> 00:05:10
+<b>PostgreSQL built-in functions,</b> otherwise called as<b> aggregate functions</b>.
+
+38
+00:05:11 --> 00:05:15
+The <b>functions</b> such as  <b>Count</b>,
+<p><b>Sum</b>, 
+</p>
+
+39
+00:05:16 --> 00:05:22
+<b>Max </b>,
+<p><b>Min</b>, 
+</p><p><b>Avg</b>
+</p><p>are covered later, in this tutorial. 
+</p>
+
+40
+00:05:23 --> 00:05:42
+Let's have a look at this tutorial.
+
+41
+00:05:43 --> 00:05:50
+The next tutorial is about <b>Foreign Key</b> constraint.
+<p>It explains the  importance of using <b>foreign key</b>s. 
+</p>
+
+42
+00:05:51 --> 00:05:55
+Example to demonstrate the <b>parent </b>and <b>child table relationship</b>.
+
+43
+00:05:56 --> 00:06:03
+<b>Alter table command</b> to modify the existing <b>table</b> structure and
+<p>different types of <b>constraints</b>. 
+</p>
+
+44
+00:06:04 --> 00:06:27
+Here is a glimpse of the tutorial.
+
+45
+00:06:28 --> 00:06:33
+The next tutorial will explain the <b>Aggregation facilities in SQL statements</b>.
+
+46
+00:06:34 --> 00:06:41
+Here we will learn about
+<p><b>Group by </b>, 
+</p><p><b>Having </b>and 
+</p><p><b>Order by clauses</b>. 
+</p>
+
+47
+00:06:42 --> 00:07:00
+Let's have a look at this tutorial.
+
+48
+00:07:01 --> 00:07:05
+The last tutorial in the basic level of this series is <b>Updating Data.</b>
+
+49
+00:07:06 --> 00:07:10
+It will explain how to update data and delete data.
+
+50
+00:07:11 --> 00:07:17
+Here we will learn how to use
+<p><b>Update statement </b>and <b>Delete statement</b>
+</p>
+
+51
+00:07:18 --> 00:07:26
+Here is a glimpse of the tutorial.
+
+52
+00:07:27 --> 00:07:31
+This brings us to the end of this tutorial. Let us summarize.
+
+53
+00:07:32 --> 00:07:41
+In this tutorial, we learnt about <b>RDBMS - PostgreSQL </b>  and went through the tutorials in this series.
+
+54
+00:07:42 --> 00:07:49
+The video at the following link summarizes the <b>Spoken Tutorial</b> project.
+<p>Please download and watch it. 
+</p>
+
+55
+00:07:50 --> 00:07:58
+The<b> Spoken Tutorial Project</b> team:  conducts workshops and gives certificates.
+<p>For more details, please write to us. 
+</p>
+
+56
+00:07:59 --> 00:08:03
+Do you have questions in THIS Spoken Tutorial?
+<p>Please visit this site. 
+</p>
+
+57
+00:08:04 --> 00:08:09
+Choose the minute and second where you have the question,
+<p>explain your question briefly. 
+</p>
+
+58
+00:08:10 --> 00:08:13
+Someone from our team will answer them.
+
+59
+00:08:14 --> 00:08:22
+The <b>Spoken Tutorial forum</b> is for specific questions on this tutorial.
+<p>Please do not post unrelated and general questions on them. 
+</p>
+
+60
+00:08:23 --> 00:08:31
+This will help reduce the clutter.
+<p>With less clutter, we can use these discussion as instructional material. 
+</p>
+
+61
+00:08:32 --> 00:08:42
+Spoken Tutorial project is funded by <b>NMEICT, MHRD</b>, Government of India.
+<p>More information on this mission is available at this link. 
+</p>
+
+62
+00:08:43 --> 00:08:48
+This is Nirmala Venkat from <b>IIT Bombay</b>, signing off. Thanks for watching.
+

@@ -1,0 +1,510 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:07
+Welcome to the spoken tutorial on <b>Increment and Decrement Operators in C and C++</b>.
+
+2
+00:00:08 --> 00:00:09
+In this tutorial, we will learn about:
+
+3
+00:00:10 --> 00:00:11
+Increment and decrement operators.
+
+4
+00:00:12 --> 00:00:17
+'++' eg. a++ which is postfix increment operator.
+
+5
+00:00:18 --> 00:00:21
+++a which is prefix increment operator.
+
+6
+00:00:22 --> 00:00:26
+'--' eg. a--  is  a postfix decrement operator.
+
+7
+00:00:27 --> 00:00:30
+--a  is a  prefix decrement operator.
+
+8
+00:00:31 --> 00:00:34
+We will also learn about Typecasting.
+
+9
+00:00:35 --> 00:00:39
+To record this tutorial, I am using: <b>Ubuntu 11.10</b> as the operating system,
+
+10
+00:00:40 --> 00:00:47
+<b>gcc</b> and <b>g++ Compiler</b> version 4.6.1 in <b>Ubuntu</b>.
+
+11
+00:00:48 --> 00:00:53
+The <b>++</b> operator increases the existing value of the operand by one.
+
+12
+00:00:54 --> 00:00:59
+<b>a++</b> and <b>++a</b> are equivalent to <b>a = a + 1</b>.
+
+13
+00:01:00 --> 00:01:05
+The <b>--</b> operator decreases the existing value of the operand by one.
+
+14
+00:01:06 --> 00:01:12
+<b>a--</b> and <b>--a</b> are equivalent to <b>a = a - 1</b>.
+
+15
+00:01:13 --> 00:01:18
+I will now demonstrate the use of increment and decrement operators with the help of a C program.
+
+16
+00:01:19 --> 00:01:24
+I have already made the program, so I'll explain the code.
+
+17
+00:01:25 --> 00:01:29
+Here, we have the code for increment and decrement operators in <b>C.</b>
+
+18
+00:01:30 --> 00:01:34
+Here, I have taken an integer variable <b>a</b> that holds the value <b>1</b>.
+
+19
+00:01:35 --> 00:01:38
+This way we will be able to observe the changes in the value of <b>a</b>.
+
+20
+00:01:39 --> 00:01:46
+It will thus give us a better idea about the working of the operators.
+
+21
+00:01:47 --> 00:01:50
+Let's see how the <b>postfix</b> increment operator works.
+
+22
+00:01:51 --> 00:01:54
+The output of this printf statement is 1.
+
+23
+00:01:55 --> 00:01:56
+The value won't change.
+
+24
+00:01:57 --> 00:02:03
+This is because the postfix operation occurs after the operand is evaluated.
+
+25
+00:02:04 --> 00:02:09
+If an operation is performed on <b>a++</b>, it is performed on the current value of <b>a</b>.
+
+26
+00:02:10 --> 00:02:16
+After that the value of <b>a</b> is incremented.
+
+27
+00:02:17 --> 00:02:26
+Now if we see the value of<b> a </b>here, it has been incremented by 1.
+
+28
+00:02:27 --> 00:02:34
+We again initialize 'a' to 1 so as to reflect on the changes.
+
+29
+00:02:35 --> 00:02:37
+We now come to the prefix increment operators.
+
+30
+00:02:38 --> 00:02:41
+This printf statement prints 2 on the screen.
+
+31
+00:02:42 --> 00:02:48
+This is because a prefix operation occurs before the operand is evaluated.
+
+32
+00:02:49 --> 00:02:57
+So the value of 'a' is first incremented by 1 and then it is printed.
+
+33
+00:02:58 --> 00:03:02
+We again print a's value to see that there are no further changes.
+
+34
+00:03:03 --> 00:03:06
+Now let's check by executing this code.
+
+35
+00:03:07 --> 00:03:18
+I will comment out the following lines. Type /*, */
+
+36
+00:03:19 --> 00:03:21
+Click on <b>Save</b>.
+
+37
+00:03:22 --> 00:03:28
+I have saved my file as <b>incrdecr.c</b>.
+
+38
+00:03:29 --> 00:03:34
+Open the terminal window by pressing <b>Ctrl, Alt</b> and <b>T </b>keys simultaneously.
+
+39
+00:03:35 --> 00:03:50
+To compile, type the following on the terminal;  <b>gcc space incrdecr dot c space minus o space incr</b>. Press Enter.
+
+40
+00:03:51 --> 00:03:58
+To execute the code, type <i>./incr</i> (dot slash incr). Press enter.
+
+41
+00:03:59 --> 00:04:00
+The output is displayed on the screen.
+
+42
+00:04:01 --> 00:04:05
+This is the output when you print a++.
+
+43
+00:04:06 --> 00:04:08
+This is the output when you print ++a.
+
+44
+00:04:09 --> 00:04:12
+We  can see that the result is as discussed before.
+
+45
+00:04:13 --> 00:04:15
+Now Coming back to the rest of the program.
+
+46
+00:04:16 --> 00:04:20
+I will now explain the postfix and prefix  decrement operators.
+
+47
+00:04:21 --> 00:04:28
+Remove the multi-line comments from here and here .
+
+48
+00:04:29 --> 00:04:34
+We now again assign the value of <i>1</i> to <i>a</i>.
+
+49
+00:04:35 --> 00:04:39
+This <b>printf</b> statement outputs the value of 1 as explained previously.
+
+50
+00:04:40 --> 00:04:46
+<b>a's </b>value will be decremented after <b>a--</b> is evaluated as it is a postfix expression.
+
+51
+00:04:47 --> 00:04:50
+The next statement prints a's value as o.
+
+52
+00:04:51 --> 00:04:53
+<b>a's </b> value has now being decremented by 1.
+
+53
+00:04:54 --> 00:04:57
+We now have the prefix decrement operator.
+
+54
+00:04:58 --> 00:04:59
+Output of this printf statement would be 0.
+
+55
+00:05:00 --> 00:05:04
+As it is a prefix operation.
+
+56
+00:05:05 --> 00:05:08
+The prefix operation occurs before the operand is evaluated.
+
+57
+00:05:09 --> 00:05:10
+This printf statements output is 0.
+
+58
+00:05:11 --> 00:05:14
+No further changes have been made to a's value.
+
+59
+00:05:15 --> 00:05:20
+Type <b>return 0;</b>  and close the ending curly bracket.
+
+60
+00:05:21 --> 00:05:23
+Click on <b>Save.</b>
+
+61
+00:05:24 --> 00:05:26
+Switch back to the terminal.
+
+62
+00:05:27 --> 00:05:41
+To compile, type the following on the terminal; <b>gcc space incrdecr dot c space minus o space incr</b>. Press Enter.
+
+63
+00:05:42 --> 00:05:51
+To execute, type <b>./incr</b>. Press Enter.
+
+64
+00:05:52 --> 00:05:55
+This is the output when you print a--.
+
+65
+00:05:56 --> 00:05:58
+This is the output when you print --a.
+
+66
+00:05:59 --> 00:06:04
+So, now we see how the increment and  decrement operator work.
+
+67
+00:06:05 --> 00:06:06
+If we want to write the same program in C++,
+
+68
+00:06:07 --> 00:06:09
+I can make a few changes to the above C code.
+
+69
+00:06:10 --> 00:06:12
+Let me go back to the editor.
+
+70
+00:06:13 --> 00:06:15
+Here is the <b>C++ </b>file with the necessary code.
+
+71
+00:06:16 --> 00:06:19
+Notice that the <b>header</b> is different from the C file header.
+
+72
+00:06:20 --> 00:06:23
+We have the <b>using namespace </b>statement also.
+
+73
+00:06:24 --> 00:06:27
+Also note that the output statement in C++ is <b>cout</b>.
+
+74
+00:06:28 --> 00:06:32
+So, apart from these differences, the two codes are very similar.
+
+75
+00:06:33 --> 00:06:39
+Save the file. The file is saved with an extension <b>.cpp</b>.
+
+76
+00:06:40 --> 00:06:41
+Let's compile the code.
+
+77
+00:06:42 --> 00:06:59
+Open the terminal and type  <b>g++ space incrdecr dot cpp space minus o space incr</b>. Press Enter.
+
+78
+00:07:00 --> 00:07:06
+To execute, type  <b>./ incr</b> (dot slash incr). Press Enter.
+
+79
+00:07:07 --> 00:07:09
+The output is displayed on the screen.
+
+80
+00:07:10 --> 00:07:14
+So, we see the output is identical to the C program.
+
+81
+00:07:15 --> 00:07:16
+We now have the concept of typecasting.
+
+82
+00:07:17 --> 00:07:21
+It is implemented the same way in both <b>C</b> and <b>C++</b>.
+
+83
+00:07:22 --> 00:07:26
+Typecasting is used to make a variable of one type, act like another type.
+
+84
+00:07:27 --> 00:07:32
+Typecasting is done by enclosing the data type, you want, within parentheses.
+
+85
+00:07:33 --> 00:07:37
+This cast is put in front of the variable you want to cast.
+
+86
+00:07:38 --> 00:07:41
+This <b>typecast</b> is valid for one single operation only.
+
+87
+00:07:42 --> 00:07:46
+Now <b>a'</b> will behave as a <b>float</b> variable, for a single operation.
+
+88
+00:07:47 --> 00:07:49
+Here is an example that I have already created.
+
+89
+00:07:50 --> 00:07:53
+I shall now explain the code.
+
+90
+00:07:54 --> 00:07:59
+We first declare variables <b>a</b> and <b>b</b> as integers and <b>c</b> as float.
+
+91
+00:08:00 --> 00:08:05
+<b>a</b> is assigned the value of  5. <b>b</b> is assigned the value of 2.
+
+92
+00:08:06 --> 00:08:09
+We will perform operations on <b>a</b> and <b>b</b>.
+
+93
+00:08:10 --> 00:08:13
+We divide <b>a</b> by <b>b</b>. The result of division is stored in <b>c</b>.
+
+94
+00:08:14 --> 00:08:19
+We have used <b>%.2f</b> to denote a precision of 2 decimal places.
+
+95
+00:08:20 --> 00:08:24
+The result displayed will be 2.00 against the expected result of 2.50.
+
+96
+00:08:25 --> 00:08:30
+The fractional part has been truncated as both the operands <b>a</b> and <b>b</b> are integers.
+
+97
+00:08:31 --> 00:08:34
+To perform real division, one of the operands will have to be typecast to float.
+
+98
+00:08:35 --> 00:08:40
+Here we are typecasting <b>a </b>to float. <b>c</b> now holds the value of real division.
+
+99
+00:08:41 --> 00:08:46
+Now the result of real division is displayed. The answer is 2.50 as expected.
+
+100
+00:08:47 --> 00:08:50
+Type<b> return 0;</b>  and close the  ending curly bracket.
+
+101
+00:08:51 --> 00:08:54
+Click on <b>Save</b>. Save the file with <b>.c</b> (dot c) extension.
+
+102
+00:08:55 --> 00:08:58
+I have saved my file as <b>typecast.c</b>.
+
+103
+00:08:59 --> 00:09:00
+Open the terminal.
+
+104
+00:09:01 --> 00:09:16
+To compile, type <b>gcc space typecast dot c space minus o space type</b>. Press Enter.
+
+105
+00:09:17 --> 00:09:24
+To execute, type <b>./type</b>. Press Enter.
+
+106
+00:09:25 --> 00:09:26
+The output is displayed on the screen.
+
+107
+00:09:27 --> 00:09:31
+Looking at the two values we see the effects of typecasting.
+
+108
+00:09:32 --> 00:09:33
+We will summarize the tutorial now.
+
+109
+00:09:34 --> 00:09:35
+In this tutorial we learnt-
+
+110
+00:09:36 --> 00:09:39
+how  to  use the increment and decrement operators,
+
+111
+00:09:40 --> 00:09:43
+we learnt about the forms, Postfix  and Prefix,
+
+112
+00:09:44 --> 00:09:46
+also we  learnt about typecasting and how it is used.
+
+113
+00:09:47 --> 00:09:48
+As an assignment:
+
+114
+00:09:49 --> 00:09:55
+Write a program to solve the following expression, a divided by b plus c divided by d.
+
+115
+00:09:56 --> 00:10:00
+The values of <b>a, b, c</b> and <b>d</b> are taken as input from the user.
+
+116
+00:10:01 --> 00:10:04
+Use typecasting to perform real division.
+
+117
+00:10:05 --> 00:10:07
+Watch the video available at the following link.
+
+118
+00:10:08 --> 00:10:09
+It summarizes the Spoken Tutorial project.
+
+119
+00:10:10 --> 00:10:14
+If you do not have good bandwidth, you can download and watch it.
+
+120
+00:10:15 --> 00:10:16
+The Spoken Tutorial Project Team:
+
+121
+00:10:17 --> 00:10:19
+Conducts workshops using spoken tutorials.
+
+122
+00:10:20 --> 00:10:23
+Gives certificates for those who pass an online test.
+
+123
+00:10:24 --> 00:10:32
+For more details, please write to contact at spoken hyphen tutorial dot org.
+
+124
+00:10:33 --> 00:10:36
+Spoken Tutorial Project is a part of the Talk to a Teacher project.
+
+125
+00:10:37 --> 00:10:43
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+126
+00:10:44 --> 00:10:54
+More information on this mission is available at  spoken hyphen tutorial dot org slash NMEICT hyphen  Intro.
+
+127
+00:10:55 --> 00:11:00
+This is Ritwik Joshi from IIT Bombay.Thank you for joining.
+

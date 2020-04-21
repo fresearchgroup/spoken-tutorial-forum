@@ -1,0 +1,504 @@
+<b>Narration</b>
+
+1
+00:00:00 --> 00:00:04
+Welcome to the <b>spoken tutorial</b> on embedding mathematics in <b>Xfig</b>.
+
+2
+00:00:05 --> 00:00:10
+In this tutorial, I shall explain how to create this figure.
+
+3
+00:00:11 --> 00:00:15
+Observe the mathematical expression in the second block.
+
+4
+00:00:16 --> 00:00:22
+You can embed any mathematical expression after learning this tutorial.
+
+5
+00:00:23 --> 00:00:35
+We shall create the figure in the previous slide, starting from this figure, which was created in the spoken tutorial on <b>“Feedback Diagrams through Xfig”</b>.
+
+6
+00:00:36 --> 00:00:41
+You should learn this tutorial before starting the current one.
+
+7
+00:00:42 --> 00:00:47
+Let me now explain, what all you need to learn the material taught in this course.
+
+8
+00:00:48 --> 00:00:51
+I am using <b>Xfig</b> Version <b>3.2</b>, <b>patch level 5</b>.
+
+9
+00:00:52 --> 00:00:55
+You also need <b>LaTeX</b> and a familiarity with it.
+
+10
+00:00:56 --> 00:01:00
+You also need <b>image cropping software</b>.
+
+11
+00:01:01 --> 00:01:08
+<b>pdfcrop</b> works on <b>Linux</b> and <b>Mac OS X</b>. We will cover it in this tutorial.
+
+12
+00:01:09 --> 00:01:14
+<b>Briss</b> is said to work on <b>Windows</b> also, but not covered in this tutorial.
+
+13
+00:01:15 --> 00:01:18
+Let us go to <b>Xfig</b>.
+
+14
+00:01:19 --> 00:01:25
+Let us choose the <b>File</b>, then <b>Open</b>.
+
+15
+00:01:26 --> 00:01:41
+If we scroll through the list, we will see the file “feedback.fig”, created in the spoken tutorial on “Feedback Diagrams through Xfig”. Let us click it.
+
+16
+00:01:42 --> 00:01:44
+We will see the figure inside this box.
+
+17
+00:01:45 --> 00:01:52
+Let us open it.
+
+18
+00:01:53 --> 00:02:00
+Let us bring it inside.
+
+19
+00:02:01 --> 00:02:04
+Let us also zoom it.
+
+20
+00:02:05 --> 00:02:19
+Using the <b>Save as</b> option on <b>“File”</b>, we will save this figure as <b>maths</b>.
+
+21
+00:02:20 --> 00:02:23
+Let us <b>save</b> it.
+
+22
+00:02:24 --> 00:02:26
+We now have the file <b>"maths.fig"</b>.
+
+23
+00:02:27 --> 00:02:33
+Let us select <b>“Edit”</b> and click the text <b>“Plant”</b>.
+
+24
+00:02:34 --> 00:02:49
+Let me take the <b>mouse</b> here. Let me delete this and enter
+<p><b>$G(z) = \frac z{z-1}$</b>
+</p>
+
+25
+00:02:50 --> 00:02:55
+Make sure that the mouse stays within the box while typing.
+
+26
+00:02:56 --> 00:03:00
+The default value for <b>“Flag”'<i> is </i></b><i>“Normal”<b> - change it to </b>“Special”</i>.
+
+27
+00:03:01 --> 00:03:06
+Click <b>“Done”</b>.
+
+28
+00:03:07 --> 00:03:11
+As the text is long, it overlaps with other entries.
+
+29
+00:03:12 --> 00:03:22
+Let us move the text outside the box and work with it.
+
+30
+00:03:23 --> 00:03:25
+Let me click here.
+
+31
+00:03:26 --> 00:03:30
+Let me choose <b>Grid Mode</b>.
+
+32
+00:03:31 --> 00:03:38
+Once we are satisfied with any changes that we may want here, we can put it back inside the box.
+
+33
+00:03:39 --> 00:03:43
+Let us save this file.
+
+34
+00:03:44 --> 00:03:50
+Let us <b>export</b> using combined <b>pdf</b> and <b>Latex</b> files.
+
+35
+00:03:51 --> 00:04:02
+File > Export > Combined pdf/LaTeX. Let us <b>Export</b>.
+
+36
+00:04:03 --> 00:04:10
+There is an error message that I get. But let us not worry about this.
+
+37
+00:04:11 --> 00:04:12
+Let me go to the <b>terminal</b>.
+
+38
+00:04:13 --> 00:04:20
+Let me type <b>ls -lrt</b>.
+
+39
+00:04:21 --> 00:04:25
+We get a list of files, with the last one being the most recent.
+
+40
+00:04:26 --> 00:04:32
+The last two files are <b>maths.pdf_t</b> and <b>maths.pdf</b>.
+
+41
+00:04:33 --> 00:04:41
+Let us give the command <b>open maths.pdf</b>.
+
+42
+00:04:42 --> 00:04:44
+Let us bring it inside.
+
+43
+00:04:45 --> 00:04:49
+We can see the block diagram without the mathematical expression.
+
+44
+00:04:50 --> 00:04:51
+Let me close this.
+
+45
+00:04:52 --> 00:05:00
+Let us see <b>maths.pdf_t</b> in <b>emacs editor</b> that I have already opened.
+
+46
+00:05:01 --> 00:05:13
+It is here. Let me open it.
+
+47
+00:05:14 --> 00:05:16
+Please note that you do NOT have to use <b>emacs</b>.
+
+48
+00:05:17 --> 00:05:21
+You can use WHATEVER editor that you are comfortable with.
+
+49
+00:05:22 --> 00:05:25
+You can see  that the “picture” environment is used.
+
+50
+00:05:26 --> 00:05:40
+It also makes use of <b>includegraphics</b> and <b>color</b> packages – we need to tell LaTeX to take care of this requirement.
+
+51
+00:05:41 --> 00:05:58
+Let me now open the file <b>maths-bp.tex</b>; I have already created for this tutorial.
+
+52
+00:05:59 --> 00:06:01
+I have used <b>article</b> <b>class</b>.
+
+53
+00:06:02 --> 00:06:14
+I have used <b>color</b> and <b>graphicx</b> packages as these are used in the file <b>pdf_t</b>, the one we saw earlier.
+
+54
+00:06:15 --> 00:06:19
+I want empty <b>pagestyle</b> as I do not want the page number.
+
+55
+00:06:20 --> 00:06:26
+Finally, I want to include the file <b>maths.pdf_t</b>.
+
+56
+00:06:27 --> 00:06:41
+Let us invoke the command <b>pdflatex maths-bp</b> in the terminal.
+
+57
+00:06:42 --> 00:06:47
+We get the message that the <b>maths-bp.pdf</b> is created.
+
+58
+00:06:48 --> 00:06:57
+Let us open it with the command <b>open maths-bp.pdf</b>.
+
+59
+00:06:58 --> 00:07:06
+We have the file we want. Let me zoom it.
+
+60
+00:07:07 --> 00:07:29
+Now that we know that the mathematical expression is working, let us move the text inside the block.
+
+61
+00:07:30 --> 00:07:37
+Let us <b>save</b> and <b>export</b>. It is already in the required language. <b>Export</b>.
+
+62
+00:07:38 --> 00:07:40
+Let us dismiss this warning.
+
+63
+00:07:41 --> 00:07:43
+Let me compile it again.
+
+64
+00:07:44 --> 00:07:48
+Let us click the <b>pdf</b> browser that has the file.
+
+65
+00:07:49 --> 00:07:55
+Now you see the mathematical expression inside the box, the way we want.
+
+66
+00:07:56 --> 00:08:00
+Let us now see what happens if we do not choose the <b>Special</b> flag.
+
+67
+00:08:01 --> 00:08:03
+Let me come here.
+
+68
+00:08:04 --> 00:08:24
+Let me edit the text, change the <b>Special Flag</b> to <b>Normal</b>. Done.
+
+69
+00:08:25 --> 00:08:36
+<b>File > Save</b>. Let me <b>export</b>.
+
+70
+00:08:37 --> 00:08:40
+Let me compile. Let me come here.
+
+71
+00:08:41 --> 00:08:45
+The formula is no longer in the form we want.
+
+72
+00:08:46 --> 00:09:02
+Let us change the “Special Flag” back to “Special”.
+
+73
+00:09:03 --> 00:09:11
+<b>Save, Export</b>.
+
+74
+00:09:12 --> 00:09:17
+Recompile. You see that the file is in the form we want.
+
+75
+00:09:18 --> 00:09:21
+Let us now improve the appearance of this formula.
+
+76
+00:09:22 --> 00:09:27
+In this case, the use of 'dfrac' will make the fraction look better.
+
+77
+00:09:28 --> 00:09:37
+In view of this, let us change 'frac' to 'dfrac'.
+
+78
+00:09:38 --> 00:09:42
+Let me click here. Keep the <b>mouse</b> inside the box.
+
+79
+00:09:43 --> 00:09:51
+Put 'd' here. Done. <b>Save, Export</b>.
+
+80
+00:09:52 --> 00:10:02
+Let us compile once again using <b>pdflatex</b>.
+
+81
+00:10:03 --> 00:10:10
+We get the error message <b>“Undefined control sequence”</b> <b>"\dfrac"</b>.
+
+82
+00:10:11 --> 00:10:20
+LaTeX complains because the command <b>\dfrac</b> is defined in the package <b>“Amsmath”</b> but we have not included it.
+
+83
+00:10:21 --> 00:10:26
+We need to include it in the file <b>maths-bp.tex'</b>.
+
+84
+00:10:27 --> 00:10:34
+Let us do it. Let us go to emacs.
+
+85
+00:10:35 --> 00:10:40
+Enter “\usepackage{amsmath}”.
+
+86
+00:10:41 --> 00:10:48
+Let us <b>save</b> the file. Let us compile once again. Let me first exit.
+
+87
+00:10:49 --> 00:10:58
+Let me now recompile. Now it compiles. Let us click this.
+
+88
+00:10:59 --> 00:11:02
+We see that the fraction has now come out nicely.
+
+89
+00:11:03 --> 00:11:10
+We have now achieved our objective of learning how to embed mathematical expressions in <b>Xfig</b>.
+
+90
+00:11:11 --> 00:11:15
+It is important to note that Xfig does not interpret the LaTeX commands at all.
+
+91
+00:11:16 --> 00:11:19
+The interpretation is done by the “<b>pdflatex</b>” command.
+
+92
+00:11:20 --> 00:11:24
+The LaTeX commands have to be correct and consistent at the time of compilation.
+
+93
+00:11:25 --> 00:11:30
+We will now explain how to remove the white space around the figure.
+
+94
+00:11:31 --> 00:11:32
+Let me go to the terminal.
+
+95
+00:11:33 --> 00:11:52
+Let me type the command “<b>pdfcrop maths-bp.pdf</b>” - this is the file we created, into “<b>maths-out.pdf</b>”.
+
+96
+00:11:53 --> 00:11:56
+<b>Pdfcrop</b> says, one page written on this file.
+
+97
+00:11:57 --> 00:12:08
+“<b>pdfcrop</b>” takes an input file, trims the space around the figure and writes out the cropped file in the output file.
+
+98
+00:12:09 --> 00:12:11
+“<b>pdfcrop</b>” is already installed in my system.
+
+99
+00:12:12 --> 00:12:14
+If you do not have it, you need to install it first.
+
+100
+00:12:15 --> 00:12:28
+Let us view this output file by the command, <b>“open maths-out.pdf”</b>.
+
+101
+00:12:29 --> 00:12:30
+Let me bring it inside.
+
+102
+00:12:31 --> 00:12:33
+The figure has now become extremely compact.
+
+103
+00:12:34 --> 00:12:37
+The white space that was here has been completely removed.
+
+104
+00:12:38 --> 00:12:41
+We can now insert this into documents.
+
+105
+00:12:42 --> 00:12:51
+Let me close this. Let me close this also. Let me close this also.
+
+106
+00:12:52 --> 00:12:56
+Let me come back to the <b>slide</b>s.
+
+107
+00:12:57 --> 00:13:00
+The software “briss” can also be used to crop the white space.
+
+108
+00:13:01 --> 00:13:07
+It is supposed to work on <b>Linux, Mac OS X</b> and also on <b>Windows</b>.
+
+109
+00:13:08 --> 00:13:16
+I have checked its working on <b>Mac OS X</b>. But we will not demonstrate it here.
+
+110
+00:13:17 --> 00:13:19
+We have now come to the end of this tutorial.
+
+111
+00:13:20 --> 00:13:26
+We have an assignment for you. Make the diagram created in this tutorial more symmetric and beautiful.
+
+112
+00:13:27 --> 00:13:29
+Try out different mathematical expressions.
+
+113
+00:13:30 --> 00:13:35
+Try out other options such as <b>flip</b> and <b>rotate</b>, not covered in the spoken tutorial.
+
+114
+00:13:36 --> 00:13:40
+Try to build different diagrams. Explore the <b>library</b>.
+
+115
+00:13:41 --> 00:13:46
+Do an internet search and locate information relevant to <b>Xfig</b>.
+
+116
+00:13:47 --> 00:14:01
+Useful learning material is available at <b>spoken-tutorial.org</b>. It is here.
+
+117
+00:14:02 --> 00:14:08
+The concept of spoken tutorials is explained in "What is a Spoken Tutorial?".
+
+118
+00:14:09 --> 00:14:18
+You may learn LaTeX using the <b>spoken tutorials</b>, available here, which I have downloaded in this tab.
+
+119
+00:14:19 --> 00:14:28
+The tutorial on <b>Mathematical Typesetting</b> explains how to create maths in LaTeX.
+
+120
+00:14:29 --> 00:14:37
+The tutorial on <b>Tables and Figures</b> explains how to place figures of the type created in this tutorial into documents.
+
+121
+00:14:38 --> 00:14:52
+This website has a lot of information, including <b>Xfig</b> tutorials. Come back to the <b>slide</b>s.
+
+122
+00:14:53 --> 00:15:02
+<b>Spoken Tutorial</b> is a part of the <b>Talk to a Teacher</b> project, supported by the National Mission on Education through ICT (NMEICT), MHRD, Government of India.
+
+123
+00:15:03 --> 00:15:11
+More information on this mission is available at:spoken-tutorial.org/NMEICT-Intro.
+
+124
+00:15:12 --> 00:15:15
+We welcome your participation and also feedback.
+
+125
+00:15:16 --> 00:15:21
+This is Kannan Moudgalya, signing off. Thanks for joining.
+

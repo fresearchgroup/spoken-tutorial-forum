@@ -1,0 +1,834 @@
+<b>Narration</b>
+
+1
+00:00:00 --> 00:00:07
+Welcome to this <b>spoken tutorial</b> on presentation using Latex and Beamer.
+
+2
+00:00:08 --> 00:00:13
+Let me first explain the arrangement that I have on the screen.
+
+3
+00:00:14 --> 00:00:20
+I have the <b>source</b> file here, I will do the compilation here using <b>pdflatex</b> command
+
+4
+00:00:21 --> 00:00:27
+and the resulting output will be seen here in this corner.
+
+5
+00:00:28 --> 00:00:32
+First let's see this, we will come back to this shortly.
+
+6
+00:00:33 --> 00:00:44
+Let's do this first. The first slide here, comes from this source – <b>begin frame, end frame, title page</b>.
+
+7
+00:00:45 --> 00:00:54
+And the title page is defined in terms of <b>title, author and date</b>.
+
+8
+00:00:55 --> 00:01:00
+The <b>document class</b> that I am using is "beamer". We have begun the document here.
+
+9
+00:01:01 --> 00:01:12
+Alright, this is the first <b>slide</b>. Let's go to the second one. This is the <b>outline</b>. How is this created?
+
+10
+00:01:13 --> 00:01:19
+<b>Begin frame, end frame</b> define one slide. <b>Frame title</b> is "outline". It comes here.
+
+11
+00:01:20 --> 00:01:27
+Then I use the normal itemized command. Let’s go to the third slide.
+
+12
+00:01:28 --> 00:01:35
+This slide talks about other spoken tutorials on Latex. There are many spoken tutorials on Latex already available.
+
+13
+00:01:36 --> 00:01:42
+You are encouraged to see them in case you are not comfortable in using latex.
+
+14
+00:01:43 --> 00:01:49
+These explain how to use latex, this explains how to install and <b>run</b> latex on Windows.
+
+15
+00:01:50 --> 00:01:57
+And we hope to give more permanent links for all of these from <b>fosse dot in</b>.
+
+16
+00:01:58 --> 00:02:09
+So, this is the source for this slide.
+
+17
+00:02:10 --> 00:02:14
+You can see that we have come to the end of this document.
+
+18
+00:02:15 --> 00:02:21
+Now I’m going to show you how to embellish this document with lots of other features that beamer offers.
+
+19
+00:02:22 --> 00:02:30
+Let’s go to the beginning. Let’s go to the top of this file. Now what I am going to do is, whatever change,
+
+20
+00:02:31 --> 00:02:38
+whatever improvement that I am going to make to this are here. I am going to add one at a time and then explain.
+
+21
+00:02:39 --> 00:02:46
+Let’s see what happens when I add this command - <b>beamer theme split</b>.
+
+22
+00:02:47 --> 00:03:01
+Let me cut it, come back here, let me save it and then compile it – <b>pdflatex beamer</b>.
+
+23
+00:03:02 --> 00:03:11
+Let me go and click this. So you can see that it has created this banner here and some banner here.
+
+24
+00:03:12 --> 00:03:22
+Here also.. alright. Then what we do is, you come here and use the package.
+
+25
+00:03:23 --> 00:03:37
+Let's add this – <b>beamer theme shadow</b>. Let me cut it, go here, paste it. All of these are pasted above the <b>"document" command</b>.
+
+26
+00:03:38 --> 00:03:48
+Let me compile this. Alright, let’s see what happens when I click this. It has become bigger.
+
+27
+00:03:49 --> 00:03:59
+You can see that there is a change of color here. So, this is done by the command – <b>beamer theme shadow</b>.
+
+28
+00:04:00 --> 00:04:05
+There are lots of these packages. I am going to illustrate some of the other features now.
+
+29
+00:04:06 --> 00:04:16
+We will give references for future reading as a part of this introduction, as we see here – ‘References for further reading’.
+
+30
+00:04:17 --> 00:04:24
+The outline of this talk is as follows. We will spend some time on <b>title page, author name, color, logo</b> etc.
+
+31
+00:04:25 --> 00:04:35
+"Minimal animation" that you can use to present your talk, "Two column format, Figures and Tables, Equations, Verbatim" and so on.
+
+32
+00:04:36 --> 00:04:48
+Alright, let’s come back to the beginning. The next one is <b>logo</b>. Let’s cut and paste logo from here.
+
+33
+00:04:49 --> 00:04:58
+This also has to be pasted above the <b>begin document</b> command. This logo, let’s see what this looks like.
+
+34
+00:04:59 --> 00:05:07
+Let me just see it by <b>open iitb logo.pdf</b>. I am giving the same name over here.
+
+35
+00:05:08 --> 00:05:14
+When I open it, you can see that this is the image file that I am talking about.
+
+36
+00:05:15 --> 00:05:23
+On including this "logo" command, of height 1 cm. it is going to come in this corner.
+
+37
+00:05:24 --> 00:05:34
+So let’s see what it looks like. Let’s click this. You can see that iitb logo has come.
+
+38
+00:05:35 --> 00:05:41
+Now this is going to come on every page, from now on.
+
+39
+00:05:42 --> 00:05:54
+Next, we will add this command. For presentations, sometimes it is useful to make all the lettering bold.
+
+40
+00:05:55 --> 00:06:07
+So in view of that, I will include this, <b>cut, paste</b>.
+
+41
+00:06:08 --> 00:06:14
+Actually I will have to include this after the <b>begin document</b> command.
+
+42
+00:06:15 --> 00:06:27
+Let me save this. Let me compile it. Alright now, watch this. As I click this, all the letters will become bold.
+
+43
+00:06:28 --> 00:06:36
+You can see that it has become bold.
+
+44
+00:06:37 --> 00:06:42
+Then, now I am going to improve the writing here.
+
+45
+00:06:43 --> 00:06:53
+For example, it tries to fill lots of things here. Here, the <b>title</b> comes here, here the author information comes but lots of information is coming.
+
+46
+00:06:54 --> 00:07:01
+Sometimes I may want to have a smaller title here. For example, this space may not be large enough.
+
+47
+00:07:02 --> 00:07:06
+So what we will do is, that is solved using this.
+
+48
+00:07:07 --> 00:07:12
+For example, this is the running title.
+
+49
+00:07:13 --> 00:07:28
+Let me cut this. This should come after the command <b>title</b>, between the title command and the actual title.
+
+50
+00:07:29 --> 00:07:35
+So, let me paste it here. You can see that whatever I have pasted now is within square brackets.
+
+51
+00:07:36 --> 00:07:45
+So let’s <b>save</b> it. <b>Run</b> it.
+
+52
+00:07:46 --> 00:07:50
+So, as I do it, let’s click this. Look at this as I click what happens to this part.
+
+53
+00:07:51 --> 00:08:02
+You can see that the title has now changed. I have put only the bottom portion because that’s what I’m giving within the square bracket – "Presentation using LaTeX and Beamer".
+
+54
+00:08:03 --> 00:08:11
+Then I am saying that h-space is half a cm. I am giving a space here. And then I have the page number over here.
+
+55
+00:08:12 --> 00:08:20
+It says 1 by 3 here. Then 2 by 3 here. 3 by 3 here and so on.
+
+56
+00:08:21 --> 00:08:27
+That is achieved using <b>‘insert frame number divided by insert total frame number’</b>.
+
+57
+00:08:28 --> 00:08:36
+Now, I will do the same thing for <b>author</b>. So, let's come here.
+
+58
+00:08:37 --> 00:08:48
+Let’s cut this. And after author, this comes.
+
+59
+00:08:49 --> 00:08:55
+Let me save it. Compile it. Click this.
+
+60
+00:08:56 --> 00:09:04
+You can see that Kannan Moudgalya has come. This is what I have given within the square brackets. Now this is going to come on every page.
+
+61
+00:09:05 --> 00:09:18
+Let’s go to the next topic. This is including equations.
+
+62
+00:09:19 --> 00:09:23
+The whole thing is in the form of a <b>frame</b> – a complete frame.
+
+63
+00:09:24 --> 00:09:29
+So, what I will do is, I will cut the whole thing.
+
+64
+00:09:30 --> 00:09:37
+Come back here, go to the bottom of this document. <b>Save</b> it.
+
+65
+00:09:38 --> 00:09:44
+So, I have created a new slide. Let’s see what this looks like.
+
+66
+00:09:45 --> 00:09:50
+So this is where the frame starts.
+
+67
+00:09:51 --> 00:10:06
+Let us compile this. Now you see that 4 pages are there. So, it still says three, so if I click this once more, so it becomes 4.
+
+68
+00:10:07 --> 00:10:14
+So this is the equation containing slide. I am not going to explain how to write these equations.
+
+69
+00:10:15 --> 00:10:20
+These are explained in the spoken-tutorial that I have created earlier on creating equations.
+
+70
+00:10:21 --> 00:10:27
+All that I have done is, I went to that latex document, cut and pasted it here, that’s all.
+
+71
+00:10:28 --> 00:10:35
+And.. of course I have removed the equation numbers. It does not make sense to give equation numbers in a slide.
+
+72
+00:10:36 --> 00:10:43
+On the other hand, it may be useful for you at times to highlight the color.
+
+73
+00:10:44 --> 00:10:53
+For example- if I want to change this into blue, I will do the following. Come here.
+
+74
+00:10:54 --> 00:11:04
+The command is – <b>color, blue</b>- and then I have to close this.
+
+75
+00:11:05 --> 00:11:15
+Save it. Compile it. And click this. You can see that this has become blue.
+
+76
+00:11:16 --> 00:11:28
+So, you may not want to refer to an equation by numbers but you can say that consider the equation in blue or you may want to say that look at the mass balance equation and so on.
+
+77
+00:11:29 --> 00:11:34
+You want to refer to it by something that people can remember in talks.
+
+78
+00:11:35 --> 00:11:49
+Next what we will do is, what I will do now is to include <b>animation</b>
+
+79
+00:11:50 --> 00:11:57
+which is useful to present information concept by concept.
+
+80
+00:11:58 --> 00:12:07
+So I have cut, let's paste it here. Let us see what this looks like.
+
+81
+00:12:08 --> 00:12:16
+Let's first compile it and see what happens.
+
+82
+00:12:17 --> 00:12:20
+This is from the spoken tutorial on <b>letter writing</b>. This information is also there.
+
+83
+00:12:21 --> 00:12:32
+The only difference that I have done now is that between <b>begin enumerate</b> and <b>end enumerate</b>, I have put this <b>‘item plus minus alert’</b>.
+
+84
+00:12:33 --> 00:12:44
+Let’s see what this does. See, here I have put a command called <b>‘pause’</b>, so the moment I put a command <b>pause</b>, it stops there, now the <b>begin enumerate</b> starts.
+
+85
+00:12:45 --> 00:12:52
+So, let me just go forward. <b>Page-down</b>. Next page, next page, next page.
+
+86
+00:12:53 --> 00:13:04
+As I go down, you see that the latest information is in red, all others are in the default color namely black. I have come to the end of the document.
+
+87
+00:13:05 --> 00:13:17
+So, this is one easy way to create animation where you want to present information a little at a time.
+
+88
+00:13:18 --> 00:13:31
+Next what I want to do is- change the <b>alerted color</b> to blue. For example, here the alerted color is red, this is known as alerted color.
+
+89
+00:13:32 --> 00:13:40
+I want to make this alerted color blue. So that this is consistent with this color that I have chosen.
+
+90
+00:13:41 --> 00:13:51
+Okay, let me come here, cut this.
+
+91
+00:13:52 --> 00:13:59
+This should go to the beginning of this document before the <b>begin document</b> command.
+
+92
+00:14:00 --> 00:14:11
+Let me compile it, when I click this you can see now that the alerted color has now become blue.
+
+93
+00:14:12 --> 00:14:23
+It is achieved through the command <b>‘set beamer color – alerted text’</b> there is a space here ‘foreground equals blue’, <b>fg equals blue</b>.
+
+94
+00:14:24 --> 00:14:32
+Now what I am going to do is- to show,  how easy it is to change the color of the entire document.
+
+95
+00:14:33 --> 00:14:45
+So, what I will do is.. will come here, after this <b>slash document class</b>, before the <b>beamer</b> frame starts. I will write here "brown".
+
+96
+00:14:46 --> 00:14:51
+Save it. Compile it.
+
+97
+00:14:52 --> 00:15:02
+You can see that it has become brown. So without too much work.
+
+98
+00:15:03 --> 00:15:08
+So what I will do is, I will take this back to the original color.
+
+99
+00:15:09 --> 00:15:20
+The default color is blue, so I don’t have to type it. Now we are back in blue.
+
+100
+00:15:21 --> 00:15:29
+So let’s come here, I will delete this. I will now include figures.
+
+101
+00:15:30 --> 00:15:40
+Cut this. Come here. Go to the end of this.
+
+102
+00:15:41 --> 00:15:52
+The last one. Let’s compile it. Let’s go to the next page. So, example of the figure is given here.
+
+103
+00:15:53 --> 00:16:04
+Alright, what are the guidelines in placing this? There are some important guidelines. We will see it with the next bit.
+
+104
+00:16:05 --> 00:16:20
+Let’s cut this. Paste this. Compile it.
+
+105
+00:16:21 --> 00:16:27
+So, I have got this. "Hints for including figures".
+
+106
+00:16:28 --> 00:16:36
+Let’s come to the <b>source</b> where we created the figure. This is how we created this figure. So, what are the guidelines?
+
+107
+00:16:37 --> 00:16:45
+"Do not use floated environments in presentations". for example, don’t say 'begin figure, end figure' which you need in the latex documents.
+
+108
+00:16:46 --> 00:17:00
+By the way, if you want to know about how to include a figure and more about it you have to go to the spoken tutorial on <b>Tables and Figures</b>.
+
+109
+00:17:01 --> 00:17:07
+So, do not use this. Use <b>‘include graphics’</b> directly.
+
+110
+00:17:08 --> 00:17:18
+So, for example, <b>include graphics</b> command is used and I’m saying that use the complete width of the text and the file is 'iitb'.
+
+111
+00:17:19 --> 00:17:29
+By the way, <b>Beamer</b> already comes with necessary packages. So, you don’t have to include any package. Use any package, it is already included.
+
+112
+00:17:30 --> 00:17:39
+And then we put the whole thing in the <b>center</b> environment. And this <b>frame</b> is over.
+
+113
+00:17:40 --> 00:17:43
+Do not include <b>caption</b>, figure number etc.
+
+114
+00:17:44 --> 00:17:50
+Once again people are not going to remember these numbers.
+
+115
+00:17:51 --> 00:17:55
+If you want to refer to a previously shown figure, show it again.
+
+116
+00:17:56 --> 00:18:04
+It does not cost any money to create another slide. Make a copy of the earlier shown slide and do it again.
+
+117
+00:18:05 --> 00:18:11
+Alright, that completes the figure and the guidelines. And we have come to the end of this document.
+
+118
+00:18:12 --> 00:18:23
+Let us now see how to include a two column environment.
+
+119
+00:18:24 --> 00:18:31
+Let’s come here. Let’s go to the end of the document. <b>Save</b> it.
+
+120
+00:18:32 --> 00:18:41
+What I will do is to make it easier, I will first remove this so that it becomes easy.
+
+121
+00:18:42 --> 00:18:56
+So, what I’m going to do is- I’m going to give, show part of the information. Let’s compile this and see what happens.
+
+122
+00:18:57 --> 00:19:27
+So I have this, two columns.
+
+123
+00:19:28 --> 00:19:34
+This is not saved, that is why. See the star star. What I will do is, let me first save it.
+
+124
+00:19:35 --> 00:19:44
+So, this is the problem if you try to compile it without saving. The <b>pdf</b> file that you see here, does not correspond to what you have here.
+
+125
+00:19:45 --> 00:19:57
+So, let’s compile this. Let’s come here. Now what you see here corresponds to what you have here.
+
+126
+00:19:58 --> 00:20:14
+Let me just center it. So, <b>frame title 'Two Columns'</b> and I’m using the command <b>‘mini page’</b> and I’m centering it and I’m using 45 percent of the <b>text width</b>.
+
+127
+00:20:15 --> 00:20:24
+<b>begin enumerate</b>. These two and then <b>end enumerate</b>. And as before I am alerting.
+
+128
+00:20:25 --> 00:20:36
+See these two. This is the end of the document. Now what I will do is, I will come and attach whatever I had at the end of this.
+
+129
+00:20:37 --> 00:20:51
+Here, the previous 'mini page' got over. Now I am going to create another mini page. In this 'mini-page', I am going to put this iitb, the same image that we saw earlier.
+
+130
+00:20:52 --> 00:21:06
+And this mini-page also is 45 percent size. Let’s compile this, let’s first <b>save</b> this.
+
+131
+00:21:07 --> 00:21:21
+Now let me click this. Now you see it has come. But it has a small problem in that. When I go to this page, it shows the first item and also this figure.
+
+132
+00:21:22 --> 00:21:34
+Although the figure comes later on, it shows this because no where have we told latex to show this later. It is perhaps implicit.
+
+133
+00:21:35 --> 00:21:43
+So for example, if you say that, if you put this information within this item then we say that show this first and then show this.
+
+134
+00:21:44 --> 00:21:49
+But no where are we saying that this should come later.
+
+135
+00:21:50 --> 00:21:58
+So one has to be careful of such evinces. One way to solve this problem is to put a ‘pause’.
+
+136
+00:21:59 --> 00:22:07
+Let me compile this. Save this. So now this is okay.
+
+137
+00:22:08 --> 00:22:23
+This problem is solved. The first one, the second one, and then one more, it pauses once. And, you can see that it has been solved.
+
+138
+00:22:24 --> 00:22:38
+Alright, let’s come here. The next one is the <b>table</b>.
+
+139
+00:22:39 --> 00:22:50
+Save this. Let’s compile this. You can see that the table has come.
+
+140
+00:22:51 --> 00:22:56
+I am not going to explain how to create this table, this has already been explained in the <b>spoken tutorial</b> on <b>tables</b>.
+
+141
+00:22:57 --> 00:23:11
+All that I have done is to cut and to paste it here. Let’s go to the beginning of the <b>frame</b>.
+
+142
+00:23:12 --> 00:23:21
+It’s the same table that we used earlier, I just cut and pasted it. You can see the <b>begin tabular</b> and <b>end tabular</b> commands coming within <b>center</b> environment.
+
+143
+00:23:22 --> 00:23:27
+OK..What are the guidelines? The guidelines are similar to <b>figures</b>.
+
+144
+00:23:28 --> 00:23:43
+So, let’s see that also. See the guidelines are here.
+
+145
+00:23:44 --> 00:23:50
+Let me compile. See this, move forward.
+
+146
+00:23:51 --> 00:23:55
+Once again, do not use floated environments in presentations.
+
+147
+00:23:56 --> 00:24:01
+In the spoken tutorial on <b>tables</b>, we put the <b>tabular</b> inside the <b>table environment</b>.
+
+148
+00:24:02 --> 00:24:10
+<b>Table environment</b> is a floated one, do not include it here. Insert it directly.
+
+149
+00:24:11 --> 00:24:16
+For example, we put it directly inside the <b>center</b> environment.
+
+150
+00:24:17 --> 00:24:24
+Do not include caption, table number etc. make a copy of it, if required.
+
+151
+00:24:25 --> 00:24:39
+Now, here I want to point out the way animation happens. For example, in this slide, it does not alert with a different color.
+
+152
+00:24:40 --> 00:24:45
+Recall that we used the blue color for alerting. Why does it happen?
+
+153
+00:24:46 --> 00:24:51
+That is because we have used a different kind of environment here.
+
+154
+00:24:52 --> 00:25:00
+<b>begin itemize, end itemize</b>, within that we used <b>item plus minus</b>. Previously we were using the word 'alert'.
+
+155
+00:25:01 --> 00:25:11
+Recall that. We are not using that anymore. As a result, it just comes in black. This is simpler way to include animation.
+
+156
+00:25:12 --> 00:25:21
+You can pick and choose. So, this is what I have written here. "Show different animations in the previous slide".
+
+157
+00:25:22 --> 00:25:27
+Now, there is a need to convert this into a handout. For example- if you try to print this,
+
+158
+00:25:28 --> 00:25:39
+whatever we have here, it will produce 24 pages even though there are only 10 pages.
+
+159
+00:25:40 --> 00:25:48
+There are only 10 unique <b>frames</b> but there are 24 pages. But if you try to print out, it will produce 24 pages.
+
+160
+00:25:49 --> 00:25:59
+One way to do that, to take care of this is to use a simple switch here called '<b>handout'</b>.
+
+161
+00:26:00 --> 00:26:12
+If I do this, let me compile it; now there are only 10 pages. Let’s compile this once more.
+
+162
+00:26:13 --> 00:26:23
+Now the animation is no longer there. If I go to the next page, next page, next page, next page, next page and so on.
+
+163
+00:26:24 --> 00:26:34
+Of course, what if I want to change the color? Then you put 'brown' once again.
+
+164
+00:26:35 --> 00:26:41
+You can see that it has changed. So, all the parameters here are to be included separated by commas.
+
+165
+00:26:42 --> 00:26:51
+So, let me just put this back to blue. Compile it.
+
+166
+00:26:52 --> 00:27:05
+Now what we will do is, sometimes you have to include <b>Verbatim</b> environment.
+
+167
+00:27:06 --> 00:27:12
+So, let me just take this example.
+
+168
+00:27:13 --> 00:27:23
+Let’s go here, go to the end. Save it. So this is where the <b>verbatim</b> begins.
+
+169
+00:27:24 --> 00:27:29
+So you can see that the verbatim is created.
+
+170
+00:27:30 --> 00:27:38
+Here, I have illustrated it with some <b>SciLab</b> commands. I have changed the color here to blue, here to blue and so on.
+
+171
+00:27:39 --> 00:27:51
+The only unique thing that you have to do is to say <b>begin frame</b> within square bracket – <b>fragile</b>.
+
+172
+00:27:52 --> 00:28:00
+If you don’t do that, there will be a problem. Okay.. so you see this, we will come back and check that.
+
+173
+00:28:01 --> 00:28:08
+So suppose I delete this. Save it. Compile it.
+
+174
+00:28:09 --> 00:28:13
+It will come and say that something is not okay.
+
+175
+00:28:14 --> 00:28:20
+So, let's put this back – <b>fragile</b>. Save it, exit from here.
+
+176
+00:28:21 --> 00:28:29
+Compile it once again. It has come now.
+
+177
+00:28:30 --> 00:28:39
+Beamer class has lots of information. How does one know about other things.
+
+178
+00:28:40 --> 00:28:47
+So, I have some information here, let’s go to the bottom.
+
+179
+00:28:48 --> 00:28:53
+So essentially that information, where to get this extra information is in this slide.
+
+180
+00:28:54 --> 00:29:07
+We will compile it and we will go through that. The authoritative source for beamer is this file, 'beamer user guide dot pdf'.
+
+181
+00:29:08 --> 00:29:20
+I located it at this point but it is also available through this beamer project website by the author of beamer class.
+
+182
+00:29:21 --> 00:29:31
+I’ll just illustrate this; I’ve already downloaded this. It’s in that site that I have mentioned earlier.
+
+183
+00:29:32 --> 00:29:38
+For example, it’s a 224 page document. It’s a huge document.
+
+184
+00:29:39 --> 00:29:44
+What I want to show here is that you can use the information from here directly.
+
+185
+00:29:45 --> 00:29:56
+So let’s come here. In the very first page, the author talks about how to create simple slides and he has given the source also.
+
+186
+00:29:57 --> 00:30:08
+We will cut this, copy, let me minimize this. Let me go to the end of the document.
+
+187
+00:30:09 --> 00:30:20
+We paste it. Save it. Compile it. So let’s go to the next page.
+
+188
+00:30:21 --> 00:30:32
+You can see that whatever we saw there has come here. Here the author has used what is known as the <b>theorem</b> environment.
+
+189
+00:30:33 --> 00:30:41
+So, for example- <b>begin theorem, end theorem</b>, it comes here. He has also used the <b>frame subtitle</b> that comes here in small letters.
+
+190
+00:30:42 --> 00:30:51
+And then <b>begin proof, end proof</b> come here. He says 'proof', it opens another window, calls it ‘proof dot’.
+
+191
+00:30:52 --> 00:31:00
+This is how it is defined, how this environment is defined. He uses a different alert mechanism.
+
+192
+00:31:01 --> 00:31:20
+So if you want to see this, you just go back; remove this handout so that we can see the animation. Compile it.
+
+193
+00:31:21 --> 00:31:30
+So let’s go to page number 34.
+
+194
+00:31:31 --> 00:31:36
+Let’s see the animation now by going backwards. You see this, you see this.
+
+195
+00:31:37 --> 00:31:50
+So what he does here is, so these two <b>item</b>s are numbered one, and the others are numbered two and three.
+
+196
+00:31:51 --> 00:31:59
+In other words, it is possible to arbitrarily specify the sequence in which the things that you have on the slide will appear.
+
+197
+00:32:00 --> 00:32:09
+We don’t have time to go through this in more detail. I would suggest that you go through the reference given here to know more about it.
+
+198
+00:32:10 --> 00:32:19
+This guide has lots of features, this beamer class has very large number of classes, and you may want to try out some of them.
+
+199
+00:32:20 --> 00:32:35
+Okay. Let me change this back to <b>handout</b>.
+
+200
+00:32:36 --> 00:32:41
+The problem with the presentation mode, we are now going to the handout mode,
+
+201
+00:32:42 --> 00:32:47
+the presentation mode where you show the animations, generally takes a lot of time to compile.
+
+202
+00:32:48 --> 00:32:58
+So, typically you would want to work with the <b>handout mode</b> as much as possible and only once in a while when you really want to check it out you want to use the <b>presentation mode</b>.
+
+203
+00:32:59 --> 00:33:05
+Finally of course, when you make the presentation, you may want to use the presentation mode.
+
+204
+00:33:06 --> 00:33:14
+And if you want to take a printout, use the handout mode. Let’s go to the end. We are almost at the end of the spoken tutorial.
+
+205
+00:33:15 --> 00:33:30
+Let’s acknowledge. In fact let me just copy the whole thing, come here.
+
+206
+00:33:31 --> 00:33:41
+Let me just compile it here as usual. Okay.
+
+207
+00:33:42 --> 00:33:52
+The funding for this spoken tutorial has come from the National Mission on Education through ICT. This is the website of this mission.
+
+208
+00:33:53 --> 00:33:58
+I want to thank you for joining us. This is Kannan Moudgalya, signing off. We would like to receive your feedback at kannan@iitb.ac.in. Thank you very much.
+

@@ -1,0 +1,302 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:05
+Welcome to the spoken tutorial on <b>Pointers in C and C++ </b>.
+
+2
+00:00:06 --> 00:00:07
+In this tutorial we will learn:
+
+3
+00:00:08 --> 00:00:09
+Pointers
+
+4
+00:00:10 --> 00:00:11
+To create Pointers
+
+5
+00:00:12 --> 00:00:13
+And operations on Pointers.
+
+6
+00:00:14 --> 00:00:17
+We will do this with the help of an example.
+
+7
+00:00:18 --> 00:00:24
+To record this tutorial, I am using <b>Ubuntu operating system</b> version 11.10,
+
+8
+00:00:25 --> 00:00:30
+<b>gcc and g++ compiler</b> version 4.6.1 on Ubuntu.
+
+9
+00:00:31 --> 00:00:33
+Let us start with an introduction to pointers.
+
+10
+00:00:34 --> 00:00:37
+Pointers point to the locations in memory.
+
+11
+00:00:38 --> 00:00:40
+Pointers store the memory address.
+
+12
+00:00:41 --> 00:00:44
+It also gives value stored at that address.
+
+13
+00:00:45 --> 00:00:47
+Now, let us see an example on pointers.
+
+14
+00:00:48 --> 00:00:53
+Note that our file name is <b>pointers_demo.c</b>.
+
+15
+00:00:54 --> 00:00:55
+Let us go through the code now.
+
+16
+00:00:56 --> 00:00:59
+This is our header file as <b>stdio.h</b>.
+
+17
+00:01:00 --> 00:01:02
+This is our <b>main()</b> function.
+
+18
+00:01:03 --> 00:01:08
+Here we have <b>long integer num</b>, assigned value <b>10.</b>
+
+19
+00:01:09 --> 00:01:11
+Then we have declared a pointer <b>ptr</b>.
+
+20
+00:01:12 --> 00:01:15
+Asterisk sign is used to declare a pointer.
+
+21
+00:01:16 --> 00:01:19
+This pointer can point to type <b>long  int. </b>
+
+22
+00:01:20 --> 00:01:27
+In the 'printf' statement, ampersand is used for retrieving memory address of the variable.
+
+23
+00:01:28 --> 00:01:32
+So, ampersand num (&num) will give the memory address of <b>num</b>.
+
+24
+00:01:33 --> 00:01:36
+This statement will print the address of the variable num.
+
+25
+00:01:37 --> 00:01:40
+Over here, ptr stores the address of num.
+
+26
+00:01:41 --> 00:01:44
+This statement will print the address of ptr.
+
+27
+00:01:45 --> 00:01:48
+<b>sizeof()</b> function will give the size of ptr.
+
+28
+00:01:49 --> 00:01:50
+This is will give the value of ptr.
+
+29
+00:01:51 --> 00:01:53
+That is the memory address of num.
+
+30
+00:01:54 --> 00:01:58
+And here asterisk ptr will give the value at the address.
+
+31
+00:01:59 --> 00:02:02
+So, using asterisk will not give the memory address.
+
+32
+00:02:03 --> 00:02:05
+Instead it will give the value.
+
+33
+00:02:06 --> 00:02:09
+<b>%ld</b> is a format specifier for the <b>long int</b>.
+
+34
+00:02:10 --> 00:02:12
+Now, let us execute the program.
+
+35
+00:02:13 --> 00:02:20
+Open the terminal window by pressing <b>Ctrl, Alt</b> and <b>T</b> keys simultaneously on your keyboard.
+
+36
+00:02:21 --> 00:02:31
+To compile, type <b>gcc space  pointers underscore demo dot c space hyphen o space point</b>
+
+37
+00:02:32 --> 00:02:33
+Press <b>Enter</b>.
+
+38
+00:02:34 --> 00:02:38
+Type <b>dot slash point</b>. Press <b>Enter</b>.
+
+39
+00:02:39 --> 00:02:41
+The output is displayed.
+
+40
+00:02:42 --> 00:02:47
+We see that the num address and ptr value is same
+
+41
+00:02:48 --> 00:02:52
+where as memory address of num and ptr are different.
+
+42
+00:02:53 --> 00:02:56
+Then the size of pointer is <b>8 bytes.</b>
+
+43
+00:02:57 --> 00:03:02
+Also the value pointed by <b>ptr</b> is 10 which was assigned to <b>num.</b>
+
+44
+00:03:03 --> 00:03:06
+Now let us see the same program in  C++.
+
+45
+00:03:07 --> 00:03:12
+Note that our file name is <b>pointer underscore demo.cpp</b>.
+
+46
+00:03:13 --> 00:03:18
+Here we have a few changes like the header file as <b>iostream</b>.
+
+47
+00:03:19 --> 00:03:22
+Then we are using the <b>std namespace</b>.
+
+48
+00:03:23 --> 00:03:27
+And here we have the <b>cout</b> function in place of printf() function.
+
+49
+00:03:28 --> 00:03:29
+Rest all the things are similar.
+
+50
+00:03:30 --> 00:03:33
+Let us execute the program. Come back to our terminal.
+
+51
+00:03:34 --> 00:03:49
+To compile, type <b>g++ space pointers_demo.cpp space hyphen o space point1</b>, press Enter.
+
+52
+00:03:50 --> 00:03:54
+Type <b>dot slash point1</b>, press <b>Enter</b>.
+
+53
+00:03:55 --> 00:03:59
+We can see that the output is similar to our C program.
+
+54
+00:04:00 --> 00:04:02
+This brings us to the end of this tutorial.
+
+55
+00:04:03 --> 00:04:04
+Come back to our slide.
+
+56
+00:04:05 --> 00:04:07
+Let us summarize.In this tutorial, we learnt:
+
+57
+00:04:08 --> 00:04:09
+About the pointer.
+
+58
+00:04:10 --> 00:04:11
+To create a pointer.
+
+59
+00:04:12 --> 00:04:13
+And operation on pointer.
+
+60
+00:04:14 --> 00:04:17
+As an assignment, write a C and C++ program
+
+61
+00:04:18 --> 00:04:20
+to declare a variable and pointer.
+
+62
+00:04:21 --> 00:04:23
+Store the address of variable in the pointer.
+
+63
+00:04:24 --> 00:04:26
+And print the value of the pointer.
+
+64
+00:04:27 --> 00:04:29
+Watch the video available at the link shown below.
+
+65
+00:04:30 --> 00:04:32
+It summarizes the Spoken Tutorial project.
+
+66
+00:04:33 --> 00:04:36
+If you do not have good bandwidth, you can download and watch it.
+
+67
+00:04:37 --> 00:04:38
+The Spoken Tutorial Project Team:
+
+68
+00:04:39 --> 00:04:42
+Conducts workshops using spoken tutorials.
+
+69
+00:04:43 --> 00:04:46
+Gives certificates to those who pass an online test.
+
+70
+00:04:47 --> 00:04:52
+For more details, please write to contact@spoken-tutorial.org.
+
+71
+00:04:53 --> 00:04:57
+Spoken Tutorial Project is a part of the Talk to a Teacher project.
+
+72
+00:04:58 --> 00:05:05
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+73
+00:05:06 --> 00:05:09
+More information on this mission is available at the link shown below.
+
+74
+00:05:10 --> 00:05:13
+This is Ashwini Patil from IIT Bombay, signing off.
+
+75
+00:05:14 --> 00:05:19
+Thank You for joining.
+

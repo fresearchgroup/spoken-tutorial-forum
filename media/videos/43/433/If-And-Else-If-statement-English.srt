@@ -1,0 +1,604 @@
+Narration
+
+1
+00:00:02 --> 00:00:07
+Welcome to the spoken tutorial on <b>Conditional statements in C and C++</b>.
+
+2
+00:00:08 --> 00:00:10
+In this tutorial we will learn:
+
+3
+00:00:11 --> 00:00:13
+How to execute a single <b>statement</b>
+
+4
+00:00:14 --> 00:00:15
+How to execute group of <b>statements</b>.
+
+5
+00:00:16 --> 00:00:18
+We will do this through examples.
+
+6
+00:00:19 --> 00:00:24
+We will also see some common errors and their solutions.
+
+7
+00:00:25 --> 00:00:30
+To record this tutorial, I am using <b>Ubuntu Operating system</b> version 11.10.
+
+8
+00:00:31 --> 00:00:37
+<b>gcc</b> and <b>g++ Compiler</b> version 4.6.1.
+
+9
+00:00:38 --> 00:00:42
+Let us start with the introduction to conditional <b>statements</b>.
+
+10
+00:00:43 --> 00:00:48
+A <b>statement</b> in a program controls the flow of program execution.
+
+11
+00:00:49 --> 00:00:54
+It helps to make decision on what code is to be executed.
+
+12
+00:00:55 --> 00:00:59
+We can check the conditions, whether true or false.
+
+13
+00:01:00 --> 00:01:06
+We can execute a single statement or a group of statements.
+
+14
+00:01:07 --> 00:01:12
+Let us understand the flow of <b>if</b> statements.
+
+15
+00:01:13 --> 00:01:19
+Here, if the condition is true then <b>statement 1</b> will be executed.
+
+16
+00:01:20 --> 00:01:28
+If the condition is false then <b>statement 2</b> will be executed.
+
+17
+00:01:29 --> 00:01:31
+Now we will see the flow of <b>else if</b> statement.
+
+18
+00:01:32 --> 00:01:40
+Here, if <b>condition 1</b> is true then <b>statement 1</b> will be executed.
+
+19
+00:01:41 --> 00:01:48
+If <b>condition 1</b> is false then it will check for another condition that is <b>condition 2</b>.
+
+20
+00:01:49 --> 00:01:53
+If <b>condition 2</b> is true then <b>statement 3</b> will be executed.
+
+21
+00:01:54 --> 00:02:01
+And If <b>condition 2</b> is false then <b>statement 2</b> will be executed.
+
+22
+00:02:02 --> 00:02:05
+Now Let us move on to our program.
+
+23
+00:02:06 --> 00:02:08
+I have already typed the code on the editor.
+
+24
+00:02:09 --> 00:02:12
+So, let me open it.
+
+25
+00:02:13 --> 00:02:17
+Note that our file name is <b>ifstmt.c</b>.
+
+26
+00:02:18 --> 00:02:25
+In this program we will calculate the sum of two numbers and will check a few conditions.
+
+27
+00:02:26 --> 00:02:29
+Let me explain the code now.
+
+28
+00:02:30 --> 00:02:33
+This is our <b>header file.</b>
+
+29
+00:02:34 --> 00:02:37
+This is our <b>main()</b> function.
+
+30
+00:02:38 --> 00:02:45
+Here we have declared three <b>integer variables</b> <b>a, b</b> and <b>sum.</b>
+
+31
+00:02:46 --> 00:02:48
+Here we are asking for user input.
+
+32
+00:02:49 --> 00:02:51
+User will enter the values of a and b.
+
+33
+00:02:52 --> 00:02:57
+The values will be stored in <b>variable a</b> and <b>variable b.</b>
+
+34
+00:02:58 --> 00:03:01
+The <b>scanf()</b> function reads data from the console.
+
+35
+00:03:02 --> 00:03:05
+It then stores the result in the given <b>variable.</b>
+
+36
+00:03:06 --> 00:03:09
+The <b>format specifier</b> in the <b>scanf()</b> helps to know the type of data.
+
+37
+00:03:10 --> 00:03:17
+Like here we have <b>%d</b>, it denotes that we are dealing with integer data type.
+
+38
+00:03:18 --> 00:03:21
+Here we add the values of <b>a</b> and <b>b.</b>
+
+39
+00:03:22 --> 00:03:24
+We will store the result in <b>sum.</b>
+
+40
+00:03:25 --> 00:03:28
+Then we print the result.
+
+41
+00:03:29 --> 00:03:29
+This is our <b>if</b> statement.
+
+42
+00:03:30 --> 00:03:35
+Here, we check the condition whether <b>sum</b> is greater than 20.
+
+43
+00:03:36 --> 00:03:41
+If the condition is true, then we print <b>Sum</b> is greater than 20.
+
+44
+00:03:42 --> 00:03:47
+Now let me comment out these lines.
+
+45
+00:03:48 --> 00:03:50
+This is our <b>return</b> statement.
+
+46
+00:03:51 --> 00:03:52
+Now click on <b>Save</b>.
+
+47
+00:03:53 --> 00:03:57
+First we will see the execution of <b>if</b> statement.
+
+48
+00:03:58 --> 00:04:08
+Please open the terminal window by pressing <b>Ctrl, Alt</b> and <b>T</b> keys simultaneously on your keyboard.
+
+49
+00:04:09 --> 00:04:19
+To compile, type <b>gcc space ifstmt dot c space  -o space if</b> and press Enter.
+
+50
+00:04:20 --> 00:04:25
+To execute,  type <b>./if</b> (dot slash if). Press Enter.
+
+51
+00:04:26 --> 00:04:30
+It is displayed as <b>Enter the values of a and b</b>.
+
+52
+00:04:31 --> 00:04:37
+I will give the values as 10 and 12.
+
+53
+00:04:38 --> 00:04:44
+The output is displayed as <b>Sum of a and b is 22. Sum is greater than 20</b>.
+
+54
+00:04:45 --> 00:04:47
+Now come back to our program.
+
+55
+00:04:48 --> 00:04:51
+We will check another condition.
+
+56
+00:04:52 --> 00:04:55
+Let me remove the comment from here.
+
+57
+00:04:56 --> 00:04:59
+I will give the comment here.
+
+58
+00:05:00 --> 00:05:04
+Now click on <b>Save.</b>  This is our <b>else-if</b> statement.
+
+59
+00:05:05 --> 00:05:10
+Here, we check another condition whether <b>Sum</b> is greater than 10.
+
+60
+00:05:11 --> 00:05:17
+If the condition is true then we print 'Sum is greater than 10 and less than 20'.
+
+61
+00:05:18 --> 00:05:19
+Now come back to our terminal.
+
+62
+00:05:20 --> 00:05:22
+Let us compile as before.
+
+63
+00:05:23 --> 00:05:25
+Let us execute as before.
+
+64
+00:05:26 --> 00:05:27
+It is displayed as
+
+65
+00:05:28 --> 00:05:29
+<b>Enter the value of a and b</b>.
+
+66
+00:05:30 --> 00:05:34
+I will give the values as 10 and 2.
+
+67
+00:05:35 --> 00:05:37
+The output is displayed as: <b>Sum of a and b is 12</b>.
+
+68
+00:05:38 --> 00:05:41
+<b>Sum is greater than 10 and less than 20</b>.
+
+69
+00:05:42 --> 00:05:43
+Let me clear the prompt.
+
+70
+00:05:44 --> 00:05:47
+Now come back to our program.
+
+71
+00:05:48 --> 00:05:55
+I will remove the comment from here and here. Now click on Save.
+
+72
+00:05:56 --> 00:06:03
+If both the above conditions are false then we print 'Sum is less than 10'.
+
+73
+00:06:04 --> 00:06:06
+This is our <b>else</b> statement.
+
+74
+00:06:07 --> 00:06:10
+Now let us execute and see.  Come back to our terminal.
+
+75
+00:06:11 --> 00:06:17
+Let us compile as before. Let us execute as before.
+
+76
+00:06:18 --> 00:06:21
+Here it is displayed as <b>Enter the value of a and b</b>.
+
+77
+00:06:22 --> 00:06:26
+I will give the values as 3 and 5.
+
+78
+00:06:27 --> 00:06:30
+The output is displayed as <b>sum of a and b is 8</b>.
+
+79
+00:06:31 --> 00:06:33
+<b>Sum is less than 10</b>.
+
+80
+00:06:34 --> 00:06:37
+Now we will see some common errors which we can come across.
+
+81
+00:06:38 --> 00:06:40
+Come back to our program.
+
+82
+00:06:41 --> 00:06:46
+Suppose, here at the end of <b>if</b> statement I will type a semicolon (;).
+
+83
+00:06:47 --> 00:06:49
+Let us see what will happen. Click on <b>Save.</b>
+
+84
+00:06:50 --> 00:06:52
+Let us execute. Come back to our terminal.
+
+85
+00:06:53 --> 00:06:55
+Let us compile as before.
+
+86
+00:06:56 --> 00:07:01
+We see an error: <b> 'else' without a previous 'if' </b>
+
+87
+00:07:02 --> 00:07:06
+Come back to our program. It is a syntax error.
+
+88
+00:07:07 --> 00:07:09
+<b>if</b> statement will never terminate with a semicolon.
+
+89
+00:07:10 --> 00:07:15
+And the <b>else if</b> statement will never work without an <b>if</b>.
+
+90
+00:07:16 --> 00:07:21
+Let us fix the error. Delete the semicolon (;) here.
+
+91
+00:07:22 --> 00:07:24
+Now Click on <b>Save.</b>
+
+92
+00:07:25 --> 00:07:28
+Let us execute. Come back to the terminal.
+
+93
+00:07:29 --> 00:07:34
+Let us compile as before. Let us execute as before.
+
+94
+00:07:35 --> 00:07:36
+Enter the value of a and b.
+
+95
+00:07:37 --> 00:07:42
+I will give the values as 3 and 6.
+
+96
+00:07:43 --> 00:07:44
+The output is displayed as
+
+97
+00:07:45 --> 00:07:51
+<b>Sum of a and b is 9. Sum is less than 10</b>.
+
+98
+00:07:52 --> 00:07:56
+NOW WE WILL SEE HOW TO EXECUTE THE SAME PROGRAM IN C++.
+
+99
+00:07:57 --> 00:07:58
+Come back to our program.
+
+100
+00:07:59 --> 00:08:02
+I will change a few things here.
+
+101
+00:08:03 --> 00:08:10
+Press <b>Shift, Ctrl</b> and <b>S</b>  keys simultaneously on your keyboard.
+
+102
+00:08:11 --> 00:08:19
+Now save the file with an extension <b>dot cpp</b> and click on <b> Save</b>.
+
+103
+00:08:20 --> 00:08:25
+We will change the header file as <b>iostream</b>.
+
+104
+00:08:26 --> 00:08:29
+Let us include the <b>using </b>statement here.
+
+105
+00:08:30 --> 00:08:34
+Now click on the Search for and replace text option.
+
+106
+00:08:35 --> 00:08:39
+Let us replace the <b>printf </b>statement with the <b>cout</b> statement.
+
+107
+00:08:40 --> 00:08:45
+Click on <b>Replace all</b> and click on Close.
+
+108
+00:08:46 --> 00:08:48
+Now delete the closing brackets here.
+
+109
+00:08:49 --> 00:08:53
+Replace the <b>scanf()</b> statement with the <b>cin</b> statement.
+
+110
+00:08:54 --> 00:08:59
+Type <b>cin</b> and <b>two closing angle brackets >></b>.
+
+111
+00:09:00 --> 00:09:04
+As we use <b>cin >></b> function to read a line in C++.
+
+112
+00:09:05 --> 00:09:08
+Now delete the <b>format specifiers</b>.
+
+113
+00:09:09 --> 00:09:11
+Delete the <b>comma</b> and <b>ampersand &</b>.
+
+114
+00:09:12 --> 00:09:16
+Delete the comma here and type two closing angle brackets.
+
+115
+00:09:17 --> 00:09:24
+Again delete the <b>ampersand</b>and the closing brackets. Now click on <b>Save</b>.
+
+116
+00:09:25 --> 00:09:30
+Here delete the closing bracket and the comma.
+
+117
+00:09:31 --> 00:09:36
+Now delete the <b>backslash n (\n)</b> and <b>format specifier</b>.
+
+118
+00:09:37 --> 00:09:41
+Now type two opening brackets.
+
+119
+00:09:42 --> 00:09:48
+Again type two opening angle brackets  and <b>within the double quotes type backslash n “\n”.</b>
+
+120
+00:09:49 --> 00:09:52
+Here also we will delete the closing bracket.
+
+121
+00:09:53 --> 00:09:58
+Now again delete the closing bracket here and here.
+
+122
+00:09:59 --> 00:10:01
+Now click on <b>Save</b>.
+
+123
+00:10:02 --> 00:10:03
+Let us execute.
+
+124
+00:10:04 --> 00:10:09
+Come back to the terminal. Let me clear the prompt.
+
+125
+00:10:10 --> 00:10:19
+To compile, type <b>g++ space ifstmt.cpp space -o space if1</b>
+
+126
+00:10:20 --> 00:10:30
+Here we have 'if1' because we don't want to overwrite the output parameter <b>if </b>for the file 'ifstmt.c'.
+
+127
+00:10:31 --> 00:10:38
+Now Press 'Enter'.To execute type <b>./if1</b> (dot slash if1) and press <b>Enter</b>.
+
+128
+00:10:39 --> 00:10:47
+Enter the value of <b>a</b> and <b>b</b>. I will give the values as 20 and 10.
+
+129
+00:10:48 --> 00:10:51
+The output is displayed as <b>Sum of a and b is 30</b>
+
+130
+00:10:52 --> 00:10:55
+<b>Sum is greater than 20</b>
+
+131
+00:10:56 --> 00:10:58
+This brings us to the end of this tutorial.
+
+132
+00:10:59 --> 00:11:01
+Now come back to our slides.
+
+133
+00:11:02 --> 00:11:03
+Let us summarize.
+
+134
+00:11:04 --> 00:11:10
+In this tutorial we learned 'if' statement eg. if(condition),
+
+135
+00:11:11 --> 00:11:16
+And 'else if' statement eg. else if(condition).
+
+136
+00:11:17 --> 00:11:23
+As an assignment, Write a program to check 'a' is greater than 'b' or less than 'b'.
+
+137
+00:11:24 --> 00:11:27
+Hint: use 'if' statement.
+
+138
+00:11:28 --> 00:11:33
+Write another program to check which value is greater 'a', 'b' or 'c'.
+
+139
+00:11:34 --> 00:11:37
+Hint: use 'else-if' statement.
+
+140
+00:11:38 --> 00:11:40
+Watch the video available at the link shown below.
+
+141
+00:11:41 --> 00:11:43
+It summarizes the Spoken Tutorial project.
+
+142
+00:11:44 --> 00:11:47
+If you do not have good bandwidth, you can download and watch it.
+
+143
+00:11:48 --> 00:11:49
+The Spoken Tutorial Project Team,
+
+144
+00:11:50 --> 00:11:53
+Conducts workshops using spoken tutorials.
+
+145
+00:11:54 --> 00:11:56
+Gives certificates to those who pass an online test.
+
+146
+00:11:57 --> 00:12:03
+For more details, please write to, contact @ spoken hyphen tutorial dot org.
+
+147
+00:12:04 --> 00:12:08
+Spoken Tutorial Project is a part of the Talk to a Teacher project.
+
+148
+00:12:09 --> 00:12:14
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+149
+00:12:15 --> 00:12:19
+More information on this Mission is available at the link shown below.
+
+150
+00:12:20 --> 00:12:25
+This is Ashwini Patil from IIT Bombay.
+<p>Thank You for watching.
+</p>
+

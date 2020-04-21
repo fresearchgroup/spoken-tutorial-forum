@@ -1,0 +1,574 @@
+<b>Narration</b>
+
+1
+00:00:01 --> 00:00:05
+Welcome to the spoken tutorial on <b>Relational Operators</b> in <b>C</b> and <b>C++</b>.
+
+2
+00:00:06 --> 00:00:08
+In this tutorial, we will learn about:
+
+3
+00:00:09 --> 00:00:10
+Relational operators like,
+
+4
+00:00:11 --> 00:00:13
+Less than: e.g.  a < b
+
+5
+00:00:14 --> 00:00:16
+Greater than: e.g. a > b
+
+6
+00:00:17 --> 00:00:21
+Less than or equal to: e.g.  a <= b
+
+7
+00:00:22 --> 00:00:26
+Greater than or equal to: e.g. a >= b
+
+8
+00:00:27 --> 00:00:29
+Equal to: e.g. a == b
+
+9
+00:00:30 --> 00:00:36
+Not equal to: e.g. a != b
+
+10
+00:00:37 --> 00:00:41
+To record this tutorial, I am using: <b>Ubuntu 11.10</b> as the operating system,
+
+11
+00:00:42 --> 00:00:49
+<b>gcc</b> and <b>g++ Compiler </b>version <b>4.6.1 </b>in <b>Ubuntu.</b>
+
+12
+00:00:50 --> 00:00:52
+Let us begin with an introduction.
+
+13
+00:00:53 --> 00:00:56
+Relational operators are used to compare integer and floating point numbers.
+
+14
+00:00:57 --> 00:01:03
+Expressions using relational operators <b>return</b> <b>0</b> for false and <b>1</b> for true.
+
+15
+00:01:04 --> 00:01:08
+Now I will demonstrate the relational operators with the help of a C program.
+
+16
+00:01:09 --> 00:01:10
+I have already made the program.
+
+17
+00:01:11 --> 00:01:14
+So, I'll open the editor and explain the code.
+
+18
+00:01:15 --> 00:01:19
+First, we declare two variables <b>a </b>and <b>b</b>.
+
+19
+00:01:20 --> 00:01:25
+This <b>printf</b> statement prompts the user to enter the values of a and b.
+
+20
+00:01:26 --> 00:01:31
+This <b>scanf </b>statement takes input for the variables <b>a </b>and <b>b</b>.
+
+21
+00:01:32 --> 00:01:34
+Now we have the <b>greater than (>)</b> operator.
+
+22
+00:01:35 --> 00:01:37
+This operator compares the two operands on either side of the operator.
+
+23
+00:01:38 --> 00:01:42
+It returns <b>True</b> if <b>a</b> is greater than <b>b</b>.
+
+24
+00:01:43 --> 00:01:46
+This <b>printf </b>statement is executed if the above condition is true.
+
+25
+00:01:47 --> 00:01:49
+If the above condition is <b>false </b>then it is skipped.
+
+26
+00:01:50 --> 00:01:52
+The control then jumps to the next statement.
+
+27
+00:01:53 --> 00:01:55
+We now have the <b>less than (<)</b> operator.
+
+28
+00:01:56 --> 00:01:56
+This too compares the operands.
+
+29
+00:01:57 --> 00:02:01
+It returns <b>true</b> when <b>a</b> is less than <b>b</b>.
+
+30
+00:02:02 --> 00:02:05
+This <b>printf</b> statement is executed if the above condition is <b>true.</b>
+
+31
+00:02:06 --> 00:02:08
+It is skipped otherwise.
+
+32
+00:02:09 --> 00:02:12
+Let's execute the code till here.
+
+33
+00:02:13 --> 00:02:15
+First comment out the following.
+
+34
+00:02:16 --> 00:02:20
+Type <b>/* (slash asterisk)</b>
+
+35
+00:02:21 --> 00:02:23
+*/ <b> (asterisk slash).</b>
+
+36
+00:02:24 --> 00:02:25
+Click on <b>Save</b>.
+
+37
+00:02:26 --> 00:02:28
+I have saved my file as <b>relational.c</b>.
+
+38
+00:02:29 --> 00:02:34
+Open the terminal window by pressing <b>Ctrl, Alt</b> and <b>T </b>keys simultaneously.
+
+39
+00:02:35 --> 00:02:48
+To compile, type the following on the terminal <b>gcc space  relational dot c space -o space rel</b>.
+
+40
+00:02:49 --> 00:02:50
+Press <b>Enter</b>.
+
+41
+00:02:51 --> 00:02:55
+To execute,  type <b>./rel</b> (dot slash rel). Press <b>Enter</b>.
+
+42
+00:02:56 --> 00:03:00
+I enter <b>a</b> as 8 and <b>b </b>as 3.
+
+43
+00:03:01 --> 00:03:02
+The output is displayed:
+
+44
+00:03:03 --> 00:03:06
+<b>8 is greater than 3</b>.
+
+45
+00:03:07 --> 00:03:10
+You can try executing this code with different values of <b>a </b>and <b>b</b>.
+
+46
+00:03:11 --> 00:03:13
+Coming back to  the code.
+
+47
+00:03:14 --> 00:03:17
+Delete the comment from here
+
+48
+00:03:18 --> 00:03:23
+and  put it here.
+
+49
+00:03:24 --> 00:03:27
+Now we have the <b>less than or equal to (<=) </b>operator.
+
+50
+00:03:28 --> 00:03:32
+This operator compares the two operands on either side of the operator.
+
+51
+00:03:33 --> 00:03:37
+It returns <b>true</b> if <b>a</b> is less than or equal to <b>b</b>.
+
+52
+00:03:38 --> 00:03:41
+This <b>printf </b>statement is executed if the above condition is true.
+
+53
+00:03:42 --> 00:03:44
+If the above condition is <b>false </b>then it is skipped.
+
+54
+00:03:45 --> 00:03:48
+The control then jumps to the next statement.
+
+55
+00:03:49 --> 00:03:51
+Next comes the <b>greater than or equal to (>=) </b>operator.
+
+56
+00:03:52 --> 00:03:59
+It compares <b>a </b>and <b>b </b>and  returns  <b>true</b> if <b>a</b> is greater than or equal to <b>b</b>.
+
+57
+00:04:00 --> 00:04:04
+If the condition is true then this printf statement will be executed.
+
+58
+00:04:05 --> 00:04:06
+Now let's execute the code till here.
+
+59
+00:04:07 --> 00:04:08
+Click on <b>Save</b>.
+
+60
+00:04:09 --> 00:04:11
+Switch back to the terminal.
+
+61
+00:04:12 --> 00:04:16
+Compile and execute as before.
+
+62
+00:04:17 --> 00:04:21
+I enter <b>a</b> as 8 and <b>b </b>as 3.
+
+63
+00:04:22 --> 00:04:24
+The output is displayed:
+
+64
+00:04:25 --> 00:04:29
+<b>8 is greater than or equal to 3</b>
+
+65
+00:04:30 --> 00:04:32
+Now  Coming back to rest of the code.
+
+66
+00:04:33 --> 00:04:38
+Delete the multiline comments from here
+
+67
+00:04:39 --> 00:04:42
+and here.
+
+68
+00:04:43 --> 00:04:46
+We now have the <b>equal to </b>operator.
+
+69
+00:04:47 --> 00:04:49
+It is denoted by <b>double equal signs (==)</b>.
+
+70
+00:04:50 --> 00:04:56
+This operator returns <b>true</b> when both operands are equal to one another.
+
+71
+00:04:57 --> 00:04:59
+This <b>printf</b> statement executes when <b>a</b> is equal to <b>b.</b>
+
+72
+00:05:00 --> 00:05:05
+If not, the control then jumps on to the next statement.
+
+73
+00:05:06 --> 00:05:07
+Similarly, we have the <b>not equal to</b> operator.
+
+74
+00:05:08 --> 00:05:14
+This operator returns <b>true</b> when the operands are not equal to one another.
+
+75
+00:05:15 --> 00:05:19
+This <b>printf</b> statement will execute when <b>a</b> is not equal to <b>b</b>.
+
+76
+00:05:20 --> 00:05:23
+Coming to the end of the program. <b>return 0;</b>
+
+77
+00:05:24 --> 00:05:25
+Click on <b>Save</b>.
+
+78
+00:05:26 --> 00:05:27
+Switch back to the terminal.
+
+79
+00:05:28 --> 00:05:31
+Compile and execute as before.
+
+80
+00:05:32 --> 00:05:37
+Enter <b>a</b> as 8 and <b>b </b>as 3.
+
+81
+00:05:38 --> 00:05:39
+The output is displayed on the screen:
+
+82
+00:05:40 --> 00:05:43
+<b>8 is not equal to 3</b>
+
+83
+00:05:44 --> 00:05:47
+So, we see how the relational operators work.
+
+84
+00:05:48 --> 00:05:50
+Try executing this code with different set of inputs.
+
+85
+00:05:51 --> 00:05:55
+Now, writing a similar program in <b>C++</b> is quite easy.
+
+86
+00:05:56 --> 00:05:58
+There are a few differences in the syntax.
+
+87
+00:05:59 --> 00:06:03
+I have already made the code in <b>C++</b>.
+
+88
+00:06:04 --> 00:06:07
+Here  is the code for <b>relational operators</b> in <b>C++</b>.
+
+89
+00:06:08 --> 00:06:11
+Notice that the header is different.
+
+90
+00:06:12 --> 00:06:14
+Also we have the <b>using </b>statement here.
+
+91
+00:06:15 --> 00:06:18
+The output statement in C++ is <b>cout</b>.
+
+92
+00:06:19 --> 00:06:21
+And the input statement in C++ is<b> cin.</b>
+
+93
+00:06:22 --> 00:06:25
+So, apart from these differences, the two codes are very similar.
+
+94
+00:06:26 --> 00:06:27
+Click on Save.
+
+95
+00:06:28 --> 00:06:31
+Please make sure the file is saved with the extension <b>.cpp</b>.
+
+96
+00:06:32 --> 00:06:36
+I have saved my file as <b>relational.cpp</b>.
+
+97
+00:06:37 --> 00:06:38
+Let's compile the code.
+
+98
+00:06:39 --> 00:06:49
+Open the terminal and type <b>g++ relational.cpp space minus o space rel1</b>
+
+99
+00:06:50 --> 00:06:55
+To  execute, type  <b>./rel1</b> (dot slash rel1), press Enter.
+
+100
+00:06:56 --> 00:06:59
+I enter <b>a</b> as 8 and <b>b </b>as 3.
+
+101
+00:07:00 --> 00:07:01
+The output is displayed:
+
+102
+00:07:02 --> 00:07:06
+We see that the output is same as  the one in  <b>C</b> program.
+
+103
+00:07:07 --> 00:07:09
+Now let us see an error which we can come across.
+
+104
+00:07:10 --> 00:07:12
+Come back to the program.
+
+105
+00:07:13 --> 00:07:18
+Suppose here we replace the 'double equal to' sign with the 'single equal to'.
+
+106
+00:07:19 --> 00:07:20
+Click on <b>Save.</b>
+
+107
+00:07:21 --> 00:07:22
+Come back to the terminal.
+
+108
+00:07:23 --> 00:07:32
+Compile and execute as before.
+
+109
+00:07:33 --> 00:07:36
+Here we see it is showing 3 is equal to 3.
+
+110
+00:07:37 --> 00:07:39
+Come back to our program.
+
+111
+00:07:40 --> 00:07:42
+This is because here we have an assignment operator.
+
+112
+00:07:43 --> 00:07:45
+So value of b is assigned to a.
+
+113
+00:07:46 --> 00:07:48
+Now, let us fix this error.
+
+114
+00:07:49 --> 00:07:50
+Type an equal to sign.
+
+115
+00:07:51 --> 00:07:53
+Click on <b>Save</b>.
+
+116
+00:07:54 --> 00:07:55
+Switch back to  the terminal.
+
+117
+00:07:56 --> 00:08:03
+Compile and execute as before.
+
+118
+00:08:04 --> 00:08:05
+The output is now correct.
+
+119
+00:08:06 --> 00:08:07
+Let's summarize the tutorial.
+
+120
+00:08:08 --> 00:08:09
+In this tutorial, we learnt
+
+121
+00:08:10 --> 00:08:11
+relational operators like:
+
+122
+00:08:12 --> 00:08:13
+Less than:  e.g. a <  b
+
+123
+00:08:14 --> 00:08:16
+Greater than: e.g. a>b
+
+124
+00:08:17 --> 00:08:21
+Less than or equal to:  e.g. a<=b
+
+125
+00:08:22 --> 00:08:26
+Greater than or equal to: e.g. a>=b
+
+126
+00:08:27 --> 00:08:28
+Equal to: e.g. a==b
+
+127
+00:08:29 --> 00:08:33
+Not equal to: e.g. a!=b
+
+128
+00:08:34 --> 00:08:34
+As an assignment:
+
+129
+00:08:35 --> 00:08:38
+Write a program that takes the marks of three students as input.
+
+130
+00:08:39 --> 00:08:42
+Compare the marks to see which student has scored the highest.
+
+131
+00:08:43 --> 00:08:47
+Check also if two or more students have scored equal marks.
+
+132
+00:08:48 --> 00:08:50
+Watch the video available at the following link.
+
+133
+00:08:51 --> 00:08:53
+It summarizes the Spoken Tutorial project.
+
+134
+00:08:54 --> 00:08:57
+If you do not have good bandwidth, you can download and watch it.
+
+135
+00:08:58 --> 00:08:59
+The Spoken Tutorial Project Team:
+
+136
+00:09:00 --> 00:09:02
+Conducts workshops using spoken tutorials.
+
+137
+00:09:03 --> 00:09:05
+Gives certificates for those who pass an online test.
+
+138
+00:09:06 --> 00:09:13
+For more details, please write to contact at spoken hyphen tutorial dot org.
+
+139
+00:09:14 --> 00:09:17
+Spoken Tutorial Project is a part of the Talk to a Teacher project.
+
+140
+00:09:18 --> 00:09:23
+It is supported by the National Mission on Education through ICT, MHRD, Government of India.
+
+141
+00:09:24 --> 00:09:26
+More information on this Mission is available at
+
+142
+00:09:27 --> 00:09:33
+spoken hyphen tutorial dot org slash NMEICT hyphen Intro.
+
+143
+00:09:34 --> 00:09:39
+This is Ritwik Joshi from IIT Bombay.Thank you for joining.
+

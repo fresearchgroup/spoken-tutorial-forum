@@ -9,6 +9,7 @@
     {% endif %}
 </div>
 <br>
+
 <table class="table table-bordered table-hover">
 {% for question in questions %}
     <tr>
@@ -16,6 +17,9 @@
             <a href="{{ question.body }}" target="_blank">
                 {{ question.title }}
             </a>
+            {% for tag in question.tags %}
+            <span class="badge badge-pill badge-dark">{{ tag }}</span>
+            {% endfor %}
         </td>
     </tr>
 {% endfor %}
