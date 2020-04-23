@@ -86,25 +86,30 @@
     </table>
 </div>
     <ul class="pagination pull-right">
+    {% if questions %}
         {% if questions.has_previous %}
-            <li><a href="?page={{ questions.previous_page_number }}">&laquo; <small>Prev</small></a></li>
+            <li><a href="?{{ request.GET|combine_get_values }}page=1">&laquo; <small>First</small></a></li>
+            <li><a href="?{{ request.GET|combine_get_values }}page={{ questions.previous_page_number }}">&laquo; <small>Prev</small></a></li>
         {% else %}
             <li class="disabled"><a href="#">&laquo;</a></li>
         {% endif %}
-        
-        {% for num in questions.paginator.page_range %}
+        {% for num in questions.paginator.page_range|paginator_page_cutter:questions.number %}
             {% ifequal num questions.number %}
                 <li class="active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
             {% else %}
                 <li><a href="?{{ request.GET|combine_get_values }}page={{ num }}">{{ num }}</a></li>
             {% endifequal %}
         {% endfor %}
-        
         {% if questions.has_next %}
-            <li><a href="?page={{ questions.next_page_number }}"><small>Next</small>&raquo;</a></li>
+            <li><a href="?{{ request.GET|combine_get_values }}page={{ questions.next_page_number }}"><small>Next</small> &raquo;</a></li>
+            {% if questions.paginator.page_range|length > 10 %}
+                <li><a href="?{{ request.GET|combine_get_values }}page={{ questions.paginator.num_pages }}"><small>Last</small> &raquo;</a></li>
+            {% endif %}
         {% else %}
             <li class="disabled"><a href="#">&raquo;</a></li>
+            <li class="disabled"><a href="?{{ request.GET|combine_get_values }}page={{ questions.paginator.num_pages }}"><small>Last</small> &raquo;</a></li>
         {% endif %}
+    {% endif %}
     <ul>
 
 {% endblock %}

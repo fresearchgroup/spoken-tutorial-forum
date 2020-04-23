@@ -2,16 +2,7 @@
 {% load helpers %}
 
 {% block content %}
-<script>
-$(document).ready(function(){
-$("#listTable").tablesorter({
- headers:{ 3:{sorter:false }
-},
-
-});
-
-});
-</script>
+{% load forumdata %}
 {% if questions %}
 <h5>
     These are the similar questions in:
@@ -37,17 +28,7 @@ $("#listTable").tablesorter({
 
     <table id = "listTable" class="tablesorter-blue">
 				<thead>
-				<tr>
-		      <th> FOSS </th>
-		      <th> Tutorial</th>
-		      <th> Min </th>
-		      <th> Sec </th>
-		      <th> Question</th>
-		      <th> Date</th>
-		      <th> Views</th>
-		      <th> Answers</th>
-		      <th> User</th>
-				</tr>
+				{% get_sortable_header header ordering request.GET %}
 				</thead>
 				<tbody>
         {% for question in questions %}
@@ -118,6 +99,33 @@ $("#listTable").tablesorter({
         {% endfor %}
 				</tbody>
     </table>
+
+    <ul class="pagination pull-right">
+    {% if questions %}
+        {% if questions.has_previous %}
+            <li><a href="?{{ request.GET|combine_get_values }}page=1">&laquo; <small>First</small></a></li>
+            <li><a href="?{{ request.GET|combine_get_values }}page={{ questions.previous_page_number }}">&laquo; <small>Prev</small></a></li>
+        {% else %}
+            <li class="disabled"><a href="#">&laquo;</a></li>
+        {% endif %}
+        {% for num in questions.paginator.page_range|paginator_page_cutter:questions.number %}
+            {% ifequal num questions.number %}
+                <li class="active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
+            {% else %}
+                <li><a href="?{{ request.GET|combine_get_values }}page={{ num }}">{{ num }}</a></li>
+            {% endifequal %}
+        {% endfor %}
+        {% if questions.has_next %}
+            <li><a href="?{{ request.GET|combine_get_values }}page={{ questions.next_page_number }}"><small>Next</small> &raquo;</a></li>
+            {% if questions.paginator.page_range|length > 10 %}
+                <li><a href="?{{ request.GET|combine_get_values }}page={{ questions.paginator.num_pages }}"><small>Last</small> &raquo;</a></li>
+            {% endif %}
+        {% else %}
+            <li class="disabled"><a href="#">&raquo;</a></li>
+            <li class="disabled"><a href="?{{ request.GET|combine_get_values }}page={{ questions.paginator.num_pages }}"><small>Last</small> &raquo;</a></li>
+        {% endif %}
+    {% endif %}
+    <ul>
 {% else %}
 <h4>There are no similar questions.</h4>
 {% endif %}
