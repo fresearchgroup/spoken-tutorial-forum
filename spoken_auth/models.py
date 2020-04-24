@@ -81,3 +81,12 @@ class TutorialResources(models.Model):
 
     class Meta:
         db_table = 'creation_tutorialresource'
+
+
+class TutorialCommonContent(models.Model):
+    id = models.IntegerField(primary_key=True)
+    tutorial_detail = models.ForeignKey(TutorialDetails, on_delete=models.CASCADE,)
+    keyword = models.TextField()
+
+    class Meta:
+        db_table = 'creation_tutorialcommoncontent'

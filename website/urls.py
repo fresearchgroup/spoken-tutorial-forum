@@ -34,6 +34,7 @@ urlpatterns = [
         name='ajax_answer_comment_update'),
     url(r'^ajax-similar-questions/$', views.ajax_similar_questions, name='ajax_similar_questions'),
     url(r'^ajax-faq-questions/$', views.ajax_faq_questions, name='ajax_faq_questions'),
+    url(r'^ajax-fetch-questions/$', views.ajax_fetch_questions, name='ajax_fetch_questions'),
     url(r'^ajax-notification-remove/$', views.ajax_notification_remove, name='ajax_notification_remove'),
     url(r'^ajax-keyword-search/$', views.ajax_keyword_search, name='ajax_keyword_search'),
     url(r'^ajax-time-search/$', views.ajax_time_search, name='ajax_time_search'),

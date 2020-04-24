@@ -13,7 +13,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import get_user_model
 
 from website.models import Question, Answer, Notification, AnswerComment
-from spoken_auth.models import TutorialDetails, TutorialResources
+from spoken_auth.models import TutorialDetails, TutorialResources, TutorialCommonContent
 from website.forms import NewQuestionForm, AnswerQuesitionForm
 from website.helpers import get_video_info, prettify
 from django.conf  import settings
@@ -527,26 +527,12 @@ def ajax_answer_comment_update(request):
 
     return HttpResponseForbidden("Not Authorised")
 
-def get_relevant_questions(category, tutorial, query, terms):
-    tags = set()
-
-    # create tags from categories and tutorials
-    stack_tags = []
-    stack_tags.extend(categories)
-    stack_tags.extend(cat_tutorials)
-    stack_tags = [x.lower() for x in stack_tags]
+def get_questions_from_stack(category, tutorial, query, terms, db_tags):
     rel_tags = []
 
-    '''
-    this part is run when the function is called from ask a question page with a query
-    relevant words from query are extracted
-    '''
-    if query != "":
-        for word in query.split():
-            if word in stack_tags:
-                rel_tags.append(word)
-
     # this part is run when the function is called from FAQ page with category and tutorial selected, here query=""
+    if len(db_tags) != 0:
+        rel_tags.extend(db_tags)
     if len(terms) != 0:
         rel_tags.extend(terms)
 
@@ -562,45 +548,71 @@ def get_relevant_questions(category, tutorial, query, terms):
     tot_ques = []
     all_tags = []
     entries = []
-    print("Fetching data.. ")
+    print("Fetching data from stackoverflow.. ")
     SITE = StackAPI('stackoverflow')
     category = category.split()[0]
-    tutorial = tutorial.split()[0]
+    
     # Fetching questions with only category name(e.g. latex) as tag
     questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=category, sort='votes', order='desc')
     entries.extend(questions['items'])
-    # Fetching questions with both category name(e.g. latex) AND tutorial name(e.g. beamer) tags
-    c_t = category + ';' + tutorial
-    questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=c_t, sort='votes', order='desc')
-    entries.extend(questions['items'])
+    
     # Fetching questions with addition of rel_tags(obtained from quert/srt files)
-    for t in rel_tags:
-        tag = c_t + ';' + t
+    for t in db_tags:
         questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=category+';'+t, sort='votes', order='desc')
         entries.extend(questions['items'])
-        questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=tutorial+';'+t, sort='votes', order='desc')
+        
+    for t in rel_tags:
+        questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=category+';'+t, sort='votes', order='desc')
         entries.extend(questions['items'])
-        questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=tag, sort='votes', order='desc')
-        entries.extend(questions['items'])
-    
-    if len(entries) == 0:
-        return tot_ques, all_tags
     
     # inserting fetched data into mongodb
     collec_ques.insert_many(entries)
-    
-    rel_tags.extend([category, tutorial])
+    print("Data fetched and inserted into mongodb")
+
+def ajax_fetch_questions(request):
+    if request.method == 'POST':
+        category = request.POST['category']
+        tutorial = request.POST['tutorial']
+        td_rec = TutorialDetails.objects.using('spoken').filter(tutorial=tutorial, foss__foss=category).order_by('level', 'order')
+        cat = td_rec[0].foss
+        td = td_rec[0]
+        db_tags = TutorialCommonContent.objects.using('spoken').filter(tutorial_detail=td.pk)
+        db_tags = db_tags[0].keyword.replace(".", "").split(", ")
+        print("list of db_tags >>>>>>>>>>>>")
+        print(db_tags)
+        filename = settings.MEDIA_ROOT + 'videos/' + str(cat.pk) + '/' + str(td.pk) + '/' + tutorial.replace(' ', '-') + '-English.srt'
+        topic_keys = extract_keywords(filename)
+        print("topic_keys >>>>>>>>>>>>>")
+        print(topic_keys)
+
+    get_questions_from_stack(category.lower(), tutorial.lower(), '', topic_keys, db_tags)
+    return HttpResponse("Successfully fetched data from stackoverflow")
+
+def get_questions_from_db(topic_keys, db_tags):
+    rel_tags = []
+    if len(db_tags) != 0:
+        rel_tags.extend(db_tags)
+    if len(topic_keys) != 0:
+        rel_tags.extend(topic_keys)
+    print("rel_tags")
+    print(rel_tags)
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    db = client.stackapi
+    collec_ques = db.questions
+
+    questions = []
+    tags = []
     q_ids = []
     for t in rel_tags:
-        items = collec_ques.find({"tags": t}).limit(20)
+        items = collec_ques.find({"tags": t})
         print("Fetched " + str(items.count()) + " questions for tag: " + t)
         for item in items:
-            all_tags.extend(item['tags'])
+            tags.extend(item['tags'])
             if item['question_id'] not in q_ids:
                 q_ids.append(item['question_id'])
                 q = {'title': item['title'], 'uid': item['question_id'], 'body': item['link'], 'tags': item['tags']}
-                tot_ques.append(q)
-    return tot_ques, all_tags
+                questions.append(q)
+    return questions, tags
 
 def ajax_faq_questions(request):
     if request.method == 'POST':
@@ -609,13 +621,20 @@ def ajax_faq_questions(request):
         td_rec = TutorialDetails.objects.using('spoken').filter(tutorial=tutorial, foss__foss=category).order_by('level', 'order')
         cat = td_rec[0].foss
         td = td_rec[0]
+        db_tags = TutorialCommonContent.objects.using('spoken').filter(tutorial_detail=td.pk)
+        db_tags = db_tags[0].keyword.replace(".", "").split(", ")
+        print("list of db_tags >>>>>>>>>>>>")
+        print(db_tags)
         filename = settings.MEDIA_ROOT + 'videos/' + str(cat.pk) + '/' + str(td.pk) + '/' + tutorial.replace(' ', '-') + '-English.srt'
         topic_keys = extract_keywords(filename)
+        print("topic_keys >>>>>>>>>>>>>")
         print(topic_keys)
 
-        questions, tags = get_relevant_questions(category.lower(), tutorial.lower(), '', topic_keys)
+        ''' Fetching questions from mongodb database'''
+        questions, tags = get_questions_from_db(topic_keys, db_tags)
         print(str(len(questions)) + " relevant questions and tags are ")
-        print(tags)
+        print(set(tags))
+        
         context = {
             'questions': questions,
             'tags': tags
@@ -631,7 +650,7 @@ def ajax_similar_questions(request):
         # minute_range = request.POST['minute_range']
         # second_range = request.POST['second_range']
 
-        questions, tags = get_relevant_questions(category.lower(), tutorial.lower(), titl.lower(), [])
+        questions, tags = get_relevant_questions(category.lower(), tutorial.lower(), titl.lower(), [], [])
         # add more filtering when the forum grows
         # questions = Question.objects.filter(category=category).filter(tutorial=tutorial)
         context = {

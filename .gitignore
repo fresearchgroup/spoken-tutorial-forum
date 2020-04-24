@@ -9,6 +9,7 @@ static/CACHE/*
 robots.txt
 # C extensions
 *.so
+media/
 
 # Packages
 *.egg

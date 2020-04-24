@@ -115,6 +115,15 @@ $(document).ready(function() {
                 console.log(similar_count);
                 $("#similar-link").show();
                 $("#modal-body").html(data);
+                
+                $.ajax({
+                    url:"/ajax-fetch-questions/",
+                    type: "POST",
+                    data: {
+                        category: $category.val(),
+                        tutorial: $tutorial.val(),
+                    }
+                });
             }
         });
     });    
