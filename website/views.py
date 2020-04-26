@@ -569,7 +569,7 @@ def get_questions_from_stack(category, tutorial, query, terms, db_tags):
     if len(entries) > 0:
         for entry in entries:
             collec_ques.update({'question_id': entry['question_id']}, entry, upsert=True)
-        print(str(len(entries)) + " questions fetched and inserted into mongodb")
+    print(str(len(entries)) + " questions fetched and inserted into mongodb")
 
 def ajax_fetch_questions(request):
     if request.method == 'POST':
