@@ -558,18 +558,18 @@ def get_questions_from_stack(category, tutorial, query, terms, db_tags):
     
     # Fetching questions with addition of rel_tags(obtained from quert/srt files)
     for t in db_tags:
-        questions = SITE.fetch('questions', fromdate=1456232494, min=20, tagged=category+';'+t, sort='votes', order='desc')
+        questions = SITE.fetch('questions', fromdate=1456232494, min=20, tagged=category+';'+t.lower(), sort='votes', order='desc')
         entries.extend(questions['items'])
         
     for t in rel_tags:
-        questions = SITE.fetch('questions', fromdate=1456232494, min=20, tagged=category+';'+t, sort='votes', order='desc')
+        questions = SITE.fetch('questions', fromdate=1456232494, min=20, tagged=category+';'+t.lower(), sort='votes', order='desc')
         entries.extend(questions['items'])
     
     # inserting fetched data into mongodb
     if len(entries) > 0:
         for entry in entries:
             collec_ques.update({'question_id': entry['question_id']}, entry, upsert=True)
-    print(str(len(entries)) + " questions fetched and inserted into mongodb")
+        print(str(len(entries)) + " questions fetched and inserted into mongodb")
 
 def ajax_fetch_questions(request):
     if request.method == 'POST':
@@ -608,8 +608,8 @@ def get_questions_from_db(topic_keys, db_tags):
     tags = []
     q_ids = []
     for t in rel_tags:
-        items = collec_ques.find({"tags": t})
-        print("Fetched " + str(items.count()) + " questions for tag: " + t)
+        items = collec_ques.find({"tags": t.lower()})
+        print("Fetched " + str(items.count()) + " questions for tag: " + t.lower())
         for item in items:
             tags.extend(item['tags'])
             if item['question_id'] not in q_ids:
