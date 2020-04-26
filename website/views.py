@@ -542,7 +542,7 @@ def get_questions_from_stack(category, tutorial, query, terms, db_tags):
     client = pymongo.MongoClient("mongodb://localhost:27017/")
     db = client.stackapi
     collec_ques = db.questions
-    # collec_ques.create_index('question_id', unique=True)
+    collec_ques.create_index('question_id')
 
     # fetch questions
     tot_ques = []
@@ -550,24 +550,26 @@ def get_questions_from_stack(category, tutorial, query, terms, db_tags):
     entries = []
     print("Fetching data from stackoverflow.. ")
     SITE = StackAPI('stackoverflow')
-    category = category.split()[0]
+    # category = category.split()[0]
     
     # Fetching questions with only category name(e.g. latex) as tag
-    questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=category, sort='votes', order='desc')
+    questions = SITE.fetch('questions', fromdate=1456232494, min=20, tagged=category, sort='votes', order='desc')
     entries.extend(questions['items'])
     
     # Fetching questions with addition of rel_tags(obtained from quert/srt files)
     for t in db_tags:
-        questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=category+';'+t, sort='votes', order='desc')
+        questions = SITE.fetch('questions', fromdate=1456232494, min=20, tagged=category+';'+t, sort='votes', order='desc')
         entries.extend(questions['items'])
         
     for t in rel_tags:
-        questions = SITE.fetch('questions', fromdate=1257136000, min=20, tagged=category+';'+t, sort='votes', order='desc')
+        questions = SITE.fetch('questions', fromdate=1456232494, min=20, tagged=category+';'+t, sort='votes', order='desc')
         entries.extend(questions['items'])
     
     # inserting fetched data into mongodb
-    collec_ques.insert_many(entries)
-    print("Data fetched and inserted into mongodb")
+    if len(entries) > 0:
+        for entry in entries:
+            collec_ques.update({'question_id': entry['question_id']}, entry, upsert=True)
+    print(str(len(entries)) + " questions fetched and inserted into mongodb")
 
 def ajax_fetch_questions(request):
     if request.method == 'POST':
@@ -585,7 +587,9 @@ def ajax_fetch_questions(request):
         print("topic_keys >>>>>>>>>>>>>")
         print(topic_keys)
 
+    ''' Scraping stackoverflow to get questions and store in mongodb '''
     get_questions_from_stack(category.lower(), tutorial.lower(), '', topic_keys, db_tags)
+    
     return HttpResponse("Successfully fetched data from stackoverflow")
 
 def get_questions_from_db(topic_keys, db_tags):
@@ -609,8 +613,11 @@ def get_questions_from_db(topic_keys, db_tags):
         for item in items:
             tags.extend(item['tags'])
             if item['question_id'] not in q_ids:
+                acc_ans = ""
+                if 'accepted_answer_id' in item.keys():
+                    acc_ans = str(item['link']) + "#" + str(item['accepted_answer_id'])
                 q_ids.append(item['question_id'])
-                q = {'title': item['title'], 'uid': item['question_id'], 'body': item['link'], 'tags': item['tags']}
+                q = {'title': item['title'], 'uid': item['question_id'], 'body': item['link'], 'tags': item['tags'], 'answer_count': item['answer_count'], 'views': item['view_count'], 'score': item['score'], 'owner': item['owner'], 'accepted_answer': acc_ans}
                 questions.append(q)
     return questions, tags
 
@@ -623,11 +630,13 @@ def ajax_faq_questions(request):
         td = td_rec[0]
         db_tags = TutorialCommonContent.objects.using('spoken').filter(tutorial_detail=td.pk)
         db_tags = db_tags[0].keyword.replace(".", "").split(", ")
-        print("list of db_tags >>>>>>>>>>>>")
+        # db_tags.append(category.split()[0])
+        db_tags.append(category)
+        print("list of db_tags >>>>>>")
         print(db_tags)
         filename = settings.MEDIA_ROOT + 'videos/' + str(cat.pk) + '/' + str(td.pk) + '/' + tutorial.replace(' ', '-') + '-English.srt'
         topic_keys = extract_keywords(filename)
-        print("topic_keys >>>>>>>>>>>>>")
+        print("topic_keys >>>>>>")
         print(topic_keys)
 
         ''' Fetching questions from mongodb database'''

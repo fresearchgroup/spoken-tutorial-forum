@@ -9,20 +9,46 @@
         {% endif %}
     </div>
     <br>
-    
     <table class="table table-bordered table-hover">
-    {% if questions.count == 0 %}
-        <h3>No similar questions found</h3>
+    {% if questions|length == 0 %}
+        <h4>No similar questions found</h4>
+    {% else %}
+        <thead>
+            <tr>
+                <th>Accepted <br> Answer</th>
+                <th>Author <br> Details</th>
+                <th style="vertical-align: middle;">Question Details</th>
+            </tr>
+        </thead>
     {% endif %}
+    
     {% for question in questions %}
         <tr>
+            <td style="text-align: center;">
+                {% if question.accepted_answer != "" %}
+                    <a href="{{ question.accepted_answer }}" target="_blank"><i style="color: green" class="fa fa-lg fa-check" aria-hidden="true"></i></a>
+                {% endif %}
+            </td>
+            <td style="text-align: center;">
+                <a href="{{ question.owner.link }}" target="_blank"><i class="fa fa-md fa-user-check" aria-hidden="true"></i></a>
+            </td>
             <td>
-                <a href="{{ question.body }}" target="_blank">
-                    {{ question.title }}
-                </a>
-                {% for tag in question.tags %}
-                <span class="badge badge-pill badge-dark">{{ tag }}</span>
-                {% endfor %}
+                <div class="col-md-8">
+                    <a href="{{ question.body }}" target="_blank">
+                        &nbsp; {{ question.title }}
+                    </a>
+                    <br>
+                    {% for tag in question.tags %}
+                    <span class="badge badge-pill badge-dark">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <div class="col-md-4">
+                    <div class="row pull-right" style="font-size: 14;">
+                        <span class="label label-warning">{{ question.views }} <i class="fa fa-md fa-eye" aria-hidden="true"></i></span>
+                        <span class="label label-success">{{ question.score }} <i class="fa fa-md fa-thumbs-up" aria-hidden="true"></i></span>
+                        <span class="label label-primary">{{ question.score }} <i class="fa fa-md fa-comments" aria-hidden="true"></i></span>
+                    </div>
+                </div>
             </td>
         </tr>
     {% endfor %}
