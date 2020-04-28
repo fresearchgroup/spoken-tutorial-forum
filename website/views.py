@@ -27,9 +27,9 @@ from .tfidf import *
 
 User = get_user_model()
 categories = []
+trs = TutorialResources.objects.filter(Q(status=1) | Q(status=2),tutorial_detail__foss__show_on_homepage__lt=2, language__name='English')
 cat_tutorials = []
 
-trs = TutorialResources.objects.filter(Q(status=1) | Q(status=2), language__name='English')
 trs = trs.values('tutorial_detail__foss__foss').order_by('tutorial_detail__foss__foss')
     
 for tr in trs.values_list('tutorial_detail__foss__foss').distinct():
@@ -257,7 +257,37 @@ def filter(request, category=None, tutorial=None, minute_range=None, second_rang
     if 'qid' in request.GET:
         context['qid'] = int(request.GET['qid'])
 
-    context['questions'] = questions.order_by('category', 'tutorial', 'minute_range', 'second_range')
+    #context['questions'] = questions.order_by('category', 'tutorial', 'minute_range', 'second_range')
+    questions = questions.annotate(total_answers=Count('answer'))
+    raw_get_data = request.GET.get('o', None)
+
+    header = {
+                1: SortableHeader('category', True, 'Foss'),
+                2: SortableHeader('tutorial', True, 'Tutorial Name'),
+                3: SortableHeader('minute_range', True, 'Mins'),
+                4: SortableHeader('second_range', True, 'Secs'),
+                5: SortableHeader('title', True, 'Title'),
+                6: SortableHeader('date_created', True, 'Date'),
+                7: SortableHeader('views', True, 'Views'),
+                8: SortableHeader('total_answers', 'True', 'Answers'),
+                9: SortableHeader('username', False, 'User')
+            }
+
+    tmp_recs = get_sorted_list(request, questions, header, raw_get_data)
+    ordering = get_field_index(raw_get_data)
+    paginator = Paginator(tmp_recs, 20)
+    page = request.GET.get('page')
+    try:
+        questions = paginator.page(page)
+    except PageNotAnInteger:
+        questions = paginator.page(1)
+    except EmptyPage:
+        questions = paginator.page(paginator.num_pages)
+    context = {
+        'questions': questions,
+        'header': header,
+        'ordering': ordering
+        }
     return render(request, 'website/templates/filter.html', context)
 
 
@@ -716,7 +746,19 @@ def ajax_keyword_search(request):
         print(titles)
         questions = Question.objects.filter(
             Q(title__icontains=key) | Q(category__icontains=key) |
-            Q(tutorial__icontains=key) | Q(body__icontains=key), status=1)
+            Q(tutorial__icontains=key) | Q(body__icontains=key), status=1
+            ).order_by('-date_created')
+        paginator = Paginator(questions, 20)
+        page = request.POST.get('page')
+        if page:
+            page = int(request.POST.get('page'))
+            questions = paginator.page(page)
+        try:
+            questions = paginator.page(page)
+        except PageNotAnInteger:
+            questions = paginator.page(1)
+        except EmptyPage:
+            questions = paginator.page(paginator.num_pages)
         context = {
             'questions': questions,
             'titles': titles
