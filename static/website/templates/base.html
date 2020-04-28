@@ -17,7 +17,8 @@
          
         {% endcompress %}
 				<script src="{% static 'website/js/jquery-1.12.4.min.js' %}"></script>
-				<script src="{% static 'website/js/jquery.tablesorter.min.js' %}"></script>
+                <script src="{% static 'website/js/jquery.tablesorter.min.js' %}"></script>
+                <script src="https://kit.fontawesome.com/9e55978135.js" crossorigin="anonymous"></script>
         <!-- settig up csrf token for every ajax request -->
         <script type="text/javascript">window.csrftoken = '{{ csrf_token }}';
           function csrfSafeMethod(method) {
@@ -68,6 +69,12 @@
                                 <a href="{% url 'website:search' %}">
                                     <span class="glyphicon glyphicon-search"></span>
                                     Search
+                                </a>
+                              </li>
+                              <li>
+                                <a href="{% url 'website:faq' %}">
+                                    <span class="glyphicon glyphicon-list"></span>
+                                    FAQ
                                 </a>
                               </li>
                               <li>

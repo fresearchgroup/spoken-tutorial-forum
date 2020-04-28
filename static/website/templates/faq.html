@@ -1,0 +1,65 @@
+{% extends 'website/templates/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+    <h4>
+        <span class="glyphicon glyphicon-pencil">
+        </span> Create a new question . . .
+    </h4>
+    <hr>
+    <form role="form" action="" method="POST" novalidate>{% csrf_token %}
+    {% with WIDGET_ERROR_CLASS='field_error' %}
+
+    <p>
+    Please enter the tutorial details.
+        <img id="ajax-loader" src="{% static 'website/images/ajax-loader.gif' %}" style="display:none;">
+    </p>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3">
+            {% render_field form.category class+="form-control"%} 
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+            {% if category %}
+                {% render_field form.tutorial class+="form-control" %} 
+            {% else %}
+                {% render_field form.tutorial class+="form-control" disabled="disabled" %} 
+            {% endif %}
+        </div>
+
+        <!-- <div class="col-lg-2 col-md-2 col-sm-2">
+            <small><strong>
+            <a id="similar-link" data-toggle="modal" data-target="#similarModal" href="#">
+                0 similar questions
+            </a>
+            </strong></small>
+        </div> -->
+    </div>
+    <hr>
+    <!-- Added this part for fetching related questions -->
+    <div class="alert-dismissible" id="similar-link">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel"><i style="color: #f48024;" class="fa fa-lg fa-stack-overflow" aria-hidden="true"></i> Related Questions from StackOverflow</h4>
+        </div>
+        <div class="modal-body" id="modal-body" style="color: black">
+            ...
+        </div>
+    </div>
+
+    
+    {% endwith %}
+    </form>
+
+<script src="{% static 'website/js/nicEdit.js' %}" type="text/javascript"></script>
+<script type="text/javascript">
+bkLib.onDomLoaded(function() {
+	new nicEditor({
+        iconsPath: "{% static 'website/js/nicEditorIcons.gif' %}",
+        buttonList : ['fontSize','bold','italic','underline','strikeThrough','subscript','superscript','html','image', 'link', 'forecolor', 'bgcolor']
+    }).panelInstance('id_body');
+});
+</script>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'website/js/custom.js' %}"></script>
+{% endblock %}

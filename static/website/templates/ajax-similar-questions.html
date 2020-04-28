@@ -9,13 +9,17 @@
     {% endif %}
 </div>
 <br>
+
 <table class="table table-bordered table-hover">
 {% for question in questions %}
     <tr>
         <td>
-            <a href="{% url 'website:get_question' question.id %}" target="_blank">
+            <a href="{{ question.body }}" target="_blank">
                 {{ question.title }}
             </a>
+            {% for tag in question.tags %}
+            <span class="badge badge-pill badge-dark">{{ tag }}</span>
+            {% endfor %}
         </td>
     </tr>
 {% endfor %}

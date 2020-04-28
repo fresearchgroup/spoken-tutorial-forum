@@ -1,5 +1,8 @@
 import json
-
+import pandas
+import pymongo
+from stackapi import StackAPI
+    
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
 from django.template.context_processors import csrf
@@ -10,7 +13,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth import get_user_model
 
 from website.models import Question, Answer, Notification, AnswerComment
-from spoken_auth.models import TutorialDetails, TutorialResources
+from spoken_auth.models import TutorialDetails, TutorialResources, TutorialCommonContent
 from website.forms import NewQuestionForm, AnswerQuesitionForm
 from website.helpers import get_video_info, prettify
 from django.conf  import settings
@@ -19,12 +22,16 @@ from spoken_auth.models import FossCategory
 from .sortable import SortableHeader, get_sorted_list, get_field_index
 from django.db.models import Count
 
+from .tfidf import *
+
 
 User = get_user_model()
 categories = []
 trs = TutorialResources.objects.filter(Q(status=1) | Q(status=2),tutorial_detail__foss__show_on_homepage__lt=2, language__name='English')
-trs = trs.values('tutorial_detail__foss__foss').order_by('tutorial_detail__foss__foss')
+cat_tutorials = []
 
+trs = trs.values('tutorial_detail__foss__foss').order_by('tutorial_detail__foss__foss')
+    
 for tr in trs.values_list('tutorial_detail__foss__foss').distinct():
     categories.append(tr[0])
 
@@ -408,9 +415,24 @@ def search(request):
     }
     return render(request, 'website/templates/search.html', context)
 
+def faq(request):
+    context = {}
+    category = request.GET.get('category', None)
+    tutorial = request.GET.get('tutorial', None)
+    minute_range = request.GET.get('minute_range', None)
+    second_range = request.GET.get('second_range', None)
+    # pass minute_range and second_range value to NewQuestionForm to populate on select
+    form = NewQuestionForm(category=category, tutorial=tutorial,
+                            minute_range=minute_range, second_range=second_range)
+    context['category'] = category
+
+    context['form'] = form
+    context.update(csrf(request))
+    return render(request, 'website/templates/faq.html', context)
+
+
 # Ajax Section
 # All the ajax views go below
-
 
 def ajax_category(request):
     context = {
@@ -418,12 +440,16 @@ def ajax_category(request):
     }
     return render(request, 'website/templates/ajax_categories.html', context)
 
-
 def ajax_tutorials(request):
     if request.method == 'POST':
         category = request.POST.get('category')
         tutorials = TutorialDetails.objects.using('spoken').filter(
             foss__foss=category).order_by('level', 'order')
+        cat = tutorials[0].foss
+        path = settings.MEDIA_ROOT + 'videos/' + str(cat.pk)
+        create_vocab_tfidf(path)
+        for tut in tutorials:
+            cat_tutorials.append(tut.tutorial)
         context = {
             'tutorials': tutorials
         }
@@ -449,19 +475,19 @@ def ajax_duration(request):
             video_resource.video
         )
 
-        video_info = get_video_info(video_path)
+        # video_info = get_video_info(video_path)
 
-        # convert minutes to 1 if less than 0
-        # convert seconds to nearest upper 10th number eg(23->30)
-        minutes = video_info['minutes']
-        seconds = video_info['seconds']
-        if minutes < 0:
-            minutes = 1
-        seconds = int(seconds - (seconds % 10 - 10))
-        seconds = 60
+        # # convert minutes to 1 if less than 0
+        # # convert seconds to nearest upper 10th number eg(23->30)
+        # minutes = video_info['minutes']
+        # seconds = video_info['seconds']
+        # if minutes < 0:
+        #     minutes = 1
+        # seconds = int(seconds - (seconds % 10 - 10))
+        # seconds = 60
         context = {
-            'minutes': minutes,
-            'seconds': seconds,
+            'minutes': 5,
+            'seconds': 6,
         }
         return render(request, 'website/templates/ajax-duration.html', context)
 
@@ -531,18 +557,144 @@ def ajax_answer_comment_update(request):
 
     return HttpResponseForbidden("Not Authorised")
 
+def get_questions_from_stack(category, tutorial, query, terms, db_tags):
+    rel_tags = []
+
+    # this part is run when the function is called from FAQ page with category and tutorial selected, here query=""
+    if len(db_tags) != 0:
+        rel_tags.extend(db_tags)
+    if len(terms) != 0:
+        rel_tags.extend(terms)
+
+    print("rel_tags")
+    print(rel_tags)
+
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    db = client.stackapi
+    collec_ques = db.questions
+    collec_ques.create_index('question_id')
+
+    # fetch questions
+    tot_ques = []
+    all_tags = []
+    entries = []
+    print("Fetching data from stackoverflow.. ")
+    SITE = StackAPI('stackoverflow')
+    # category = category.split()[0]
+    
+    # Fetching questions with only category name(e.g. latex) as tag
+    questions = SITE.fetch('questions', fromdate=1456232494, min=20, tagged=category, sort='votes', order='desc')
+    entries.extend(questions['items'])
+    
+    # Fetching questions with addition of rel_tags(obtained from quert/srt files)
+    for t in db_tags:
+        questions = SITE.fetch('questions', fromdate=1456232494, min=20, tagged=category+';'+t.lower(), sort='votes', order='desc')
+        entries.extend(questions['items'])
+        
+    for t in rel_tags:
+        questions = SITE.fetch('questions', fromdate=1456232494, min=20, tagged=category+';'+t.lower(), sort='votes', order='desc')
+        entries.extend(questions['items'])
+    
+    # inserting fetched data into mongodb
+    if len(entries) > 0:
+        for entry in entries:
+            collec_ques.update({'question_id': entry['question_id']}, entry, upsert=True)
+    print(str(len(entries)) + " questions fetched and inserted into mongodb")
+
+def ajax_fetch_questions(request):
+    if request.method == 'POST':
+        category = request.POST['category']
+        tutorial = request.POST['tutorial']
+        td_rec = TutorialDetails.objects.using('spoken').filter(tutorial=tutorial, foss__foss=category).order_by('level', 'order')
+        cat = td_rec[0].foss
+        td = td_rec[0]
+        db_tags = TutorialCommonContent.objects.using('spoken').filter(tutorial_detail=td.pk)
+        db_tags = db_tags[0].keyword.replace(".", "").split(", ")
+        print("list of db_tags >>>>>>>>>>>>")
+        print(db_tags)
+        filename = settings.MEDIA_ROOT + 'videos/' + str(cat.pk) + '/' + str(td.pk) + '/' + tutorial.replace(' ', '-') + '-English.srt'
+        topic_keys = extract_keywords(filename)
+        print("topic_keys >>>>>>>>>>>>>")
+        print(topic_keys)
+
+    ''' Scraping stackoverflow to get questions and store in mongodb '''
+    get_questions_from_stack(category.lower(), tutorial.lower(), '', topic_keys, db_tags)
+    
+    return HttpResponse("Successfully fetched data from stackoverflow")
+
+def get_questions_from_db(topic_keys, db_tags):
+    rel_tags = []
+    if len(db_tags) != 0:
+        rel_tags.extend(db_tags)
+    if len(topic_keys) != 0:
+        rel_tags.extend(topic_keys)
+    print("rel_tags")
+    print(rel_tags)
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    db = client.stackapi
+    collec_ques = db.questions
+
+    questions = []
+    tags = []
+    q_ids = []
+    for t in rel_tags:
+        items = collec_ques.find({"tags": t.lower()})
+        print("Fetched " + str(items.count()) + " questions for tag: " + t.lower())
+        for item in items:
+            tags.extend(item['tags'])
+            if item['question_id'] not in q_ids:
+                acc_ans = ""
+                if 'accepted_answer_id' in item.keys():
+                    acc_ans = str(item['link']) + "#" + str(item['accepted_answer_id'])
+                q_ids.append(item['question_id'])
+                q = {'title': item['title'], 'uid': item['question_id'], 'body': item['link'], 'tags': item['tags'], 'answer_count': item['answer_count'], 'views': item['view_count'], 'score': item['score'], 'owner': item['owner'], 'accepted_answer': acc_ans}
+                questions.append(q)
+    return questions, tags
+
+def ajax_faq_questions(request):
+    if request.method == 'POST':
+        category = request.POST['category']
+        tutorial = request.POST['tutorial']
+        td_rec = TutorialDetails.objects.using('spoken').filter(tutorial=tutorial, foss__foss=category).order_by('level', 'order')
+        cat = td_rec[0].foss
+        td = td_rec[0]
+        db_tags = TutorialCommonContent.objects.using('spoken').filter(tutorial_detail=td.pk)
+        db_tags = db_tags[0].keyword.replace(".", "").split(", ")
+        # db_tags.append(category.split()[0])
+        db_tags.append(category)
+        print("list of db_tags >>>>>>")
+        print(db_tags)
+        filename = settings.MEDIA_ROOT + 'videos/' + str(cat.pk) + '/' + str(td.pk) + '/' + tutorial.replace(' ', '-') + '-English.srt'
+        topic_keys = extract_keywords(filename)
+        print("topic_keys >>>>>>")
+        print(topic_keys)
+
+        ''' Fetching questions from mongodb database'''
+        questions, tags = get_questions_from_db(topic_keys, db_tags)
+        print(str(len(questions)) + " relevant questions and tags are ")
+        print(set(tags))
+        
+        context = {
+            'questions': questions,
+            'tags': tags
+        }
+        return render(request, 'website/templates/ajax_faq_questions.html', context)
+
 
 def ajax_similar_questions(request):
     if request.method == 'POST':
         category = request.POST['category']
         tutorial = request.POST['tutorial']
+        titl = request.POST['title']
         # minute_range = request.POST['minute_range']
         # second_range = request.POST['second_range']
 
+        questions, tags = get_relevant_questions(category.lower(), tutorial.lower(), titl.lower(), [], [])
         # add more filtering when the forum grows
-        questions = Question.objects.filter(category=category).filter(tutorial=tutorial)
+        # questions = Question.objects.filter(category=category).filter(tutorial=tutorial)
         context = {
-            'questions': questions
+            'questions': questions,
+            'tags': tags
         }
         return render(request, 'website/templates/ajax-similar-questions.html', context)
 
@@ -588,6 +740,10 @@ def ajax_hide_question(request):
 def ajax_keyword_search(request):
     if request.method == "POST":
         key = request.POST['key']
+        
+        titles = get_relevant_questions(key)
+        print("questions are")
+        print(titles)
         questions = Question.objects.filter(
             Q(title__icontains=key) | Q(category__icontains=key) |
             Q(tutorial__icontains=key) | Q(body__icontains=key), status=1
@@ -604,7 +760,8 @@ def ajax_keyword_search(request):
         except EmptyPage:
             questions = paginator.page(paginator.num_pages)
         context = {
-            'questions': questions
+            'questions': questions,
+            'titles': titles
         }
         return render(request, 'website/templates/ajax-keyword-search.html', context)
 

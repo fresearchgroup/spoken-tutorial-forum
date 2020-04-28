@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^user/(?P<user_id>\d+)/answers/$', views.user_answers, name='user_answers'),
     url(r'^clear-notifications/$', views.clear_notifications, name='clear_notifications'),
     url(r'^search/$', views.search, name='search'),
+    url(r'^faq/$', views.faq, name='faq'),
     url(r'^unanswered-notification/$', views.unanswered_notification, name='unanswered_notification'),
 
     # Ajax helpers
@@ -32,6 +33,8 @@ urlpatterns = [
     url(r'^ajax-answer-comment-update/$', views.ajax_answer_comment_update,
         name='ajax_answer_comment_update'),
     url(r'^ajax-similar-questions/$', views.ajax_similar_questions, name='ajax_similar_questions'),
+    url(r'^ajax-faq-questions/$', views.ajax_faq_questions, name='ajax_faq_questions'),
+    url(r'^ajax-fetch-questions/$', views.ajax_fetch_questions, name='ajax_fetch_questions'),
     url(r'^ajax-notification-remove/$', views.ajax_notification_remove, name='ajax_notification_remove'),
     url(r'^ajax-keyword-search/$', views.ajax_keyword_search, name='ajax_keyword_search'),
     url(r'^ajax-time-search/$', views.ajax_time_search, name='ajax_time_search'),

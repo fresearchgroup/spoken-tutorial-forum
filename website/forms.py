@@ -44,7 +44,7 @@ class NewQuestionForm(forms.Form):
             seconds = (
                 ("", "sec"),
             )
-
+        
         if not category and args and 'category' in args[0] and args[0]['category']:
             category = args[0]['category']
         if FossCategory.objects.filter(foss=category).exists():
@@ -65,7 +65,6 @@ class NewQuestionForm(forms.Form):
             self.fields['tutorial'] = forms.CharField(widget=forms.Select(choices=tutorial_choices))
             self.fields['minute_range'] = forms.CharField(widget=forms.Select(choices=minutes))
             self.fields['second_range'] = forms.CharField(widget=forms.Select(choices=seconds))
-
 
 class AnswerQuesitionForm(forms.Form):
     question = forms.IntegerField(widget=forms.HiddenInput())
