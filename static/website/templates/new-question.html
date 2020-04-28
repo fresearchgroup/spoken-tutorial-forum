@@ -7,7 +7,7 @@
         </span> Create a new question . . .
     </h4>
     <hr>
-    <form role="form" action="" method="POST">{% csrf_token %}
+    <form role="form" action="" method="POST" novalidate>{% csrf_token %}
     {% with WIDGET_ERROR_CLASS='field_error' %}
 
     <p>
