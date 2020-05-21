@@ -90,6 +90,20 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+
+       <div id="confirm-delete-answer" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        Are you sure want to delete this answer?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-primary btn-sm" id="delete">Delete</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-primary btn-sm">Cancel</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         
         <div id="confirm-hide" class="modal fade">
             <div class="modal-dialog">
@@ -152,6 +166,8 @@
             <span class="modify" style="display:block">
                 <a class="edit btn btn-xs btn-info vs" href="#body{{ answer.id}}" data-target="body{{ answer.id }}">Edit</a>
                 <a class="save btn btn-xs btn-success vs"  data-target="body{{ answer.id }}" data-aid="{{ answer.id }}" href="#">Save</a>
+                <a class="delete btn btn-xs btn-info vs" href="#" data-aid="{{ answer.id}}">Delete</a>
+
             </span>
             {% endif %}
         </div> <!-- /.answer -->

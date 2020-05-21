@@ -519,6 +519,18 @@ def ajax_answer_update(request):
 
 
 @login_required
+def ajax_answer_delete(request):
+    if request.method == 'POST':
+        aid = request.POST['answer_id']
+        answer = get_object_or_404(Answer, pk=aid)
+        if can_edit(user=request.user, obj=answer):
+            answer.delete()
+            return HttpResponse("deleted")
+
+    return HttpResponseForbidden("Not Authorised")
+
+
+@login_required
 def ajax_answer_comment_update(request):
     if request.method == "POST":
         comment_id = request.POST["comment_id"]
