@@ -12,7 +12,7 @@ from django.contrib.auth import get_user_model
 from website.models import Question, Answer, Notification, AnswerComment
 from spoken_auth.models import TutorialDetails, TutorialResources
 from website.forms import NewQuestionForm, AnswerQuesitionForm
-from website.helpers import get_video_info, prettify
+from website.helpers import get_video_info, prettify, clean_user_data, get_similar_questions
 from django.conf  import settings
 from website.templatetags.permission_tags import can_edit
 from spoken_auth.models import FossCategory
@@ -546,15 +546,22 @@ def ajax_answer_comment_update(request):
 
 def ajax_similar_questions(request):
     if request.method == 'POST':
-        category = request.POST['category']
-        tutorial = request.POST['tutorial']
-        # minute_range = request.POST['minute_range']
-        # second_range = request.POST['second_range']
-
-        # add more filtering when the forum grows
-        questions = Question.objects.filter(category=category).filter(tutorial=tutorial)
+        category = request.POST['category'].replace(' ','-')
+        tutorial = request.POST['tutorial'].replace(' ','-')
+        title = request.POST['title']
+        user_title = clean_user_data(title)
+        # Increase the threshold as the Forums questions increase
+        THRESHOLD = 0.3
+        top_ques = []
+        questions = Question.objects.filter(category=category,tutorial=tutorial)
+        for question in questions:
+             question.similarity= get_similar_questions(user_title,question.title)
+             if question.similarity >= THRESHOLD:
+                top_ques.append(question)
+        top_ques = sorted(top_ques,key=lambda x : x.similarity, reverse=True)
         context = {
-            'questions': questions
+            'questions': top_ques,
+            'questions_count':len(top_ques)
         }
         return render(request, 'website/templates/ajax-similar-questions.html', context)
 

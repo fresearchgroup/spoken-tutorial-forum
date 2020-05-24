@@ -3,6 +3,7 @@ $(document).ready(function() {
     $tutorial = $("#id_tutorial");
     $minute_range = $("#id_minute_range");
     $second_range = $("#id_second_range");
+    $title = $("#id_title");
 		var tutorial = $tutorial.val();
 		var category = $category.val();
 		
@@ -98,7 +99,7 @@ $(document).ready(function() {
         }
     });
     
-    $second_range.change(function() {
+    $title.keyup(function() {
         $.ajax({
             url: "/ajax-similar-questions/",
             type: "POST",
@@ -106,7 +107,8 @@ $(document).ready(function() {
                 category: $category.val(),
                 tutorial: $tutorial.val(),
                 minute_range: $minute_range.val(),
-                second_range: $second_range.val()
+                second_range: $second_range.val(),
+                title: $title.val()
             },
             dataType: "html",
             success: function(data) {

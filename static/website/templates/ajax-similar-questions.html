@@ -1,10 +1,10 @@
 <div>
 <div id="similar-count">
-    {% if questions.count > 0 %}
-        {% if questions.count == 1 %}
-            1 similar question
+    {% if questions_count > 0 %}
+        {% if questions_count == 1 %}
+            1 similar, previously asked question on our Forums
         {% else %}
-            {{ questions.count }} similar questions
+            {{ questions_count }} similar, previously asked questions on our Forums
         {% endif %}
     {% endif %}
 </div>

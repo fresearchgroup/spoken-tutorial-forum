@@ -1,5 +1,9 @@
 import re
-
+from website.models import Question
+from nltk.corpus import stopwords 
+from nltk.tokenize import word_tokenize
+from sklearn.metrics.pairwise import cosine_similarity
+sw = stopwords.words('english')
 
 def get_video_info(path):
     """Uses ffmpeg to determine information about a video. This has not been broadly
@@ -37,3 +41,30 @@ def prettify(string):
     string = re.sub('[^A-Za-z0-9\-]+', '', string)
     string = re.sub('-+', '-', string)
     return string
+
+
+def pre_process(text):
+    text=text.lower()                       # lowercase
+    text=re.sub("<!--?.*?-->","",text)      # remove tags
+    text=re.sub("(\\d|\\W)+"," ",text)      # remove special characters and digits
+    return text
+
+def clean_user_data(text):
+    words = word_tokenize(pre_process(text.lower()))
+    clean_list = [w for w in words if not w in sw]
+    return clean_list
+
+def get_similar_questions(user_ques,question):
+    total = []
+    l1 = []
+    l2 = []
+    question = word_tokenize(pre_process(question))
+    question =[w for w in question if not w in sw]
+    total = user_ques + question
+    for w in total: 
+        if w in user_ques: l1.append(1) # create a vector 
+        else: l1.append(0) 
+        if w in question: l2.append(1) 
+        else: l2.append(0)        
+    cs = cosine_similarity((l1,l2))
+    return cs[0][1]
