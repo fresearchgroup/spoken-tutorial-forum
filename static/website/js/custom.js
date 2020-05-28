@@ -100,6 +100,9 @@ $(document).ready(function() {
     });
     
     $title.keyup(function() {
+        var len = $title.val().split(' ').length;
+        if(len>=2){
+        
         $.ajax({
             url: "/ajax-similar-questions/",
             type: "POST",
@@ -118,6 +121,7 @@ $(document).ready(function() {
                 $("#modal-body").html(data);
             }
         });
+       }
     });
 
 
