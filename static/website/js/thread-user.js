@@ -157,6 +157,7 @@ $(document).ready(function() {
     */
     $answer_edit = $('.answer .edit');
     $answer_save = $(".answer .save");
+    $answer_delete = $(".answer .delete");
     $answerPanelWrapper = $("#answerPanelWrapper");
 
     var answerNicEditor = new nicEditor({
@@ -177,6 +178,25 @@ $(document).ready(function() {
         $("#"+target).focus();
         e.preventDefault();
     });
+
+   $answer_delete.click(function() {
+       var answer_id = parseInt($(this).data("aid"));
+       $('#confirm-delete-answer').modal({ backdrop: 'static', keyboard: false })
+        .on('click', '#delete', function() {        
+        $.ajax({
+            url: "/ajax-answer-delete/",
+            type: "POST",
+            data: {
+                answer_id: answer_id,
+                
+            },
+            success: function(data) {
+		location.reload();
+            }
+        });
+      });
+    });
+
 
     $answer_save.click(function() {
         $saving.show();

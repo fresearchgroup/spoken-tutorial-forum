@@ -31,6 +31,7 @@
         <div class="col-lg-2 col-md-2 col-sm-2">
             {% render_field form.second_range class+="form-control" disabled="disabled" %} 
         </div>
+<<<<<<< HEAD
         <!-- <div class="col-lg-2 col-md-2 col-sm-2">
             <small><strong>
             <a id="similar-link" data-toggle="modal" data-target="#similarModal" href="#">
@@ -38,6 +39,8 @@
             </a>
             </strong></small>
         </div> -->
+=======
+>>>>>>> 4f36598fb47e69308d2069cb3ec813498c955b06
     </div>
     <hr>
 
@@ -49,18 +52,13 @@
                 {% render_field form.title class+="form-control" %} 
             </div>
 
-
-            <!-- Added this part for fetching simialar questions -->
-            <div class="alert-dismissible" id="similar-link">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Similar Questions from StackOverflow</h4>
-                </div>
-                <div class="modal-body" id="modal-body" style="color: black">
-                    ...
-                </div>
-            </div>
-
+            <div class="form=group">
+            <small><strong>
+            <a id="similar-link" data-toggle="modal" data-target="#similarModal" href="#">
+                0 similar, previously asked question on our Forums
+            </a>
+            </strong></small>
+        </div>
 
             <div class="form-group">
                 <label for="id_body">Question:</label>
