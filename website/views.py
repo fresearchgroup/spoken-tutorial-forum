@@ -1,5 +1,6 @@
 import json
 import pandas
+import os
 import pymongo
 from stackapi import StackAPI
     
@@ -580,8 +581,10 @@ def get_questions_from_stack(category, tutorial, query, terms, db_tags):
 
     print("rel_tags")
     print(rel_tags)
-
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    mongo_ip = os.getenv("URL_MONGO_IP")
+    mongo_port = os.getenv("URL_MONGO_PORT")
+    mongo_url = "mongodb://" + mongo + ":" + mongo_port
+    client = pymongo.MongoClient(mongo_url)
     db = client.stackapi
     collec_ques = db.questions
     collec_ques.create_index('question_id')
@@ -642,7 +645,10 @@ def get_questions_from_db(topic_keys, db_tags):
         rel_tags.extend(topic_keys)
     print("rel_tags")
     print(rel_tags)
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    mongo_ip = os.getenv("URL_MONGO_IP")
+    mongo_port = os.getenv("URL_MONGO_PORT")
+    mongo_url = "mongodb://" + mongo + ":" + mongo_port
+    client = pymongo.MongoClient(mongo_url)
     db = client.stackapi
     collec_ques = db.questions
 
