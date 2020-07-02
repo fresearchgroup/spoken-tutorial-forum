@@ -583,7 +583,7 @@ def get_questions_from_stack(category, tutorial, query, terms, db_tags):
     print(rel_tags)
     mongo_ip = os.getenv("URL_MONGO_IP")
     mongo_port = os.getenv("URL_MONGO_PORT")
-    mongo_url = "mongodb://" + mongo + ":" + mongo_port
+    mongo_url = "mongodb://" + mongo_ip + ":" + mongo_port
     client = pymongo.MongoClient(mongo_url)
     db = client.stackapi
     collec_ques = db.questions
@@ -647,7 +647,7 @@ def get_questions_from_db(topic_keys, db_tags):
     print(rel_tags)
     mongo_ip = os.getenv("URL_MONGO_IP")
     mongo_port = os.getenv("URL_MONGO_PORT")
-    mongo_url = "mongodb://" + mongo + ":" + mongo_port
+    mongo_url = "mongodb://" + mongo_ip + ":" + mongo_port
     client = pymongo.MongoClient(mongo_url)
     db = client.stackapi
     collec_ques = db.questions
